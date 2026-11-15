@@ -1,0 +1,50 @@
+
+name: Nagaland Lottery PDF Monitor
+
+on:
+  schedule:
+    - cron: "40 7 * * *"
+    - cron: "40 14 * * *"
+
+  workflow_dispatch:
+    inputs:
+      draw:
+        description: "Choose which draw to check"
+        required: true
+        type: choice
+        options:
+          - 1pm
+          - 8pm
+
+permissions:
+  contents: read
+
+jobs:
+  check-result:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Select draw
+        id: draw
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "draw=${{ inputs.draw }}" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "40 7 * * *" ]; then
+            echo "draw=1pm" >> "$GITHUB_OUTPUT"
+          else
+            echo "draw=8pm" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Check official result PDF
+        run: |
+          python monitor/poll_official_pdf.py \
+            --draw "${{ steps.draw.outputs.draw }}"
