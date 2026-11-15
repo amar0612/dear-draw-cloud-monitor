@@ -1,0 +1,3148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#080f18" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Dear Draw Analyzer v2.8</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <style>
+    body {
+      background-color: #080f18;
+      color: #f8fafc;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      overscroll-behavior-y: none;
+    }
+    .glass-card {
+      background: #0f1b29;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+    }
+    .num-chip {
+      font-family: 'JetBrains Mono', monospace;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.03em;
+    }
+    @keyframes targetPulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+      }
+      35% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.65);
+      }
+      70% {
+        transform: scale(1.04);
+        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.35);
+      }
+    }
+    .chip-focus-flash {
+      animation: targetPulse 1.25s ease-in-out 2;
+      border-color: #10b981 !important;
+      background-color: rgba(16, 185, 129, 0.38) !important;
+      color: #ffffff !important;
+      z-index: 10;
+      position: relative;
+    }
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: #080f18; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 99px; }
+
+    /* Lightweight tab motion; vertical page scrolling remains native. */
+    main[id^="tab-"] { touch-action: pan-y; }
+    @keyframes tabSwipeIn {
+      from { opacity: .72; transform: translate3d(var(--tab-enter-x, 12px), 0, 0); }
+      to { opacity: 1; transform: translate3d(0, 0, 0); }
+    }
+    main.tab-swipe-enter { animation: tabSwipeIn 190ms cubic-bezier(.2,.75,.25,1) both; }
+    @media (prefers-reduced-motion: reduce) {
+      main.tab-swipe-enter { animation: none; }
+    }
+  </style>
+
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Dear Draw Analyzer">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+
+</head>
+<body class="pb-28">
+  <!-- Sticky App Header -->
+  <header class="sticky top-0 z-30 bg-[#080f18]/95 backdrop-blur-md border-b border-slate-800/90 px-4 py-3 flex items-center justify-between gap-2">
+    <div class="flex items-center gap-2.5 min-w-0">
+      <div class="shrink-0 w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-extrabold text-sm shadow-inner">
+        DD
+      </div>
+      <div class="min-w-0">
+        <div class="flex items-center gap-2">
+          <h1 class="font-bold text-base leading-tight text-white truncate">Dear Draw Analyzer</h1>
+          <span class="shrink-0 text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/35">v2.8</span>
+        </div>
+        <p id="header-stats" class="text-[11px] text-slate-400 truncate">1 Draw • 131 Numbers Tracked • 0 Saved Tickets</p>
+      </div>
+    </div>
+    <button type="button" onclick="switchTab('scan')" class="shrink-0 bg-emerald-500 hover:bg-emerald-400 active:scale-95 transition text-slate-950 font-bold text-xs px-3 py-2 rounded-xl flex items-center gap-1 shadow-lg shadow-emerald-500/20">
+      <span>+</span><span>Add Draw</span>
+    </button>
+  </header>
+
+  <!-- ==================== TAB 1: DRAWS ==================== -->
+  <main id="tab-draws" class="max-w-3xl mx-auto px-4 pt-3 space-y-4">
+    <!-- Time Filter Pills -->
+    <div class="glass-card p-1.5 grid grid-cols-4 gap-1 text-xs font-semibold">
+      <button type="button" onclick="setTimeFilter('ALL')" id="filter-ALL" class="time-pill py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold transition">All Times</button>
+      <button type="button" onclick="setTimeFilter('1:00 PM')" id="filter-1:00 PM" class="time-pill py-2 rounded-xl text-slate-300 hover:bg-slate-800 transition">1:00 PM</button>
+      <button type="button" onclick="setTimeFilter('6:00 PM')" id="filter-6:00 PM" class="time-pill py-2 rounded-xl text-slate-300 hover:bg-slate-800 transition">6:00 PM</button>
+      <button type="button" onclick="setTimeFilter('8:00 PM')" id="filter-8:00 PM" class="time-pill py-2 rounded-xl text-slate-300 hover:bg-slate-800 transition">8:00 PM</button>
+    </div>
+
+    <!-- Legend & Date Dropdown -->
+    <div class="glass-card px-3 py-2.5 flex flex-wrap items-center justify-between gap-2 text-xs">
+      <div class="flex items-center gap-3">
+        <span class="flex items-center gap-1.5 text-amber-300 font-medium">
+          <span class="w-2 h-2 rounded-full bg-amber-400"></span>Repeat Hit <span class="text-[10px] text-slate-400">(Tap)</span>
+        </span>
+        <span class="flex items-center gap-1.5 text-sky-300 font-medium">
+          <span class="w-2 h-2 rounded-full bg-sky-400"></span>Nearby <span class="text-[10px] text-slate-400">(Tap)</span>
+        </span>
+      </div>
+      <select id="date-filter" onchange="drawsPage=0;renderDraws()" class="bg-slate-900 border border-slate-700 text-slate-200 text-xs rounded-xl px-2.5 py-1.5 focus:outline-none focus:border-emerald-500">
+        <option value="ALL">All Dates</option>
+      </select>
+    </div>
+
+    <!-- Draws Feed Container -->
+    <div id="draws-container" class="space-y-4"></div>
+    <div id="draws-pagination" class="glass-card p-3 flex items-center justify-between gap-3">
+      <button type="button" id="draws-prev" onclick="changeDrawPage(-1)" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-200 text-xs font-bold disabled:opacity-30">← Newer</button>
+      <span id="draws-page-label" class="text-[11px] text-slate-400 text-center">Page 1</span>
+      <button type="button" id="draws-next" onclick="changeDrawPage(1)" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-200 text-xs font-bold disabled:opacity-30">Older →</button>
+    </div>
+  </main>
+
+  <!-- ==================== TAB 2: PATTERNS (CLEAN SINGLE-INSTANCE CARDS) ==================== -->
+  <main id="tab-patterns" class="hidden max-w-3xl mx-auto px-4 pt-3 space-y-4">
+    <div class="glass-card p-3.5 flex items-center justify-between gap-2">
+      <div>
+        <h2 class="text-sm font-bold text-white">Repeat & Nearby Pattern Engine</h2>
+        <p class="text-[11px] text-slate-400">Tracks exact 4-digit repeats & ±1/±2/±10 neighbor hits across draws</p>
+      </div>
+      <button type="button" onclick="toggleSampleDraws()" id="sample-btn" class="shrink-0 text-[11px] font-semibold px-2.5 py-1.5 rounded-xl bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 hover:bg-indigo-500/30 transition">
+        + Load 2 Sample Draws
+      </button>
+    </div>
+
+    <!-- KPI Summary Cards -->
+    <div class="grid grid-cols-2 gap-3">
+      <div class="glass-card p-3.5 border-l-4 border-l-amber-400">
+        <p class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Past Repeat Hits</p>
+        <p id="kpi-repeats" class="text-2xl font-extrabold text-amber-400 mt-1">0</p>
+        <p id="kpi-repeat-rate" class="text-[11px] text-slate-400 mt-0.5">Across 1 draw</p>
+      </div>
+      <div class="glass-card p-3.5 border-l-4 border-l-sky-400">
+        <p class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Nearby Hits (±1/±2)</p>
+        <p id="kpi-nearby" class="text-2xl font-extrabold text-sky-400 mt-1">0</p>
+        <p id="kpi-nearby-10" class="text-[11px] text-slate-400 mt-0.5">±10 hits: 0</p>
+      </div>
+    </div>
+
+    <!-- Frequency by Draw Time -->
+    <div class="glass-card p-4 space-y-3">
+      <h3 class="text-xs font-bold uppercase tracking-wider text-slate-300">Repeat & Nearby Frequency by Draw Time</h3>
+      <div id="time-breakdown" class="space-y-2.5 text-xs"></div>
+    </div>
+
+    <!-- Frequency by Day of Week -->
+    <div class="glass-card p-4 space-y-3">
+      <h3 class="text-xs font-bold uppercase tracking-wider text-slate-300">Repeat & Nearby Frequency by Day of Week</h3>
+      <div id="day-breakdown" class="space-y-2 text-xs"></div>
+    </div>
+
+    <!-- Exact Past Repeat Log -->
+    <div class="glass-card p-4 space-y-2.5">
+      <div class="flex items-center justify-between">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-amber-300">Exact Past Repeat Log</h3>
+        <span id="repeat-log-count" class="text-[11px] text-slate-400">0 matches</span>
+      </div>
+      <div id="repeat-log" class="space-y-2 text-xs max-h-64 overflow-y-auto"></div>
+    </div>
+
+    <!-- Nearby Number Log -->
+    <div class="glass-card p-4 space-y-2.5">
+      <div class="flex items-center justify-between">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-sky-300">Nearby Number Log (±1, ±2, ±10)</h3>
+        <span id="nearby-log-count" class="text-[11px] text-slate-400">0 matches</span>
+      </div>
+      <div id="nearby-log" class="space-y-2 text-xs max-h-64 overflow-y-auto"></div>
+    </div>
+  </main>
+
+  <!-- ==================== TAB 3: SCAN / ADD RESULT ==================== -->
+  <main id="tab-scan" class="hidden max-w-3xl mx-auto px-4 pt-3 space-y-4">
+    <!-- Method 1: Poster OCR -->
+    <div class="glass-card p-4 space-y-3">
+      <div class="flex items-start justify-between gap-2">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">Method 1 • 3-Pass Poster OCR</span>
+          <h2 class="text-sm font-bold text-white mt-1.5">Scan Result Poster Image</h2>
+          <p class="text-[11px] text-slate-400 mt-0.5">Extracts 1st Prize via red-channel contrast, filters Consolation Prize noise, and repairs/splits 2nd–5th Prize grids.</p>
+        </div>
+        <label class="shrink-0 cursor-pointer bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs px-3.5 py-2.5 rounded-xl flex items-center gap-1.5 shadow-md transition">
+          <span>↑ Upload Image</span>
+          <input type="file" id="poster-input" accept="image/*" class="hidden" onchange="handlePosterUpload(event)" />
+        </label>
+      </div>
+      <div id="ocr-status" class="hidden bg-slate-900/90 border border-slate-700 rounded-xl p-3 text-xs space-y-1.5">
+        <div class="flex items-center justify-between">
+          <span id="ocr-msg" class="text-emerald-300 font-medium">Preprocessing image...</span>
+          <span id="ocr-pct" class="text-slate-400 font-mono">0%</span>
+        </div>
+        <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+          <div id="ocr-bar" class="bg-emerald-400 h-full transition-all duration-200" style="width: 0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Method 2: Smart All-In-One Paste -->
+    <div class="glass-card p-4 space-y-2.5">
+      <div>
+        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-sky-500/20 text-sky-300">Method 2 • Smart All-In-One Paste</span>
+        <h2 class="text-sm font-bold text-white mt-1.5">Paste Poster Text & Auto-Fill</h2>
+      </div>
+      <p class="text-[11px] text-slate-400">Paste text from Google Lens or OCR output. Automatically repairs typos, splits merged 8/12-digit blocks, and ignores Consolation Prize noise.</p>
+      <textarea id="smart-paste-box" rows="3" placeholder="Paste poster text here (e.g. 51C 83388 04430 13048 ... 0106 0753 ...)" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-2.5 text-xs text-slate-100 focus:outline-none focus:border-sky-400"></textarea>
+      <button type="button" onclick="parseSmartPaste()" class="w-full bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 border border-sky-500/40 font-bold text-xs py-2.5 rounded-xl transition">
+        Auto-Fill & Repair Prize Boxes
+      </button>
+    </div>
+
+    <!-- Draw Metadata & Prize Form -->
+    <form id="draw-form" onsubmit="saveNewDraw(event)" class="glass-card p-4 space-y-3.5">
+      <h3 class="text-sm font-bold text-white">Verify & Save Draw Sections</h3>
+
+      <div class="grid grid-cols-2 gap-2.5">
+        <div>
+          <label class="block text-[11px] text-slate-400 mb-1">Draw Date *</label>
+          <input type="date" id="inp-date" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500" />
+        </div>
+        <div>
+          <label class="block text-[11px] text-slate-400 mb-1">Draw Time *</label>
+          <select id="inp-time" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500">
+            <option value="1:00 PM">1:00 PM</option>
+            <option value="6:00 PM">6:00 PM</option>
+            <option value="8:00 PM">8:00 PM</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-[11px] text-slate-400 mb-1">Lottery Name / Draw No.</label>
+        <input type="text" id="inp-name" placeholder="e.g. Dear Wish Sunday Weekly • Draw #45" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500" />
+      </div>
+
+      <div class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30">
+        <label class="block text-[11px] font-bold text-amber-300 mb-1">1st Prize (Series + 5-Digit Ticket) *</label>
+        <input type="text" id="inp-p1" required placeholder="e.g. 51C 83388" class="w-full bg-slate-950 border border-amber-500/40 rounded-xl px-3 py-2 text-sm font-bold text-amber-200 uppercase focus:outline-none" />
+      </div>
+
+      <div>
+        <div class="flex justify-between items-center mb-1">
+          <label class="text-[11px] font-semibold text-rose-300">2nd Prize (10 × 5-Digit Numbers)</label>
+          <span id="cnt-p2" class="text-[10px] font-mono text-slate-400">0 / 10</span>
+        </div>
+        <textarea id="inp-p2" rows="2" oninput="updateLiveCounts()" placeholder="04430 13048 27253 42567 47943 48113 61138 68157 71203 97044" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-2.5 text-xs font-mono text-slate-100 focus:outline-none focus:border-emerald-500"></textarea>
+      </div>
+
+      <div>
+        <div class="flex justify-between items-center mb-1">
+          <label class="text-[11px] font-semibold text-sky-300">3rd Prize (10 × 4-Digit Numbers)</label>
+          <span id="cnt-p3" class="text-[10px] font-mono text-slate-400">0 / 10</span>
+        </div>
+        <textarea id="inp-p3" rows="2" oninput="updateLiveCounts()" placeholder="0255 2200 2986 3657 4024 4585 6087 6486 7876 9808" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-2.5 text-xs font-mono text-slate-100 focus:outline-none focus:border-emerald-500"></textarea>
+      </div>
+
+      <div>
+        <div class="flex justify-between items-center mb-1">
+          <label class="text-[11px] font-semibold text-purple-300">4th Prize (10 × 4-Digit Numbers)</label>
+          <span id="cnt-p4" class="text-[10px] font-mono text-slate-400">0 / 10</span>
+        </div>
+        <textarea id="inp-p4" rows="2" oninput="updateLiveCounts()" placeholder="0847 2168 2232 2919 3484 3639 5633 5899 6905 9915" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-2.5 text-xs font-mono text-slate-100 focus:outline-none focus:border-emerald-500"></textarea>
+      </div>
+
+      <div>
+        <div class="flex justify-between items-center mb-1">
+          <label class="text-[11px] font-semibold text-emerald-300">5th Prize (100 × 4-Digit Numbers)</label>
+          <span id="cnt-p5" class="text-[10px] font-mono text-slate-400">0 / 100</span>
+        </div>
+        <textarea id="inp-p5" rows="5" oninput="updateLiveCounts()" placeholder="Paste all 100 4-digit numbers separated by spaces or new lines..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-2.5 text-xs font-mono text-slate-100 focus:outline-none focus:border-emerald-500"></textarea>
+      </div>
+
+      <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 active:scale-98 transition text-slate-950 font-extrabold text-sm py-3 rounded-xl shadow-lg shadow-emerald-500/20">
+        Save Draw & Run Pattern Analysis
+      </button>
+    </form>
+  </main>
+
+  <!-- ==================== TAB 4: TICKET TABLE & STORE TRACKER ==================== -->
+  <main id="tab-table" class="hidden max-w-3xl mx-auto px-4 pt-3 space-y-4">
+    <!-- 1. Multi-Pass Ticket Bundle Scanner Card -->
+    <div class="glass-card p-4 space-y-3">
+      <div class="flex items-start justify-between gap-2">
+        <div class="min-w-0">
+          <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">v2.8 Multi-Pass Column & Stamp OCR</span>
+          <h2 class="text-sm font-bold text-white mt-1.5">Whole Ticket Table Scanner</h2>
+          <p class="text-[11px] text-slate-400 mt-0.5">Reads stacked physical ticket columns (<span class="font-mono text-slate-200">90:A 6:0:2:6:1</span>, <span class="font-mono text-slate-200">80!A 8!4!6:6:5!</span>) and ignores draw dates, seller footers, and background 4-digit grids.</p>
+        </div>
+        <label class="shrink-0 cursor-pointer bg-emerald-500 hover:bg-emerald-400 active:scale-95 text-slate-950 font-bold text-xs px-3.5 py-2.5 rounded-xl flex items-center gap-1.5 shadow-md transition">
+          <span>↑ Upload Photo</span>
+          <input type="file" id="table-photo-input" accept="image/*" class="hidden" onchange="handleTicketTableUpload(event)" />
+        </label>
+      </div>
+
+      <!-- Strict Physical Tickets Only Mode Toggle -->
+      <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-700/80 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+        <div class="min-w-0">
+          <p class="text-xs font-bold text-white">Physical Ticket Stamp Filter</p>
+          <p class="text-[10px] text-slate-400 mt-0.5">Requires 2-digit + 1-letter series + 5-digit number; discards date stamps & background grids.</p>
+        </div>
+        <button type="button" id="strict-mode-btn" onclick="toggleStrictPhysicalMode()" class="w-full sm:w-auto shrink-0 px-3 py-2 rounded-xl bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 font-bold text-[11px] text-center transition">
+          Strict Physical: ON (Ignore Paper)
+        </button>
+      </div>
+
+      <!-- Table OCR Progress Bar -->
+      <div id="table-ocr-status" class="hidden bg-slate-900/90 border border-slate-700 rounded-xl p-3 text-xs space-y-1.5">
+        <div class="flex items-center justify-between">
+          <span id="table-ocr-msg" class="text-emerald-300 font-medium">Preparing Multi-Pass Column OCR...</span>
+          <span id="table-ocr-pct" class="text-slate-400 font-mono">0%</span>
+        </div>
+        <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+          <div id="table-ocr-bar" class="bg-emerald-400 h-full transition-all duration-200" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- Paste / Edit Extracted Tickets -->
+      <div class="space-y-2 pt-1 border-t border-slate-800">
+        <div class="flex items-center justify-between">
+          <label for="table-tickets-input" class="text-[11px] font-semibold text-slate-300">Paste / Edit Extracted Tickets</label>
+          <button type="button" onclick="clearTicketTable()" class="text-[11px] font-semibold text-rose-400 hover:text-rose-300 px-2 py-0.5 rounded bg-rose-500/10 border border-rose-500/25">
+            Clear Table
+          </button>
+        </div>
+        <textarea id="table-tickets-input" rows="3" placeholder="Paste or edit series + ticket pairs or ranges (e.g. 90A 60261-60264, 80A 84666, 80A 66270)..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-2.5 text-xs font-mono text-slate-100 focus:outline-none focus:border-emerald-500"></textarea>
+        <button type="button" onclick="analyzeTicketTableFromInput()" class="w-full bg-sky-500/20 hover:bg-sky-500/30 border border-sky-500/40 text-sky-200 font-extrabold text-xs py-2.5 rounded-xl transition">
+          Analyze Tickets Against Past Draws
+        </button>
+      </div>
+    </div>
+
+    <!-- 2. NEW: Save Day-Wise Tickets & Collection Store Card -->
+    <div class="glass-card p-4 space-y-3 border border-emerald-500/30 bg-gradient-to-b from-emerald-500/5 to-transparent">
+      <div class="flex items-center justify-between gap-2">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">Day-Wise Collection & Store Log</span>
+          <h3 class="text-sm font-bold text-white mt-1">Save Day-Wise Tickets & Collection Store</h3>
+        </div>
+        <span id="save-batch-ticket-count" class="text-[11px] font-mono font-bold px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700 text-emerald-300">0 tickets ready</span>
+      </div>
+
+      <div class="grid grid-cols-2 gap-2.5">
+        <div>
+          <label for="batch-date" class="block text-[11px] text-slate-400 mb-1">Ticket Draw Date *</label>
+          <input type="date" id="batch-date" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500" />
+        </div>
+        <div>
+          <label for="batch-time" class="block text-[11px] text-slate-400 mb-1">Draw Time *</label>
+          <select id="batch-time" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500">
+            <option value="1:00 PM">1:00 PM</option>
+            <option value="6:00 PM">6:00 PM</option>
+            <option value="8:00 PM">8:00 PM</option>
+            <option value="All Day">All Day</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="space-y-1.5">
+        <label for="batch-store" class="block text-[11px] text-slate-400">Collection Store / Counter Name *</label>
+        <input type="text" id="batch-store" placeholder="e.g. Kamakhyaguri Counter, Khokan Lottery, Station Road Stall" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500" />
+        <!-- Quick-Select Chips of Previously Used & Suggested Stores -->
+        <div id="store-quick-chips" class="flex flex-wrap gap-1.5 pt-1"></div>
+      </div>
+
+      <button type="button" onclick="saveBatchToStoreLog()" class="w-full bg-emerald-500 hover:bg-emerald-400 active:scale-98 text-slate-950 font-extrabold text-xs py-3 rounded-xl shadow-lg shadow-emerald-500/20 transition">
+        Save Batch to Store Log
+      </button>
+    </div>
+
+    <!-- 3. Current Table Scan KPI Strip -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+      <div class="glass-card p-3 border-l-4 border-l-slate-400">
+        <p class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Current Scan</p>
+        <p id="tbl-kpi-total" class="text-xl font-extrabold text-white mt-0.5">0</p>
+      </div>
+      <div class="glass-card p-3 border-l-4 border-l-yellow-400">
+        <p class="text-[10px] uppercase tracking-wider text-yellow-300/90 font-semibold">Exact Series+No.</p>
+        <p id="tbl-kpi-series" class="text-xl font-extrabold text-yellow-300 mt-0.5">0</p>
+      </div>
+      <div class="glass-card p-3 border-l-4 border-l-amber-400">
+        <p class="text-[10px] uppercase tracking-wider text-amber-300/90 font-semibold">Exact 4-Digit</p>
+        <p id="tbl-kpi-exact4" class="text-xl font-extrabold text-amber-400 mt-0.5">0</p>
+      </div>
+      <div class="glass-card p-3 border-l-4 border-l-sky-400">
+        <p class="text-[10px] uppercase tracking-wider text-sky-300/90 font-semibold">Nearby (±1/2/10)</p>
+        <p id="tbl-kpi-nearby" class="text-xl font-extrabold text-sky-400 mt-0.5">0</p>
+      </div>
+    </div>
+
+    <!-- Filter Pills for Current Scan -->
+    <div class="glass-card p-1.5 grid grid-cols-5 gap-1 text-[10px] sm:text-[11px] font-semibold">
+      <button type="button" onclick="setTableFilter('ALL')" id="tbl-filter-ALL" class="tbl-pill py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold transition">All</button>
+      <button type="button" onclick="setTableFilter('HITS')" id="tbl-filter-HITS" class="tbl-pill py-2 rounded-xl text-slate-300 hover:bg-slate-800 transition">Hits Only</button>
+      <button type="button" onclick="setTableFilter('EXACT')" id="tbl-filter-EXACT" class="tbl-pill py-2 rounded-xl text-slate-300 hover:bg-slate-800 transition">Exact</button>
+      <button type="button" onclick="setTableFilter('NEARBY')" id="tbl-filter-NEARBY" class="tbl-pill py-2 rounded-xl text-slate-300 hover:bg-slate-800 transition">Nearby</button>
+      <button type="button" onclick="setTableFilter('CLEAN')" id="tbl-filter-CLEAN" class="tbl-pill py-2 rounded-xl text-slate-300 hover:bg-slate-800 transition">Clean</button>
+    </div>
+
+    <!-- Current Scan Ticket Match Cards Container -->
+    <div id="table-results-container" class="space-y-3"></div>
+
+    <!-- 4. NEW: Store Performance & Hit Tracker Leaderboard -->
+    <section class="glass-card p-4 space-y-3 border-t-2 border-t-amber-400/60">
+      <div class="flex items-center justify-between gap-2">
+        <div>
+          <h3 class="text-sm font-bold text-white flex items-center gap-1.5">
+            <span class="text-amber-400">★</span> Store Performance & Hit Tracker
+          </h3>
+          <p class="text-[11px] text-slate-400">Ranks collection stores by Same-Day Prize Wins (1st–5th) & Past Pattern Hits</p>
+        </div>
+        <span id="store-leaderboard-count" class="text-[11px] text-slate-400 font-mono">0 stores</span>
+      </div>
+      <div id="store-leaderboard-container" class="space-y-2.5"></div>
+    </section>
+
+    <!-- 5. NEW: Day-Wise Saved Batches Log -->
+    <section class="glass-card p-4 space-y-3">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <div>
+          <h3 class="text-sm font-bold text-white">Day-Wise Saved Ticket Batches</h3>
+          <p class="text-[11px] text-slate-400">Automatically checks every saved ticket against its draw date & all past draws</p>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <select id="saved-store-filter" onchange="renderStoreAnalyticsAndBatches()" class="bg-slate-900 border border-slate-700 text-slate-200 text-[11px] rounded-xl px-2.5 py-1.5 focus:outline-none focus:border-emerald-500">
+            <option value="ALL">All Stores</option>
+          </select>
+          <select id="saved-date-filter" onchange="renderStoreAnalyticsAndBatches()" class="bg-slate-900 border border-slate-700 text-slate-200 text-[11px] rounded-xl px-2.5 py-1.5 focus:outline-none focus:border-emerald-500">
+            <option value="ALL">All Dates</option>
+          </select>
+        </div>
+      </div>
+      <div id="saved-batches-container" class="space-y-3"></div>
+    </section>
+  </main>
+
+  <!-- ==================== TAB 5: SEARCH & DATA ==================== -->
+  <main id="tab-data" class="hidden max-w-3xl mx-auto px-4 pt-3 space-y-4">
+    <!-- Instant Ticket Number / Series Lookup Across Draws & Store Batches -->
+    <div class="glass-card p-4 space-y-3">
+      <h2 class="text-sm font-bold text-white">Instant Ticket, Series & Store Search</h2>
+      <p class="text-[11px] text-slate-400">Search by 4-digit ending, 5-digit number, series prefix, or store name (e.g. <span class="font-mono text-slate-200">1173</span>, <span class="font-mono text-slate-200">90A</span>, <span class="font-mono text-slate-200">66276</span>, or <span class="font-mono text-slate-200">Khokan</span>) across all saved draws and store batches.</p>
+      <div class="flex gap-2">
+        <input type="text" id="lookup-input" maxlength="24" placeholder="e.g. 90A, 66276, 1173, or Khokan" oninput="runTicketLookup()" class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm font-mono font-bold text-white uppercase focus:outline-none focus:border-emerald-500" />
+        <button type="button" onclick="runTicketLookup()" class="bg-emerald-500 text-slate-950 font-bold text-xs px-4 rounded-xl">Search</button>
+      </div>
+      <div id="lookup-results" class="space-y-2 text-xs"></div>
+    </div>
+
+    <!-- Unified Backup & Restore -->
+    <div class="glass-card p-4 space-y-3">
+      <h2 class="text-sm font-bold text-white">Full Backup & Data Management</h2>
+      <p class="text-[11px] text-slate-400">Exports & restores all saved draws, current ticket table, and day-wise store ticket logs in one JSON file.</p>
+      <div class="grid grid-cols-2 gap-2.5">
+        <button type="button" onclick="exportBackupJSON()" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white font-semibold text-xs py-2.5 rounded-xl transition">
+          ↓ Export Full JSON Backup
+        </button>
+        <label class="cursor-pointer bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white font-semibold text-xs py-2.5 rounded-xl text-center transition">
+          ↑ Import JSON Backup
+          <input type="file" accept=".json,application/json" class="hidden" onchange="importBackupJSON(event)" />
+        </label>
+      </div>
+      <div class="pt-2 border-t border-slate-800 flex items-center justify-between">
+        <button type="button" onclick="toggleSampleDraws()" class="text-xs text-indigo-300 font-semibold">Toggle 2 Sample Past Draws</button>
+        <button type="button" onclick="resetToDefaultDraw()" class="text-xs text-rose-400 font-semibold">Reset Draws to Default</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== TAB 6: IMPORT DATA ==================== -->
+  <main id="tab-import" class="hidden max-w-3xl mx-auto px-4 pt-3 space-y-4">
+    <section class="glass-card p-4 space-y-3 border border-emerald-500/30">
+      <div>
+        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">Full Historical Database</span>
+        <h2 class="text-sm font-bold text-white mt-1.5">Import Master Prize CSV</h2>
+        <p class="text-[11px] text-slate-400 mt-1">Import complete Nagaland 1 PM and 8 PM draws from the cleaned master CSV. The importer checks all six prize groups, preserves leading zeroes, skips existing date/time records and never imports 6 PM.</p>
+      </div>
+      <div class="rounded-xl bg-slate-900/70 border border-slate-700 p-3 space-y-2">
+        <label for="master-csv-file" class="block text-[11px] font-semibold text-slate-300">Choose nagaland_master_prize_numbers.csv</label>
+        <input id="master-csv-file" type="file" accept=".csv,text/csv" class="block w-full text-xs text-slate-300 file:mr-3 file:rounded-lg file:border-0 file:bg-emerald-500 file:px-3 file:py-2 file:text-xs file:font-bold file:text-slate-950" onchange="previewMasterCsv(event)" />
+        <div id="master-csv-status" class="hidden text-[11px] text-slate-300 whitespace-pre-line"></div>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <button type="button" id="master-csv-import-btn" onclick="importMasterCsvNow()" disabled class="disabled:opacity-40 disabled:cursor-not-allowed bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs px-4 py-2.5 rounded-xl">Import Validated Draws</button>
+        <button type="button" onclick="clearMasterCsvPreview()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs px-3 py-2.5 rounded-xl">Clear</button>
+      </div>
+      <p class="text-[10px] text-slate-500">Only groups with 1 first, 1 consolation, 10 second, 10 third, 10 fourth and 100 fifth-prize entries are eligible. This validates structure, not digit-by-digit correctness against official sheets.</p>
+    </section>
+
+    <div class="glass-card p-4 space-y-2">
+      <h2 class="text-base font-extrabold text-white">Historical Import Data</h2>
+      <p class="text-xs text-slate-400">A separate workspace for importing and checking historical Nagaland results. Imported records are added to Draws only after successful validation.</p>
+    </div>
+    <!-- Historical archive importer: 1 PM and 8 PM first-prize index -->
+    <section class="glass-card p-4 space-y-3 border border-sky-500/30">
+      <div>
+        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-sky-500/20 text-sky-300">Historical Import • Nagaland focus</span>
+        <h2 class="text-sm font-bold text-white mt-1.5">Import Old Results from Lottery Sambad</h2>
+        <p class="text-[11px] text-slate-400 mt-1">Imports the archive's 1 PM and 8 PM first-prize results only. 6 PM is skipped. The yearly archive does not provide the full 2nd–5th prize lists, so imported records are clearly marked as first-prize-only.</p>
+      </div>
+      <div class="grid grid-cols-2 gap-2.5">
+        <div>
+          <label for="archive-from-year" class="block text-[11px] text-slate-400 mb-1">From year</label>
+          <select id="archive-from-year" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white">
+            <option>2021</option><option>2022</option><option>2023</option><option selected>2024</option><option>2025</option><option>2026</option>
+          </select>
+        </div>
+        <div>
+          <label for="archive-to-year" class="block text-[11px] text-slate-400 mb-1">To year</label>
+          <select id="archive-to-year" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white">
+            <option>2021</option><option>2022</option><option>2023</option><option>2024</option><option>2025</option><option selected>2026</option>
+          </select>
+        </div>
+      </div>
+      <button type="button" id="archive-import-btn" onclick="importLotteryArchive()" class="w-full bg-sky-500 hover:bg-sky-400 text-slate-950 font-extrabold text-xs py-3 rounded-xl transition">Import 1 PM + 8 PM Archive</button>
+      <div id="archive-import-status" class="hidden rounded-xl bg-slate-900 border border-slate-700 p-3 text-[11px] text-slate-300 whitespace-pre-line"></div>
+      <p class="text-[10px] text-slate-500">Source: lottery.sambad.com/old/ • This is a reference archive, not the official lottery authority. Verify imported results against original result sheets before relying on them. Existing draws and ticket/store logs are preserved; matching date/time records are not overwritten.</p>
+    </section>
+
+  </main>
+
+  <!-- Bottom 6-Tab Navigation Bar -->
+  <nav class="fixed bottom-0 inset-x-0 z-30 bg-[#080f18]/95 backdrop-blur-md border-t border-slate-800 grid grid-cols-6 py-2.5 px-1 text-[10px] sm:text-[11px] font-semibold">
+    <button type="button" onclick="switchTab('draws')" id="nav-draws" class="nav-btn flex flex-col items-center gap-1 text-emerald-400">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/></svg>
+      <span>Draws</span>
+    </button>
+    <button type="button" onclick="switchTab('patterns')" id="nav-patterns" class="nav-btn flex flex-col items-center gap-1 text-slate-400">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+      <span>Patterns</span>
+    </button>
+    <button type="button" onclick="switchTab('scan')" id="nav-scan" class="nav-btn flex flex-col items-center gap-1 text-slate-400">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <span>Scan / Add</span>
+    </button>
+    <button type="button" onclick="switchTab('table')" id="nav-table" class="nav-btn flex flex-col items-center gap-1 text-slate-400">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z"/></svg>
+      <span>Ticket Table</span>
+    </button>
+    <button type="button" onclick="switchTab('data')" id="nav-data" class="nav-btn flex flex-col items-center gap-1 text-slate-400">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
+      <span>Search & Data</span>
+    </button>
+    <button type="button" onclick="switchTab('import')" id="nav-import" class="nav-btn flex flex-col items-center gap-1 text-slate-400">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 16V4m0 0L7 9m5-5 5 5M4 16v4h16v-4"/></svg>
+      <span>Import</span>
+    </button>
+  </nav>
+
+  <!-- Toast Banner -->
+  <div id="toast" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 hidden px-4 py-2 rounded-full bg-emerald-500 text-slate-950 font-bold text-xs shadow-xl"></div>
+
+  <!-- Custom Confirm Modal -->
+  <div id="confirm-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+    <div onclick="closeConfirmModal()" class="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
+    <div class="relative z-10 w-full max-w-sm glass-card p-5 space-y-4 shadow-2xl">
+      <h3 id="confirm-title" class="text-sm font-bold text-white">Confirm Action</h3>
+      <p id="confirm-msg" class="text-xs text-slate-300 leading-relaxed"></p>
+      <div class="flex justify-end gap-2">
+        <button type="button" onclick="closeConfirmModal()" class="px-3.5 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-semibold">Cancel</button>
+        <button type="button" id="confirm-ok-btn" class="px-3.5 py-2 rounded-xl bg-rose-500 text-white text-xs font-bold">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hit Inspection Pop-Up Modal -->
+  <div id="hit-modal" class="fixed inset-0 z-50 hidden flex items-end sm:items-center justify-center p-3 sm:p-4">
+    <div onclick="closeHitModal()" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+    <div class="relative z-10 w-full max-w-md glass-card p-5 space-y-4 shadow-2xl border border-slate-700">
+      <div class="flex items-start justify-between gap-3 border-b border-slate-800 pb-3">
+        <div>
+          <div class="flex items-center gap-2">
+            <span id="hit-modal-badge" class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">★ Exact Repeat Hit</span>
+            <span id="hit-modal-prize" class="text-[11px] text-slate-400">5th Prize</span>
+          </div>
+          <h3 id="hit-modal-title" class="num-chip text-xl font-extrabold text-white mt-1.5">Ticket 5368</h3>
+          <p id="hit-modal-subtitle" class="text-[11px] text-slate-400 mt-0.5">Matched against earlier draw(s):</p>
+        </div>
+        <button type="button" onclick="closeHitModal()" aria-label="Close modal" class="w-8 h-8 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-sm flex items-center justify-center">✕</button>
+      </div>
+      <div id="hit-modal-list" class="space-y-2.5 max-h-72 overflow-y-auto"></div>
+      <p class="text-[11px] text-center text-slate-400">Tap any matched draw above to jump directly to that day's result.</p>
+    </div>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'dear_lottery_draws_v2';
+    const TABLE_STORAGE_KEY = 'dear_lottery_ticket_table_v1';
+    const SAVED_TICKETS_KEY = 'dear_lottery_saved_tickets_v1';
+
+    const DEFAULT_DRAW = {
+      id: 'draw-2026-11-13-1pm',
+      date: '2026-11-13',
+      time: '1:00 PM',
+      name: 'Dear Victory Friday Weekly • Draw #54',
+      first: '79D 71173',
+      second: ['24451','30532','35110','41549','50921','58801','72294','81073','84597','97765'],
+      third: ['1322','4601','5589','5919','6388','7678','7868','8510','8778','9036'],
+      fourth: ['0777','2169','4338','4705','5208','5671','6377','7769','9068','9622'],
+      fifth: [
+        '0267','1248','1861','3351','4389','5455','6211','7179','8431','9016',
+        '0398','1292','2154','3488','4502','5662','6249','7184','8437','9118',
+        '0517','1329','2429','3536','4693','5691','6378','7199','8565','9181',
+        '0858','1402','2551','3677','4745','5702','6450','7300','8568','9192',
+        '0939','1515','2570','3766','4774','5781','6530','7493','8611','9223',
+        '1003','1637','2600','3767','4925','5896','6577','7514','8649','9267',
+        '1157','1670','2881','3869','5008','5928','6918','7772','8768','9299',
+        '1175','1723','2921','4029','5068','5938','7021','8094','8772','9475',
+        '1231','1841','3068','4119','5368','6075','7117','8154','8869','9848',
+        '1238','1859','3136','4193','5452','6185','7147','8241','8909','9958'
+      ]
+    };
+
+    const SAMPLE_PAST_DRAWS = [
+      {
+        id: 'sample_2026-11-12_2000',
+        isSample: true,
+        date: '2026-11-12',
+        time: '8:00 PM',
+        name: 'Sample Past Draw (Thursday Night)',
+        first: '64A 45889',
+        second: ['11234','24452','39012','48711','51290','67321','72294','83910','90122','95410'],
+        third: ['1321','4601','5102','5920','6401','7679','8112','8510','8901','9120'],
+        fourth: ['0778','2201','4338','4812','5209','5701','6377','7810','9069','9700'],
+        fifth: ['0267','0399','1173','1248','2155','3351','4502','5456','6211','7180','8431','9017','9958','3767','5008','7772']
+      },
+      {
+        id: 'sample_2026-11-11_1300',
+        isSample: true,
+        date: '2026-11-11',
+        time: '1:00 PM',
+        name: 'Sample Past Draw (Wednesday Day)',
+        first: '52C 81073',
+        second: ['19283','28374','35111','41549','55612','61239','74820','81073','88412','92310'],
+        third: ['1401','4602','5589','6012','6389','7120','7868','8412','8771','9036'],
+        fourth: ['0777','2168','4102','4705','5312','5672','6190','7769','8912','9623'],
+        fifth: ['0268','0517','1004','1637','2429','3481','4693','5691','6450','7301','8565','9181','9475','1175','6918']
+      }
+    ];
+
+    const SUGGESTED_STORES = ['Kamakhyaguri Counter', 'Khokan Lottery', 'Station Road Stall'];
+
+    let draws = [];
+    let currentTimeFilter = 'ALL';
+    let latestPatternCache = null;
+    let drawsPage = 0;
+    const DRAWS_PER_PAGE = 8;
+
+    function changeDrawPage(delta) {
+      drawsPage = Math.max(0, drawsPage + delta);
+      renderDraws();
+      const feed = document.getElementById('draws-container');
+      if (feed) feed.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    let savedTableTickets = [];
+    let savedStoreBatches = [];
+    let currentTableFilter = 'ALL';
+    let strictPhysicalMode = true;
+    let lastRawTableText = '';
+
+    function normalizeDrawSchema(d) {
+      return {
+        id: d.id || `draw_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`,
+        isSample: Boolean(d.isSample),
+        date: d.date || '2026-11-13',
+        time: d.time || '1:00 PM',
+        name: d.name || 'Nagaland State Lotteries',
+        first: String(d.first || d.p1 || '').trim(),
+        second: Array.isArray(d.second) ? d.second : (Array.isArray(d.p2) ? d.p2 : []),
+        third: Array.isArray(d.third) ? d.third : (Array.isArray(d.p3) ? d.p3 : []),
+        fourth: Array.isArray(d.fourth) ? d.fourth : (Array.isArray(d.p4) ? d.p4 : []),
+        fifth: Array.isArray(d.fifth) ? d.fifth : (Array.isArray(d.p5) ? d.p5 : []),
+        sourcePdf: d.sourcePdf || '',
+        sourceVerification: d.sourceVerification || ''
+      };
+    }
+
+    function loadDraws() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            return parsed.map(normalizeDrawSchema);
+          }
+        }
+      } catch (e) {}
+      const initial = [normalizeDrawSchema(DEFAULT_DRAW)];
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(initial));
+      } catch (e) {}
+      return initial;
+    }
+
+    function saveDrawsToStorage() {
+      latestPatternCache = null;
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(draws));
+      } catch (e) {}
+      updateHeaderStats();
+    }
+
+    function loadTicketTable() {
+      try {
+        const raw = localStorage.getItem(TABLE_STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed)) return parsed;
+        }
+      } catch (e) {}
+      return [];
+    }
+
+    function saveTicketTableToStorage() {
+      try {
+        localStorage.setItem(TABLE_STORAGE_KEY, JSON.stringify(savedTableTickets));
+      } catch (e) {}
+      updateBatchReadyBadge();
+    }
+
+    function loadSavedStoreBatches() {
+      try {
+        const raw = localStorage.getItem(SAVED_TICKETS_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed)) return parsed;
+        }
+      } catch (e) {}
+      return [];
+    }
+
+    function saveStoreBatchesToStorage() {
+      try {
+        localStorage.setItem(SAVED_TICKETS_KEY, JSON.stringify(savedStoreBatches));
+      } catch (e) {}
+      updateHeaderStats();
+    }
+
+    function showToast(msg) {
+      const el = document.getElementById('toast');
+      if (!el) return;
+      el.textContent = msg;
+      el.classList.remove('hidden');
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => el.classList.add('hidden'), 2600);
+    }
+
+    function openConfirmModal(title, msg, onConfirm) {
+      document.getElementById('confirm-title').textContent = title;
+      document.getElementById('confirm-msg').textContent = msg;
+      const okBtn = document.getElementById('confirm-ok-btn');
+      okBtn.onclick = () => {
+        closeConfirmModal();
+        onConfirm();
+      };
+      document.getElementById('confirm-modal').classList.remove('hidden');
+    }
+
+    function closeConfirmModal() {
+      document.getElementById('confirm-modal').classList.add('hidden');
+    }
+
+    function closeHitModal() {
+      document.getElementById('hit-modal').classList.add('hidden');
+    }
+
+    function formatDisplayDate(isoDate) {
+      if (!isoDate || !isoDate.includes('-')) return isoDate || '';
+      const parts = isoDate.split('-');
+      if (parts.length !== 3) return isoDate;
+      return `${parts[2]}/${parts[1]}/${parts[0]}`;
+    }
+
+    function getDayName(isoDate) {
+      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const d = new Date(isoDate + 'T12:00:00');
+      return isNaN(d.getTime()) ? 'Unknown' : days[d.getDay()];
+    }
+
+    function extract4Digit(numStr) {
+      const digits = String(numStr || '').replace(/\D/g, '');
+      return digits.length >= 4 ? digits.slice(-4) : digits.padStart(4, '0');
+    }
+
+    function getAllNumbersFromDraw(draw) {
+      const list = [];
+      const p1Digits = String(draw.first || '').replace(/\D/g, '');
+      if (p1Digits) {
+        list.push({ raw: draw.first, num4: extract4Digit(p1Digits), prize: '1st Prize' });
+      }
+      (draw.second || []).forEach(n => list.push({ raw: n, num4: extract4Digit(n), prize: '2nd Prize' }));
+      (draw.third || []).forEach(n => list.push({ raw: n, num4: extract4Digit(n), prize: '3rd Prize' }));
+      (draw.fourth || []).forEach(n => list.push({ raw: n, num4: extract4Digit(n), prize: '4th Prize' }));
+      (draw.fifth || []).forEach(n => list.push({ raw: n, num4: extract4Digit(n), prize: '5th Prize' }));
+      return list;
+    }
+
+    function updateHeaderStats() {
+      const totalNums = draws.reduce((acc, d) => acc + getAllNumbersFromDraw(d).length, 0);
+      const totalSavedTickets = savedStoreBatches.reduce((acc, b) => acc + (Array.isArray(b.tickets) ? b.tickets.length : 0), 0);
+      const statsEl = document.getElementById('header-stats');
+      if (statsEl) {
+        statsEl.textContent = `${draws.length} Draw${draws.length === 1 ? '' : 's'} • ${totalNums} Numbers Tracked • ${totalSavedTickets} Saved Ticket${totalSavedTickets === 1 ? '' : 's'}`;
+      }
+    }
+
+    // ==================== PATTERN ENGINE ====================
+    function analyzePatterns() {
+      if (latestPatternCache) return latestPatternCache;
+      const sorted = [...draws].sort((a, b) => {
+        const keyA = a.date + (a.time === '1:00 PM' ? '1' : a.time === '6:00 PM' ? '2' : '3');
+        const keyB = b.date + (b.time === '1:00 PM' ? '1' : b.time === '6:00 PM' ? '2' : '3');
+        return keyA.localeCompare(keyB);
+      });
+
+      const historyMap = new Map();
+      const repeatEvents = [];
+      const nearbyEvents = [];
+      const highlightStatus = {};
+      const hitDetails = {};
+
+      const byTime = {
+        '1:00 PM': { draws: 0, repeats: 0, nearby: 0 },
+        '6:00 PM': { draws: 0, repeats: 0, nearby: 0 },
+        '8:00 PM': { draws: 0, repeats: 0, nearby: 0 }
+      };
+      const byDay = {
+        'Monday': { draws: 0, repeats: 0, nearby: 0 },
+        'Tuesday': { draws: 0, repeats: 0, nearby: 0 },
+        'Wednesday': { draws: 0, repeats: 0, nearby: 0 },
+        'Thursday': { draws: 0, repeats: 0, nearby: 0 },
+        'Friday': { draws: 0, repeats: 0, nearby: 0 },
+        'Saturday': { draws: 0, repeats: 0, nearby: 0 },
+        'Sunday': { draws: 0, repeats: 0, nearby: 0 }
+      };
+
+      sorted.forEach(draw => {
+        const day = getDayName(draw.date);
+        if (byTime[draw.time]) byTime[draw.time].draws++;
+        if (byDay[day]) byDay[day].draws++;
+        highlightStatus[draw.id] = {};
+        hitDetails[draw.id] = {};
+
+        const entries = getAllNumbersFromDraw(draw);
+        entries.forEach(item => {
+          const n4 = item.num4;
+          const val = parseInt(n4, 10);
+
+          if (historyMap.has(n4)) {
+            const prevList = historyMap.get(n4);
+            highlightStatus[draw.id][n4] = 'repeat';
+            hitDetails[draw.id][n4] = {
+              type: 'repeat',
+              matches: prevList.slice().reverse().map(p => ({
+                drawId: p.drawId,
+                drawName: p.drawName,
+                date: p.date,
+                day: p.day,
+                time: p.time,
+                prize: p.prize,
+                rawNum: p.raw,
+                matchedNum4: n4,
+                diff: 0
+              }))
+            };
+            repeatEvents.push({
+              num4: n4,
+              drawId: draw.id,
+              date: draw.date,
+              day,
+              time: draw.time,
+              prize: item.prize,
+              prev: prevList[prevList.length - 1]
+            });
+            if (byTime[draw.time]) byTime[draw.time].repeats++;
+            if (byDay[day]) byDay[day].repeats++;
+          } else {
+            const offsets = [-1, 1, -2, 2, -10, 10];
+            const nearbyMatches = [];
+            for (const diff of offsets) {
+              const neighborVal = (val + diff + 10000) % 10000;
+              const neighborStr = String(neighborVal).padStart(4, '0');
+              if (historyMap.has(neighborStr)) {
+                const prevList = historyMap.get(neighborStr);
+                prevList.slice().reverse().forEach(p => {
+                  nearbyMatches.push({
+                    drawId: p.drawId,
+                    drawName: p.drawName,
+                    date: p.date,
+                    day: p.day,
+                    time: p.time,
+                    prize: p.prize,
+                    rawNum: p.raw,
+                    matchedNum4: neighborStr,
+                    diff
+                  });
+                });
+              }
+            }
+            if (nearbyMatches.length > 0) {
+              if (!highlightStatus[draw.id][n4]) {
+                highlightStatus[draw.id][n4] = 'nearby';
+                hitDetails[draw.id][n4] = {
+                  type: 'nearby',
+                  matches: nearbyMatches
+                };
+              }
+              const firstMatch = nearbyMatches[0];
+              nearbyEvents.push({
+                num4: n4,
+                drawId: draw.id,
+                matchedNeighbor: firstMatch.matchedNum4,
+                diff: firstMatch.diff > 0 ? `+${firstMatch.diff}` : `${firstMatch.diff}`,
+                date: draw.date,
+                day,
+                time: draw.time,
+                prize: item.prize,
+                prev: {
+                  drawId: firstMatch.drawId,
+                  date: firstMatch.date,
+                  time: firstMatch.time,
+                  prize: firstMatch.prize
+                }
+              });
+              if (byTime[draw.time]) byTime[draw.time].nearby++;
+              if (byDay[day]) byDay[day].nearby++;
+            }
+          }
+        });
+
+        entries.forEach(item => {
+          if (!historyMap.has(item.num4)) historyMap.set(item.num4, []);
+          historyMap.get(item.num4).push({
+            drawId: draw.id,
+            drawName: draw.name || 'Nagaland State Lotteries',
+            date: draw.date,
+            day,
+            time: draw.time,
+            prize: item.prize,
+            raw: item.raw
+          });
+        });
+      });
+
+      latestPatternCache = { repeatEvents, nearbyEvents, highlightStatus, hitDetails, byTime, byDay };
+      return latestPatternCache;
+    }
+
+    function openHitModal(drawId, rawTicket, num4, prizeLabel) {
+      const analysis = latestPatternCache || analyzePatterns();
+      const detailsMap = analysis.hitDetails[drawId] || {};
+      const info = detailsMap[num4];
+      if (!info || !info.matches || info.matches.length === 0) return;
+
+      const badgeEl = document.getElementById('hit-modal-badge');
+      if (info.type === 'repeat') {
+        badgeEl.textContent = '★ Exact Repeat Hit';
+        badgeEl.className = 'text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40';
+      } else {
+        badgeEl.textContent = '≈ Nearby Hit';
+        badgeEl.className = 'text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 border border-sky-500/40';
+      }
+
+      document.getElementById('hit-modal-prize').textContent = prizeLabel || '';
+      document.getElementById('hit-modal-title').textContent = `Ticket ${rawTicket}`;
+      document.getElementById('hit-modal-subtitle').textContent =
+        info.type === 'repeat'
+          ? `Exact 4-digit match (${num4}) appeared earlier in:`
+          : `Nearby neighbor match (${num4}) triggered by:`;
+
+      const listEl = document.getElementById('hit-modal-list');
+      listEl.innerHTML = info.matches.map(m => {
+        const diffBadge = m.diff === 0
+          ? `<span class="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-bold">EXACT (${m.matchedNum4})</span>`
+          : `<span class="text-[10px] px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-200 font-bold">${m.diff > 0 ? '+' + m.diff : m.diff} from ${m.matchedNum4}</span>`;
+
+        return `
+          <button type="button" onclick="jumpToDraw('${m.drawId}', '${m.matchedNum4}', '${m.date}')" class="w-full text-left p-3 rounded-xl bg-slate-900/95 hover:bg-slate-800 active:scale-[0.99] transition border border-slate-700 hover:border-emerald-500/60 flex items-center justify-between gap-2">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="num-chip font-extrabold text-sm text-white">${m.rawNum || m.matchedNum4}</span>
+                ${diffBadge}
+                <span class="text-[11px] font-semibold text-emerald-300">${m.prize}</span>
+              </div>
+              <p class="text-xs font-semibold text-slate-200">
+                ${formatDisplayDate(m.date)} <span class="text-slate-400 font-normal">(${m.day})</span> • <span class="text-emerald-400">${m.time}</span>
+              </p>
+              <p class="text-[10px] text-slate-400">${m.drawName || 'Nagaland State Lotteries'}</p>
+            </div>
+            <span class="shrink-0 text-xs font-bold text-emerald-400 px-2.5 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30">View Draw →</span>
+          </button>
+        `;
+      }).join('');
+
+      document.getElementById('hit-modal').classList.remove('hidden');
+    }
+
+    function jumpToDraw(targetDrawId, targetNum4, explicitDate) {
+      closeHitModal();
+
+      const foundDraw = draws.find(d => d.id === targetDrawId);
+      const targetDate = explicitDate || (foundDraw ? foundDraw.date : '');
+
+      currentTimeFilter = 'ALL';
+      document.querySelectorAll('.time-pill').forEach(btn => {
+        btn.className = 'time-pill py-2 rounded-xl text-slate-300 hover:bg-slate-800 transition';
+      });
+      const allBtn = document.getElementById('filter-ALL');
+      if (allBtn) {
+        allBtn.className = 'time-pill py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold transition';
+      }
+
+      ['draws', 'patterns', 'scan', 'table', 'data', 'import'].forEach(t => {
+        document.getElementById(`tab-${t}`).classList.add('hidden');
+        document.getElementById(`nav-${t}`).className = 'nav-btn flex flex-col items-center gap-1 text-slate-400';
+      });
+      document.getElementById('tab-draws').classList.remove('hidden');
+      document.getElementById('nav-draws').className = 'nav-btn flex flex-col items-center gap-1 text-emerald-400';
+
+      populateDateDropdown();
+      const dateSelect = document.getElementById('date-filter');
+      if (targetDate && [...dateSelect.options].some(o => o.value === targetDate)) {
+        dateSelect.value = targetDate;
+      } else {
+        dateSelect.value = 'ALL';
+      }
+
+      const visibleFiltered = [...draws]
+        .filter(d => currentTimeFilter === 'ALL' || d.time === currentTimeFilter)
+        .filter(d => dateSelect.value === 'ALL' || d.date === dateSelect.value)
+        .sort((a, b) => {
+          const keyA = a.date + (a.time === '8:00 PM' ? '3' : a.time === '6:00 PM' ? '2' : '1');
+          const keyB = b.date + (b.time === '8:00 PM' ? '3' : b.time === '6:00 PM' ? '2' : '1');
+          return keyB.localeCompare(keyA);
+        });
+      const targetIndex = visibleFiltered.findIndex(d => d.id === targetDrawId);
+      drawsPage = targetIndex >= 0 ? Math.floor(targetIndex / DRAWS_PER_PAGE) : 0;
+      renderDraws();
+
+      setTimeout(() => {
+        const card = document.getElementById(`draw-card-${targetDrawId}`);
+        if (card) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          if (targetNum4) {
+            const norm4 = extract4Digit(targetNum4);
+            const matchingChips = card.querySelectorAll(`[data-num4="${norm4}"]`);
+            matchingChips.forEach(chip => {
+              chip.classList.remove('chip-focus-flash');
+              void chip.offsetWidth;
+              chip.classList.add('chip-focus-flash');
+              setTimeout(() => chip.classList.remove('chip-focus-flash'), 2600);
+            });
+          }
+        }
+        if (targetDate) showToast(`Jumped to ${formatDisplayDate(targetDate)} draws`);
+      }, 90);
+    }
+
+    function populateDateDropdown() {
+      const select = document.getElementById('date-filter');
+      if (!select) return;
+      const currentVal = select.value;
+      const uniqueDates = [...new Set(draws.map(d => d.date))].sort().reverse();
+      select.innerHTML = `<option value="ALL">All Dates (${uniqueDates.length})</option>` +
+        uniqueDates.map(dt => `<option value="${dt}">${formatDisplayDate(dt)} (${getDayName(dt).slice(0, 3)})</option>`).join('');
+      if ([...select.options].some(o => o.value === currentVal)) select.value = currentVal;
+    }
+
+    function setTimeFilter(timeVal) {
+      currentTimeFilter = timeVal;
+      document.querySelectorAll('.time-pill').forEach(btn => {
+        btn.className = 'time-pill py-2 rounded-xl text-slate-300 hover:bg-slate-800 transition';
+      });
+      const active = document.getElementById(`filter-${timeVal}`);
+      if (active) active.className = 'time-pill py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold transition';
+      renderDraws();
+    }
+
+    function renderChip(numStr, drawHighlights, drawId, prizeLabel) {
+      const n4 = extract4Digit(numStr);
+      const status = drawHighlights ? drawHighlights[n4] : null;
+      const safeNum = String(numStr).replace(/'/g, "\\'");
+      const safePrize = String(prizeLabel || '').replace(/'/g, "\\'");
+      if (status === 'repeat') {
+        return `<button type="button" data-num4="${n4}" onclick="openHitModal('${drawId}', '${safeNum}', '${n4}', '${safePrize}')" title="Tap to view matched draw" class="num-chip w-full text-center py-1.5 px-1 rounded-lg bg-amber-500/20 hover:bg-amber-500/35 active:scale-95 transition cursor-pointer border border-amber-400/70 ring-1 ring-amber-400/35 text-amber-200 font-bold text-xs">${numStr}</button>`;
+      }
+      if (status === 'nearby') {
+        return `<button type="button" data-num4="${n4}" onclick="openHitModal('${drawId}', '${safeNum}', '${n4}', '${safePrize}')" title="Tap to view nearby draw" class="num-chip w-full text-center py-1.5 px-1 rounded-lg bg-sky-500/20 hover:bg-sky-500/35 active:scale-95 transition cursor-pointer border border-sky-400/60 ring-1 ring-sky-400/35 text-sky-200 font-semibold text-xs">${numStr}</button>`;
+      }
+      return `<div data-num4="${n4}" class="num-chip text-center py-1.5 px-1 rounded-lg bg-slate-900/90 border border-slate-800 text-slate-200 font-medium text-xs">${numStr}</div>`;
+    }
+
+    function renderDraws() {
+      populateDateDropdown();
+      const dateFilter = document.getElementById('date-filter').value;
+      const { highlightStatus } = analyzePatterns();
+
+      const filtered = [...draws]
+        .filter(d => currentTimeFilter === 'ALL' || d.time === currentTimeFilter)
+        .filter(d => dateFilter === 'ALL' || d.date === dateFilter)
+        .sort((a, b) => {
+          const keyA = a.date + (a.time === '8:00 PM' ? '3' : a.time === '6:00 PM' ? '2' : '1');
+          const keyB = b.date + (b.time === '8:00 PM' ? '3' : b.time === '6:00 PM' ? '2' : '1');
+          return keyB.localeCompare(keyA);
+        });
+
+      const container = document.getElementById('draws-container');
+      const pagination = document.getElementById('draws-pagination');
+      const pageCount = Math.max(1, Math.ceil(filtered.length / DRAWS_PER_PAGE));
+      drawsPage = Math.min(drawsPage, pageCount - 1);
+      const pageStart = drawsPage * DRAWS_PER_PAGE;
+      const pageDraws = filtered.slice(pageStart, pageStart + DRAWS_PER_PAGE);
+      if (pagination) pagination.classList.toggle('hidden', filtered.length <= DRAWS_PER_PAGE);
+      const prevBtn = document.getElementById('draws-prev');
+      const nextBtn = document.getElementById('draws-next');
+      const pageLabel = document.getElementById('draws-page-label');
+      if (prevBtn) prevBtn.disabled = drawsPage <= 0;
+      if (nextBtn) nextBtn.disabled = drawsPage >= pageCount - 1;
+      if (pageLabel) pageLabel.textContent = `Showing ${pageStart + 1}-${Math.min(pageStart + DRAWS_PER_PAGE, filtered.length)} of ${filtered.length} draws • Page ${drawsPage + 1}/${pageCount}`;
+      if (filtered.length === 0) {
+        container.innerHTML = `<div class="glass-card p-6 text-center text-xs text-slate-400">No draws logged for this filter yet. Tap <b>+ Add Draw</b> to scan or paste a result.</div>`;
+        return;
+      }
+
+      container.innerHTML = pageDraws.map(draw => {
+        const hl = highlightStatus[draw.id] || {};
+        const p1Four = extract4Digit(draw.first);
+        const p1Status = hl[p1Four];
+        const safeP1 = String(draw.first).replace(/'/g, "\\'");
+        const p1ClickAttr = p1Status ? `onclick="openHitModal('${draw.id}', '${safeP1}', '${p1Four}', '1st Prize')"` : '';
+        const p1CardClass = p1Status === 'repeat'
+          ? 'cursor-pointer ring-1 ring-amber-400/60 hover:bg-amber-500/20 transition'
+          : p1Status === 'nearby'
+            ? 'cursor-pointer ring-1 ring-sky-400/60 hover:bg-sky-500/15 transition'
+            : '';
+
+        return `
+          <section id="draw-card-${draw.id}" class="glass-card p-4 space-y-3.5">
+            <div class="flex items-start justify-between gap-2 border-b border-slate-800 pb-3">
+              <div class="flex items-center gap-2.5">
+                <span class="px-2.5 py-1 rounded-lg bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 font-extrabold text-xs">${draw.time}</span>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="font-bold text-sm text-white">${formatDisplayDate(draw.date)}</span>
+                    <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300">${getDayName(draw.date)}</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-0.5">${draw.name || 'Nagaland State Lotteries'}</p>
+                </div>
+              </div>
+              ${draw.id !== DEFAULT_DRAW.id ? `<button type="button" onclick="deleteDraw('${draw.id}')" class="text-[11px] text-rose-400 hover:text-rose-300 px-2 py-1">Delete</button>` : ''}
+            </div>
+
+            <div data-num4="${p1Four}" ${p1ClickAttr} class="p-3.5 rounded-xl bg-gradient-to-r from-amber-500/15 via-amber-500/5 to-transparent border border-amber-500/35 flex items-center justify-between ${p1CardClass}">
+              <div>
+                <p class="text-[10px] font-bold uppercase tracking-wider text-amber-300">1st Prize • ₹1 Crore ${p1Status ? '• Tap Match' : ''}</p>
+                <p class="num-chip text-xl font-black text-white tracking-wider mt-0.5">${draw.first}</p>
+              </div>
+              <div class="text-right">
+                <p class="text-[10px] text-slate-400">Consolation 4-Digit</p>
+                <p class="num-chip text-sm font-bold text-amber-300 mt-0.5">${p1Four}</p>
+              </div>
+            </div>
+
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-rose-300">2nd Prize • ₹10,000</span>
+                <span class="text-[10px] text-slate-400">${draw.second.length} tickets</span>
+              </div>
+              <div class="grid grid-cols-5 gap-1.5">
+                ${draw.second.map(n => renderChip(n, hl, draw.id, '2nd Prize')).join('')}
+              </div>
+            </div>
+
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-sky-300">3rd Prize • ₹500</span>
+                <span class="text-[10px] text-slate-400">${draw.third.length} tickets</span>
+              </div>
+              <div class="grid grid-cols-5 gap-1.5">
+                ${draw.third.map(n => renderChip(n, hl, draw.id, '3rd Prize')).join('')}
+              </div>
+            </div>
+
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-purple-300">4th Prize • ₹250</span>
+                <span class="text-[10px] text-slate-400">${draw.fourth.length} tickets</span>
+              </div>
+              <div class="grid grid-cols-5 gap-1.5">
+                ${draw.fourth.map(n => renderChip(n, hl, draw.id, '4th Prize')).join('')}
+              </div>
+            </div>
+
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-300">5th Prize • ₹120</span>
+                <span class="text-[10px] text-slate-400">${draw.fifth.length} tickets</span>
+              </div>
+              <div class="grid grid-cols-5 gap-1.5">
+                ${draw.fifth.map(n => renderChip(n, hl, draw.id, '5th Prize')).join('')}
+              </div>
+            </div>
+          </section>
+        `;
+      }).join('');
+    }
+
+    function renderPatterns() {
+      const { repeatEvents, nearbyEvents, byTime, byDay } = analyzePatterns();
+      const hasSamples = draws.some(d => d.isSample);
+      document.getElementById('sample-btn').textContent = hasSamples ? '✕ Remove Sample Draws' : '+ Load 2 Sample Draws';
+
+      document.getElementById('kpi-repeats').textContent = repeatEvents.length;
+      document.getElementById('kpi-repeat-rate').textContent = `Across ${draws.length} draw${draws.length === 1 ? '' : 's'}`;
+
+      const pm12 = nearbyEvents.filter(e => ['+1', '-1', '+2', '-2'].includes(e.diff)).length;
+      const pm10 = nearbyEvents.filter(e => ['+10', '-10'].includes(e.diff)).length;
+      document.getElementById('kpi-nearby').textContent = pm12;
+      document.getElementById('kpi-nearby-10').textContent = `±10 hits: ${pm10}`;
+
+      const maxTimeHit = Math.max(1, ...Object.values(byTime).map(v => v.repeats + v.nearby));
+      document.getElementById('time-breakdown').innerHTML = Object.entries(byTime).map(([t, stat]) => {
+        const repW = Math.round((stat.repeats / maxTimeHit) * 100);
+        const nearW = Math.round((stat.nearby / maxTimeHit) * 100);
+        return `
+          <div class="space-y-1">
+            <div class="flex justify-between text-[11px]">
+              <span class="font-bold text-slate-200">${t} <span class="text-slate-500 font-normal">(${stat.draws} draws)</span></span>
+              <span><span class="text-amber-300 font-semibold">${stat.repeats} Repeat</span> • <span class="text-sky-300 font-semibold">${stat.nearby} Nearby</span></span>
+            </div>
+            <div class="w-full h-2 bg-slate-900 rounded-full overflow-hidden flex">
+              <div class="bg-amber-400 h-full" style="width:${repW}%"></div>
+              <div class="bg-sky-400 h-full" style="width:${nearW}%"></div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      const maxDayHit = Math.max(1, ...Object.values(byDay).map(v => v.repeats + v.nearby));
+      document.getElementById('day-breakdown').innerHTML = Object.entries(byDay).map(([day, stat]) => {
+        const repW = Math.round((stat.repeats / maxDayHit) * 100);
+        const nearW = Math.round((stat.nearby / maxDayHit) * 100);
+        return `
+          <div class="grid grid-cols-12 items-center gap-2">
+            <span class="col-span-3 text-slate-300 font-medium">${day.slice(0, 3)} (${stat.draws})</span>
+            <div class="col-span-5 h-2 bg-slate-900 rounded-full overflow-hidden flex">
+              <div class="bg-amber-400 h-full" style="width:${repW}%"></div>
+              <div class="bg-sky-400 h-full" style="width:${nearW}%"></div>
+            </div>
+            <span class="col-span-4 text-right text-[11px]">
+              <span class="text-amber-300">${stat.repeats}R</span> / <span class="text-sky-300">${stat.nearby}N</span>
+            </span>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('repeat-log-count').textContent = `${repeatEvents.length} matches`;
+      document.getElementById('repeat-log').innerHTML = repeatEvents.length === 0
+        ? `<p class="text-slate-400 text-[11px]">Add at least 2 draws (or tap <b>+ Load 2 Sample Draws</b> above) to see exact past repeat hits.</p>`
+        : repeatEvents.slice(-100).reverse().map(ev => `
+            <button type="button" onclick="jumpToDraw('${ev.prev.drawId || ev.drawId}', '${ev.num4}', '${ev.prev.date}')" class="w-full text-left p-2.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 active:scale-[0.99] transition border border-amber-500/25 hover:border-amber-400/60 flex items-center justify-between gap-2">
+              <div>
+                <span class="num-chip font-bold text-amber-300 text-sm">${ev.num4}</span>
+                <span class="text-[11px] text-slate-300 ml-1.5">${ev.prize}</span>
+                <p class="text-[10px] text-slate-400 mt-0.5">Hit on ${formatDisplayDate(ev.date)} (${ev.day.slice(0, 3)} ${ev.time}) • Previously ${formatDisplayDate(ev.prev.date)} (${ev.prev.prize})</p>
+              </div>
+              <span class="shrink-0 text-[11px] font-bold text-amber-300">View Draw →</span>
+            </button>
+          `).join('');
+
+      document.getElementById('nearby-log-count').textContent = `${nearbyEvents.length} matches`;
+      document.getElementById('nearby-log').innerHTML = nearbyEvents.length === 0
+        ? `<p class="text-slate-400 text-[11px]">Add more draws to detect ±1, ±2, and ±10 neighbor patterns across days and times.</p>`
+        : nearbyEvents.slice(-100).reverse().map(ev => `
+            <button type="button" onclick="jumpToDraw('${ev.prev.drawId || ev.drawId}', '${ev.matchedNeighbor}', '${ev.prev.date}')" class="w-full text-left p-2.5 rounded-xl bg-sky-500/10 hover:bg-sky-500/20 active:scale-[0.99] transition border border-sky-500/25 hover:border-sky-400/60 flex items-center justify-between gap-2">
+              <div>
+                <span class="num-chip font-bold text-sky-300 text-sm">${ev.num4}</span>
+                <span class="text-[10px] px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-200 font-bold ml-1">${ev.diff} from ${ev.matchedNeighbor}</span>
+                <p class="text-[10px] text-slate-400 mt-0.5">${formatDisplayDate(ev.date)} (${ev.day.slice(0, 3)} ${ev.time}, ${ev.prize}) • Neighbor was on ${formatDisplayDate(ev.prev.date)}</p>
+              </div>
+              <span class="shrink-0 text-[11px] font-bold text-sky-300">View Draw →</span>
+            </button>
+          `).join('');
+    }
+
+    function toggleSampleDraws() {
+      const hasSamples = draws.some(d => d.isSample);
+      if (hasSamples) {
+        draws = draws.filter(d => !d.isSample);
+        showToast('Removed sample draws');
+      } else {
+        draws = [...draws, ...SAMPLE_PAST_DRAWS.map(normalizeDrawSchema)];
+        showToast('Loaded 2 sample past draws');
+      }
+      saveDrawsToStorage();
+      renderDraws();
+      renderPatterns();
+      if (!document.getElementById('tab-table').classList.contains('hidden')) {
+        renderTicketTableResults();
+        renderStoreAnalyticsAndBatches();
+      }
+    }
+
+    // ==================== POSTER OCR & NUMBER REPAIR HELPERS ====================
+    function repairNumericToken(token) {
+      return String(token || '')
+        .replace(/[OQD]/gi, '0')
+        .replace(/[Il|!]/g, '1')
+        .replace(/Z/gi, '2')
+        .replace(/[S$]/g, '5')
+        .replace(/G/g, '6')
+        .replace(/T/g, '7')
+        .replace(/B/g, '8')
+        .replace(/[gq]/g, '9');
+    }
+
+    function stripNoiseLines(rawText) {
+      return String(rawText || '')
+        .split(/\r?\n/)
+        .filter(line => !/cons\.?\s*prize|remaining\s*serial|seller\s*amount|1000\/-|500\/-|120\/-|10\/-|crore|lakh|mrp|draw\s*on|guaranteed|sold\s*by/i.test(line))
+        .join('\n');
+    }
+
+    function extractPureNumberStream(text, digitLen, excludeSet) {
+      const cleaned = stripNoiseLines(text);
+      const rawTokens = cleaned.split(/[^A-Za-z0-9|!$]+/).filter(Boolean);
+      const results = [];
+
+      for (const tok of rawTokens) {
+        const repaired = repairNumericToken(tok);
+        if (!/^\d+$/.test(repaired)) continue;
+
+        if (repaired.length === digitLen) {
+          if (!excludeSet.has(repaired)) results.push(repaired);
+        } else if (repaired.length > digitLen && repaired.length % digitLen === 0) {
+          for (let i = 0; i < repaired.length; i += digitLen) {
+            const chunk = repaired.slice(i, i + digitLen);
+            if (!excludeSet.has(chunk)) results.push(chunk);
+          }
+        }
+      }
+      return results;
+    }
+
+    function tokenizeNums(str, len) {
+      return String(str || '').match(new RegExp(`\\b\\d{${len}}\\b`, 'g')) || [];
+    }
+
+    function updateLiveCounts() {
+      const c2 = tokenizeNums(document.getElementById('inp-p2').value, 5).length;
+      const c3 = tokenizeNums(document.getElementById('inp-p3').value, 4).length;
+      const c4 = tokenizeNums(document.getElementById('inp-p4').value, 4).length;
+      const c5 = tokenizeNums(document.getElementById('inp-p5').value, 4).length;
+
+      document.getElementById('cnt-p2').textContent = `${c2} / 10`;
+      document.getElementById('cnt-p3').textContent = `${c3} / 10`;
+      document.getElementById('cnt-p4').textContent = `${c4} / 10`;
+      document.getElementById('cnt-p5').textContent = `${c5} / 100`;
+      document.getElementById('cnt-p5').className = c5 >= 98
+        ? 'text-[10px] font-mono text-emerald-400 font-bold'
+        : 'text-[10px] font-mono text-amber-300';
+    }
+
+    function parseSmartPaste(overrideGridText, overrideBottom5thText) {
+      const raw = document.getElementById('smart-paste-box').value || '';
+      if (!raw.trim()) {
+        showToast('Paste poster text or upload an image first');
+        return;
+      }
+
+      const p1Regex = /\b([0-9OQDIl|!]{2}[A-Z])\s*[-:]?\s*([0-9OQDIl|!ZSBG]{5})\b/gi;
+      let p1Series = '';
+      let p1Five = '';
+      let match;
+      while ((match = p1Regex.exec(raw)) !== null) {
+        const serNum = repairNumericToken(match[1].slice(0, 2));
+        const serChar = match[1].slice(2).toUpperCase();
+        const ticket = repairNumericToken(match[2]);
+        if (/^\d{2}[A-Z]$/.test(serNum + serChar) && /^\d{5}$/.test(ticket)) {
+          p1Series = serNum + serChar;
+          p1Five = ticket;
+          break;
+        }
+      }
+      if (p1Series && p1Five) {
+        document.getElementById('inp-p1').value = `${p1Series} ${p1Five}`;
+      }
+
+      const dateMatch = raw.match(/\b(\d{2})[\/.-](\d{2})[\/.-](\d{2,4})\b/);
+      if (dateMatch) {
+        const dd = dateMatch[1];
+        const mm = dateMatch[2];
+        const yyyy = dateMatch[3].length === 2 ? '20' + dateMatch[3] : dateMatch[3];
+        if (parseInt(mm, 10) >= 1 && parseInt(mm, 10) <= 12 && parseInt(dd, 10) >= 1 && parseInt(dd, 10) <= 31) {
+          document.getElementById('inp-date').value = `${yyyy}-${mm}-${dd}`;
+        }
+      }
+
+      if (/8\s*[:.]?\s*00\s*PM|8\s*PM/i.test(raw)) document.getElementById('inp-time').value = '8:00 PM';
+      else if (/6\s*[:.]?\s*00\s*PM|6\s*PM/i.test(raw)) document.getElementById('inp-time').value = '6:00 PM';
+      else if (/1\s*[:.]?\s*00\s*PM|1\s*PM/i.test(raw)) document.getElementById('inp-time').value = '1:00 PM';
+
+      const nameMatch = raw.match(/(DEAR\s+[A-Z]+\s+(?:SUNDAY|MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY)\s+WEEKLY)/i);
+      if (nameMatch && !document.getElementById('inp-name').value) {
+        document.getElementById('inp-name').value = nameMatch[1].toUpperCase();
+      }
+
+      const gridSource = overrideGridText || raw;
+      const exclude5 = new Set(['10000', '50000', '20000', '25000']);
+      if (p1Five) {
+        exclude5.add(p1Five);
+        exclude5.add('500' + p1Five.slice(0, 2));
+      }
+      const fiveDigitList = extractPureNumberStream(gridSource, 5, exclude5);
+      if (fiveDigitList.length > 0) {
+        document.getElementById('inp-p2').value = fiveDigitList.slice(0, 10).join(' ');
+      }
+
+      const exclude4 = new Set(['2025', '2026', '2027', '1000']);
+      const fourDigitList = extractPureNumberStream(gridSource, 4, exclude4);
+
+      if (fourDigitList.length >= 20) {
+        document.getElementById('inp-p3').value = fourDigitList.slice(0, 10).join(' ');
+        document.getElementById('inp-p4').value = fourDigitList.slice(10, 20).join(' ');
+        let p5List = fourDigitList.slice(20, 120);
+
+        if (overrideBottom5thText && p5List.length < 100) {
+          const bottom4 = extractPureNumberStream(overrideBottom5thText, 4, exclude4);
+          if (bottom4.length >= p5List.length && bottom4.length <= 105) {
+            p5List = bottom4.slice(0, 100);
+          }
+        }
+        document.getElementById('inp-p5').value = p5List.join(' ');
+      } else if (fourDigitList.length > 0) {
+        document.getElementById('inp-p5').value = fourDigitList.join(' ');
+      }
+
+      updateLiveCounts();
+      const c2 = tokenizeNums(document.getElementById('inp-p2').value, 5).length;
+      const c5 = tokenizeNums(document.getElementById('inp-p5').value, 4).length;
+      showToast(`Extracted ${c2}/10 (2nd) & ${c5}/100 (5th Prize)`);
+    }
+
+    function renderRedChannelTopBanner(img) {
+      const cropH = Math.round(img.height * 0.27);
+      const scale = Math.min(2.2, 2000 / img.width);
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(img.width * scale);
+      canvas.height = Math.round(cropH * scale);
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, img.width, cropH, 0, 0, canvas.width, canvas.height);
+
+      const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const d = imgData.data;
+      for (let i = 0; i < d.length; i += 4) {
+        const val = d[i] > 155 ? 255 : 0;
+        d[i] = d[i + 1] = d[i + 2] = val;
+      }
+      ctx.putImageData(imgData, 0, 0);
+      return canvas.toDataURL('image/png');
+    }
+
+    function renderHighContrastFullImage(img, yStartRatio, yEndRatio) {
+      const sy = Math.round(img.height * yStartRatio);
+      const sh = Math.round(img.height * (yEndRatio - yStartRatio));
+      const targetW = 2200;
+      const scale = img.width < targetW ? Math.min(2.2, targetW / img.width) : 1;
+
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(img.width * scale);
+      canvas.height = Math.round(sh * scale);
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, sy, img.width, sh, 0, 0, canvas.width, canvas.height);
+
+      const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const d = imgData.data;
+      for (let i = 0; i < d.length; i += 4) {
+        const lum = 0.299 * d[i] + 0.587 * d[i + 1] + 0.114 * d[i + 2];
+        const bw = lum > 142 ? 255 : 0;
+        d[i] = d[i + 1] = d[i + 2] = bw;
+      }
+      ctx.putImageData(imgData, 0, 0);
+      return canvas.toDataURL('image/png');
+    }
+
+    async function handlePosterUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const statusBox = document.getElementById('ocr-status');
+      const msgEl = document.getElementById('ocr-msg');
+      const pctEl = document.getElementById('ocr-pct');
+      const barEl = document.getElementById('ocr-bar');
+
+      statusBox.classList.remove('hidden');
+      msgEl.textContent = 'Preparing 3-pass OCR scanner...';
+      pctEl.textContent = '10%';
+      barEl.style.width = '10%';
+
+      try {
+        const img = await new Promise((resolve, reject) => {
+          const el = new Image();
+          el.onload = () => resolve(el);
+          el.onerror = reject;
+          el.src = URL.createObjectURL(file);
+        });
+
+        const worker = await Tesseract.createWorker('eng', 1, {
+          workerPath: 'https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/worker.min.js',
+          corePath: 'https://cdn.jsdelivr.net/npm/tesseract.js-core@5/tesseract-core.wasm.js'
+        });
+
+        msgEl.textContent = 'Pass 1/3: Reading 1st Prize & Draw Header...';
+        pctEl.textContent = '30%';
+        barEl.style.width = '30%';
+        const topUrl = renderRedChannelTopBanner(img);
+        const resTop = await worker.recognize(topUrl);
+
+        msgEl.textContent = 'Pass 2/3: Scanning 2nd, 3rd, 4th & 5th Prize grids...';
+        pctEl.textContent = '65%';
+        barEl.style.width = '65%';
+        await worker.setParameters({ tessedit_pageseg_mode: '6' });
+        const fullUrl = renderHighContrastFullImage(img, 0, 1);
+        const resFull = await worker.recognize(fullUrl);
+
+        let bottomText = '';
+        const quick4Check = extractPureNumberStream(resFull.data.text, 4, new Set(['2025', '2026', '1000']));
+        if (quick4Check.length < 120) {
+          msgEl.textContent = 'Pass 3/3: Polishing 10×10 5th Prize table...';
+          pctEl.textContent = '88%';
+          barEl.style.width = '88%';
+          const bottomUrl = renderHighContrastFullImage(img, 0.72, 0.96);
+          const resBottom = await worker.recognize(bottomUrl);
+          bottomText = resBottom.data.text;
+        }
+
+        await worker.terminate();
+
+        const combinedText = `${resTop.data.text}\n${resFull.data.text}`;
+        document.getElementById('smart-paste-box').value = combinedText;
+
+        msgEl.textContent = 'Scan complete! Auto-filling prize boxes...';
+        pctEl.textContent = '100%';
+        barEl.style.width = '100%';
+        parseSmartPaste(resFull.data.text, bottomText);
+      } catch (err) {
+        msgEl.textContent = 'OCR failed on this image. Use Method 2 Smart Paste below.';
+        pctEl.textContent = 'Error';
+      }
+    }
+
+    // ==================== TAB 4: MULTI-PASS PHYSICAL TICKET OCR & STORE TRACKER ====================
+    const BACKGROUND_PAPER_LINE_REGEX = /ticket\s*no|draw\s*date|seller|sub[\s-]*stockist|cons\.?\s*prize|prize\s*amount|crorepati|remaining\s*serial|5th\s*prize|2nd\s*prize|3rd\s*prize|4th\s*prize|for\s*winner|for\s*seller|draw\s*no|sold\s*by|government\s*gazette|please\s*check/i;
+
+    function toggleStrictPhysicalMode() {
+      strictPhysicalMode = !strictPhysicalMode;
+      const btn = document.getElementById('strict-mode-btn');
+      if (strictPhysicalMode) {
+        btn.textContent = 'Strict Physical: ON (Ignore Paper)';
+        btn.className = 'w-full sm:w-auto shrink-0 px-3 py-2 rounded-xl bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 font-bold text-[11px] text-center transition';
+      } else {
+        btn.textContent = 'Strict Physical: OFF (Include Grids)';
+        btn.className = 'w-full sm:w-auto shrink-0 px-3 py-2 rounded-xl bg-slate-800 border border-slate-600 text-slate-300 font-bold text-[11px] text-center transition';
+      }
+
+      if (lastRawTableText.trim()) {
+        savedTableTickets = extractTicketsWithSeries(lastRawTableText, strictPhysicalMode);
+        saveTicketTableToStorage();
+        document.getElementById('table-tickets-input').value = savedTableTickets.map(t => t.fullLabel).join(', ');
+        renderTicketTableResults();
+        showToast(strictPhysicalMode ? 'Strict Mode ON: Physical stamps only' : 'Strict Mode OFF: Including standalone numbers');
+      }
+    }
+
+    function normalizeSeriesPrefix(rawPrefix) {
+      if (!rawPrefix) return '';
+      const clean = String(rawPrefix).toUpperCase().replace(/[^A-Z0-9|!$]/g, '');
+      if (clean.length !== 3) return '';
+      const digitsPart = repairNumericToken(clean.slice(0, 2));
+      let letterPart = clean.slice(2);
+      if (letterPart === '0' || letterPart === 'O') letterPart = 'D';
+      if (letterPart === '8') letterPart = 'B';
+      if (letterPart === '5' || letterPart === '$') letterPart = 'S';
+      if (letterPart === '1' || letterPart === '|' || letterPart === '!' || letterPart === 'I') letterPart = 'L';
+      if (/^\d{2}[A-HJ-NP-Z]$/.test(digitsPart + letterPart)) {
+        return digitsPart + letterPart;
+      }
+      return '';
+    }
+
+    function normalizePhysicalTicketStamps(rawText) {
+      // Remove date stamps like 14-11-2026 or 14/11/26 so they never confuse digit runs
+      const withoutDates = String(rawText || '').replace(/\b\d{1,2}[\/.-]\d{1,2}[\/.-]\d{2,4}\b/g, ' ');
+
+      // Discard background result sheet / seller / 5th prize grid lines
+      const filteredLines = withoutDates
+        .split(/\r?\n/)
+        .filter(line => {
+          const trimmed = line.trim();
+          if (!trimmed) return false;
+          if (BACKGROUND_PAPER_LINE_REGEX.test(trimmed)) return false;
+          const fourDigitMatches = trimmed.match(/\b\d{4}\b/g) || [];
+          if (fourDigitMatches.length >= 3 && !/[A-Z]/i.test(trimmed)) return false;
+          return true;
+        })
+        .join('\n');
+
+      // Collapse colon/exclamation/dot/pipe separators inside series prefix (e.g. "90:A", "80!A", "9O:A" -> "90A", "80A")
+      let normalized = filteredLines.toUpperCase().replace(
+        /\b([0-9OQDIl|!ZSBGgq])[:!|.\-\s]{0,2}([0-9OQDIl|!ZSBGgq])[:!|.\-]{1,2}([A-Z0851|!])\b/g,
+        (match, d1, d2, letChar) => {
+          const series = normalizeSeriesPrefix(`${d1}${d2}${letChar}`);
+          return series ? ` ${series} ` : match;
+        }
+      );
+
+      normalized = normalized.replace(
+        /\b([0-9OQDIl|!ZSBGgq]{2}[A-Z0851|!])(?=\s+[0-9OQDIl|!ZSBGgq][:!|.\-])/g,
+        (match, rawSer) => {
+          const series = normalizeSeriesPrefix(rawSer);
+          return series || match;
+        }
+      );
+
+      // Collapse colon/exclamation/dot/space separators inside 5-digit stamp after series (e.g. "90A 6:0:2:6:1", "80A 8!4!6:6:5!" -> "90A 60261", "80A 84665")
+      const digitChar = '[0-9OQDIl|!ZSBGgq]';
+      const sepChar = '[:!|.\\-\\s]{1,3}';
+      const stampedFiveRegex = new RegExp(
+        `\\b(\\d{2}[A-HJ-NP-Z])\\s+(${digitChar})${sepChar}(${digitChar})${sepChar}(${digitChar})${sepChar}(${digitChar})${sepChar}(${digitChar})[!|.]?\\b`,
+        'g'
+      );
+      normalized = normalized.replace(stampedFiveRegex, (match, series, c1, c2, c3, c4, c5) => {
+        const digits = repairNumericToken(`${c1}${c2}${c3}${c4}${c5}`);
+        return /^\d{5}$/.test(digits) ? `${series} ${digits}` : match;
+      });
+
+      normalized = normalized.replace(
+        /\b(\d{2}[A-HJ-NP-Z])\s+([0-9OQDIl|!ZSBGgq:!|.\-]{5,12})\b/g,
+        (match, series, rawNumBlock) => {
+          if (!/[:!|.\-]/.test(rawNumBlock)) return match;
+          const stripped = rawNumBlock.replace(/[:!|.\-]/g, '');
+          const digits = repairNumericToken(stripped);
+          return /^\d{4,5}$/.test(digits) ? `${series} ${digits}` : match;
+        }
+      );
+
+      return normalized;
+    }
+
+    function extractTicketsWithSeries(rawText, isStrict) {
+      const strictFlag = typeof isStrict === 'boolean' ? isStrict : strictPhysicalMode;
+      const text = normalizePhysicalTicketStamps(rawText);
+      const seriesExtracted = [];
+      const standaloneExtracted = [];
+      const seenKeys = new Set();
+
+      // 1. Expand ranges like "90A 60261-60264" or "90A 60261-64"
+      const rangeRegex = /\b([0-9OQDIl|!ZSBGgq]{2}[A-Z0851|!])\s*[-:/]?\s*([0-9OQDIl|!ZSBGgq]{4,5})\s*(?:-|TO)\s*([0-9OQDIl|!ZSBGgq]{2,5})\b/g;
+      let maskedText = text.replace(rangeRegex, (full, rawSer, rawStart, rawEnd) => {
+        const series = normalizeSeriesPrefix(rawSer);
+        const startNum = repairNumericToken(rawStart);
+        let endNum = repairNumericToken(rawEnd);
+        if (series && /^\d{4,5}$/.test(startNum) && /^\d+$/.test(endNum)) {
+          if (endNum.length < startNum.length) {
+            endNum = startNum.slice(0, startNum.length - endNum.length) + endNum;
+          }
+          const sVal = parseInt(startNum, 10);
+          const eVal = parseInt(endNum, 10);
+          if (eVal >= sVal && (eVal - sVal) <= 50) {
+            for (let v = sVal; v <= eVal; v++) {
+              const numStr = String(v).padStart(startNum.length, '0');
+              const key = `${series}_${numStr}`;
+              if (!seenKeys.has(key)) {
+                seenKeys.add(key);
+                seriesExtracted.push({
+                  series,
+                  number: numStr,
+                  num4: extract4Digit(numStr),
+                  fullLabel: `${series} ${numStr}`
+                });
+              }
+            }
+            return ' ';
+          }
+        }
+        return full;
+      });
+
+      // 2. Match explicit Series + 4/5-Digit pairs (e.g. "90A 60261", "80A 84665")
+      const pairRegex = /\b([0-9OQDIl|!ZSBGgq]{2}[A-Z0851|!])\s*[-:/]?\s*([0-9OQDIl|!ZSBGgq]{4,5})\b/g;
+      maskedText = maskedText.replace(pairRegex, (full, rawSer, rawNum) => {
+        const series = normalizeSeriesPrefix(rawSer);
+        const numStr = repairNumericToken(rawNum);
+        if (series && /^\d{4,5}$/.test(numStr)) {
+          const key = `${series}_${numStr}`;
+          if (!seenKeys.has(key)) {
+            seenKeys.add(key);
+            seriesExtracted.push({
+              series,
+              number: numStr,
+              num4: extract4Digit(numStr),
+              fullLabel: `${series} ${numStr}`
+            });
+          }
+          return ' ';
+        }
+        return full;
+      });
+
+      if (strictFlag) {
+        const fiveDigitOnly = seriesExtracted.filter(t => t.number.length === 5);
+        return fiveDigitOnly.length > 0 ? fiveDigitOnly : seriesExtracted;
+      }
+
+      // 3. When Strict Mode is OFF, include standalone 4/5-digit numbers
+      const blacklist = new Set(['2024', '2025', '2026', '2027', '1000', '10000', '50000', '20000', '25000']);
+      const tokens = maskedText.split(/[^A-Z0-9|!$]+/).filter(Boolean);
+      for (const tok of tokens) {
+        const repaired = repairNumericToken(tok);
+        if (/^\d{4,5}$/.test(repaired) && !blacklist.has(repaired)) {
+          const key = `_${repaired}`;
+          if (!seenKeys.has(key)) {
+            seenKeys.add(key);
+            standaloneExtracted.push({
+              series: '',
+              number: repaired,
+              num4: extract4Digit(repaired),
+              fullLabel: repaired
+            });
+          }
+        }
+      }
+
+      return [...seriesExtracted, ...standaloneExtracted];
+    }
+
+    function detectTicketDateFromOCR(rawText) {
+      const m = String(rawText || '').match(/\b(\d{2})[\/.-](\d{2})[\/.-](\d{2,4})\b/);
+      if (!m) return '';
+      const dd = m[1];
+      const mm = m[2];
+      const yyyy = m[3].length === 2 ? '20' + m[3] : m[3];
+      if (parseInt(mm, 10) >= 1 && parseInt(mm, 10) <= 12 && parseInt(dd, 10) >= 1 && parseInt(dd, 10) <= 31) {
+        return `${yyyy}-${mm}-${dd}`;
+      }
+      return '';
+    }
+
+    function relateTicketToPastDraws(ticketObj) {
+      const target4 = ticketObj.num4;
+      const targetVal = parseInt(target4, 10);
+      const targetFullDigits = String(ticketObj.number || '').replace(/\D/g, '');
+      const targetSeries = String(ticketObj.series || '').toUpperCase();
+
+      const matches = [];
+      let hasSeriesPlusExact = false;
+      let hasExact4 = false;
+      let hasNearby = false;
+
+      const sortedDraws = [...draws].sort((a, b) => {
+        const keyA = a.date + (a.time === '8:00 PM' ? '3' : a.time === '6:00 PM' ? '2' : '1');
+        const keyB = b.date + (b.time === '8:00 PM' ? '3' : b.time === '6:00 PM' ? '2' : '1');
+        return keyB.localeCompare(keyA);
+      });
+
+      sortedDraws.forEach(draw => {
+        const day = getDayName(draw.date);
+        const p1Raw = String(draw.first || '').toUpperCase().trim();
+        const p1SeriesMatch = p1Raw.match(/^(\d{2}[A-Z])\s*(\d{5})$/);
+        const drawP1Series = p1SeriesMatch ? p1SeriesMatch[1] : '';
+        const drawP1Digits = p1SeriesMatch ? p1SeriesMatch[2] : p1Raw.replace(/\D/g, '');
+
+        const entries = getAllNumbersFromDraw(draw);
+        entries.forEach(item => {
+          const itemDigits = String(item.raw || '').replace(/\D/g, '');
+          const itemVal = parseInt(item.num4, 10);
+
+          if (
+            targetSeries &&
+            item.prize === '1st Prize' &&
+            drawP1Series === targetSeries &&
+            (drawP1Digits === targetFullDigits || item.num4 === target4)
+          ) {
+            hasSeriesPlusExact = true;
+            hasExact4 = true;
+            matches.push({
+              category: 'SERIES_EXACT',
+              drawId: draw.id,
+              drawName: draw.name || 'Nagaland State Lotteries',
+              date: draw.date,
+              day,
+              time: draw.time,
+              prize: item.prize,
+              matchedRaw: item.raw,
+              matchedNum4: item.num4,
+              deltaLabel: `Exact Series + Ticket (${item.raw})`
+            });
+            return;
+          }
+
+          if (item.num4 === target4 || (targetFullDigits.length === 5 && itemDigits === targetFullDigits)) {
+            hasExact4 = true;
+            const is5DigitExact = targetFullDigits.length === 5 && itemDigits === targetFullDigits;
+            matches.push({
+              category: 'EXACT_4',
+              drawId: draw.id,
+              drawName: draw.name || 'Nagaland State Lotteries',
+              date: draw.date,
+              day,
+              time: draw.time,
+              prize: item.prize,
+              matchedRaw: item.raw,
+              matchedNum4: item.num4,
+              deltaLabel: is5DigitExact ? `Exact 5-Digit Match (${item.raw})` : `Exact 4-Digit Match (${item.raw})`
+            });
+            return;
+          }
+
+          const rawDiff = targetVal - itemVal;
+          const wrapDiff = rawDiff > 5000 ? rawDiff - 10000 : rawDiff < -5000 ? rawDiff + 10000 : rawDiff;
+          if ([-1, 1, -2, 2, -10, 10].includes(wrapDiff)) {
+            hasNearby = true;
+            const signStr = wrapDiff > 0 ? `+${wrapDiff}` : `${wrapDiff}`;
+            matches.push({
+              category: 'NEARBY',
+              drawId: draw.id,
+              drawName: draw.name || 'Nagaland State Lotteries',
+              date: draw.date,
+              day,
+              time: draw.time,
+              prize: item.prize,
+              matchedRaw: item.raw,
+              matchedNum4: item.num4,
+              deltaLabel: `${signStr} from ${item.num4} (${item.raw})`
+            });
+          }
+        });
+      });
+
+      let status = 'CLEAN';
+      if (hasSeriesPlusExact) status = 'SERIES_EXACT';
+      else if (hasExact4) status = 'EXACT_4';
+      else if (hasNearby) status = 'NEARBY';
+
+      return { status, matches };
+    }
+
+    function updateBatchReadyBadge() {
+      const badge = document.getElementById('save-batch-ticket-count');
+      if (!badge) return;
+      const count = savedTableTickets.length;
+      badge.textContent = `${count} ticket${count === 1 ? '' : 's'} ready`;
+    }
+
+    function setTableFilter(filterVal) {
+      currentTableFilter = filterVal;
+      document.querySelectorAll('.tbl-pill').forEach(btn => {
+        btn.className = 'tbl-pill py-2 rounded-xl text-slate-300 hover:bg-slate-800 transition';
+      });
+      const active = document.getElementById(`tbl-filter-${filterVal}`);
+      if (active) active.className = 'tbl-pill py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold transition';
+      renderTicketTableResults();
+    }
+
+    function analyzeTicketTableFromInput() {
+      const raw = document.getElementById('table-tickets-input').value || '';
+      if (!raw.trim()) {
+        showToast('Upload a ticket photo or paste tickets first');
+        return;
+      }
+      lastRawTableText = raw;
+      savedTableTickets = extractTicketsWithSeries(raw, strictPhysicalMode);
+      saveTicketTableToStorage();
+      document.getElementById('table-tickets-input').value = savedTableTickets.map(t => t.fullLabel).join(', ');
+      renderTicketTableResults();
+      showToast(`Analyzed ${savedTableTickets.length} ticket(s) against ${draws.length} draw(s)`);
+    }
+
+    function clearTicketTable() {
+      savedTableTickets = [];
+      lastRawTableText = '';
+      try {
+        localStorage.removeItem(TABLE_STORAGE_KEY);
+      } catch (e) {}
+      document.getElementById('table-tickets-input').value = '';
+      document.getElementById('table-ocr-status').classList.add('hidden');
+      updateBatchReadyBadge();
+      renderTicketTableResults();
+      showToast('Current scan table cleared');
+    }
+
+    function renderTicketTableResults() {
+      updateBatchReadyBadge();
+      const container = document.getElementById('table-results-container');
+      if (!container) return;
+
+      if (!savedTableTickets || savedTableTickets.length === 0) {
+        document.getElementById('tbl-kpi-total').textContent = '0';
+        document.getElementById('tbl-kpi-series').textContent = '0';
+        document.getElementById('tbl-kpi-exact4').textContent = '0';
+        document.getElementById('tbl-kpi-nearby').textContent = '0';
+        container.innerHTML = `
+          <div class="glass-card p-5 text-center space-y-1.5">
+            <p class="text-xs font-semibold text-slate-300">No active ticket batch scanned yet</p>
+            <p class="text-[11px] text-slate-400">Tap <b>↑ Upload Photo</b> above or paste series+ticket pairs (e.g. <span class="font-mono text-emerald-300">90A 60261, 80A 84665, 80A 66270</span>) to check against past draws & save to a collection store.</p>
+          </div>
+        `;
+        return;
+      }
+
+      const evaluated = savedTableTickets.map(t => ({
+        ticket: t,
+        analysis: relateTicketToPastDraws(t)
+      }));
+
+      const totalCount = evaluated.length;
+      const seriesCount = evaluated.filter(e => e.analysis.status === 'SERIES_EXACT').length;
+      const exact4Count = evaluated.filter(e => e.analysis.status === 'SERIES_EXACT' || e.analysis.status === 'EXACT_4').length;
+      const nearbyCount = evaluated.filter(e => e.analysis.status === 'NEARBY').length;
+
+      document.getElementById('tbl-kpi-total').textContent = totalCount;
+      document.getElementById('tbl-kpi-series').textContent = seriesCount;
+      document.getElementById('tbl-kpi-exact4').textContent = exact4Count;
+      document.getElementById('tbl-kpi-nearby').textContent = nearbyCount;
+
+      const filtered = evaluated.filter(e => {
+        if (currentTableFilter === 'HITS') return e.analysis.status !== 'CLEAN';
+        if (currentTableFilter === 'EXACT') return e.analysis.status === 'SERIES_EXACT' || e.analysis.status === 'EXACT_4';
+        if (currentTableFilter === 'NEARBY') return e.analysis.status === 'NEARBY';
+        if (currentTableFilter === 'CLEAN') return e.analysis.status === 'CLEAN';
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<div class="glass-card p-5 text-center text-xs text-slate-400">No scanned tickets match the selected filter.</div>`;
+        return;
+      }
+
+      container.innerHTML = filtered.map(({ ticket, analysis }) => {
+        let cardBorder = 'border-slate-800';
+        let statusBadge = `<span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">CLEAN / NO PAST HIT</span>`;
+
+        if (analysis.status === 'SERIES_EXACT') {
+          cardBorder = 'border-yellow-400/70 ring-1 ring-yellow-400/30';
+          statusBadge = `<span class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-yellow-400/20 text-yellow-200 border border-yellow-400/50">★ EXACT SERIES + TICKET HIT</span>`;
+        } else if (analysis.status === 'EXACT_4') {
+          cardBorder = 'border-amber-400/60';
+          statusBadge = `<span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">● EXACT 4-DIGIT HIT</span>`;
+        } else if (analysis.status === 'NEARBY') {
+          cardBorder = 'border-sky-400/55';
+          statusBadge = `<span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 border border-sky-500/40">≈ NEARBY HIT (±1/±2/±10)</span>`;
+        }
+
+        const seriesBadge = ticket.series
+          ? `<span class="num-chip px-2 py-0.5 rounded-lg bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 font-extrabold text-xs">${ticket.series}</span>`
+          : `<span class="px-2 py-0.5 rounded-lg bg-slate-800 border border-slate-700 text-slate-400 font-semibold text-[10px]">NO PREFIX</span>`;
+
+        const matchesHtml = analysis.matches.length === 0
+          ? ''
+          : `<div class="space-y-1.5 pt-2 border-t border-slate-800/80">
+              ${analysis.matches.map(m => {
+                const rowStyle = m.category === 'SERIES_EXACT'
+                  ? 'bg-yellow-400/15 hover:bg-yellow-400/25 border-yellow-400/50 text-yellow-100'
+                  : m.category === 'EXACT_4'
+                    ? 'bg-amber-500/10 hover:bg-amber-500/20 border-amber-500/35 text-amber-100'
+                    : 'bg-sky-500/10 hover:bg-sky-500/20 border-sky-500/35 text-sky-100';
+
+                return `
+                  <button type="button" onclick="jumpToDraw('${m.drawId}', '${m.matchedNum4}', '${m.date}')" class="w-full text-left p-2.5 rounded-xl border transition active:scale-[0.99] flex items-center justify-between gap-2 ${rowStyle}">
+                    <div>
+                      <div class="flex items-center gap-1.5 flex-wrap">
+                        <span class="font-bold text-xs">${m.deltaLabel}</span>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-950/60 text-slate-200 font-semibold">${m.prize}</span>
+                      </div>
+                      <p class="text-[10px] text-slate-300 mt-0.5">${formatDisplayDate(m.date)} (${m.day.slice(0, 3)}) • ${m.time} • ${m.drawName}</p>
+                    </div>
+                    <span class="shrink-0 text-[11px] font-bold underline">View Draw →</span>
+                  </button>
+                `;
+              }).join('')}
+            </div>`;
+
+        return `
+          <div class="glass-card p-3.5 space-y-2.5 border ${cardBorder}">
+            <div class="flex items-center justify-between gap-2 flex-wrap">
+              <div class="flex items-center gap-2">
+                ${seriesBadge}
+                <span class="num-chip text-base font-extrabold text-white tracking-wider">${ticket.number}</span>
+                <span class="text-[10px] text-slate-400 font-mono">(End: ${ticket.num4})</span>
+              </div>
+              ${statusBadge}
+            </div>
+            ${matchesHtml}
+          </div>
+        `;
+      }).join('');
+    }
+
+    // ==================== MULTI-PASS COLUMN CROP & STAMP ISOLATION OCR ====================
+    function renderCroppedRegion(img, xRatio, yRatio, wRatio, hRatio, mode) {
+      const sx = Math.round(img.width * xRatio);
+      const sy = Math.round(img.height * yRatio);
+      const sw = Math.round(img.width * wRatio);
+      const sh = Math.round(img.height * hRatio);
+
+      const targetW = 2000;
+      const scale = sw < targetW ? Math.min(2.5, targetW / sw) : 1;
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(sw * scale);
+      canvas.height = Math.round(sh * scale);
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, sx, sy, sw, sh, 0, 0, canvas.width, canvas.height);
+
+      const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const d = imgData.data;
+      for (let i = 0; i < d.length; i += 4) {
+        const r = d[i];
+        const g = d[i + 1];
+        const b = d[i + 2];
+        const lum = 0.299 * r + 0.587 * g + 0.114 * b;
+        const sat = Math.max(r, g, b) - Math.min(r, g, b);
+
+        if (mode === 'WARM_INK') {
+          const isDarkStampInk = lum < 120 && sat < 68;
+          const isDeepRedBlueStamp = (r > 130 && g < 85 && b < 85) || (b > 125 && r < 85 && g < 95);
+          const val = (isDarkStampInk || isDeepRedBlueStamp) ? 0 : 255;
+          d[i] = d[i + 1] = d[i + 2] = val;
+        } else {
+          const val = lum > 132 ? 255 : 0;
+          d[i] = d[i + 1] = d[i + 2] = val;
+        }
+      }
+      ctx.putImageData(imgData, 0, 0);
+      return canvas.toDataURL('image/png');
+    }
+
+    async function handleTicketTableUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const statusBox = document.getElementById('table-ocr-status');
+      const msgEl = document.getElementById('table-ocr-msg');
+      const pctEl = document.getElementById('table-ocr-pct');
+      const barEl = document.getElementById('table-ocr-bar');
+
+      statusBox.classList.remove('hidden');
+      msgEl.textContent = 'Preparing Multi-Pass Column & Stamp OCR...';
+      pctEl.textContent = '10%';
+      barEl.style.width = '10%';
+
+      try {
+        const img = await new Promise((resolve, reject) => {
+          const el = new Image();
+          el.onload = () => resolve(el);
+          el.onerror = reject;
+          el.src = URL.createObjectURL(file);
+        });
+
+        const worker = await Tesseract.createWorker('eng', 1, {
+          workerPath: 'https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/worker.min.js',
+          corePath: 'https://cdn.jsdelivr.net/npm/tesseract.js-core@5/tesseract-core.wasm.js'
+        });
+
+        // Pass 1: Full-image high-res sparse text (PSM 11)
+        msgEl.textContent = 'Pass 1/3: Scanning full table sparse stamps...';
+        pctEl.textContent = '35%';
+        barEl.style.width = '35%';
+        await worker.setParameters({ tessedit_pageseg_mode: '11' });
+        const fullHighResUrl = renderCroppedRegion(img, 0, 0, 1, 1, 'BW');
+        const resPass1 = await worker.recognize(fullHighResUrl);
+
+        // Pass 2: Left vertical stack crop (PSM 6) with warm-paper/dark-ink isolation
+        msgEl.textContent = 'Pass 2/3: Scanning left vertical ticket column...';
+        pctEl.textContent = '65%';
+        barEl.style.width = '65%';
+        await worker.setParameters({ tessedit_pageseg_mode: '6' });
+        const leftColUrl = renderCroppedRegion(img, 0.04, 0.02, 0.56, 0.94, 'WARM_INK');
+        const resLeft = await worker.recognize(leftColUrl);
+
+        // Pass 3: Right vertical stack crop (PSM 6) with warm-paper/dark-ink isolation
+        msgEl.textContent = 'Pass 3/3: Scanning right vertical ticket column...';
+        pctEl.textContent = '88%';
+        barEl.style.width = '88%';
+        const rightColUrl = renderCroppedRegion(img, 0.46, 0.02, 0.50, 0.62, 'WARM_INK');
+        const resRight = await worker.recognize(rightColUrl);
+
+        await worker.terminate();
+
+        const combinedRaw = `${resPass1.data.text}\n${resLeft.data.text}\n${resRight.data.text}`;
+        lastRawTableText = combinedRaw;
+
+        const detectedDate = detectTicketDateFromOCR(combinedRaw);
+        if (detectedDate) {
+          document.getElementById('batch-date').value = detectedDate;
+        }
+
+        const extracted = extractTicketsWithSeries(combinedRaw, strictPhysicalMode);
+
+        msgEl.textContent = `Complete! Isolated ${extracted.length} physical ticket(s).`;
+        pctEl.textContent = '100%';
+        barEl.style.width = '100%';
+
+        if (extracted.length > 0) {
+          savedTableTickets = extracted;
+          saveTicketTableToStorage();
+          document.getElementById('table-tickets-input').value = extracted.map(t => t.fullLabel).join(', ');
+          renderTicketTableResults();
+          showToast(`Isolated ${extracted.length} physical ticket(s)!`);
+        } else {
+          document.getElementById('table-tickets-input').value = normalizePhysicalTicketStamps(combinedRaw).trim();
+          showToast('Edit extracted text if needed & tap Analyze');
+        }
+      } catch (err) {
+        msgEl.textContent = 'OCR worker error. Paste ticket text manually below.';
+        pctEl.textContent = 'Fallback';
+      }
+    }
+
+    // ==================== DAY-WISE STORE BATCH SAVING & HIT EVALUATION ====================
+    function selectQuickStore(storeName) {
+      const inp = document.getElementById('batch-store');
+      if (inp) inp.value = storeName;
+    }
+
+    function renderStoreQuickChips() {
+      const box = document.getElementById('store-quick-chips');
+      if (!box) return;
+      const usedStores = [...new Set(savedStoreBatches.map(b => b.store).filter(Boolean))];
+      const mergedStores = [...new Set([...usedStores, ...SUGGESTED_STORES])].slice(0, 8);
+      box.innerHTML = mergedStores.map(st => {
+        const safe = st.replace(/'/g, "\\'");
+        return `<button type="button" onclick="selectQuickStore('${safe}')" class="text-[10px] font-semibold px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-emerald-500/20 border border-slate-700 hover:border-emerald-500/50 text-slate-300 hover:text-emerald-200 transition">${st}</button>`;
+      }).join('');
+    }
+
+    function saveBatchToStoreLog() {
+      const rawBoxText = (document.getElementById('table-tickets-input').value || '').trim();
+      if (rawBoxText && savedTableTickets.length === 0) {
+        savedTableTickets = extractTicketsWithSeries(rawBoxText, strictPhysicalMode);
+        saveTicketTableToStorage();
+      }
+
+      if (!savedTableTickets || savedTableTickets.length === 0) {
+        showToast('Scan or enter at least 1 ticket before saving');
+        return;
+      }
+
+      const date = document.getElementById('batch-date').value;
+      const time = document.getElementById('batch-time').value || 'All Day';
+      const store = (document.getElementById('batch-store').value || '').trim();
+
+      if (!date) {
+        showToast('Please select the Ticket Draw Date');
+        return;
+      }
+      if (!store) {
+        showToast('Please enter or tap a Collection Store / Counter Name');
+        document.getElementById('batch-store').focus();
+        return;
+      }
+
+      const newBatch = {
+        id: `batch_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`,
+        date,
+        time,
+        store,
+        tickets: savedTableTickets.map(t => ({
+          series: t.series || '',
+          number: t.number,
+          num4: t.num4 || extract4Digit(t.number),
+          fullLabel: t.fullLabel || (t.series ? `${t.series} ${t.number}` : t.number)
+        })),
+        savedAt: new Date().toISOString()
+      };
+
+      savedStoreBatches.unshift(newBatch);
+      saveStoreBatchesToStorage();
+      renderStoreQuickChips();
+      renderStoreAnalyticsAndBatches();
+      showToast(`Saved ${newBatch.tickets.length} ticket(s) for ${store}!`);
+    }
+
+    function deleteStoreBatch(batchId) {
+      openConfirmModal('Delete Saved Batch?', 'Remove this day-wise ticket batch from your store log?', () => {
+        savedStoreBatches = savedStoreBatches.filter(b => b.id !== batchId);
+        saveStoreBatchesToStorage();
+        renderStoreQuickChips();
+        renderStoreAnalyticsAndBatches();
+        showToast('Saved batch deleted');
+      });
+    }
+
+    function evaluateSavedTicketAgainstDraws(ticketObj, batchDate, batchTime) {
+      const target4 = ticketObj.num4 || extract4Digit(ticketObj.number);
+      const targetVal = parseInt(target4, 10);
+      const targetFullDigits = String(ticketObj.number || '').replace(/\D/g, '');
+      const targetSeries = String(ticketObj.series || '').toUpperCase();
+
+      const sameDateWins = [];
+      const pastPatternHits = [];
+
+      draws.forEach(draw => {
+        const isSameDate = draw.date === batchDate;
+        const isTimeCompatible = batchTime === 'All Day' || draw.time === batchTime;
+        const p1Raw = String(draw.first || '').toUpperCase().trim();
+        const p1SeriesMatch = p1Raw.match(/^(\d{2}[A-Z])\s*(\d{5})$/);
+        const drawP1Series = p1SeriesMatch ? p1SeriesMatch[1] : '';
+        const drawP1Digits = p1SeriesMatch ? p1SeriesMatch[2] : p1Raw.replace(/\D/g, '');
+
+        const entries = getAllNumbersFromDraw(draw);
+        entries.forEach(item => {
+          const itemDigits = String(item.raw || '').replace(/\D/g, '');
+          const itemVal = parseInt(item.num4, 10);
+
+          const isExactSeriesAnd5 =
+            targetSeries &&
+            item.prize === '1st Prize' &&
+            drawP1Series === targetSeries &&
+            (drawP1Digits === targetFullDigits || item.num4 === target4);
+
+          const isExactNumber =
+            item.num4 === target4 || (targetFullDigits.length === 5 && itemDigits === targetFullDigits);
+
+          if (isSameDate && isTimeCompatible && (isExactSeriesAnd5 || isExactNumber)) {
+            sameDateWins.push({
+              drawId: draw.id,
+              drawName: draw.name || 'Nagaland State Lotteries',
+              date: draw.date,
+              time: draw.time,
+              prize: isExactSeriesAnd5 ? '1st Prize (Series+No.)' : item.prize,
+              matchedRaw: item.raw,
+              matchedNum4: item.num4,
+              isJackpot: isExactSeriesAnd5
+            });
+            return;
+          }
+
+          if (isExactSeriesAnd5 || isExactNumber) {
+            pastPatternHits.push({
+              type: 'REPEAT',
+              drawId: draw.id,
+              drawName: draw.name || 'Nagaland State Lotteries',
+              date: draw.date,
+              time: draw.time,
+              prize: item.prize,
+              matchedRaw: item.raw,
+              matchedNum4: item.num4,
+              label: `${item.prize} (${formatDisplayDate(draw.date)} ${draw.time})`
+            });
+            return;
+          }
+
+          const rawDiff = targetVal - itemVal;
+          const wrapDiff = rawDiff > 5000 ? rawDiff - 10000 : rawDiff < -5000 ? rawDiff + 10000 : rawDiff;
+          if ([-1, 1, -2, 2, -10, 10].includes(wrapDiff)) {
+            const signStr = wrapDiff > 0 ? `+${wrapDiff}` : `${wrapDiff}`;
+            pastPatternHits.push({
+              type: 'NEARBY',
+              drawId: draw.id,
+              drawName: draw.name || 'Nagaland State Lotteries',
+              date: draw.date,
+              time: draw.time,
+              prize: item.prize,
+              matchedRaw: item.raw,
+              matchedNum4: item.num4,
+              label: `${signStr} vs ${item.num4} (${formatDisplayDate(draw.date)})`
+            });
+          }
+        });
+      });
+
+      return { sameDateWins, pastPatternHits };
+    }
+
+    function renderStoreAnalyticsAndBatches() {
+      renderStoreQuickChips();
+
+      const leaderboardEl = document.getElementById('store-leaderboard-container');
+      const countEl = document.getElementById('store-leaderboard-count');
+      const batchesEl = document.getElementById('saved-batches-container');
+      const storeFilterEl = document.getElementById('saved-store-filter');
+      const dateFilterEl = document.getElementById('saved-date-filter');
+
+      if (!leaderboardEl || !batchesEl) return;
+
+      // Populate filters while preserving selection
+      const prevStore = storeFilterEl ? storeFilterEl.value : 'ALL';
+      const prevDate = dateFilterEl ? dateFilterEl.value : 'ALL';
+      const uniqueStores = [...new Set(savedStoreBatches.map(b => b.store))].sort();
+      const uniqueDates = [...new Set(savedStoreBatches.map(b => b.date))].sort().reverse();
+
+      if (storeFilterEl) {
+        storeFilterEl.innerHTML = `<option value="ALL">All Stores (${uniqueStores.length})</option>` +
+          uniqueStores.map(st => `<option value="${st}">${st}</option>`).join('');
+        if ([...storeFilterEl.options].some(o => o.value === prevStore)) storeFilterEl.value = prevStore;
+      }
+      if (dateFilterEl) {
+        dateFilterEl.innerHTML = `<option value="ALL">All Dates (${uniqueDates.length})</option>` +
+          uniqueDates.map(dt => `<option value="${dt}">${formatDisplayDate(dt)}</option>`).join('');
+        if ([...dateFilterEl.options].some(o => o.value === prevDate)) dateFilterEl.value = prevDate;
+      }
+
+      if (savedStoreBatches.length === 0) {
+        countEl.textContent = '0 stores';
+        leaderboardEl.innerHTML = `<div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800 text-center text-xs text-slate-400">No store batches saved yet. Scan or paste tickets above, pick the date & store, and tap <b>Save Batch to Store Log</b>.</div>`;
+        batchesEl.innerHTML = `<div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800 text-center text-xs text-slate-400">Saved day-wise batches will appear here with automatic prize win & pattern tracking.</div>`;
+        return;
+      }
+
+      // Compute Store Leaderboard stats across all saved batches
+      const storeMap = new Map();
+      savedStoreBatches.forEach(batch => {
+        const key = batch.store.trim();
+        if (!storeMap.has(key)) {
+          storeMap.set(key, {
+            store: key,
+            batchesCount: 0,
+            totalTickets: 0,
+            winningHits: 0,
+            patternHits: 0,
+            winDetails: []
+          });
+        }
+        const stat = storeMap.get(key);
+        stat.batchesCount++;
+
+        (batch.tickets || []).forEach(t => {
+          stat.totalTickets++;
+          const evalRes = evaluateSavedTicketAgainstDraws(t, batch.date, batch.time);
+          if (evalRes.sameDateWins.length > 0) {
+            stat.winningHits += evalRes.sameDateWins.length;
+            evalRes.sameDateWins.forEach(w => {
+              stat.winDetails.push(`${t.fullLabel} → ${w.prize} (${formatDisplayDate(w.date)})`);
+            });
+          }
+          if (evalRes.pastPatternHits.length > 0) {
+            stat.patternHits++;
+          }
+        });
+      });
+
+      const rankedStores = [...storeMap.values()].sort((a, b) => {
+        if (b.winningHits !== a.winningHits) return b.winningHits - a.winningHits;
+        if (b.patternHits !== a.patternHits) return b.patternHits - a.patternHits;
+        return b.totalTickets - a.totalTickets;
+      });
+
+      countEl.textContent = `${rankedStores.length} store${rankedStores.length === 1 ? '' : 's'}`;
+      leaderboardEl.innerHTML = rankedStores.map((st, idx) => {
+        const hitRate = st.totalTickets > 0
+          ? Math.round(((st.winningHits + st.patternHits) / st.totalTickets) * 100)
+          : 0;
+        const winRate = st.totalTickets > 0
+          ? Math.round((st.winningHits / st.totalTickets) * 100)
+          : 0;
+
+        const rankBadge = idx === 0
+          ? `<span class="w-6 h-6 rounded-lg bg-amber-400/25 border border-amber-400/60 text-amber-300 font-extrabold text-xs flex items-center justify-center">#1</span>`
+          : `<span class="w-6 h-6 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 font-bold text-xs flex items-center justify-center">#${idx + 1}</span>`;
+
+        const recentWinBanner = st.winDetails.length > 0
+          ? `<div class="mt-2 px-2.5 py-1.5 rounded-lg bg-emerald-500/15 border border-emerald-500/35 text-[11px] text-emerald-200 font-medium">
+               🏆 Won: ${st.winDetails.slice(0, 3).join(' • ')}${st.winDetails.length > 3 ? ` (+${st.winDetails.length - 3} more)` : ''}
+             </div>`
+          : '';
+
+        return `
+          <div class="p-3.5 rounded-xl bg-slate-900/90 border ${st.winningHits > 0 ? 'border-emerald-500/50' : 'border-slate-800'} space-y-2">
+            <div class="flex items-center justify-between gap-2">
+              <div class="flex items-center gap-2.5 min-w-0">
+                ${rankBadge}
+                <div class="min-w-0">
+                  <p class="font-bold text-sm text-white truncate">${st.store}</p>
+                  <p class="text-[10px] text-slate-400">${st.batchesCount} saved batch${st.batchesCount === 1 ? '' : 'es'} • ${st.totalTickets} ticket${st.totalTickets === 1 ? '' : 's'} bought</p>
+                </div>
+              </div>
+              <div class="text-right shrink-0">
+                <span class="text-xs font-extrabold ${st.winningHits > 0 ? 'text-emerald-400' : 'text-sky-300'}">${winRate}% Win</span>
+                <p class="text-[10px] text-slate-400">${hitRate}% Total Match</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-2 pt-1 text-center">
+              <div class="p-1.5 rounded-lg bg-slate-950/80 border border-slate-800">
+                <p class="text-[9px] uppercase text-slate-400">Tickets</p>
+                <p class="font-mono font-bold text-xs text-white mt-0.5">${st.totalTickets}</p>
+              </div>
+              <div class="p-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30">
+                <p class="text-[9px] uppercase text-emerald-300">Prize Wins</p>
+                <p class="font-mono font-extrabold text-xs text-emerald-300 mt-0.5">${st.winningHits}</p>
+              </div>
+              <div class="p-1.5 rounded-lg bg-amber-500/10 border border-amber-500/30">
+                <p class="text-[9px] uppercase text-amber-300">Pattern Hits</p>
+                <p class="font-mono font-bold text-xs text-amber-300 mt-0.5">${st.patternHits}</p>
+              </div>
+            </div>
+            ${recentWinBanner}
+          </div>
+        `;
+      }).join('');
+
+      // Render Filtered Day-Wise Saved Batches
+      const selectedStore = storeFilterEl ? storeFilterEl.value : 'ALL';
+      const selectedDate = dateFilterEl ? dateFilterEl.value : 'ALL';
+
+      const filteredBatches = savedStoreBatches
+        .filter(b => selectedStore === 'ALL' || b.store === selectedStore)
+        .filter(b => selectedDate === 'ALL' || b.date === selectedDate);
+
+      if (filteredBatches.length === 0) {
+        batchesEl.innerHTML = `<div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800 text-center text-xs text-slate-400">No saved batches match the selected store/date filter.</div>`;
+        return;
+      }
+
+      batchesEl.innerHTML = filteredBatches.map(batch => {
+        let batchWinCount = 0;
+        let batchPatternCount = 0;
+
+        const ticketBadgesHtml = (batch.tickets || []).map(t => {
+          const ev = evaluateSavedTicketAgainstDraws(t, batch.date, batch.time);
+          if (ev.sameDateWins.length > 0) {
+            batchWinCount++;
+            const w = ev.sameDateWins[0];
+            return `
+              <button type="button" onclick="jumpToDraw('${w.drawId}', '${w.matchedNum4}', '${w.date}')" class="text-left p-2 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-400/70 transition space-y-0.5">
+                <div class="flex items-center justify-between gap-1">
+                  <span class="num-chip font-extrabold text-xs text-white">${t.fullLabel}</span>
+                  <span class="text-[9px] font-extrabold px-1.5 py-0.5 rounded bg-emerald-400 text-slate-950">WIN</span>
+                </div>
+                <p class="text-[10px] font-bold text-emerald-200 truncate">🏆 ${w.prize}</p>
+              </button>
+            `;
+          }
+
+          if (ev.pastPatternHits.length > 0) {
+            batchPatternCount++;
+            const p = ev.pastPatternHits[0];
+            const isRep = p.type === 'REPEAT';
+            return `
+              <button type="button" onclick="jumpToDraw('${p.drawId}', '${p.matchedNum4}', '${p.date}')" class="text-left p-2 rounded-xl ${isRep ? 'bg-amber-500/15 hover:bg-amber-500/25 border-amber-400/50' : 'bg-sky-500/15 hover:bg-sky-500/25 border-sky-400/50'} border transition space-y-0.5">
+                <div class="flex items-center justify-between gap-1">
+                  <span class="num-chip font-bold text-xs text-white">${t.fullLabel}</span>
+                  <span class="text-[9px] font-bold px-1 py-0.5 rounded ${isRep ? 'bg-amber-500/30 text-amber-200' : 'bg-sky-500/30 text-sky-200'}">${isRep ? 'REPEAT' : 'NEARBY'}</span>
+                </div>
+                <p class="text-[10px] ${isRep ? 'text-amber-200' : 'text-sky-200'} truncate">${p.label}</p>
+              </button>
+            `;
+          }
+
+          return `
+            <div class="p-2 rounded-xl bg-slate-950/80 border border-slate-800 space-y-0.5">
+              <div class="flex items-center justify-between gap-1">
+                <span class="num-chip font-semibold text-xs text-slate-200">${t.fullLabel}</span>
+                <span class="text-[9px] text-slate-500">Saved</span>
+              </div>
+              <p class="text-[10px] text-slate-500">Awaiting draw / clean</p>
+            </div>
+          `;
+        }).join('');
+
+        return `
+          <div class="p-3.5 rounded-xl bg-slate-900/90 border ${batchWinCount > 0 ? 'border-emerald-500/60' : 'border-slate-800'} space-y-3">
+            <div class="flex items-start justify-between gap-2 border-b border-slate-800 pb-2.5">
+              <div>
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-bold text-xs text-white">${formatDisplayDate(batch.date)}</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300">${getDayName(batch.date).slice(0, 3)} • ${batch.time}</span>
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">${batch.store}</span>
+                </div>
+                <p class="text-[10px] text-slate-400 mt-1">
+                  ${batch.tickets.length} ticket${batch.tickets.length === 1 ? '' : 's'}
+                  ${batchWinCount > 0 ? ` • <span class="text-emerald-400 font-bold">${batchWinCount} Prize Win(s)</span>` : ''}
+                  ${batchPatternCount > 0 ? ` • <span class="text-amber-300 font-semibold">${batchPatternCount} Pattern Hit(s)</span>` : ''}
+                </p>
+              </div>
+              <button type="button" onclick="deleteStoreBatch('${batch.id}')" class="shrink-0 text-[11px] text-rose-400 hover:text-rose-300 px-2 py-1 rounded bg-rose-500/10">Delete</button>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              ${ticketBadgesHtml}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function saveNewDraw(e) {
+      e.preventDefault();
+      const date = document.getElementById('inp-date').value;
+      const time = document.getElementById('inp-time').value;
+      const name = document.getElementById('inp-name').value.trim();
+      const first = document.getElementById('inp-p1').value.trim().toUpperCase();
+      const second = tokenizeNums(document.getElementById('inp-p2').value, 5);
+      const third = tokenizeNums(document.getElementById('inp-p3').value, 4);
+      const fourth = tokenizeNums(document.getElementById('inp-p4').value, 4);
+      const fifth = tokenizeNums(document.getElementById('inp-p5').value, 4);
+
+      if (!date || !first) {
+        showToast('Please enter Draw Date and 1st Prize');
+        return;
+      }
+
+      const id = `draw-${date}-${time.replace(/[^0-9]/g, '')}-${Date.now()}`;
+      draws.push({ id, date, time, name, first, second, third, fourth, fifth });
+      saveDrawsToStorage();
+
+      // Check if any saved store tickets won in this newly added draw
+      let newStoreWins = 0;
+      savedStoreBatches.forEach(batch => {
+        if (batch.date === date && (batch.time === 'All Day' || batch.time === time)) {
+          (batch.tickets || []).forEach(t => {
+            const ev = evaluateSavedTicketAgainstDraws(t, batch.date, batch.time);
+            if (ev.sameDateWins.length > 0) newStoreWins++;
+          });
+        }
+      });
+
+      document.getElementById('draw-form').reset();
+      document.getElementById('smart-paste-box').value = '';
+      setDefaultFormDate();
+      updateLiveCounts();
+      renderStoreAnalyticsAndBatches();
+      switchTab('draws');
+      showToast(newStoreWins > 0 ? `Draw saved! 🏆 ${newStoreWins} saved store ticket(s) hit!` : 'Draw saved & analyzed!');
+    }
+
+    function deleteDraw(id) {
+      openConfirmModal('Delete Draw?', 'Remove this saved lottery draw from your local history?', () => {
+        draws = draws.filter(d => d.id !== id);
+        saveDrawsToStorage();
+        renderDraws();
+        renderPatterns();
+        renderStoreAnalyticsAndBatches();
+        showToast('Draw deleted');
+      });
+    }
+
+    // ==================== TAB 5: INSTANT SEARCH & FULL BACKUP ====================
+    function runTicketLookup() {
+      const rawQuery = (document.getElementById('lookup-input').value || '').trim().toUpperCase();
+      const box = document.getElementById('lookup-results');
+      if (rawQuery.length < 3) {
+        box.innerHTML = `<p class="text-slate-400">Type a 4-digit ending, 5-digit number, series prefix, or store name (e.g. <b>90A</b>, <b>66276</b>, or <b>Khokan</b>) above to search.</p>`;
+        return;
+      }
+
+      const digitsOnly = rawQuery.replace(/\D/g, '');
+      const hasLetters = /[A-Z]/.test(rawQuery);
+      const drawMatches = [];
+      const storeBatchMatches = [];
+
+      // 1. Search Saved Draws
+      draws.forEach(d => {
+        getAllNumbersFromDraw(d).forEach(item => {
+          const itemRawUpper = String(item.raw || '').toUpperCase();
+          if (hasLetters) {
+            if (itemRawUpper.includes(rawQuery)) {
+              drawMatches.push({ type: 'EXACT', draw: d, item, diff: 0 });
+            }
+          } else if (digitsOnly.length >= 4) {
+            const q4 = digitsOnly.slice(-4);
+            const qVal = parseInt(q4, 10);
+            const val = parseInt(item.num4, 10);
+            const diff = val - qVal;
+            if (item.num4 === q4 || itemRawUpper.includes(digitsOnly)) {
+              drawMatches.push({ type: 'EXACT', draw: d, item, diff: 0 });
+            } else if ([-1, 1, -2, 2, -10, 10].includes(diff)) {
+              drawMatches.push({ type: 'NEARBY', draw: d, item, diff });
+            }
+          }
+        });
+      });
+
+      // 2. Search Saved Store Ticket Batches
+      savedStoreBatches.forEach(batch => {
+        const storeUpper = String(batch.store || '').toUpperCase();
+        (batch.tickets || []).forEach(t => {
+          const labelUpper = String(t.fullLabel || '').toUpperCase();
+          if (storeUpper.includes(rawQuery) || labelUpper.includes(rawQuery) || (digitsOnly.length >= 4 && t.num4 === digitsOnly.slice(-4))) {
+            const ev = evaluateSavedTicketAgainstDraws(t, batch.date, batch.time);
+            storeBatchMatches.push({ batch, ticket: t, evalRes: ev });
+          }
+        });
+      });
+
+      if (drawMatches.length === 0 && storeBatchMatches.length === 0) {
+        box.innerHTML = `<p class="text-slate-400">No matches found for <b>${rawQuery}</b> in ${draws.length} draw(s) or ${savedStoreBatches.length} saved store batch(es).</p>`;
+        return;
+      }
+
+      const storeHtml = storeBatchMatches.map(({ batch, ticket, evalRes }) => {
+        const winText = evalRes.sameDateWins.length > 0
+          ? `<span class="text-emerald-300 font-bold">🏆 Won ${evalRes.sameDateWins[0].prize}</span>`
+          : evalRes.pastPatternHits.length > 0
+            ? `<span class="text-amber-300 font-semibold">★ ${evalRes.pastPatternHits[0].label}</span>`
+            : `<span class="text-slate-400">Saved in Store Log</span>`;
+
+        return `
+          <button type="button" onclick="switchTab('table')" class="w-full text-left p-2.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/35 transition">
+            <div class="flex justify-between font-bold">
+              <span class="text-emerald-300">🎟 STORE TICKET: ${ticket.fullLabel}</span>
+              <span class="text-slate-200">${batch.store}</span>
+            </div>
+            <p class="text-[11px] text-slate-300 mt-0.5">${formatDisplayDate(batch.date)} (${batch.time}) • ${winText}</p>
+          </button>
+        `;
+      }).join('');
+
+      const drawsHtml = drawMatches.map(m => `
+        <button type="button" onclick="jumpToDraw('${m.draw.id}', '${m.item.num4}', '${m.draw.date}')" class="w-full text-left p-2.5 rounded-xl transition ${m.type === 'EXACT' ? 'bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/40' : 'bg-sky-500/15 hover:bg-sky-500/25 border border-sky-500/40'}">
+          <div class="flex justify-between font-bold">
+            <span class="${m.type === 'EXACT' ? 'text-amber-300' : 'text-sky-300'}">${m.type === 'EXACT' ? '★ DRAW MATCH' : `≈ NEARBY (${m.diff > 0 ? '+' + m.diff : m.diff})`}: ${m.item.raw}</span>
+            <span class="text-slate-300">${m.item.prize}</span>
+          </div>
+          <p class="text-[11px] text-slate-400 mt-0.5">${formatDisplayDate(m.draw.date)} (${getDayName(m.draw.date)}) • ${m.draw.time} • Tap to view →</p>
+        </button>
+      `).join('');
+
+      box.innerHTML = storeHtml + drawsHtml;
+    }
+
+    function exportBackupJSON() {
+      const payload = {
+        version: 'v2.8',
+        exportedAt: new Date().toISOString(),
+        draws,
+        currentTableTickets: savedTableTickets,
+        savedStoreBatches
+      };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `dear_lottery_full_backup_${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('Full JSON backup exported');
+    }
+
+    function importBackupJSON(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        try {
+          const imported = JSON.parse(ev.target.result);
+          const importedDraws = Array.isArray(imported) ? imported : (Array.isArray(imported.draws) ? imported.draws : []);
+          const importedBatches = Array.isArray(imported.savedStoreBatches) ? imported.savedStoreBatches : [];
+          const importedTable = Array.isArray(imported.currentTableTickets) ? imported.currentTableTickets : [];
+
+          if (importedDraws.length > 0) {
+            const existingIds = new Set(draws.map(d => d.id));
+            importedDraws.forEach(item => {
+              const norm = normalizeDrawSchema(item);
+              if (norm.date && norm.first && !existingIds.has(norm.id)) {
+                draws.push(norm);
+                existingIds.add(norm.id);
+              }
+            });
+            saveDrawsToStorage();
+          }
+
+          if (importedBatches.length > 0) {
+            const existingBatchIds = new Set(savedStoreBatches.map(b => b.id));
+            importedBatches.forEach(b => {
+              if (b && b.id && !existingBatchIds.has(b.id)) {
+                savedStoreBatches.push(b);
+                existingBatchIds.add(b.id);
+              }
+            });
+            saveStoreBatchesToStorage();
+          }
+
+          if (importedTable.length > 0 && savedTableTickets.length === 0) {
+            savedTableTickets = importedTable;
+            saveTicketTableToStorage();
+          }
+
+          renderDraws();
+          renderPatterns();
+          renderTicketTableResults();
+          renderStoreAnalyticsAndBatches();
+          showToast(`Backup restored (${draws.length} draws, ${savedStoreBatches.length} store batches)!`);
+        } catch (err) {
+          showToast('Invalid JSON backup file');
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function resetToDefaultDraw() {
+      openConfirmModal('Reset Draws to Default?', 'Reset saved draws back to the original 13/11/2026 1:00 PM draw? (Your saved store ticket batches will be kept.)', () => {
+        draws = [normalizeDrawSchema(DEFAULT_DRAW)];
+        saveDrawsToStorage();
+        renderDraws();
+        renderPatterns();
+        renderTicketTableResults();
+        renderStoreAnalyticsAndBatches();
+        showToast('Draws reset to original draw');
+      });
+    }
+
+
+
+    // ==================== MASTER CSV IMPORTER ====================
+    let stagedMasterCsvDraws = [];
+    let stagedMasterCsvStats = null;
+
+    function parseCsvRows(text) {
+      const input = String(text || '').replace(/^\uFEFF/, '');
+      const rows = [];
+      let row = [], field = '', quoted = false;
+      for (let i = 0; i < input.length; i++) {
+        const ch = input[i];
+        if (quoted) {
+          if (ch === '"' && input[i + 1] === '"') { field += '"'; i++; }
+          else if (ch === '"') quoted = false;
+          else field += ch;
+        } else {
+          if (ch === '"') quoted = true;
+          else if (ch === ',') { row.push(field); field = ''; }
+          else if (ch === '\n') { row.push(field); rows.push(row); row = []; field = ''; }
+          else if (ch !== '\r') field += ch;
+        }
+      }
+      if (field.length || row.length) { row.push(field); rows.push(row); }
+      if (!rows.length) return [];
+      const headers = rows.shift().map(h => h.trim());
+      return rows.filter(r => r.some(v => String(v || '').trim() !== '')).map(r => {
+        const obj = {};
+        headers.forEach((h, i) => obj[h] = String(r[i] ?? '').trim());
+        return obj;
+      });
+    }
+
+    function clearMasterCsvPreview() {
+      stagedMasterCsvDraws = [];
+      stagedMasterCsvStats = null;
+      const input = document.getElementById('master-csv-file');
+      const status = document.getElementById('master-csv-status');
+      const btn = document.getElementById('master-csv-import-btn');
+      if (input) input.value = '';
+      if (status) { status.textContent = ''; status.classList.add('hidden'); }
+      if (btn) btn.disabled = true;
+    }
+
+    function previewMasterCsv(event) {
+      const file = event.target.files && event.target.files[0];
+      const status = document.getElementById('master-csv-status');
+      const btn = document.getElementById('master-csv-import-btn');
+      stagedMasterCsvDraws = [];
+      stagedMasterCsvStats = null;
+      if (btn) btn.disabled = true;
+      if (!file) return;
+      if (file.size > 50 * 1024 * 1024) {
+        status.textContent = 'File is larger than 50 MB. Please use the cleaned master CSV.';
+        status.classList.remove('hidden'); return;
+      }
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const rows = parseCsvRows(reader.result);
+          const required = ['date','draw','prize_tier','position','winning_number','source_pdf'];
+          if (!rows.length || required.some(k => !(k in rows[0]))) {
+            throw new Error('CSV headers do not match the expected master dataset.');
+          }
+          const grouped = new Map();
+          const seen = new Set();
+          let ignoredOtherDraws = 0, duplicateRows = 0;
+          for (const r of rows) {
+            const draw = String(r.draw || '').toUpperCase();
+            if (draw !== '1PM' && draw !== '8PM') { ignoredOtherDraws++; continue; }
+            const key = `${r.date}|${draw}|${r.prize_tier}|${r.position}`;
+            if (seen.has(key)) { duplicateRows++; continue; }
+            seen.add(key);
+            const gkey = `${r.date}|${draw}`;
+            if (!grouped.has(gkey)) grouped.set(gkey, []);
+            grouped.get(gkey).push(r);
+          }
+          const expected = {'1st':1,'Consolation':1,'2nd':10,'3rd':10,'4th':10,'5th':100};
+          const widths = {'Consolation':5,'2nd':5,'3rd':4,'4th':4,'5th':4};
+          const valid = [], problems = [];
+          for (const [key, items] of grouped) {
+            const [date, draw] = key.split('|');
+            const byTier = {};
+            const errors = [];
+            if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || Number.isNaN(Date.parse(date))) errors.push('invalid date');
+            for (const tier of Object.keys(expected)) {
+              const arr = items.filter(x => x.prize_tier === tier)
+                .sort((a,b) => Number(a.position) - Number(b.position));
+              byTier[tier] = arr;
+              if (arr.length !== expected[tier]) errors.push(`${tier}: ${arr.length}/${expected[tier]}`);
+              if (arr.some((x,i) => Number(x.position) !== i + 1)) errors.push(`${tier}: positions not sequential`);
+              if (tier === '1st') {
+                if (arr.length === 1 && !/^\d{2}[A-Z]\s\d{5}$/.test(arr[0].winning_number)) errors.push('invalid 1st prize format');
+              } else if (arr.some(x => !new RegExp(`^\\d{${widths[tier]}}$`).test(x.winning_number))) {
+                errors.push(`${tier}: invalid digit length`);
+              }
+            }
+            const first = byTier['1st'][0]?.winning_number || '';
+            const consolation = byTier['Consolation'][0]?.winning_number || '';
+            if (first && consolation && first.replace(/\D/g,'').slice(-5) !== consolation) {
+              errors.push('consolation does not match first-prize last five digits');
+            }
+            if (errors.length) { problems.push(`${date} ${draw}: ${errors.join(', ')}`); continue; }
+            const sourcePdf = items.find(x => x.source_pdf)?.source_pdf || '';
+            const verification = items.find(x => x.verification_status)?.verification_status || 'Imported from master CSV; source verification pending';
+            valid.push({
+              id: `master_${date}_${draw}`, isSample: false, date,
+              time: draw === '1PM' ? '1:00 PM' : '8:00 PM',
+              name: `Nagaland Historical Result • ${draw === '1PM' ? '1 PM' : '8 PM'}`,
+              first, second: byTier['2nd'].map(x => x.winning_number),
+              third: byTier['3rd'].map(x => x.winning_number),
+              fourth: byTier['4th'].map(x => x.winning_number),
+              fifth: byTier['5th'].map(x => x.winning_number),
+              sourcePdf, sourceVerification: verification
+            });
+          }
+          const existingKeys = new Set(draws.map(d => `${d.date}|${d.time}`));
+          const newCount = valid.filter(d => !existingKeys.has(`${d.date}|${d.time}`)).length;
+          stagedMasterCsvDraws = valid;
+          stagedMasterCsvStats = { rows: rows.length, valid: valid.length, newCount,
+            duplicates: duplicateRows, ignoredOtherDraws, invalid: problems.length, problems };
+          status.textContent =
+            `File: ${file.name}\nRows read: ${rows.length.toLocaleString()}\n` +
+            `Complete valid draws: ${valid.length.toLocaleString()}\nNew draws to add: ${newCount.toLocaleString()}\n` +
+            `Already in app: ${(valid.length-newCount).toLocaleString()}\nInvalid/incomplete groups: ${problems.length}\n` +
+            `Duplicate CSV rows ignored: ${duplicateRows}\nOther draw times ignored: ${ignoredOtherDraws}` +
+            (problems.length ? `\n\nFirst issues:\n${problems.slice(0,8).join('\n')}` : '');
+          status.classList.remove('hidden');
+          if (btn) btn.disabled = newCount === 0;
+        } catch (err) {
+          status.textContent = `Could not read this CSV: ${err.message || err}`;
+          status.classList.remove('hidden');
+        }
+      };
+      reader.onerror = () => {
+        status.textContent = 'Could not read the selected file.';
+        status.classList.remove('hidden');
+      };
+      reader.readAsText(file);
+    }
+
+    function importMasterCsvNow() {
+      if (!stagedMasterCsvStats || !stagedMasterCsvDraws.length) {
+        showToast('Choose and validate a master CSV first'); return;
+      }
+      const existingKeys = new Set(draws.map(d => `${d.date}|${d.time}`));
+      const toAdd = stagedMasterCsvDraws.filter(d => !existingKeys.has(`${d.date}|${d.time}`));
+      if (!toAdd.length) { showToast('No new draws to import'); return; }
+      const before = draws.length;
+      toAdd.forEach(d => {
+        if (!draws.some(x => x.date === d.date && x.time === d.time)) draws.push(normalizeDrawSchema(d));
+      });
+      saveDrawsToStorage();
+      renderDraws();
+      renderPatterns();
+      renderTicketTableResults();
+      renderStoreAnalyticsAndBatches();
+      const added = draws.length - before;
+      showToast(`Imported ${added} historical draws. Existing draws were kept.`);
+      const status = document.getElementById('master-csv-status');
+      if (status) status.textContent += `\n\nImport complete: ${added} draws added.`;
+      const btn = document.getElementById('master-csv-import-btn');
+      if (btn) btn.disabled = true;
+    }
+
+    // ==================== HISTORICAL ARCHIVE IMPORTER ====================
+    // The yearly archive is a first-prize index. Do not fabricate lower prize tiers.
+    const ARCHIVE_MONTHS = {
+      january:1, february:2, march:3, april:4, may:5, june:6,
+      july:7, august:8, september:9, october:10, november:11, december:12
+    };
+
+    function archiveStatus(message, isError = false) {
+      const el = document.getElementById('archive-import-status');
+      if (!el) return;
+      el.textContent = message;
+      el.classList.remove('hidden');
+      el.classList.toggle('text-rose-300', isError);
+      el.classList.toggle('text-slate-300', !isError);
+    }
+
+    function parseLotteryArchiveText(text, year) {
+      const imported = [];
+      const lines = String(text || '').split(/\r?\n/);
+      for (const rawLine of lines) {
+        const line = rawLine.trim();
+        if (!line.includes('|')) continue;
+
+        // Jina Reader renders the archive as Markdown tables. Trim outer pipes
+        // before splitting so the columns are [date, 1 PM, 6 PM, 8 PM].
+        const cells = line.replace(/^\|/, '').replace(/\|$/, '').split('|').map(s => s.trim());
+        if (cells.length < 4) continue;
+
+        const dateCell = cells[0].replace(/[*_`]/g, ' ').replace(/\s+/g, ' ').trim();
+        const dateMatch = dateCell.match(/\b(\d{1,2})\s+(January|February|March|April|May|June|July|August|September|October|November|December)\b/i);
+        if (!dateMatch) continue;
+
+        const day = Number(dateMatch[1]);
+        const month = ARCHIVE_MONTHS[dateMatch[2].toLowerCase()];
+        if (!month || day < 1 || day > 31) continue;
+
+        const isoDate = `${year}-${String(month).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+        const extractTicket = cell => {
+          const cleaned = String(cell || '')
+            .replace(/\[[^\]]*\]\((?:[^()]|\([^()]*\))*\)/g, match => {
+              const label = match.match(/^\[([^\]]+)\]/);
+              return label ? label[1] : '';
+            })
+            .replace(/<[^>]*>/g, ' ')
+            .replace(/[^0-9A-Z]/gi, '')
+            .toUpperCase();
+          const match = cleaned.match(/(\d{2}[A-Z]\d{5})/);
+          return match ? match[1] : '';
+        };
+
+        const first1 = extractTicket(cells[1]);
+        const first8 = extractTicket(cells[3]);
+        const valid = value => /^(\d{2}[A-Z])(\d{5})$/.exec(value);
+
+        const m1 = valid(first1);
+        const m8 = valid(first8);
+
+        if (m1) imported.push({
+          id: `archive-${isoDate}-1pm`, date: isoDate, time: '1:00 PM',
+          name: 'Lottery Sambad archive • 1st prize only',
+          first: `${m1[1]} ${m1[2]}`, second:[], third:[], fourth:[], fifth:[],
+          archiveSource: `https://lottery.sambad.com/old/${year}/`
+        });
+        if (m8) imported.push({
+          id: `archive-${isoDate}-8pm`, date: isoDate, time: '8:00 PM',
+          name: 'Lottery Sambad archive • 1st prize only',
+          first: `${m8[1]} ${m8[2]}`, second:[], third:[], fourth:[], fifth:[],
+          archiveSource: `https://lottery.sambad.com/old/${year}/`
+        });
+      }
+      return imported;
+    }
+
+    async function importLotteryArchive() {
+      const fromYear = Number(document.getElementById('archive-from-year')?.value);
+      const toYear = Number(document.getElementById('archive-to-year')?.value);
+      const button = document.getElementById('archive-import-btn');
+      if (!fromYear || !toYear || fromYear > toYear || toYear - fromYear > 5) {
+        archiveStatus('Choose a valid year range (maximum 6 calendar years per run).', true);
+        return;
+      }
+      if (typeof fetch !== 'function') {
+        archiveStatus('This browser does not support the archive importer.', true);
+        return;
+      }
+      button.disabled = true;
+      button.textContent = 'Fetching archive…';
+      let added = 0, duplicates = 0, yearsOk = 0;
+      const failures = [];
+      try {
+        for (let year = fromYear; year <= toYear; year++) {
+          archiveStatus(`Fetching ${year} archive…\nImported so far: ${added}`);
+          const archiveUrl = `https://lottery.sambad.com/old/${year}/`;
+          // Jina Reader acts as a text proxy so a locally opened HTML file can request the archive.
+          const proxyUrl = `https://r.jina.ai/http://lottery.sambad.com/old/${year}/`;
+          try {
+            const response = await fetch(proxyUrl, { method:'GET', headers:{ 'Accept':'text/plain' } });
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const body = await response.text();
+            const parsed = parseLotteryArchiveText(body, year);
+            if (!parsed.length) throw new Error('No recognizable date/result rows found in the archive table');
+            yearsOk++;
+            for (const item of parsed) {
+              const exists = draws.some(d => d.date === item.date && d.time === item.time);
+              if (exists) { duplicates++; continue; }
+              draws.push(normalizeDrawSchema(item));
+              added++;
+            }
+          } catch (err) {
+            failures.push(`${year}: ${err.message || 'Fetch/parse failed'}`);
+          }
+        }
+        if (added > 0) {
+          draws.sort((a,b) => (a.date + (a.time === '1:00 PM' ? '1' : a.time === '6:00 PM' ? '2' : '3')).localeCompare(b.date + (b.time === '1:00 PM' ? '1' : b.time === '6:00 PM' ? '2' : '3')));
+          saveDrawsToStorage();
+          renderDraws();
+          renderPatterns();
+          renderTicketTableResults();
+          renderStoreAnalyticsAndBatches();
+        }
+        let report = `Completed.\nYears read: ${yearsOk}\nNew 1 PM/8 PM records: ${added}\nSkipped existing date/time records: ${duplicates}\n`;
+        if (failures.length) report += `\nCould not import:\n${failures.join('\n')}`;
+        if (!added && !yearsOk) report += '\nThe browser or proxy blocked access. Try opening this app in Chrome with an internet connection.';
+        report += '\n\nImported records contain first prize only; lower prize tiers were not supplied by the yearly index.';
+        archiveStatus(report, failures.length > 0 && added === 0);
+        showToast(`Archive import: ${added} added, ${duplicates} already existed`);
+      } finally {
+        button.disabled = false;
+        button.textContent = 'Import 1 PM + 8 PM Archive';
+      }
+    }
+
+    const APP_TAB_ORDER = ['draws', 'patterns', 'scan', 'table', 'data', 'import'];
+
+    function switchTab(tabName) {
+      ['draws', 'patterns', 'scan', 'table', 'data', 'import'].forEach(t => {
+        const panel = document.getElementById(`tab-${t}`);
+        const navBtn = document.getElementById(`nav-${t}`);
+        if (panel) panel.classList.add('hidden');
+        if (navBtn) navBtn.className = 'nav-btn flex flex-col items-center gap-1 text-slate-400';
+      });
+      const activePanel = document.getElementById(`tab-${tabName}`);
+      const activeNav = document.getElementById(`nav-${tabName}`);
+      if (activePanel) {
+        activePanel.classList.remove('hidden');
+        activePanel.classList.remove('tab-swipe-enter');
+        activePanel.style.setProperty('--tab-enter-x', window.__tabSwipeDirection === 'left' ? '14px' : '-14px');
+        void activePanel.offsetWidth;
+        activePanel.classList.add('tab-swipe-enter');
+      }
+      if (activeNav) activeNav.className = 'nav-btn flex flex-col items-center gap-1 text-emerald-400';
+
+      if (tabName === 'draws') renderDraws();
+      if (tabName === 'patterns') renderPatterns();
+      if (tabName === 'table') {
+        if (savedTableTickets.length > 0 && !document.getElementById('table-tickets-input').value.trim()) {
+          document.getElementById('table-tickets-input').value = savedTableTickets.map(t => t.fullLabel).join(', ');
+        }
+        renderTicketTableResults();
+        renderStoreAnalyticsAndBatches();
+      }
+    }
+
+    // Feather-touch infinite tab navigation.
+    (function enableInfiniteTabSwipe() {
+      let startX = 0, startY = 0, startTime = 0;
+      let tracking = false, horizontalIntent = false;
+      const ignored = 'input, textarea, select, button, a, label, [contenteditable="true"], .overflow-x-auto, [data-no-tab-swipe]';
+      const getActiveIndex = () => APP_TAB_ORDER.findIndex(tab => {
+        const panel = document.getElementById(`tab-${tab}`);
+        return panel && !panel.classList.contains('hidden');
+      });
+
+      document.addEventListener('touchstart', event => {
+        if (!event.touches || event.touches.length !== 1 ||
+            (event.target && event.target.closest && event.target.closest(ignored))) {
+          tracking = false; horizontalIntent = false; return;
+        }
+        const touch = event.touches[0];
+        startX = touch.clientX;
+        startY = touch.clientY;
+        startTime = performance.now();
+        tracking = true;
+        horizontalIntent = false;
+      }, { passive: true });
+
+      document.addEventListener('touchmove', event => {
+        if (!tracking || !event.touches || event.touches.length !== 1) return;
+        const dx = event.touches[0].clientX - startX;
+        const dy = event.touches[0].clientY - startY;
+        if (!horizontalIntent && Math.abs(dx) > 9 && Math.abs(dx) > Math.abs(dy) * 1.15) {
+          horizontalIntent = true;
+        }
+        // Do not preventDefault: native vertical scrolling and momentum remain smooth.
+      }, { passive: true });
+
+      document.addEventListener('touchend', event => {
+        if (!tracking || !event.changedTouches || !event.changedTouches.length) return;
+        tracking = false;
+        const touch = event.changedTouches[0];
+        const dx = touch.clientX - startX;
+        const dy = touch.clientY - startY;
+        const elapsed = Math.max(1, performance.now() - startTime);
+        const absX = Math.abs(dx), absY = Math.abs(dy);
+        const velocityX = absX / elapsed;
+
+        // Accept a deliberate short flick or a slower, longer horizontal drag.
+        const intentionalFlick = absX >= 32 && velocityX >= 0.38 && absX > absY * 1.12;
+        const deliberateDrag = absX >= 52 && absX > absY * 1.3;
+        if ((!horizontalIntent && !intentionalFlick) || (!intentionalFlick && !deliberateDrag)) return;
+
+        const activeIndex = getActiveIndex();
+        if (activeIndex < 0) return;
+        const direction = dx < 0 ? 1 : -1;
+        window.__tabSwipeDirection = direction > 0 ? 'left' : 'right';
+        const nextIndex = (activeIndex + direction + APP_TAB_ORDER.length) % APP_TAB_ORDER.length;
+        switchTab(APP_TAB_ORDER[nextIndex]);
+      }, { passive: true });
+
+      document.addEventListener('touchcancel', () => {
+        tracking = false; horizontalIntent = false;
+      }, { passive: true });
+    })();
+
+    function setDefaultFormDate() {
+      const todayIso = new Date().toISOString().slice(0, 10);
+      const inp = document.getElementById('inp-date');
+      if (inp && !inp.value) inp.value = todayIso;
+      const batchInp = document.getElementById('batch-date');
+      if (batchInp && !batchInp.value) batchInp.value = todayIso;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        draws = loadDraws();
+        savedTableTickets = loadTicketTable();
+        savedStoreBatches = loadSavedStoreBatches();
+        setDefaultFormDate();
+        updateHeaderStats();
+        renderDraws();
+        renderStoreQuickChips();
+        if (savedTableTickets.length > 0) {
+          const tblInput = document.getElementById('table-tickets-input');
+          if (tblInput) tblInput.value = savedTableTickets.map(t => t.fullLabel).join(', ');
+          renderTicketTableResults();
+        }
+        renderStoreAnalyticsAndBatches();
+      } catch (err) {
+        console.error('Initialization error:', err);
+        const container = document.getElementById('draws-container');
+        if (container) {
+          container.innerHTML = `<div class="glass-card p-4 text-xs text-rose-300">Error loading saved data. Tap <b>Search & Data → Reset Draws to Default</b> to recover.</div>`;
+        }
+      }
+    });
+  </script>
+
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./sw.js").catch(err => console.warn("PWA service worker:", err));
+    });
+  }
+</script>
+
+</body>
+</html>
