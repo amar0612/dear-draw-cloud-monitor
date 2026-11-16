@@ -166,12 +166,11 @@ def main():
         output_dir = Path(args.output_dir)
         output_dir.mkdir(parents=True, exist_ok=True)
 
-        filename = (
-            f"{args.date}_{record['draw']}.json"
-        )
+        
+        filename = f"{args.date}_{record['draw']}.json"
         output_path = output_dir / filename
 
-                new_content = (
+        new_content = (
             json.dumps(record, indent=2, ensure_ascii=False) + "\n"
         )
 
@@ -189,10 +188,6 @@ def main():
 
         output_path.write_text(new_content, encoding="utf-8")
 
-        output_path.write_text(
-            json.dumps(record, indent=2, ensure_ascii=False) + "\n",
-            encoding="utf-8"
-        )
 
         print("SUCCESS: All 132 prize entries passed validation.")
         print(f"Saved separately to: {output_path}")
