@@ -1409,10 +1409,10 @@
           document.getElementById('inp-date').value = `${yyyy}-${mm}-${dd}`;
         }
       }
-
-      if (/8\s*[:.]?\s*00\s*PM|8\s*PM/i.test(raw)) document.getElementById('inp-time').value = '8:00 PM';
-      else if (/6\s*[:.]?\s*00\s*PM|6\s*PM/i.test(raw)) document.getElementById('inp-time').value = '6:00 PM';
-      else if (/1\s*[:.]?\s*00\s*PM|1\s*PM/i.test(raw)) document.getElementById('inp-time').value = '1:00 PM';
+if (/8\s*[:.]?\s*00\s*PM|8\s*PM/i.test(raw)) document.getElementById('inp-time').value = '8:00 PM';
+else if (/1\s*[:.]?\s*00\s*PM|1\s*PM/i.test(raw)) document.getElementById('inp-time').value = '1:00 PM';
+else if (/6\s*[:.]?\s*00\s*PM|6\s*PM/i.test(raw)) showToast('6 PM is excluded from Nagaland research.');
+      
 
       const nameMatch = raw.match(/(DEAR\s+[A-Z]+\s+(?:SUNDAY|MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY)\s+WEEKLY)/i);
       if (nameMatch && !document.getElementById('inp-name').value) {
