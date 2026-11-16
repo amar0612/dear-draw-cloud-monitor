@@ -1193,12 +1193,28 @@ const keyB = b.date + (b.time === '1:00 PM' ? '1' : '3');
       const pageStart = drawsPage * DRAWS_PER_PAGE;
       const pageDraws = filtered.slice(pageStart, pageStart + DRAWS_PER_PAGE);
       if (pagination) pagination.classList.toggle('hidden', filtered.length <= DRAWS_PER_PAGE);
-      const prevBtn = document.getElementById('draws-prev');
-      const nextBtn = document.getElementById('draws-next');
-      const pageLabel = document.getElementById('draws-page-label');
-      if (prevBtn) prevBtn.disabled = drawsPage <= 0;
-      if (nextBtn) nextBtn.disabled = drawsPage >= pageCount - 1;
-      if (pageLabel) pageLabel.textContent = `Showing ${pageStart + 1}-${Math.min(pageStart + DRAWS_PER_PAGE, filtered.length)} of ${filtered.length} draws • Page ${drawsPage + 1}/${pageCount}`;
+      
+const prevBtn = document.getElementById('draws-prev');
+const nextBtn = document.getElementById('draws-next');
+const firstBtn = document.getElementById('draws-first');
+const lastBtn = document.getElementById('draws-last');
+const pageLabel = document.getElementById('draws-page-label');
+const pageInput = document.getElementById('draws-page-input');
+
+if (prevBtn) prevBtn.disabled = drawsPage <= 0;
+if (nextBtn) nextBtn.disabled = drawsPage >= pageCount - 1;
+if (firstBtn) firstBtn.disabled = drawsPage <= 0;
+if (lastBtn) lastBtn.disabled = drawsPage >= pageCount - 1;
+
+if (pageInput) {
+  pageInput.max = String(pageCount);
+  pageInput.value = String(drawsPage + 1);
+}
+
+if (pageLabel) {
+  pageLabel.textContent = `Showing ${filtered.length ? pageStart + 1 : 0}-${Math.min(pageStart + DRAWS_PER_PAGE, filtered.length)} of ${filtered.length} draws • Page ${drawsPage + 1}/${pageCount}`;
+}
+;
       if (filtered.length === 0) {
         container.innerHTML = `<div class="glass-card p-6 text-center text-xs text-slate-400">No draws logged for this filter yet. Tap <b>+ Add Draw</b> to scan or paste a result.</div>`;
         return;
