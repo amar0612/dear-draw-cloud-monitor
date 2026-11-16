@@ -695,7 +695,9 @@
         if (raw) {
           const parsed = JSON.parse(raw);
           if (Array.isArray(parsed) && parsed.length > 0) {
-            return parsed.map(normalizeDrawSchema);
+            return parsed
+  .map(normalizeDrawSchema)
+  .filter(d => d.time === '1:00 PM' || d.time === '8:00 PM');
           }
         }
       } catch (e) {}
@@ -709,7 +711,12 @@
     function saveDrawsToStorage() {
       latestPatternCache = null;
       try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(draws));
+        localStorage.setItem(
+  STORAGE_KEY,
+  JSON.stringify(
+    draws.filter(d => d.time === '1:00 PM' || d.time === '8:00 PM')
+     )
+    );
       } catch (e) {}
       updateHeaderStats();
     }
@@ -2517,6 +2524,10 @@ else if (/6\s*[:.]?\s*00\s*PM|6\s*PM/i.test(raw)) showToast('6 PM is excluded fr
         showToast('Please enter Draw Date and 1st Prize');
         return;
       }
+      if (time !== '1:00 PM' && time !== '8:00 PM') {
+  showToast('Only Nagaland 1 PM and 8 PM draws are allowed');
+  return;
+      }
 
       const id = `draw-${date}-${time.replace(/[^0-9]/g, '')}-${Date.now()}`;
       draws.push({ id, date, time, name, first, second, third, fourth, fifth });
@@ -2670,7 +2681,12 @@ else if (/6\s*[:.]?\s*00\s*PM|6\s*PM/i.test(raw)) showToast('6 PM is excluded fr
             const existingIds = new Set(draws.map(d => d.id));
             importedDraws.forEach(item => {
               const norm = normalizeDrawSchema(item);
-              if (norm.date && norm.first && !existingIds.has(norm.id)) {
+              if (
+  norm.date &&
+  norm.first &&
+  (norm.time === '1:00 PM' || norm.time === '8:00 PM') &&
+  !existingIds.has(norm.id)
+) {
                 draws.push(norm);
                 existingIds.add(norm.id);
               }
