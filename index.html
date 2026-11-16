@@ -1110,12 +1110,12 @@
       const dateFilter = document.getElementById('date-filter').value;
       const { highlightStatus } = analyzePatterns();
 
-      const filtered = [...draws]
+      const filtered = draws.filter(d => d.time === '1:00 PM' || d.time === '8:00 PM')
         .filter(d => currentTimeFilter === 'ALL' || d.time === currentTimeFilter)
         .filter(d => dateFilter === 'ALL' || d.date === dateFilter)
         .sort((a, b) => {
-          const keyA = a.date + (a.time === '8:00 PM' ? '3' : a.time === '6:00 PM' ? '2' : '1');
-          const keyB = b.date + (b.time === '8:00 PM' ? '3' : b.time === '6:00 PM' ? '2' : '1');
+          const keyA = a.date + (a.time === '1:00 PM' ? '1' : '3');
+const keyB = b.date + (b.time === '1:00 PM' ? '1' : '3');
           return keyB.localeCompare(keyA);
         });
 
