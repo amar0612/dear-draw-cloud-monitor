@@ -1,0 +1,75 @@
+
+name: Sambad API Permanent Archive
+
+on:
+  schedule:
+    - cron: "45 7 * * *"
+    - cron: "45 14 * * *"
+
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Draw date (YYYY-MM-DD)"
+        required: true
+        type: string
+      draw:
+        description: "Select draw"
+        required: true
+        type: choice
+        options:
+          - 1pm
+          - 8pm
+
+permissions:
+  contents: write
+
+jobs:
+  archive-result:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    env:
+      SAMBAD_API_TOKEN: ${{ secrets.LOTTERY_SAMBAD_API_TOKEN }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Select draw and date
+        id: selection
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "draw=${{ inputs.draw }}" >> "$GITHUB_OUTPUT"
+            echo "date=${{ inputs.date }}" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "45 7 * * *" ]; then
+            echo "draw=1pm" >> "$GITHUB_OUTPUT"
+            echo "date=$(TZ=Asia/Kolkata date +%F)" >> "$GITHUB_OUTPUT"
+          else
+            echo "draw=8pm" >> "$GITHUB_OUTPUT"
+            echo "date=$(TZ=Asia/Kolkata date +%F)" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Import and validate result
+        working-directory: monitor
+        run: |
+          python import_sambad_api.py \
+            --draw "${{ steps.selection.outputs.draw }}" \
+            --date "${{ steps.selection.outputs.date }}" \
+            --output-dir ../api-results
+
+      - name: Commit new archive
+        run: |
+          git add api-results/
+          if git diff --cached --quiet; then
+            echo "No new archive changes to commit."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Archive Dear ${{ steps.selection.outputs.draw }} result for ${{ steps.selection.outputs.date }}"
+            git push
+          fi
