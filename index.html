@@ -1040,14 +1040,15 @@
         dateSelect.value = 'ALL';
       }
 
-      const visibleFiltered = [...draws]
-        .filter(d => currentTimeFilter === 'ALL' || d.time === currentTimeFilter)
-        .filter(d => dateSelect.value === 'ALL' || d.date === dateSelect.value)
-        .sort((a, b) => {
-          const keyA = a.date + (a.time === '8:00 PM' ? '3' : a.time === '6:00 PM' ? '2' : '1');
-          const keyB = b.date + (b.time === '8:00 PM' ? '3' : b.time === '6:00 PM' ? '2' : '1');
-          return keyB.localeCompare(keyA);
-        });
+      const visibleFiltered = draws
+  .filter(d => d.time === '1:00 PM' || d.time === '8:00 PM')
+  .filter(d => currentTimeFilter === 'ALL' || d.time === currentTimeFilter)
+  .filter(d => dateSelect.value === 'ALL' || d.date === dateSelect.value)
+  .sort((a, b) => {
+    const keyA = a.date + (a.time === '1:00 PM' ? '1' : '3');
+    const keyB = b.date + (b.time === '1:00 PM' ? '1' : '3');
+    return keyB.localeCompare(keyA);
+  });
       const targetIndex = visibleFiltered.findIndex(d => d.id === targetDrawId);
       drawsPage = targetIndex >= 0 ? Math.floor(targetIndex / DRAWS_PER_PAGE) : 0;
       renderDraws();
