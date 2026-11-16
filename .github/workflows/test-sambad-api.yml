@@ -1,0 +1,53 @@
+
+name: Test Sambad API Importer
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Draw date (YYYY-MM-DD)"
+        required: true
+        type: string
+      draw:
+        description: "Select draw"
+        required: true
+        type: choice
+        options:
+          - 1pm
+          - 8pm
+
+permissions:
+  contents: read
+
+jobs:
+  test-import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    env:
+      SAMBAD_API_TOKEN: ${{ secrets.LOTTERY_SAMBAD_API_TOKEN }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run API importer
+        working-directory: monitor
+        run: |
+          python import_sambad_api.py \
+            --draw "${{ inputs.draw }}" \
+            --date "${{ inputs.date }}" \
+            --output-dir ../api-results
+
+      - name: Upload imported result
+        uses: actions/upload-artifact@v4
+        with:
+          name: sambad-api-test-result
+          path: api-results/*.json
+          if-no-files-found: error
+          retention-days: 7
