@@ -55,24 +55,7 @@
     ::-webkit-scrollbar { width: 4px; height: 4px; }
     ::-webkit-scrollbar-track { background: #080f18; }
     ::-webkit-scrollbar-thumb { background: #334155; border-radius: 99px; }
-
-    /* Lightweight tab motion; vertical page scrolling remains native. */
-    main[id^="tab-"] { touch-action: pan-y; }
-    @keyframes tabSwipeIn {
-      from { opacity: .72; transform: translate3d(var(--tab-enter-x, 12px), 0, 0); }
-      to { opacity: 1; transform: translate3d(0, 0, 0); }
-    }
-    main.tab-swipe-enter { animation: tabSwipeIn 190ms cubic-bezier(.2,.75,.25,1) both; }
-    @media (prefers-reduced-motion: reduce) {
-      main.tab-swipe-enter { animation: none; }
-    }
   </style>
-
-  <link rel="manifest" href="./manifest.webmanifest">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="application-name" content="Dear Draw Analyzer">
-  <link rel="icon" href="./icon.svg" type="image/svg+xml">
-
 </head>
 <body class="pb-28">
   <!-- Sticky App Header -->
@@ -100,7 +83,7 @@
     <div class="glass-card p-1.5 grid grid-cols-4 gap-1 text-xs font-semibold">
       <button type="button" onclick="setTimeFilter('ALL')" id="filter-ALL" class="time-pill py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold transition">All Times</button>
       <button type="button" onclick="setTimeFilter('1:00 PM')" id="filter-1:00 PM" class="time-pill py-2 rounded-xl text-slate-300 hover:bg-slate-800 transition">1:00 PM</button>
-      
+      <button type="button" onclick="setTimeFilter('6:00 PM')" id="filter-6:00 PM" class="time-pill py-2 rounded-xl text-slate-300 hover:bg-slate-800 transition">6:00 PM</button>
       <button type="button" onclick="setTimeFilter('8:00 PM')" id="filter-8:00 PM" class="time-pill py-2 rounded-xl text-slate-300 hover:bg-slate-800 transition">8:00 PM</button>
     </div>
 
@@ -114,39 +97,13 @@
           <span class="w-2 h-2 rounded-full bg-sky-400"></span>Nearby <span class="text-[10px] text-slate-400">(Tap)</span>
         </span>
       </div>
-      <select id="date-filter" onchange="drawsPage=0;renderDraws()" class="bg-slate-900 border border-slate-700 text-slate-200 text-xs rounded-xl px-2.5 py-1.5 focus:outline-none focus:border-emerald-500">
+      <select id="date-filter" onchange="renderDraws()" class="bg-slate-900 border border-slate-700 text-slate-200 text-xs rounded-xl px-2.5 py-1.5 focus:outline-none focus:border-emerald-500">
         <option value="ALL">All Dates</option>
       </select>
     </div>
 
     <!-- Draws Feed Container -->
-    
-<!-- Draws Feed Container -->
-<div id="draws-container" class="space-y-4"></div>
-
-<!-- Draws Pagination -->
-
-<div id="draws-pagination" class="glass-card p-3 space-y-3">
-  <div class="grid grid-cols-2 gap-2">
-    <button type="button" id="draws-first" onclick="goToDrawPage(1)" class="w-full px-3 py-2.5 rounded-xl bg-slate-800 text-slate-200 text-xs font-bold disabled:opacity-30">« First</button>
-    <button type="button" id="draws-prev" onclick="changeDrawPage(-1)" class="w-full px-3 py-2.5 rounded-xl bg-slate-800 text-slate-200 text-xs font-bold disabled:opacity-30">‹ Newer</button>
-    <button type="button" id="draws-next" onclick="changeDrawPage(1)" class="w-full px-3 py-2.5 rounded-xl bg-slate-800 text-slate-200 text-xs font-bold disabled:opacity-30">Older ›</button>
-    <button type="button" id="draws-last" onclick="goToLastDrawPage()" class="w-full px-3 py-2.5 rounded-xl bg-slate-800 text-slate-200 text-xs font-bold disabled:opacity-30">Last »</button>
-  </div>
-
-  <div class="text-center px-2">
-    <span id="draws-page-label" class="text-xs text-slate-400">Page 1</span>
-  </div>
-
-  <div class="flex items-center justify-center gap-2">
-    <label for="draws-page-input" class="text-xs text-slate-400">Go to page</label>
-    <input id="draws-page-input" type="number" inputmode="numeric" min="1" value="1" class="w-20 bg-slate-900 border border-slate-700 rounded-lg px-2 py-2 text-center text-sm text-white" onkeydown="if(event.key==='Enter') goToDrawPageFromInput()" />
-    <button type="button" onclick="goToDrawPageFromInput()" class="px-4 py-2 rounded-lg bg-emerald-500 text-slate-950 text-xs font-bold">Go</button>
-  </div>
-</div>
-
-</div>
-
+    <div id="draws-container" class="space-y-4"></div>
   </main>
 
   <!-- ==================== TAB 2: PATTERNS (CLEAN SINGLE-INSTANCE CARDS) ==================== -->
@@ -258,7 +215,7 @@
           <label class="block text-[11px] text-slate-400 mb-1">Draw Time *</label>
           <select id="inp-time" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500">
             <option value="1:00 PM">1:00 PM</option>
-           
+            <option value="6:00 PM">6:00 PM</option>
             <option value="8:00 PM">8:00 PM</option>
           </select>
         </div>
@@ -384,7 +341,7 @@
           <label for="batch-time" class="block text-[11px] text-slate-400 mb-1">Draw Time *</label>
           <select id="batch-time" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500">
             <option value="1:00 PM">1:00 PM</option>
-           
+            <option value="6:00 PM">6:00 PM</option>
             <option value="8:00 PM">8:00 PM</option>
             <option value="All Day">All Day</option>
           </select>
@@ -482,6 +439,21 @@
       <div id="lookup-results" class="space-y-2 text-xs"></div>
     </div>
 
+    <!-- Historical Prize CSV Import -->
+    <div class="glass-card p-4 space-y-3 border border-emerald-500/30">
+      <h2 class="text-sm font-bold text-white">Historical Prize Database Import</h2>
+      <p class="text-[11px] text-slate-400">Imports the complete 1PM and 8PM prize history from the master CSV. 6PM draws are excluded. Existing date/time entries are upgraded rather than duplicated.</p>
+      <label class="block cursor-pointer bg-slate-900 border border-slate-700 rounded-xl p-3 text-center text-xs font-semibold text-emerald-300">
+        ↑ Select all_prize_numbers.csv
+        <input type="file" id="historical-csv-input" accept=".csv,text/csv" class="hidden" onchange="handleHistoricalCsv(event)" />
+      </label>
+      <div id="historical-import-status" class="hidden rounded-xl bg-slate-900 border border-slate-700 p-3 text-xs text-slate-300 whitespace-pre-line"></div>
+      <div id="historical-import-actions" class="hidden grid grid-cols-1 gap-2">
+        <button type="button" onclick="importHistoricalCsv('test')" class="bg-sky-500/20 border border-sky-500/40 text-sky-200 font-bold text-xs py-2.5 rounded-xl">Import one test draw (01/04/2021 · 1PM)</button>
+        <button type="button" onclick="importHistoricalCsv('all')" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs py-3 rounded-xl">Import all verified 1PM + 8PM draws</button>
+      </div>
+    </div>
+
     <!-- Unified Backup & Restore -->
     <div class="glass-card p-4 space-y-3">
       <h2 class="text-sm font-bold text-white">Full Backup & Data Management</h2>
@@ -502,60 +474,8 @@
     </div>
   </main>
 
-  <!-- ==================== TAB 6: IMPORT DATA ==================== -->
-  <main id="tab-import" class="hidden max-w-3xl mx-auto px-4 pt-3 space-y-4">
-    <section class="glass-card p-4 space-y-3 border border-emerald-500/30">
-      <div>
-        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">Full Historical Database</span>
-        <h2 class="text-sm font-bold text-white mt-1.5">Import Master Prize CSV</h2>
-        <p class="text-[11px] text-slate-400 mt-1">Import complete Nagaland 1 PM and 8 PM draws from the cleaned master CSV. The importer checks all six prize groups, preserves leading zeroes, skips existing date/time records and never imports 6 PM.</p>
-      </div>
-      <div class="rounded-xl bg-slate-900/70 border border-slate-700 p-3 space-y-2">
-        <label for="master-csv-file" class="block text-[11px] font-semibold text-slate-300">Choose nagaland_master_prize_numbers.csv</label>
-        <input id="master-csv-file" type="file" accept=".csv,text/csv" class="block w-full text-xs text-slate-300 file:mr-3 file:rounded-lg file:border-0 file:bg-emerald-500 file:px-3 file:py-2 file:text-xs file:font-bold file:text-slate-950" onchange="previewMasterCsv(event)" />
-        <div id="master-csv-status" class="hidden text-[11px] text-slate-300 whitespace-pre-line"></div>
-      </div>
-      <div class="flex flex-wrap gap-2">
-        <button type="button" id="master-csv-import-btn" onclick="importMasterCsvNow()" disabled class="disabled:opacity-40 disabled:cursor-not-allowed bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs px-4 py-2.5 rounded-xl">Import Validated Draws</button>
-        <button type="button" onclick="clearMasterCsvPreview()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs px-3 py-2.5 rounded-xl">Clear</button>
-      </div>
-      <p class="text-[10px] text-slate-500">Only groups with 1 first, 1 consolation, 10 second, 10 third, 10 fourth and 100 fifth-prize entries are eligible. This validates structure, not digit-by-digit correctness against official sheets.</p>
-    </section>
-
-    <div class="glass-card p-4 space-y-2">
-      <h2 class="text-base font-extrabold text-white">Historical Import Data</h2>
-      <p class="text-xs text-slate-400">A separate workspace for importing and checking historical Nagaland results. Imported records are added to Draws only after successful validation.</p>
-    </div>
-    <!-- Historical archive importer: 1 PM and 8 PM first-prize index -->
-    <section class="glass-card p-4 space-y-3 border border-sky-500/30">
-      <div>
-        <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-sky-500/20 text-sky-300">Historical Import • Nagaland focus</span>
-        <h2 class="text-sm font-bold text-white mt-1.5">Import Old Results from Lottery Sambad</h2>
-        <p class="text-[11px] text-slate-400 mt-1">Imports the archive's 1 PM and 8 PM first-prize results only. 6 PM is skipped. The yearly archive does not provide the full 2nd–5th prize lists, so imported records are clearly marked as first-prize-only.</p>
-      </div>
-      <div class="grid grid-cols-2 gap-2.5">
-        <div>
-          <label for="archive-from-year" class="block text-[11px] text-slate-400 mb-1">From year</label>
-          <select id="archive-from-year" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white">
-            <option>2021</option><option>2022</option><option>2023</option><option selected>2024</option><option>2025</option><option>2026</option>
-          </select>
-        </div>
-        <div>
-          <label for="archive-to-year" class="block text-[11px] text-slate-400 mb-1">To year</label>
-          <select id="archive-to-year" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white">
-            <option>2021</option><option>2022</option><option>2023</option><option>2024</option><option>2025</option><option selected>2026</option>
-          </select>
-        </div>
-      </div>
-      <button type="button" id="archive-import-btn" onclick="importLotteryArchive()" class="w-full bg-sky-500 hover:bg-sky-400 text-slate-950 font-extrabold text-xs py-3 rounded-xl transition">Import 1 PM + 8 PM Archive</button>
-      <div id="archive-import-status" class="hidden rounded-xl bg-slate-900 border border-slate-700 p-3 text-[11px] text-slate-300 whitespace-pre-line"></div>
-      <p class="text-[10px] text-slate-500">Source: lottery.sambad.com/old/ • This is a reference archive, not the official lottery authority. Verify imported results against original result sheets before relying on them. Existing draws and ticket/store logs are preserved; matching date/time records are not overwritten.</p>
-    </section>
-
-  </main>
-
-  <!-- Bottom 6-Tab Navigation Bar -->
-  <nav class="fixed bottom-0 inset-x-0 z-30 bg-[#080f18]/95 backdrop-blur-md border-t border-slate-800 grid grid-cols-6 py-2.5 px-1 text-[10px] sm:text-[11px] font-semibold">
+  <!-- Bottom 5-Tab Navigation Bar -->
+  <nav class="fixed bottom-0 inset-x-0 z-30 bg-[#080f18]/95 backdrop-blur-md border-t border-slate-800 grid grid-cols-5 py-2.5 px-1 text-[10px] sm:text-[11px] font-semibold">
     <button type="button" onclick="switchTab('draws')" id="nav-draws" class="nav-btn flex flex-col items-center gap-1 text-emerald-400">
       <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/></svg>
       <span>Draws</span>
@@ -575,10 +495,6 @@
     <button type="button" onclick="switchTab('data')" id="nav-data" class="nav-btn flex flex-col items-center gap-1 text-slate-400">
       <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
       <span>Search & Data</span>
-    </button>
-    <button type="button" onclick="switchTab('import')" id="nav-import" class="nav-btn flex flex-col items-center gap-1 text-slate-400">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 16V4m0 0L7 9m5-5 5 5M4 16v4h16v-4"/></svg>
-      <span>Import</span>
     </button>
   </nav>
 
@@ -678,60 +594,6 @@
     let draws = [];
     let currentTimeFilter = 'ALL';
     let latestPatternCache = null;
-    let drawsPage = 0;
-    const DRAWS_PER_PAGE = 8;
-
-    
-function changeDrawPage(delta) {
-  const pageCount = Math.max(1, Math.ceil(getFilteredDrawCount() / DRAWS_PER_PAGE));
-  drawsPage = Math.min(pageCount - 1, Math.max(0, drawsPage + delta));
-  renderDraws();
-  const feed = document.getElementById('draws-container');
-  if (feed) feed.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function getFilteredDrawCount() {
-  const dateSelect = document.getElementById('date-filter');
-  const dateFilter = dateSelect ? dateSelect.value : 'ALL';
-
-  return draws
-    .filter(d => d.time === '1:00 PM' || d.time === '8:00 PM')
-    .filter(d => currentTimeFilter === 'ALL' || d.time === currentTimeFilter)
-    .filter(d => dateFilter === 'ALL' || d.date === dateFilter).length;
-}
-
-function goToDrawPage(pageNumber) {
-  const pageCount = Math.max(1, Math.ceil(getFilteredDrawCount() / DRAWS_PER_PAGE));
-  const requested = Number(pageNumber);
-  if (!Number.isFinite(requested)) return;
-
-  drawsPage = Math.min(pageCount - 1, Math.max(0, Math.floor(requested) - 1));
-  renderDraws();
-
-  const feed = document.getElementById('draws-container');
-  if (feed) feed.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function goToLastDrawPage() {
-  goToDrawPage(Math.max(1, Math.ceil(getFilteredDrawCount() / DRAWS_PER_PAGE)));
-}
-
-function goToDrawPageFromInput() {
-  const input = document.getElementById('draws-page-input');
-  if (!input) return;
-
-  const pageCount = Math.max(1, Math.ceil(getFilteredDrawCount() / DRAWS_PER_PAGE));
-  const requested = Number(input.value);
-
-  if (!Number.isInteger(requested) || requested < 1 || requested > pageCount) {
-    showToast(`Enter a page from 1 to ${pageCount}`);
-    input.value = String(drawsPage + 1);
-    return;
-  }
-
-  goToDrawPage(requested);
-}
-
     let savedTableTickets = [];
     let savedStoreBatches = [];
     let currentTableFilter = 'ALL';
@@ -746,12 +608,11 @@ function goToDrawPageFromInput() {
         time: d.time || '1:00 PM',
         name: d.name || 'Nagaland State Lotteries',
         first: String(d.first || d.p1 || '').trim(),
+        consolation: String(d.consolation || d.cons || '').trim(),
         second: Array.isArray(d.second) ? d.second : (Array.isArray(d.p2) ? d.p2 : []),
         third: Array.isArray(d.third) ? d.third : (Array.isArray(d.p3) ? d.p3 : []),
         fourth: Array.isArray(d.fourth) ? d.fourth : (Array.isArray(d.p4) ? d.p4 : []),
-        fifth: Array.isArray(d.fifth) ? d.fifth : (Array.isArray(d.p5) ? d.p5 : []),
-        sourcePdf: d.sourcePdf || '',
-        sourceVerification: d.sourceVerification || ''
+        fifth: Array.isArray(d.fifth) ? d.fifth : (Array.isArray(d.p5) ? d.p5 : [])
       };
     }
 
@@ -761,9 +622,7 @@ function goToDrawPageFromInput() {
         if (raw) {
           const parsed = JSON.parse(raw);
           if (Array.isArray(parsed) && parsed.length > 0) {
-            return parsed
-  .map(normalizeDrawSchema)
-  .filter(d => d.time === '1:00 PM' || d.time === '8:00 PM');
+            return parsed.map(normalizeDrawSchema);
           }
         }
       } catch (e) {}
@@ -775,14 +634,8 @@ function goToDrawPageFromInput() {
     }
 
     function saveDrawsToStorage() {
-      latestPatternCache = null;
       try {
-        localStorage.setItem(
-  STORAGE_KEY,
-  JSON.stringify(
-    draws.filter(d => d.time === '1:00 PM' || d.time === '8:00 PM')
-     )
-    );
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(draws));
       } catch (e) {}
       updateHeaderStats();
     }
@@ -875,6 +728,9 @@ function goToDrawPageFromInput() {
       if (p1Digits) {
         list.push({ raw: draw.first, num4: extract4Digit(p1Digits), prize: '1st Prize' });
       }
+      if (draw.consolation) {
+        list.push({ raw: draw.consolation, num4: extract4Digit(draw.consolation), prize: 'Consolation Prize' });
+      }
       (draw.second || []).forEach(n => list.push({ raw: n, num4: extract4Digit(n), prize: '2nd Prize' }));
       (draw.third || []).forEach(n => list.push({ raw: n, num4: extract4Digit(n), prize: '3rd Prize' }));
       (draw.fourth || []).forEach(n => list.push({ raw: n, num4: extract4Digit(n), prize: '4th Prize' }));
@@ -893,14 +749,11 @@ function goToDrawPageFromInput() {
 
     // ==================== PATTERN ENGINE ====================
     function analyzePatterns() {
-      if (latestPatternCache) return latestPatternCache;
-      const sorted = draws
-  .filter(draw => draw.time === '1:00 PM' || draw.time === '8:00 PM')
-  .sort((a, b) => {
-    const keyA = a.date + (a.time === '1:00 PM' ? '1' : '3');
-    const keyB = b.date + (b.time === '1:00 PM' ? '1' : '3');
-    return keyA.localeCompare(keyB);
-  });
+      const sorted = [...draws].sort((a, b) => {
+        const keyA = a.date + (a.time === '1:00 PM' ? '1' : a.time === '6:00 PM' ? '2' : '3');
+        const keyB = b.date + (b.time === '1:00 PM' ? '1' : b.time === '6:00 PM' ? '2' : '3');
+        return keyA.localeCompare(keyB);
+      });
 
       const historyMap = new Map();
       const repeatEvents = [];
@@ -909,9 +762,10 @@ function goToDrawPageFromInput() {
       const hitDetails = {};
 
       const byTime = {
-  '1:00 PM': { draws: 0, repeats: 0, nearby: 0 },
-  '8:00 PM': { draws: 0, repeats: 0, nearby: 0 }
-};
+        '1:00 PM': { draws: 0, repeats: 0, nearby: 0 },
+        '6:00 PM': { draws: 0, repeats: 0, nearby: 0 },
+        '8:00 PM': { draws: 0, repeats: 0, nearby: 0 }
+      };
       const byDay = {
         'Monday': { draws: 0, repeats: 0, nearby: 0 },
         'Tuesday': { draws: 0, repeats: 0, nearby: 0 },
@@ -1098,7 +952,7 @@ function goToDrawPageFromInput() {
         allBtn.className = 'time-pill py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold transition';
       }
 
-      ['draws', 'patterns', 'scan', 'table', 'data', 'import'].forEach(t => {
+      ['draws', 'patterns', 'scan', 'table', 'data'].forEach(t => {
         document.getElementById(`tab-${t}`).classList.add('hidden');
         document.getElementById(`nav-${t}`).className = 'nav-btn flex flex-col items-center gap-1 text-slate-400';
       });
@@ -1113,17 +967,6 @@ function goToDrawPageFromInput() {
         dateSelect.value = 'ALL';
       }
 
-      const visibleFiltered = draws
-  .filter(d => d.time === '1:00 PM' || d.time === '8:00 PM')
-  .filter(d => currentTimeFilter === 'ALL' || d.time === currentTimeFilter)
-  .filter(d => dateSelect.value === 'ALL' || d.date === dateSelect.value)
-  .sort((a, b) => {
-    const keyA = a.date + (a.time === '1:00 PM' ? '1' : '3');
-    const keyB = b.date + (b.time === '1:00 PM' ? '1' : '3');
-    return keyB.localeCompare(keyA);
-  });
-      const targetIndex = visibleFiltered.findIndex(d => d.id === targetDrawId);
-      drawsPage = targetIndex >= 0 ? Math.floor(targetIndex / DRAWS_PER_PAGE) : 0;
       renderDraws();
 
       setTimeout(() => {
@@ -1184,50 +1027,22 @@ function goToDrawPageFromInput() {
       const dateFilter = document.getElementById('date-filter').value;
       const { highlightStatus } = analyzePatterns();
 
-      const filtered = draws.filter(d => d.time === '1:00 PM' || d.time === '8:00 PM')
+      const filtered = [...draws]
         .filter(d => currentTimeFilter === 'ALL' || d.time === currentTimeFilter)
         .filter(d => dateFilter === 'ALL' || d.date === dateFilter)
         .sort((a, b) => {
-          const keyA = a.date + (a.time === '1:00 PM' ? '1' : '3');
-const keyB = b.date + (b.time === '1:00 PM' ? '1' : '3');
+          const keyA = a.date + (a.time === '8:00 PM' ? '3' : a.time === '6:00 PM' ? '2' : '1');
+          const keyB = b.date + (b.time === '8:00 PM' ? '3' : b.time === '6:00 PM' ? '2' : '1');
           return keyB.localeCompare(keyA);
         });
 
       const container = document.getElementById('draws-container');
-      const pagination = document.getElementById('draws-pagination');
-      const pageCount = Math.max(1, Math.ceil(filtered.length / DRAWS_PER_PAGE));
-      drawsPage = Math.min(drawsPage, pageCount - 1);
-      const pageStart = drawsPage * DRAWS_PER_PAGE;
-      const pageDraws = filtered.slice(pageStart, pageStart + DRAWS_PER_PAGE);
-      if (pagination) pagination.classList.toggle('hidden', filtered.length <= DRAWS_PER_PAGE);
-      
-const prevBtn = document.getElementById('draws-prev');
-const nextBtn = document.getElementById('draws-next');
-const firstBtn = document.getElementById('draws-first');
-const lastBtn = document.getElementById('draws-last');
-const pageLabel = document.getElementById('draws-page-label');
-const pageInput = document.getElementById('draws-page-input');
-
-if (prevBtn) prevBtn.disabled = drawsPage <= 0;
-if (nextBtn) nextBtn.disabled = drawsPage >= pageCount - 1;
-if (firstBtn) firstBtn.disabled = drawsPage <= 0;
-if (lastBtn) lastBtn.disabled = drawsPage >= pageCount - 1;
-
-if (pageInput) {
-  pageInput.max = String(pageCount);
-  pageInput.value = String(drawsPage + 1);
-}
-
-if (pageLabel) {
-  pageLabel.textContent = `Showing ${filtered.length ? pageStart + 1 : 0}-${Math.min(pageStart + DRAWS_PER_PAGE, filtered.length)} of ${filtered.length} draws • Page ${drawsPage + 1}/${pageCount}`;
-}
-;
       if (filtered.length === 0) {
         container.innerHTML = `<div class="glass-card p-6 text-center text-xs text-slate-400">No draws logged for this filter yet. Tap <b>+ Add Draw</b> to scan or paste a result.</div>`;
         return;
       }
 
-      container.innerHTML = pageDraws.map(draw => {
+      container.innerHTML = filtered.map(draw => {
         const hl = highlightStatus[draw.id] || {};
         const p1Four = extract4Digit(draw.first);
         const p1Status = hl[p1Four];
@@ -1261,8 +1076,8 @@ if (pageLabel) {
                 <p class="num-chip text-xl font-black text-white tracking-wider mt-0.5">${draw.first}</p>
               </div>
               <div class="text-right">
-                <p class="text-[10px] text-slate-400">Consolation 4-Digit</p>
-                <p class="num-chip text-sm font-bold text-amber-300 mt-0.5">${p1Four}</p>
+                <p class="text-[10px] text-slate-400">Consolation (5-digit)</p>
+                <p class="num-chip text-sm font-bold text-amber-300 mt-0.5">${draw.consolation || p1Four}</p>
               </div>
             </div>
 
@@ -1362,7 +1177,7 @@ if (pageLabel) {
       document.getElementById('repeat-log-count').textContent = `${repeatEvents.length} matches`;
       document.getElementById('repeat-log').innerHTML = repeatEvents.length === 0
         ? `<p class="text-slate-400 text-[11px]">Add at least 2 draws (or tap <b>+ Load 2 Sample Draws</b> above) to see exact past repeat hits.</p>`
-        : repeatEvents.slice(-100).reverse().map(ev => `
+        : repeatEvents.slice().reverse().map(ev => `
             <button type="button" onclick="jumpToDraw('${ev.prev.drawId || ev.drawId}', '${ev.num4}', '${ev.prev.date}')" class="w-full text-left p-2.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 active:scale-[0.99] transition border border-amber-500/25 hover:border-amber-400/60 flex items-center justify-between gap-2">
               <div>
                 <span class="num-chip font-bold text-amber-300 text-sm">${ev.num4}</span>
@@ -1376,7 +1191,7 @@ if (pageLabel) {
       document.getElementById('nearby-log-count').textContent = `${nearbyEvents.length} matches`;
       document.getElementById('nearby-log').innerHTML = nearbyEvents.length === 0
         ? `<p class="text-slate-400 text-[11px]">Add more draws to detect ±1, ±2, and ±10 neighbor patterns across days and times.</p>`
-        : nearbyEvents.slice(-100).reverse().map(ev => `
+        : nearbyEvents.slice().reverse().map(ev => `
             <button type="button" onclick="jumpToDraw('${ev.prev.drawId || ev.drawId}', '${ev.matchedNeighbor}', '${ev.prev.date}')" class="w-full text-left p-2.5 rounded-xl bg-sky-500/10 hover:bg-sky-500/20 active:scale-[0.99] transition border border-sky-500/25 hover:border-sky-400/60 flex items-center justify-between gap-2">
               <div>
                 <span class="num-chip font-bold text-sky-300 text-sm">${ev.num4}</span>
@@ -1500,10 +1315,10 @@ if (pageLabel) {
           document.getElementById('inp-date').value = `${yyyy}-${mm}-${dd}`;
         }
       }
-if (/8\s*[:.]?\s*00\s*PM|8\s*PM/i.test(raw)) document.getElementById('inp-time').value = '8:00 PM';
-else if (/1\s*[:.]?\s*00\s*PM|1\s*PM/i.test(raw)) document.getElementById('inp-time').value = '1:00 PM';
-else if (/6\s*[:.]?\s*00\s*PM|6\s*PM/i.test(raw)) showToast('6 PM is excluded from Nagaland research.');
-      
+
+      if (/8\s*[:.]?\s*00\s*PM|8\s*PM/i.test(raw)) document.getElementById('inp-time').value = '8:00 PM';
+      else if (/6\s*[:.]?\s*00\s*PM|6\s*PM/i.test(raw)) document.getElementById('inp-time').value = '6:00 PM';
+      else if (/1\s*[:.]?\s*00\s*PM|1\s*PM/i.test(raw)) document.getElementById('inp-time').value = '1:00 PM';
 
       const nameMatch = raw.match(/(DEAR\s+[A-Z]+\s+(?:SUNDAY|MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY)\s+WEEKLY)/i);
       if (nameMatch && !document.getElementById('inp-name').value) {
@@ -1862,13 +1677,11 @@ else if (/6\s*[:.]?\s*00\s*PM|6\s*PM/i.test(raw)) showToast('6 PM is excluded fr
       let hasExact4 = false;
       let hasNearby = false;
 
-      const sortedDraws = draws
-  .filter(draw => draw.time === '1:00 PM' || draw.time === '8:00 PM')
-  .sort((a, b) => {
-    const keyA = a.date + (a.time === '1:00 PM' ? '1' : '3');
-    const keyB = b.date + (b.time === '1:00 PM' ? '1' : '3');
-    return keyB.localeCompare(keyA);
-  });
+      const sortedDraws = [...draws].sort((a, b) => {
+        const keyA = a.date + (a.time === '8:00 PM' ? '3' : a.time === '6:00 PM' ? '2' : '1');
+        const keyB = b.date + (b.time === '8:00 PM' ? '3' : b.time === '6:00 PM' ? '2' : '1');
+        return keyB.localeCompare(keyA);
+      });
 
       sortedDraws.forEach(draw => {
         const day = getDayName(draw.date);
@@ -1923,6 +1736,7 @@ else if (/6\s*[:.]?\s*00\s*PM|6\s*PM/i.test(raw)) showToast('6 PM is excluded fr
             return;
           }
 
+          if (item.prize === 'Consolation Prize') return;
           const rawDiff = targetVal - itemVal;
           const wrapDiff = rawDiff > 5000 ? rawDiff - 10000 : rawDiff < -5000 ? rawDiff + 10000 : rawDiff;
           if ([-1, 1, -2, 2, -10, 10].includes(wrapDiff)) {
@@ -2325,8 +2139,9 @@ else if (/6\s*[:.]?\s*00\s*PM|6\s*PM/i.test(raw)) showToast('6 PM is excluded fr
             drawP1Series === targetSeries &&
             (drawP1Digits === targetFullDigits || item.num4 === target4);
 
-          const isExactNumber =
-            item.num4 === target4 || (targetFullDigits.length === 5 && itemDigits === targetFullDigits);
+          const isExactNumber = item.prize === 'Consolation Prize'
+            ? (targetFullDigits.length === 5 && itemDigits === targetFullDigits)
+            : (item.num4 === target4 || (targetFullDigits.length === 5 && itemDigits === targetFullDigits));
 
           if (isSameDate && isTimeCompatible && (isExactSeriesAnd5 || isExactNumber)) {
             sameDateWins.push({
@@ -2357,6 +2172,7 @@ else if (/6\s*[:.]?\s*00\s*PM|6\s*PM/i.test(raw)) showToast('6 PM is excluded fr
             return;
           }
 
+          if (item.prize === 'Consolation Prize') return;
           const rawDiff = targetVal - itemVal;
           const wrapDiff = rawDiff > 5000 ? rawDiff - 10000 : rawDiff < -5000 ? rawDiff + 10000 : rawDiff;
           if ([-1, 1, -2, 2, -10, 10].includes(wrapDiff)) {
@@ -2606,10 +2422,6 @@ else if (/6\s*[:.]?\s*00\s*PM|6\s*PM/i.test(raw)) showToast('6 PM is excluded fr
         showToast('Please enter Draw Date and 1st Prize');
         return;
       }
-      if (time !== '1:00 PM' && time !== '8:00 PM') {
-  showToast('Only Nagaland 1 PM and 8 PM draws are allowed');
-  return;
-      }
 
       const id = `draw-${date}-${time.replace(/[^0-9]/g, '')}-${Date.now()}`;
       draws.push({ id, date, time, name, first, second, third, fourth, fifth });
@@ -2673,7 +2485,7 @@ else if (/6\s*[:.]?\s*00\s*PM|6\s*PM/i.test(raw)) showToast('6 PM is excluded fr
             const qVal = parseInt(q4, 10);
             const val = parseInt(item.num4, 10);
             const diff = val - qVal;
-            if (item.num4 === q4 || itemRawUpper.includes(digitsOnly)) {
+            if (item.prize === 'Consolation Prize' ? (digitsOnly.length === 5 && itemRawUpper.includes(digitsOnly)) : (item.num4 === q4 || itemRawUpper.includes(digitsOnly))) {
               drawMatches.push({ type: 'EXACT', draw: d, item, diff: 0 });
             } else if ([-1, 1, -2, 2, -10, 10].includes(diff)) {
               drawMatches.push({ type: 'NEARBY', draw: d, item, diff });
@@ -2730,6 +2542,126 @@ else if (/6\s*[:.]?\s*00\s*PM|6\s*PM/i.test(raw)) showToast('6 PM is excluded fr
       box.innerHTML = storeHtml + drawsHtml;
     }
 
+    // ==================== HISTORICAL MASTER CSV IMPORT ====================
+    let historicalCsvDraws = [];
+
+    function parseCsvRows(text) {
+      const rows = [];
+      let row = [], field = '', quoted = false;
+      for (let i = 0; i < text.length; i++) {
+        const c = text[i];
+        if (c === '"') {
+          if (quoted && text[i + 1] === '"') { field += '"'; i++; }
+          else quoted = !quoted;
+        } else if (c === ',' && !quoted) {
+          row.push(field); field = '';
+        } else if ((c === '\n' || c === '\r') && !quoted) {
+          if (c === '\r' && text[i + 1] === '\n') i++;
+          row.push(field); field = '';
+          if (row.some(v => String(v).trim() !== '')) rows.push(row);
+          row = [];
+        } else field += c;
+      }
+      row.push(field);
+      if (row.some(v => String(v).trim() !== '')) rows.push(row);
+      return rows;
+    }
+
+    function buildHistoricalDrawGroups(csvText) {
+      const rows = parseCsvRows(String(csvText || '').replace(/^\uFEFF/, ''));
+      if (rows.length < 2) throw new Error('CSV is empty or has no data rows.');
+      const headers = rows[0].map(h => h.trim().toLowerCase());
+      const required = ['date','draw','prize_tier','position','winning_number'];
+      const missing = required.filter(h => !headers.includes(h));
+      if (missing.length) throw new Error('Missing CSV columns: ' + missing.join(', '));
+      const ix = Object.fromEntries(required.map(h => [h, headers.indexOf(h)]));
+      const grouped = new Map();
+      for (let i = 1; i < rows.length; i++) {
+        const r = rows[i];
+        const date = (r[ix.date] || '').trim();
+        const drawCode = (r[ix.draw] || '').trim().toUpperCase();
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || !['1PM','8PM'].includes(drawCode)) continue;
+        const tier = (r[ix.prize_tier] || '').trim();
+        const position = Number((r[ix.position] || '').trim());
+        const number = (r[ix.winning_number] || '').trim();
+        if (!number || !Number.isInteger(position) || position < 1) continue;
+        const key = date + '|' + drawCode;
+        if (!grouped.has(key)) grouped.set(key, { date, drawCode, first: '', consolation: '', second: [], third: [], fourth: [], fifth: [], counts: {} });
+        const g = grouped.get(key);
+        if (tier === '1st' && position === 1) g.first = number;
+        else if (tier === 'Consolation' && position === 1) g.consolation = number;
+        else if (['2nd','3rd','4th','5th'].includes(tier)) {
+          const target = tier === '2nd' ? g.second : tier === '3rd' ? g.third : tier === '4th' ? g.fourth : g.fifth;
+          target[position - 1] = number;
+        }
+      }
+      const expected = { second: 10, third: 10, fourth: 10, fifth: 100 };
+      const complete = [];
+      const invalid = [];
+      for (const g of grouped.values()) {
+        const ok = !!g.first && !!g.consolation && Object.entries(expected).every(([k,n]) => g[k].length === n && g[k].every(Boolean));
+        if (ok) complete.push(g);
+        else invalid.push(g.date + ' ' + g.drawCode);
+      }
+      complete.sort((a,b) => (a.date + a.drawCode).localeCompare(b.date + b.drawCode));
+      return { complete, invalid, groups: grouped.size };
+    }
+
+    function handleHistoricalCsv(e) {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      const status = document.getElementById('historical-import-status');
+      const actions = document.getElementById('historical-import-actions');
+      status.classList.remove('hidden');
+      actions.classList.add('hidden');
+      status.textContent = 'Reading and validating CSV...';
+      const reader = new FileReader();
+      reader.onload = ev => {
+        try {
+          const result = buildHistoricalDrawGroups(ev.target.result);
+          historicalCsvDraws = result.complete;
+          if (!historicalCsvDraws.length) throw new Error('No complete 1PM/8PM draws found.');
+          const test = historicalCsvDraws.find(d => d.date === '2021-04-01' && d.drawCode === '1PM');
+          if (!test) throw new Error('The expected test draw 2021-04-01 1PM was not found.');
+          status.textContent = `CSV validated successfully.\nComplete 1PM + 8PM draws: ${result.complete.length}\nIncomplete groups skipped: ${result.invalid.length}\nTest draw: 01/04/2021 · 1PM\nTest counts: 1st 1 | Consolation 1 | 2nd 10 | 3rd 10 | 4th 10 | 5th 100\nChoose the test import first. After checking it in Draws, upload the same CSV again and choose full import.`;
+          actions.classList.remove('hidden');
+        } catch (err) {
+          historicalCsvDraws = [];
+          status.textContent = 'Import stopped: ' + (err.message || 'CSV validation failed');
+        }
+      };
+      reader.onerror = () => { status.textContent = 'Could not read the selected CSV file.'; };
+      reader.readAsText(file);
+    }
+
+    function importHistoricalCsv(mode) {
+      if (!historicalCsvDraws.length) { showToast('Select and validate the master CSV first'); return; }
+      const selected = mode === 'test'
+        ? historicalCsvDraws.filter(d => d.date === '2021-04-01' && d.drawCode === '1PM')
+        : historicalCsvDraws;
+      const existingByKey = new Map(draws.map(d => [d.date + '|' + (d.time === '8:00 PM' ? '8PM' : d.time === '6:00 PM' ? '6PM' : '1PM'), d]));
+      let added = 0, upgraded = 0;
+      selected.forEach(g => {
+        const time = g.drawCode === '8PM' ? '8:00 PM' : '1:00 PM';
+        const key = g.date + '|' + g.drawCode;
+        const old = existingByKey.get(key);
+        const record = normalizeDrawSchema({
+          id: old ? old.id : `historical-${g.date}-${g.drawCode}`,
+          date: g.date, time, name: 'Nagaland State Lotteries',
+          first: g.first, consolation: g.consolation,
+          second: g.second, third: g.third, fourth: g.fourth, fifth: g.fifth
+        });
+        if (old) upgraded++; else added++;
+        existingByKey.set(key, record);
+      });
+      draws = Array.from(existingByKey.values()).sort((a,b) => (b.date + b.time).localeCompare(a.date + a.time));
+      saveDrawsToStorage();
+      renderDraws(); renderPatterns(); renderTicketTableResults(); renderStoreAnalyticsAndBatches();
+      const status = document.getElementById('historical-import-status');
+      status.textContent += `\n\n${mode === 'test' ? 'TEST IMPORT' : 'FULL IMPORT'} COMPLETE\nAdded: ${added} · Upgraded/replaced: ${upgraded}\nCurrent app draws: ${draws.length}\nCheck 01/04/2021 1PM in Draws before running the full import.`;
+      showToast(mode === 'test' ? 'Test draw imported with all six prize tiers' : `Imported ${selected.length} historical draws`);
+    }
+
     function exportBackupJSON() {
       const payload = {
         version: 'v2.8',
@@ -2763,12 +2695,7 @@ else if (/6\s*[:.]?\s*00\s*PM|6\s*PM/i.test(raw)) showToast('6 PM is excluded fr
             const existingIds = new Set(draws.map(d => d.id));
             importedDraws.forEach(item => {
               const norm = normalizeDrawSchema(item);
-              if (
-  norm.date &&
-  norm.first &&
-  (norm.time === '1:00 PM' || norm.time === '8:00 PM') &&
-  !existingIds.has(norm.id)
-) {
+              if (norm.date && norm.first && !existingIds.has(norm.id)) {
                 draws.push(norm);
                 existingIds.add(norm.id);
               }
@@ -2816,370 +2743,8 @@ else if (/6\s*[:.]?\s*00\s*PM|6\s*PM/i.test(raw)) showToast('6 PM is excluded fr
       });
     }
 
-
-
-    // ==================== MASTER CSV IMPORTER ====================
-    let stagedMasterCsvDraws = [];
-    let stagedMasterCsvStats = null;
-
-    function parseCsvRows(text) {
-      const input = String(text || '').replace(/^\uFEFF/, '');
-      const rows = [];
-      let row = [], field = '', quoted = false;
-      for (let i = 0; i < input.length; i++) {
-        const ch = input[i];
-        if (quoted) {
-          if (ch === '"' && input[i + 1] === '"') { field += '"'; i++; }
-          else if (ch === '"') quoted = false;
-          else field += ch;
-        } else {
-          if (ch === '"') quoted = true;
-          else if (ch === ',') { row.push(field); field = ''; }
-          else if (ch === '\n') { row.push(field); rows.push(row); row = []; field = ''; }
-          else if (ch !== '\r') field += ch;
-        }
-      }
-      if (field.length || row.length) { row.push(field); rows.push(row); }
-      if (!rows.length) return [];
-      const headers = rows.shift().map(h => h.trim());
-      return rows.filter(r => r.some(v => String(v || '').trim() !== '')).map(r => {
-        const obj = {};
-        headers.forEach((h, i) => obj[h] = String(r[i] ?? '').trim());
-        return obj;
-      });
-    }
-
-    function clearMasterCsvPreview() {
-      stagedMasterCsvDraws = [];
-      stagedMasterCsvStats = null;
-      const input = document.getElementById('master-csv-file');
-      const status = document.getElementById('master-csv-status');
-      const btn = document.getElementById('master-csv-import-btn');
-      if (input) input.value = '';
-      if (status) { status.textContent = ''; status.classList.add('hidden'); }
-      if (btn) btn.disabled = true;
-    }
-
-    function previewMasterCsv(event) {
-      const file = event.target.files && event.target.files[0];
-      const status = document.getElementById('master-csv-status');
-      const btn = document.getElementById('master-csv-import-btn');
-      stagedMasterCsvDraws = [];
-      stagedMasterCsvStats = null;
-      if (btn) btn.disabled = true;
-      if (!file) return;
-      if (file.size > 50 * 1024 * 1024) {
-        status.textContent = 'File is larger than 50 MB. Please use the cleaned master CSV.';
-        status.classList.remove('hidden'); return;
-      }
-      const reader = new FileReader();
-      reader.onload = () => {
-        try {
-          const rows = parseCsvRows(reader.result);
-          const required = ['date','draw','prize_tier','position','winning_number','source_pdf'];
-          if (!rows.length || required.some(k => !(k in rows[0]))) {
-            throw new Error('CSV headers do not match the expected master dataset.');
-          }
-          const grouped = new Map();
-          const seen = new Set();
-          let ignoredOtherDraws = 0, duplicateRows = 0;
-          for (const r of rows) {
-            const draw = String(r.draw || '').toUpperCase();
-            if (draw !== '1PM' && draw !== '8PM') { ignoredOtherDraws++; continue; }
-            const key = `${r.date}|${draw}|${r.prize_tier}|${r.position}`;
-            if (seen.has(key)) { duplicateRows++; continue; }
-            seen.add(key);
-            const gkey = `${r.date}|${draw}`;
-            if (!grouped.has(gkey)) grouped.set(gkey, []);
-            grouped.get(gkey).push(r);
-          }
-          const expected = {'1st':1,'Consolation':1,'2nd':10,'3rd':10,'4th':10,'5th':100};
-          const widths = {'Consolation':5,'2nd':5,'3rd':4,'4th':4,'5th':4};
-          const valid = [], problems = [];
-          for (const [key, items] of grouped) {
-            const [date, draw] = key.split('|');
-            const byTier = {};
-            const errors = [];
-            if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || Number.isNaN(Date.parse(date))) errors.push('invalid date');
-            for (const tier of Object.keys(expected)) {
-              const arr = items.filter(x => x.prize_tier === tier)
-                .sort((a,b) => Number(a.position) - Number(b.position));
-              byTier[tier] = arr;
-              if (arr.length !== expected[tier]) errors.push(`${tier}: ${arr.length}/${expected[tier]}`);
-              if (arr.some((x,i) => Number(x.position) !== i + 1)) errors.push(`${tier}: positions not sequential`);
-              if (tier === '1st') {
-                if (arr.length === 1 && !/^\d{2}[A-Z]\s\d{5}$/.test(arr[0].winning_number)) errors.push('invalid 1st prize format');
-              } else if (arr.some(x => !new RegExp(`^\\d{${widths[tier]}}$`).test(x.winning_number))) {
-                errors.push(`${tier}: invalid digit length`);
-              }
-            }
-            const first = byTier['1st'][0]?.winning_number || '';
-            const consolation = byTier['Consolation'][0]?.winning_number || '';
-            if (first && consolation && first.replace(/\D/g,'').slice(-5) !== consolation) {
-              errors.push('consolation does not match first-prize last five digits');
-            }
-            if (errors.length) { problems.push(`${date} ${draw}: ${errors.join(', ')}`); continue; }
-            const sourcePdf = items.find(x => x.source_pdf)?.source_pdf || '';
-            const verification = items.find(x => x.verification_status)?.verification_status || 'Imported from master CSV; source verification pending';
-            valid.push({
-              id: `master_${date}_${draw}`, isSample: false, date,
-              time: draw === '1PM' ? '1:00 PM' : '8:00 PM',
-              name: `Nagaland Historical Result • ${draw === '1PM' ? '1 PM' : '8 PM'}`,
-              first, second: byTier['2nd'].map(x => x.winning_number),
-              third: byTier['3rd'].map(x => x.winning_number),
-              fourth: byTier['4th'].map(x => x.winning_number),
-              fifth: byTier['5th'].map(x => x.winning_number),
-              sourcePdf, sourceVerification: verification
-            });
-          }
-          const existingKeys = new Set(draws.map(d => `${d.date}|${d.time}`));
-          const newCount = valid.filter(d => !existingKeys.has(`${d.date}|${d.time}`)).length;
-          stagedMasterCsvDraws = valid;
-          stagedMasterCsvStats = { rows: rows.length, valid: valid.length, newCount,
-            duplicates: duplicateRows, ignoredOtherDraws, invalid: problems.length, problems };
-          status.textContent =
-            `File: ${file.name}\nRows read: ${rows.length.toLocaleString()}\n` +
-            `Complete valid draws: ${valid.length.toLocaleString()}\nNew draws to add: ${newCount.toLocaleString()}\n` +
-            `Already in app: ${(valid.length-newCount).toLocaleString()}\nInvalid/incomplete groups: ${problems.length}\n` +
-            `Duplicate CSV rows ignored: ${duplicateRows}\nOther draw times ignored: ${ignoredOtherDraws}` +
-            (problems.length ? `\n\nFirst issues:\n${problems.slice(0,8).join('\n')}` : '');
-          status.classList.remove('hidden');
-          if (btn) btn.disabled = newCount === 0;
-        } catch (err) {
-          status.textContent = `Could not read this CSV: ${err.message || err}`;
-          status.classList.remove('hidden');
-        }
-      };
-      reader.onerror = () => {
-        status.textContent = 'Could not read the selected file.';
-        status.classList.remove('hidden');
-      };
-      reader.readAsText(file);
-    }
-
-    
-function importMasterCsvNow() {
-  if (!stagedMasterCsvStats || !stagedMasterCsvDraws.length) {
-    showToast('Choose and validate a master CSV first');
-    return;
-  }
-
-  let added = 0;
-  let repaired = 0;
-  let unchanged = 0;
-
-  for (const incoming of stagedMasterCsvDraws) {
-    const existing = draws.find(d =>
-      d.date === incoming.date &&
-      d.time === incoming.time
-    );
-
-    if (!existing) {
-      draws.push(normalizeDrawSchema(incoming));
-      added++;
-      continue;
-    }
-
-    let changed = false;
-
-    // Preserve existing first-prize data.
-    if (!existing.first && incoming.first) {
-      existing.first = incoming.first;
-      changed = true;
-    }
-
-    // Fill missing prize groups only.
-    for (const tier of ['second', 'third', 'fourth', 'fifth']) {
-      const oldValues = Array.isArray(existing[tier])
-        ? existing[tier]
-        : [];
-      const newValues = Array.isArray(incoming[tier])
-        ? incoming[tier]
-        : [];
-
-      if (oldValues.length === 0 && newValues.length > 0) {
-        existing[tier] = [...newValues];
-        changed = true;
-      }
-    }
-
-    if (changed) {
-      repaired++;
-    } else {
-      unchanged++;
-    }
-
-    // Preserve existing source information.
-    if (!existing.sourcePdf && incoming.sourcePdf) {
-      existing.sourcePdf = incoming.sourcePdf;
-    }
-    if (!existing.sourceVerification && incoming.sourceVerification) {
-      existing.sourceVerification = incoming.sourceVerification;
-    }
-  }
-
-  draws.sort((a, b) =>
-    (a.date + (a.time === '1:00 PM' ? '1' : '3'))
-      .localeCompare(b.date + (b.time === '1:00 PM' ? '1' : '3'))
-  );
-
-  saveDrawsToStorage();
-  renderDraws();
-  renderPatterns();
-  renderTicketTableResults();
-  renderStoreAnalyticsAndBatches();
-
-  const report =
-    `New draws added: ${added}\n` +
-    `Existing draws repaired: ${repaired}\n` +
-    `Already complete/unchanged: ${unchanged}`;
-
-  showToast(`Import finished: ${added} new, ${repaired} repaired`);
-
-  const status = document.getElementById('master-csv-status');
-  if (status) status.textContent += `\n\n${report}`;
-
-  const btn = document.getElementById('master-csv-import-btn');
-  if (btn) btn.disabled = true;
-}
-
-
-    // ==================== HISTORICAL ARCHIVE IMPORTER ====================
-    // The yearly archive is a first-prize index. Do not fabricate lower prize tiers.
-    const ARCHIVE_MONTHS = {
-      january:1, february:2, march:3, april:4, may:5, june:6,
-      july:7, august:8, september:9, october:10, november:11, december:12
-    };
-
-    function archiveStatus(message, isError = false) {
-      const el = document.getElementById('archive-import-status');
-      if (!el) return;
-      el.textContent = message;
-      el.classList.remove('hidden');
-      el.classList.toggle('text-rose-300', isError);
-      el.classList.toggle('text-slate-300', !isError);
-    }
-
-    function parseLotteryArchiveText(text, year) {
-      const imported = [];
-      const lines = String(text || '').split(/\r?\n/);
-      for (const rawLine of lines) {
-        const line = rawLine.trim();
-        if (!line.includes('|')) continue;
-
-        // Jina Reader renders the archive as Markdown tables. Trim outer pipes
-        // before splitting so the columns are [date, 1 PM, 6 PM, 8 PM].
-        const cells = line.replace(/^\|/, '').replace(/\|$/, '').split('|').map(s => s.trim());
-        if (cells.length < 4) continue;
-
-        const dateCell = cells[0].replace(/[*_`]/g, ' ').replace(/\s+/g, ' ').trim();
-        const dateMatch = dateCell.match(/\b(\d{1,2})\s+(January|February|March|April|May|June|July|August|September|October|November|December)\b/i);
-        if (!dateMatch) continue;
-
-        const day = Number(dateMatch[1]);
-        const month = ARCHIVE_MONTHS[dateMatch[2].toLowerCase()];
-        if (!month || day < 1 || day > 31) continue;
-
-        const isoDate = `${year}-${String(month).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
-        const extractTicket = cell => {
-          const cleaned = String(cell || '')
-            .replace(/\[[^\]]*\]\((?:[^()]|\([^()]*\))*\)/g, match => {
-              const label = match.match(/^\[([^\]]+)\]/);
-              return label ? label[1] : '';
-            })
-            .replace(/<[^>]*>/g, ' ')
-            .replace(/[^0-9A-Z]/gi, '')
-            .toUpperCase();
-          const match = cleaned.match(/(\d{2}[A-Z]\d{5})/);
-          return match ? match[1] : '';
-        };
-
-        const first1 = extractTicket(cells[1]);
-        const first8 = extractTicket(cells[3]);
-        const valid = value => /^(\d{2}[A-Z])(\d{5})$/.exec(value);
-
-        const m1 = valid(first1);
-        const m8 = valid(first8);
-
-        if (m1) imported.push({
-          id: `archive-${isoDate}-1pm`, date: isoDate, time: '1:00 PM',
-          name: 'Lottery Sambad archive • 1st prize only',
-          first: `${m1[1]} ${m1[2]}`, second:[], third:[], fourth:[], fifth:[],
-          archiveSource: `https://lottery.sambad.com/old/${year}/`
-        });
-        if (m8) imported.push({
-          id: `archive-${isoDate}-8pm`, date: isoDate, time: '8:00 PM',
-          name: 'Lottery Sambad archive • 1st prize only',
-          first: `${m8[1]} ${m8[2]}`, second:[], third:[], fourth:[], fifth:[],
-          archiveSource: `https://lottery.sambad.com/old/${year}/`
-        });
-      }
-      return imported;
-    }
-
-    async function importLotteryArchive() {
-      const fromYear = Number(document.getElementById('archive-from-year')?.value);
-      const toYear = Number(document.getElementById('archive-to-year')?.value);
-      const button = document.getElementById('archive-import-btn');
-      if (!fromYear || !toYear || fromYear > toYear || toYear - fromYear > 5) {
-        archiveStatus('Choose a valid year range (maximum 6 calendar years per run).', true);
-        return;
-      }
-      if (typeof fetch !== 'function') {
-        archiveStatus('This browser does not support the archive importer.', true);
-        return;
-      }
-      button.disabled = true;
-      button.textContent = 'Fetching archive…';
-      let added = 0, duplicates = 0, yearsOk = 0;
-      const failures = [];
-      try {
-        for (let year = fromYear; year <= toYear; year++) {
-          archiveStatus(`Fetching ${year} archive…\nImported so far: ${added}`);
-          const archiveUrl = `https://lottery.sambad.com/old/${year}/`;
-          // Jina Reader acts as a text proxy so a locally opened HTML file can request the archive.
-          const proxyUrl = `https://r.jina.ai/http://lottery.sambad.com/old/${year}/`;
-          try {
-            const response = await fetch(proxyUrl, { method:'GET', headers:{ 'Accept':'text/plain' } });
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            const body = await response.text();
-            const parsed = parseLotteryArchiveText(body, year);
-            if (!parsed.length) throw new Error('No recognizable date/result rows found in the archive table');
-            yearsOk++;
-            for (const item of parsed) {
-              const exists = draws.some(d => d.date === item.date && d.time === item.time);
-              if (exists) { duplicates++; continue; }
-              draws.push(normalizeDrawSchema(item));
-              added++;
-            }
-          } catch (err) {
-            failures.push(`${year}: ${err.message || 'Fetch/parse failed'}`);
-          }
-        }
-        if (added > 0) {
-          draws.sort((a,b) => (a.date + (a.time === '1:00 PM' ? '1' : a.time === '6:00 PM' ? '2' : '3')).localeCompare(b.date + (b.time === '1:00 PM' ? '1' : b.time === '6:00 PM' ? '2' : '3')));
-          saveDrawsToStorage();
-          renderDraws();
-          renderPatterns();
-          renderTicketTableResults();
-          renderStoreAnalyticsAndBatches();
-        }
-        let report = `Completed.\nYears read: ${yearsOk}\nNew 1 PM/8 PM records: ${added}\nSkipped existing date/time records: ${duplicates}\n`;
-        if (failures.length) report += `\nCould not import:\n${failures.join('\n')}`;
-        if (!added && !yearsOk) report += '\nThe browser or proxy blocked access. Try opening this app in Chrome with an internet connection.';
-        report += '\n\nImported records contain first prize only; lower prize tiers were not supplied by the yearly index.';
-        archiveStatus(report, failures.length > 0 && added === 0);
-        showToast(`Archive import: ${added} added, ${duplicates} already existed`);
-      } finally {
-        button.disabled = false;
-        button.textContent = 'Import 1 PM + 8 PM Archive';
-      }
-    }
-
-    const APP_TAB_ORDER = ['draws', 'patterns', 'scan', 'table', 'data', 'import'];
-
     function switchTab(tabName) {
-      ['draws', 'patterns', 'scan', 'table', 'data', 'import'].forEach(t => {
+      ['draws', 'patterns', 'scan', 'table', 'data'].forEach(t => {
         const panel = document.getElementById(`tab-${t}`);
         const navBtn = document.getElementById(`nav-${t}`);
         if (panel) panel.classList.add('hidden');
@@ -3187,13 +2752,7 @@ function importMasterCsvNow() {
       });
       const activePanel = document.getElementById(`tab-${tabName}`);
       const activeNav = document.getElementById(`nav-${tabName}`);
-      if (activePanel) {
-        activePanel.classList.remove('hidden');
-        activePanel.classList.remove('tab-swipe-enter');
-        activePanel.style.setProperty('--tab-enter-x', window.__tabSwipeDirection === 'left' ? '14px' : '-14px');
-        void activePanel.offsetWidth;
-        activePanel.classList.add('tab-swipe-enter');
-      }
+      if (activePanel) activePanel.classList.remove('hidden');
       if (activeNav) activeNav.className = 'nav-btn flex flex-col items-center gap-1 text-emerald-400';
 
       if (tabName === 'draws') renderDraws();
@@ -3206,67 +2765,6 @@ function importMasterCsvNow() {
         renderStoreAnalyticsAndBatches();
       }
     }
-
-    // Feather-touch infinite tab navigation.
-    (function enableInfiniteTabSwipe() {
-      let startX = 0, startY = 0, startTime = 0;
-      let tracking = false, horizontalIntent = false;
-      const ignored = 'input, textarea, select, button, a, label, [contenteditable="true"], .overflow-x-auto, [data-no-tab-swipe]';
-      const getActiveIndex = () => APP_TAB_ORDER.findIndex(tab => {
-        const panel = document.getElementById(`tab-${tab}`);
-        return panel && !panel.classList.contains('hidden');
-      });
-
-      document.addEventListener('touchstart', event => {
-        if (!event.touches || event.touches.length !== 1 ||
-            (event.target && event.target.closest && event.target.closest(ignored))) {
-          tracking = false; horizontalIntent = false; return;
-        }
-        const touch = event.touches[0];
-        startX = touch.clientX;
-        startY = touch.clientY;
-        startTime = performance.now();
-        tracking = true;
-        horizontalIntent = false;
-      }, { passive: true });
-
-      document.addEventListener('touchmove', event => {
-        if (!tracking || !event.touches || event.touches.length !== 1) return;
-        const dx = event.touches[0].clientX - startX;
-        const dy = event.touches[0].clientY - startY;
-        if (!horizontalIntent && Math.abs(dx) > 9 && Math.abs(dx) > Math.abs(dy) * 1.15) {
-          horizontalIntent = true;
-        }
-        // Do not preventDefault: native vertical scrolling and momentum remain smooth.
-      }, { passive: true });
-
-      document.addEventListener('touchend', event => {
-        if (!tracking || !event.changedTouches || !event.changedTouches.length) return;
-        tracking = false;
-        const touch = event.changedTouches[0];
-        const dx = touch.clientX - startX;
-        const dy = touch.clientY - startY;
-        const elapsed = Math.max(1, performance.now() - startTime);
-        const absX = Math.abs(dx), absY = Math.abs(dy);
-        const velocityX = absX / elapsed;
-
-        // Accept a deliberate short flick or a slower, longer horizontal drag.
-        const intentionalFlick = absX >= 32 && velocityX >= 0.38 && absX > absY * 1.12;
-        const deliberateDrag = absX >= 52 && absX > absY * 1.3;
-        if ((!horizontalIntent && !intentionalFlick) || (!intentionalFlick && !deliberateDrag)) return;
-
-        const activeIndex = getActiveIndex();
-        if (activeIndex < 0) return;
-        const direction = dx < 0 ? 1 : -1;
-        window.__tabSwipeDirection = direction > 0 ? 'left' : 'right';
-        const nextIndex = (activeIndex + direction + APP_TAB_ORDER.length) % APP_TAB_ORDER.length;
-        switchTab(APP_TAB_ORDER[nextIndex]);
-      }, { passive: true });
-
-      document.addEventListener('touchcancel', () => {
-        tracking = false; horizontalIntent = false;
-      }, { passive: true });
-    })();
 
     function setDefaultFormDate() {
       const todayIso = new Date().toISOString().slice(0, 10);
@@ -3300,14 +2798,5 @@ function importMasterCsvNow() {
       }
     });
   </script>
-
-<script>
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker.register("./sw.js").catch(err => console.warn("PWA service worker:", err));
-    });
-  }
-</script>
-
 </body>
 </html>
