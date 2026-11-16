@@ -97,9 +97,12 @@
           <span class="w-2 h-2 rounded-full bg-sky-400"></span>Nearby <span class="text-[10px] text-slate-400">(Tap)</span>
         </span>
       </div>
-      <select id="date-filter" onchange="renderDraws()" class="bg-slate-900 border border-slate-700 text-slate-200 text-xs rounded-xl px-2.5 py-1.5 focus:outline-none focus:border-emerald-500">
-        <option value="ALL">All Dates</option>
-      </select>
+      
+<div class="flex items-center gap-2">
+  <input type="date" id="date-filter" onchange="renderDraws()" aria-label="Choose draw date" class="min-w-0 bg-slate-900 border border-slate-700 text-slate-200 text-xs rounded-xl px-2.5 py-2 focus:outline-none focus:border-emerald-500" />
+  <button type="button" onclick="clearDrawDateFilter()" class="shrink-0 bg-slate-800 border border-slate-700 text-slate-200 text-xs rounded-xl px-3 py-2">All Dates</button>
+</div>
+
     </div>
 
     <!-- Draws Feed Container -->
@@ -959,13 +962,8 @@
       document.getElementById('tab-draws').classList.remove('hidden');
       document.getElementById('nav-draws').className = 'nav-btn flex flex-col items-center gap-1 text-emerald-400';
 
-      populateDateDropdown();
       const dateSelect = document.getElementById('date-filter');
-      if (targetDate && [...dateSelect.options].some(o => o.value === targetDate)) {
-        dateSelect.value = targetDate;
-      } else {
-        dateSelect.value = 'ALL';
-      }
+dateSelect.value = targetDate || '';
 
       renderDraws();
 
@@ -988,15 +986,7 @@
       }, 90);
     }
 
-    function populateDateDropdown() {
-      const select = document.getElementById('date-filter');
-      if (!select) return;
-      const currentVal = select.value;
-      const uniqueDates = [...new Set(draws.map(d => d.date))].sort().reverse();
-      select.innerHTML = `<option value="ALL">All Dates (${uniqueDates.length})</option>` +
-        uniqueDates.map(dt => `<option value="${dt}">${formatDisplayDate(dt)} (${getDayName(dt).slice(0, 3)})</option>`).join('');
-      if ([...select.options].some(o => o.value === currentVal)) select.value = currentVal;
-    }
+    
 
     function setTimeFilter(timeVal) {
       currentTimeFilter = timeVal;
@@ -1022,9 +1012,13 @@
       return `<div data-num4="${n4}" class="num-chip text-center py-1.5 px-1 rounded-lg bg-slate-900/90 border border-slate-800 text-slate-200 font-medium text-xs">${numStr}</div>`;
     }
 
-    function renderDraws() {
-      populateDateDropdown();
-      const dateFilter = document.getElementById('date-filter').value;
+    function clearDrawDateFilter() {
+  document.getElementById('date-filter').value = '';
+  renderDraws();
+}
+
+function renderDraws() {
+  const dateFilter = document.getElementById('date-filter').value || 'ALL';
       const { highlightStatus } = analyzePatterns();
 
       const filtered = [...draws]
