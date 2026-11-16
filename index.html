@@ -674,12 +674,57 @@
     let drawsPage = 0;
     const DRAWS_PER_PAGE = 8;
 
-    function changeDrawPage(delta) {
-      drawsPage = Math.max(0, drawsPage + delta);
-      renderDraws();
-      const feed = document.getElementById('draws-container');
-      if (feed) feed.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    
+function changeDrawPage(delta) {
+  const pageCount = Math.max(1, Math.ceil(getFilteredDrawCount() / DRAWS_PER_PAGE));
+  drawsPage = Math.min(pageCount - 1, Math.max(0, drawsPage + delta));
+  renderDraws();
+  const feed = document.getElementById('draws-container');
+  if (feed) feed.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function getFilteredDrawCount() {
+  const dateSelect = document.getElementById('date-filter');
+  const dateFilter = dateSelect ? dateSelect.value : 'ALL';
+
+  return draws
+    .filter(d => d.time === '1:00 PM' || d.time === '8:00 PM')
+    .filter(d => currentTimeFilter === 'ALL' || d.time === currentTimeFilter)
+    .filter(d => dateFilter === 'ALL' || d.date === dateFilter).length;
+}
+
+function goToDrawPage(pageNumber) {
+  const pageCount = Math.max(1, Math.ceil(getFilteredDrawCount() / DRAWS_PER_PAGE));
+  const requested = Number(pageNumber);
+  if (!Number.isFinite(requested)) return;
+
+  drawsPage = Math.min(pageCount - 1, Math.max(0, Math.floor(requested) - 1));
+  renderDraws();
+
+  const feed = document.getElementById('draws-container');
+  if (feed) feed.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function goToLastDrawPage() {
+  goToDrawPage(Math.max(1, Math.ceil(getFilteredDrawCount() / DRAWS_PER_PAGE)));
+}
+
+function goToDrawPageFromInput() {
+  const input = document.getElementById('draws-page-input');
+  if (!input) return;
+
+  const pageCount = Math.max(1, Math.ceil(getFilteredDrawCount() / DRAWS_PER_PAGE));
+  const requested = Number(input.value);
+
+  if (!Number.isInteger(requested) || requested < 1 || requested > pageCount) {
+    showToast(`Enter a page from 1 to ${pageCount}`);
+    input.value = String(drawsPage + 1);
+    return;
+  }
+
+  goToDrawPage(requested);
+}
+
     let savedTableTickets = [];
     let savedStoreBatches = [];
     let currentTableFilter = 'ALL';
