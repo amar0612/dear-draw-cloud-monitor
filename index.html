@@ -1772,11 +1772,13 @@ else if (/6\s*[:.]?\s*00\s*PM|6\s*PM/i.test(raw)) showToast('6 PM is excluded fr
       let hasExact4 = false;
       let hasNearby = false;
 
-      const sortedDraws = [...draws].sort((a, b) => {
-        const keyA = a.date + (a.time === '8:00 PM' ? '3' : a.time === '6:00 PM' ? '2' : '1');
-        const keyB = b.date + (b.time === '8:00 PM' ? '3' : b.time === '6:00 PM' ? '2' : '1');
-        return keyB.localeCompare(keyA);
-      });
+      const sortedDraws = draws
+  .filter(draw => draw.time === '1:00 PM' || draw.time === '8:00 PM')
+  .sort((a, b) => {
+    const keyA = a.date + (a.time === '1:00 PM' ? '1' : '3');
+    const keyB = b.date + (b.time === '1:00 PM' ? '1' : '3');
+    return keyB.localeCompare(keyA);
+  });
 
       sortedDraws.forEach(draw => {
         const day = getDayName(draw.date);
