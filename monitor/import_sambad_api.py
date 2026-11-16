@@ -171,11 +171,23 @@ def main():
         )
         output_path = output_dir / filename
 
+                new_content = (
+            json.dumps(record, indent=2, ensure_ascii=False) + "\n"
+        )
+
         if output_path.exists():
+            existing_content = output_path.read_text(encoding="utf-8")
+
+            if existing_content == new_content:
+                print(f"SKIPPED: Identical result already archived: {output_path}")
+                return
+
             sys.exit(
-                f"STOP: {output_path} already exists. "
-                "Existing data was not overwritten."
+                f"STOP: Different data already exists at {output_path}. "
+                "Existing archive was not overwritten."
             )
+
+        output_path.write_text(new_content, encoding="utf-8")
 
         output_path.write_text(
             json.dumps(record, indent=2, ensure_ascii=False) + "\n",
