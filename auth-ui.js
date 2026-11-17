@@ -119,7 +119,9 @@ gate.querySelector("#dda-form").addEventListener("submit", async e => {
     }
 
     update(result.session);
-    say("Signed in successfully.");
+say("Signed in successfully.");
+gate.remove();
+account.hidden = false;
 
   } catch (err) {
     say(err.message || "Sign-in failed.", true);
