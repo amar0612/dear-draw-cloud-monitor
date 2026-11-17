@@ -168,8 +168,9 @@ account.hidden = false;
     account.onclick = async () => {
       if (confirm("Sign out?")) {
         try {
-          await auth.signOut();
-        } catch (err) {
+  await auth.signOut();
+  location.reload();
+} catch (err) {
           alert(err.message);
         }
       }
@@ -179,15 +180,14 @@ account.hidden = false;
             let authEventSeen = false;
 
     function update(session) {
-      if (session) {
-        gate.hidden = true;
-        gate.style.setProperty("display", "none", "important");
-        account.hidden = false;
-      } else {
-        gate.hidden = false;
-        gate.style.removeProperty("display");
-        account.hidden = true;
-      }
+  if (session) {
+    gate.remove();
+    account.hidden = false;
+  } else {
+    gate.hidden = false;
+    gate.style.removeProperty("display");
+    account.hidden = true;
+  }
     }
 
     auth.onAuthChange((_event, session) => {
