@@ -17,6 +17,9 @@
         background:#080f18; color:#f8fafc;
         font-family:system-ui,sans-serif;
       }
+      #dda-auth-gate[hidden] {
+  display: none !important;
+}
       .dda-panel {
         width:min(100%,420px); padding:26px;
         border-radius:20px; background:#0f1b29;
