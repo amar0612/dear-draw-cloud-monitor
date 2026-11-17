@@ -174,10 +174,17 @@ gate.querySelector("#dda-form").addEventListener("submit", async e => {
     };
     document.body.appendChild(account);
 
-    function update(session) {
-      gate.hidden = !!session;
-      account.hidden = !session;
-    }
+        function update(session) {
+      if (session) {
+        gate.hidden = true;
+        gate.style.setProperty("display", "none", "important");
+        account.hidden = false;
+      } else {
+        gate.hidden = false;
+        gate.style.removeProperty("display");
+        account.hidden = true;
+      }
+        }
 
     auth.getSession().then(update).catch(err => say(err.message, true));
     auth.onAuthChange((_event, session) => update(session));
