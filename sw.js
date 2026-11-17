@@ -1,5 +1,13 @@
-const CACHE_NAME = "dear-draw-shell-v4";
-const SHELL = ["./", "./index.html", "./manifest.webmanifest", "./icon.svg"];
+const CACHE_NAME = "dear-draw-shell-v5";
+const SHELL = [
+  "./",
+  "./index.html",
+  "./manifest.webmanifest",
+  "./icon.svg",
+  "./supabase-client.js",
+  "./auth.js",
+  "./auth-ui.js"
+];
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting()));
 });
