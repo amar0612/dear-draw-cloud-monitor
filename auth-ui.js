@@ -89,15 +89,42 @@
       message.style.color = error ? "#fca5a5" : "#a7f3d0";
     }
 
-    gate.querySelector("#dda-form").addEventListener("submit", async e => {
-      e.preventDefault();
-      say("Signing in…");
-      try {
-        await auth.signIn(email.value.trim(), password.value);
-      } catch (err) {
-        say(err.message || "Sign-in failed.", true);
-      }
-    });
+    
+gate.querySelector("#dda-form").addEventListener("submit", async e => {
+  e.preventDefault();
+
+  const button = gate.querySelector(
+    '#dda-form button[type="submit"]'
+  );
+
+  button.disabled = true;
+  say("Signing in…");
+
+  try {
+    const result = await Promise.race([
+      auth.signIn(email.value.trim(), password.value),
+      new Promise((_, reject) =>
+        setTimeout(
+          () => reject(new Error("Sign-in timed out. Please retry.")),
+          20000
+        )
+      )
+    ]);
+
+    if (!result.session) {
+      throw new Error("No active session returned.");
+    }
+
+    update(result.session);
+    say("Signed in successfully.");
+
+  } catch (err) {
+    say(err.message || "Sign-in failed.", true);
+  } finally {
+    button.disabled = false;
+  }
+});
+
 
     gate.querySelector("#dda-signup").addEventListener("click", async () => {
       if (!email.value.trim() || password.value.length < 8) {
