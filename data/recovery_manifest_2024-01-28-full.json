@@ -1,0 +1,97 @@
+{
+  "batch": "2024-01-28-full-prize",
+  "retrieved_at": "2026-11-18",
+  "date": "2024-01-28",
+  "scope": "Nagaland 1PM and 8PM only; 6PM excluded",
+  "sources": [
+    {
+      "domain": "lotterysambad.co",
+      "url": "https://www.lotterysambad.co/2024/january/28/",
+      "type": "date result page",
+      "retrieved_at": "2026-11-18"
+    },
+    {
+      "domain": "o.vcdn.cc",
+      "url": "https://o.vcdn.cc/Dear/MN280124.PDF",
+      "type": "1PM PDF",
+      "retrieved_at": "2026-11-18",
+      "sha256": null,
+      "sha256_note": "PDF bytes were not downloaded into the recovery runtime; text extraction is available."
+    },
+    {
+      "domain": "o.vcdn.cc",
+      "url": "https://o.vcdn.cc/Dear/EN280124.PDF",
+      "type": "8PM PDF",
+      "retrieved_at": "2026-11-18",
+      "sha256": null,
+      "sha256_note": "PDF bytes were not downloaded into the recovery runtime; text extraction is available."
+    },
+    {
+      "domain": "kllotteryresults.in",
+      "url": "https://www.kllotteryresults.in/dear-lottery-chart/2024",
+      "type": "yearly first-prize chart",
+      "retrieved_at": "2026-11-18"
+    }
+  ],
+  "draws": [
+    {
+      "draw": "1PM",
+      "entry_count": 132,
+      "draw_status": "single_source_pending_review",
+      "tier_statuses": {
+        "1st": "two_source_matched",
+        "Consolation": "single_source_pending_review",
+        "2nd": "single_source_pending_review",
+        "3rd": "single_source_pending_review",
+        "4th": "single_source_pending_review",
+        "5th": "single_source_pending_review"
+      },
+      "expected_counts": {
+        "1st": 1,
+        "Consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "extracted_counts": {
+        "1st": 1,
+        "Consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      }
+    },
+    {
+      "draw": "8PM",
+      "entry_count": 132,
+      "draw_status": "single_source_pending_review",
+      "tier_statuses": {
+        "1st": "two_source_matched",
+        "Consolation": "single_source_pending_review",
+        "2nd": "single_source_pending_review",
+        "3rd": "single_source_pending_review",
+        "4th": "single_source_pending_review",
+        "5th": "single_source_pending_review"
+      },
+      "expected_counts": {
+        "1st": 1,
+        "Consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "extracted_counts": {
+        "1st": 1,
+        "Consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      }
+    }
+  ],
+  "note": "First-prize values independently match the yearly chart: 1PM 46982 and 8PM 57269. Complete tier lists were extracted from the PDFs; non-first tiers remain single-source pending review. The page advertises all three slots, but only 1PM and 8PM were imported."
+}
