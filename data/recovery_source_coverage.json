@@ -1,0 +1,83 @@
+{
+  "updated_at": "2026-11-18",
+  "scope": "Nagaland 1PM and 8PM only; exclude 6PM",
+  "discovered_archives": [
+    {
+      "domain": "lotterysambad.icu",
+      "url": "https://lotterysambad.icu/old-result",
+      "coverage": "Jan 2022-Nov 2026 monthly/date PDF archive",
+      "content": "Daily PDFs for 1PM, 6PM, 8PM; bulk monthly navigation",
+      "limitations": "Some individual PDF links broken; not an official government source; archive page claims aggregation."
+    },
+    {
+      "domain": "kllotteryresults.in",
+      "url": "https://kllotteryresults.in/dear-lottery-chart",
+      "coverage": "Yearly first-prize charts 2021-2026",
+      "content": "Date-wise first-prize 5-digit values for 1PM, 6PM, 8PM",
+      "limitations": "2021 chart begins April; 2022-2026 yearly chart pages; first-prize only, missing cells require alternate sources."
+    },
+    {
+      "domain": "lotterysambad.co",
+      "url": "https://www.lotterysambad.co/2024/january/28/",
+      "coverage": "Date-specific result pages; observed 2021, 2022 and 2024 examples",
+      "content": "Full tier lists and linked one-page PDFs for individual dates",
+      "limitations": "Needs date-by-date or archive navigation discovery; page includes 6PM but recovery excludes it."
+    },
+    {
+      "domain": "lotterysambad.com",
+      "url": "https://www.lotterysambad.com/old-result.php",
+      "coverage": "Old-results form and weekly PDFs; exact historical reach not yet determined",
+      "content": "Old results by draw time; potential primary archive route",
+      "limitations": "Form-driven; range and download mechanics not yet mapped."
+    },
+    {
+      "domain": "nagalandstatelotteries.in",
+      "url": "https://www.nagalandstatelotteries.in/oldresult.htm",
+      "coverage": "Government state lottery archive interface; exact date range not yet determined",
+      "content": "DBF/PDF selectors for multiple draw times",
+      "limitations": "Time labels differ from requested 1PM/8PM; requires careful identification of matching Nagaland Dear draws."
+    }
+  ],
+  "extracted_batches": [
+    {
+      "batch": "2023-12-01 to 2023-12-04",
+      "draws": 8,
+      "complete_draws": 8,
+      "rows": 1056,
+      "first_prize_status": "two_source_matched",
+      "other_tiers": "single_source_pending_review"
+    },
+    {
+      "batch": "2023-12-05 to 2023-12-31",
+      "draws": 54,
+      "complete_draws": 0,
+      "rows": 54,
+      "content": "first prize only",
+      "status": "partial_extraction_review"
+    },
+    {
+      "batch": "2024 full-year chart",
+      "draws_with_first_prize": 362,
+      "rows": 724,
+      "content": "first prize only",
+      "status": "partial_extraction_review",
+      "exceptions": 6
+    },
+    {
+      "batch": "2024-01-28",
+      "draws": 2,
+      "complete_draws": 2,
+      "rows": 264,
+      "first_prize_status": "two_source_matched",
+      "other_tiers": "single_source_pending_review"
+    }
+  ],
+  "next_work": [
+    "Continue date-wise full-tier PDF extraction for Dec 2023 dates 5-31 and 2024 dates.",
+    "Extract 2025 and 2026 first-prize chart matrices as partial records, preserving missing cells in exceptions.",
+    "Extract 2022 first-prize chart matrix and seek full PDFs.",
+    "Extract 2021 April-December chart matrix; seek alternate source for Jan-March 2021.",
+    "Map the form-driven lotterysambad.com old-result archive and official Nagaland archive where relevant.",
+    "Do not merge PR or modify main."
+  ]
+}
