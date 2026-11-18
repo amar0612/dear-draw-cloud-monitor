@@ -2634,40 +2634,72 @@ function renderDraws() {
     }
 
     function buildHistoricalDrawGroups(csvText) {
-      const rows = parseCsvRows(String(csvText || '').replace(/^\uFEFF/, ''));
+      const rows = parseCsvRows(String(csvText || '').replace(/^\\uFEFF/, ''));
       if (rows.length < 2) throw new Error('CSV is empty or has no data rows.');
       const headers = rows[0].map(h => h.trim().toLowerCase());
-      const required = ['date','draw','prize_tier','position','winning_number'];
+      const required = ['date','draw','prize_tier','position','winning_number','verification_status','source_file'];
       const missing = required.filter(h => !headers.includes(h));
-      if (missing.length) throw new Error('Missing CSV columns: ' + missing.join(', '));
+      if (missing.length) throw new Error('This importer accepts only audited CSVs. Missing required columns: ' + missing.join(', '));
       const ix = Object.fromEntries(required.map(h => [h, headers.indexOf(h)]));
+      const expected = { '1st': 1, 'Consolation': 1, '2nd': 10, '3rd': 10, '4th': 10, '5th': 100 };
+      const patterns = {
+        '1st': /^\\d{2}[A-Z] \\d{5}$/,
+        'Consolation': /^\\d{5}$/,
+        '2nd': /^\\d{5}$/,
+        '3rd': /^\\d{4}$/,
+        '4th': /^\\d{4}$/,
+        '5th': /^\\d{4}$/
+      };
       const grouped = new Map();
+      const invalidRows = [];
       for (let i = 1; i < rows.length; i++) {
         const r = rows[i];
         const date = (r[ix.date] || '').trim();
         const drawCode = (r[ix.draw] || '').trim().toUpperCase();
-        if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || !['1PM','8PM'].includes(drawCode)) continue;
+        if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(date) || !['1PM','8PM'].includes(drawCode)) continue;
         const tier = (r[ix.prize_tier] || '').trim();
-        const position = Number((r[ix.position] || '').trim());
+        const positionText = (r[ix.position] || '').trim();
+        const position = Number(positionText);
         const number = (r[ix.winning_number] || '').trim();
-        if (!number || !Number.isInteger(position) || position < 1) continue;
+        const verification = (r[ix.verification_status] || '').trim().toLowerCase();
+        const sourceFile = (r[ix.source_file] || '').trim();
         const key = date + '|' + drawCode;
-        if (!grouped.has(key)) grouped.set(key, { date, drawCode, first: '', consolation: '', second: [], third: [], fourth: [], fifth: [], counts: {} });
+        if (!grouped.has(key)) grouped.set(key, { date, drawCode, first: '', consolation: '', second: [], third: [], fourth: [], fifth: [], rowCount: 0, errors: [] });
         const g = grouped.get(key);
-        if (tier === '1st' && position === 1) g.first = number;
-        else if (tier === 'Consolation' && position === 1) g.consolation = number;
-        else if (['2nd','3rd','4th','5th'].includes(tier)) {
-          const target = tier === '2nd' ? g.second : tier === '3rd' ? g.third : tier === '4th' ? g.fourth : g.fifth;
+        g.rowCount++;
+        const dateObj = new Date(date + 'T00:00:00Z');
+        if (Number.isNaN(dateObj.getTime()) || dateObj.toISOString().slice(0,10) !== date) g.errors.push('invalid date');
+        if (verification !== 'human_verified') g.errors.push('contains unverified row');
+        if (!sourceFile) g.errors.push('missing source reference');
+        if (!(tier in expected)) { g.errors.push('unknown prize tier: ' + tier); continue; }
+        if (!Number.isInteger(position) || position < 1 || position > expected[tier]) { g.errors.push('invalid position for ' + tier); continue; }
+        if (!patterns[tier].test(number)) { g.errors.push('invalid number format for ' + tier + ' position ' + position); continue; }
+        const target = tier === '1st' ? null : tier === 'Consolation' ? null : tier === '2nd' ? g.second : tier === '3rd' ? g.third : tier === '4th' ? g.fourth : g.fifth;
+        if (tier === '1st') {
+          if (g.first) g.errors.push('duplicate 1st prize position');
+          g.first = number;
+        } else if (tier === 'Consolation') {
+          if (g.consolation) g.errors.push('duplicate consolation position');
+          g.consolation = number;
+        } else {
+          if (target[position - 1]) g.errors.push('duplicate ' + tier + ' position ' + position);
           target[position - 1] = number;
         }
       }
-      const expected = { second: 10, third: 10, fourth: 10, fifth: 100 };
       const complete = [];
       const invalid = [];
       for (const g of grouped.values()) {
-        const ok = !!g.first && !!g.consolation && Object.entries(expected).every(([k,n]) => g[k].length === n && g[k].every(Boolean));
-        if (ok) complete.push(g);
-        else invalid.push(g.date + ' ' + g.drawCode);
+        const tierCountsOk = Object.entries(expected).every(([tier,n]) => {
+          const values = tier === '1st' ? (g.first ? [g.first] : []) :
+            tier === 'Consolation' ? (g.consolation ? [g.consolation] : []) :
+            tier === '2nd' ? g.second : tier === '3rd' ? g.third : tier === '4th' ? g.fourth : g.fifth;
+          return values.length === n && values.every(Boolean);
+        });
+        if (!tierCountsOk) g.errors.push('incomplete prize counts or missing positions');
+        if (g.first && g.consolation && g.first.slice(-5) !== g.consolation) g.errors.push('consolation does not match first prize suffix');
+        if (g.rowCount !== 132) g.errors.push('expected 132 source rows, found ' + g.rowCount);
+        if (g.errors.length) invalid.push(g.date + ' ' + g.drawCode + ': ' + [...new Set(g.errors)].join('; '));
+        else complete.push(g);
       }
       complete.sort((a,b) => (a.date + a.drawCode).localeCompare(b.date + b.drawCode));
       return { complete, invalid, groups: grouped.size };
