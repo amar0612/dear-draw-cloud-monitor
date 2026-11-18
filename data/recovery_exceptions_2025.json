@@ -98,6 +98,27 @@
       "issue": "60 first-prize records recovered for the other 30 dates; full prize tiers not extracted. Full-result PDFs located for selected dates.",
       "status": "partial_extraction_review",
       "action": "Continue daily PDF extraction for full tiers"
+    },
+    {
+      "date": "2025-09",
+      "draw": "both",
+      "issue": "60 first-prize records recovered from two yearly chart sources; full prize tiers not extracted.",
+      "status": "partial_extraction_review",
+      "action": "Continue searching September daily PDFs for complete prize tiers"
+    },
+    {
+      "date": "2025-10-02",
+      "draw": "1PM and 8PM",
+      "issue": "October 2 appears as ***** in KLL chart and is omitted from Goodreturns monthly chart; unresolved, not proof of no draw.",
+      "status": "unresolved_source_gap",
+      "action": "Search alternate archives and daily PDFs for October 2"
+    },
+    {
+      "date": "2025-10",
+      "draw": "both",
+      "issue": "58 first-prize records recovered for October 1 and October 3–31; full prize tiers not extracted.",
+      "status": "partial_extraction_review",
+      "action": "Continue searching October daily PDFs for complete prize tiers"
     }
   ]
 }
