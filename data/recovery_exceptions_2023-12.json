@@ -15,7 +15,51 @@
       "source": "lotterysambad.icu",
       "status": "broken_archive_link_404",
       "action": "Retain as unresolved source exception; seek alternate archive"
+    },
+    {
+      "date": "2023-12-06",
+      "draw": "1PM",
+      "source": "lotterysambad.icu",
+      "status": "broken_archive_link_404",
+      "action": "Retain as unresolved; search alternate archives; no placeholder result"
+    },
+    {
+      "date": "2023-12-06",
+      "draw": "8PM",
+      "source": "lotterysambad.icu",
+      "status": "broken_archive_link_404",
+      "action": "Retain as unresolved; search alternate archives; no placeholder result"
     }
   ],
-  "note": "A broken link is not evidence that a draw did not occur. Do not create placeholder winning numbers."
+  "note": "A broken link is not evidence that a draw did not occur. Do not create placeholder winning numbers.",
+  "alternate_source_checks": [
+    {
+      "date": "2023-12-05",
+      "draw": "1PM",
+      "source": "lotterysambadresult.in",
+      "url": "https://lotterysambadresult.in/wp-content/uploads/2023/12/MD051223.pdf",
+      "status": "not_accessible_in_current_retrieval"
+    },
+    {
+      "date": "2023-12-05",
+      "draw": "8PM",
+      "source": "lotterysambadresult.in",
+      "url": "https://lotterysambadresult.in/wp-content/uploads/2023/12/ED051223.pdf",
+      "status": "not_accessible_in_current_retrieval"
+    },
+    {
+      "date": "2023-12-06",
+      "draw": "1PM",
+      "source": "lotterysambadresult.in",
+      "url": "https://lotterysambadresult.in/wp-content/uploads/2023/12/MD061223.pdf",
+      "status": "not_accessible_in_current_retrieval"
+    },
+    {
+      "date": "2023-12-06",
+      "draw": "8PM",
+      "source": "lotterysambadresult.in",
+      "url": "https://lotterysambadresult.in/wp-content/uploads/2023/12/ED061223.pdf",
+      "status": "not_accessible_in_current_retrieval"
+    }
+  ]
 }
