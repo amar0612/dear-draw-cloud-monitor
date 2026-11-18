@@ -1,0 +1,55 @@
+{
+  "year": 2023,
+  "quarter": "Q4",
+  "scope": "Nagaland 1PM and 8PM only; 6PM excluded",
+  "source_primary": {
+    "name": "KLLotteryResults 2023 yearly chart",
+    "url": "https://www.kllotteryresults.in/dear-lottery-chart/2023",
+    "retrieved": "2026-11-18"
+  },
+  "secondary": {
+    "name": "TodaySoch November 2023 monthly chart",
+    "url": "https://www.todaysoch.com/2023/10/dear-lottery-result-chart.html",
+    "status": "November 1PM and 8PM values independently matched"
+  },
+  "months": [
+    {
+      "month": "October",
+      "calendar_days": 31,
+      "records": 58,
+      "missing_draws": 2,
+      "unresolved": [
+        "2023-10-02 1PM",
+        "2023-10-02 8PM"
+      ],
+      "status": "partial_first_prize_recovery",
+      "verification": "single_source_pending_review"
+    },
+    {
+      "month": "November",
+      "calendar_days": 30,
+      "records": 60,
+      "missing_draws": 0,
+      "status": "first_prize_recovered",
+      "verification": "two_source_matched"
+    },
+    {
+      "month": "December",
+      "calendar_days": 31,
+      "records": 62,
+      "missing_draws": 0,
+      "status": "first_prize_recovered",
+      "verification": "single_source_pending_review"
+    }
+  ],
+  "total_first_prize_records": 180,
+  "unresolved_draws": 2,
+  "full_prize_tiers": "not extracted in this Q4 CSV; separate Dec 2–3 detailed pilot records exist in recovery/dec-2023-pilot and should be reconciled before any consolidated master import",
+  "notes": [
+    "October 2 shows ***** for both target draws in the yearly chart; retained as unresolved, not no-draw.",
+    "October 31 and November 31 are not calendar dates and are not treated as missing draws.",
+    "November chart cross-checked against TodaySoch monthly table.",
+    "December values retained from yearly chart; full-tier pilot for Dec 2–3 is a separate source artifact and not duplicated here.",
+    "All values preserved as five-character strings including leading zeros."
+  ]
+}
