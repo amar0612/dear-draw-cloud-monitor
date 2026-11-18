@@ -23,6 +23,15 @@
       ],
       "status": "partial_extraction_review",
       "detail": "60 first-prize records recovered and cross-checked by five-digit value across two chart domains. Full prize tiers remain unextracted for all January draws except PDF sources identified for 2025-01-22; no full-tier claim made."
+    },
+    {
+      "date_range": "2025-02-01_to_2025-02-28",
+      "draws": [
+        "1PM",
+        "8PM"
+      ],
+      "status": "partial_extraction_review",
+      "detail": "56 first-prize records recovered and cross-checked by five-digit value across two chart domains. Full prize tiers remain unextracted."
     }
   ],
   "note": "Date/draw exceptions to be added during monthly PDF extraction. Missing archive link is unresolved, not no-draw."
