@@ -1,0 +1,31 @@
+{
+  "year": 2023,
+  "quarter": "Q1",
+  "exceptions": [
+    {
+      "date": "2023-01-26",
+      "draw": "1PM and 8PM",
+      "issue": "KLLotteryResults yearly chart shows ***** for both draws; unresolved, not proof of no draw.",
+      "status": "unresolved_source_gap",
+      "action": "Search daily result PDFs and alternate archives"
+    },
+    {
+      "date": "2023-01-25",
+      "draw": "1PM and 8PM",
+      "issue": "KLL chart contains values but TodaySoch monthly chart shows ***; single-source pending review.",
+      "status": "single_source_pending_review"
+    },
+    {
+      "date": "2023-01-27_to_31",
+      "draw": "1PM and 8PM",
+      "issue": "KLL chart contains values but TodaySoch monthly chart shows ***; retained as single-source candidates.",
+      "status": "single_source_pending_review"
+    },
+    {
+      "date": "2023-01_to_03",
+      "draw": "both",
+      "issue": "Only first-prize records imported in this checkpoint; full prize tiers not extracted.",
+      "status": "partial_extraction_review"
+    }
+  ]
+}
