@@ -1292,11 +1292,12 @@ function renderDraws() {
       const cleaned = stripNoiseLines(text);
       const rawTokens = cleaned.split(/[^A-Za-z0-9|!$]+/).filter(Boolean);
       const results = [];
-      const ambiguousPattern = /[OQD BIl|!ZSGT$]/i;
+      const ambiguousPattern = /[OQDBIl|!ZSGT$gq]/i;
+      const numericGlyphsOnly = /^[0-9OQDBIl|!ZSGT$gq]+$/i;
 
       for (const tok of rawTokens) {
-        // Preserve suspicious OCR tokens for manual comparison with the source poster.
-        if (ambiguousPattern.test(tok) && /[A-Za-z|!$]/.test(tok)) {
+        // Keep only number-shaped tokens containing ambiguous OCR glyphs for manual review.
+        if (tok.length >= digitLen && numericGlyphsOnly.test(tok) && ambiguousPattern.test(tok)) {
           if (lastResultOcrAmbiguousTokens.length < 80) lastResultOcrAmbiguousTokens.push(tok);
           continue;
         }
@@ -1414,7 +1415,8 @@ function renderDraws() {
       const c2 = tokenizeNums(document.getElementById('inp-p2').value, 5).length;
       const c5 = tokenizeNums(document.getElementById('inp-p5').value, 4).length;
       const skipped = lastResultOcrAmbiguousTokens.length;
-      showToast(`Extracted ${c2}/10 (2nd) & ${c5}/100 (5th Prize)${skipped ? ` • ${skipped} ambiguous OCR token(s) skipped — verify against poster` : ''}`);
+      const reviewTokens = lastResultOcrAmbiguousTokens.slice(0, 8).join(', ');
+      showToast(`Extracted ${c2}/10 (2nd) & ${c5}/100 (5th Prize)${skipped ? ` • Skipped ${skipped} ambiguous token(s): ${reviewTokens} — check poster` : ''}`);
     }
 
     function renderRedChannelTopBanner(img) {
