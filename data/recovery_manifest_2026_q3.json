@@ -1,0 +1,44 @@
+{
+  "year": 2026,
+  "quarter": "Q3",
+  "scope": "Nagaland 1PM and 8PM only; exclude 6PM",
+  "sources": [
+    {
+      "url": "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2026",
+      "domain": "goodreturns.in",
+      "status": "July-September series-prefixed entries transcribed"
+    },
+    {
+      "url": "https://www.kllotteryresults.in/dear-lottery-chart",
+      "domain": "kllotteryresults.in",
+      "status": "five-digit suffixes cross-checked"
+    },
+    {
+      "url": "https://lotterysambadfax.com/chart/2026-08",
+      "domain": "lotterysambadfax.com",
+      "status": "August 1PM/8PM chart cross-check"
+    }
+  ],
+  "months": [
+    {
+      "month": "july",
+      "records": 62,
+      "status": "first_prize_recovered",
+      "coverage": "All 31 dates"
+    },
+    {
+      "month": "august",
+      "records": 60,
+      "status": "first_prize_recovered_with_date_gap",
+      "coverage": "August 1-14 and 16-31; August 15 unresolved"
+    },
+    {
+      "month": "september",
+      "records": 60,
+      "status": "first_prize_recovered",
+      "coverage": "All 30 dates"
+    }
+  ],
+  "verification": "Goodreturns full series-prefixed numbers; KLL suffix cross-check. Series letters not independently confirmed by KLL. August also compared with Lotterysambadfax.",
+  "full_tiers": "Not extracted in this checkpoint."
+}
