@@ -445,15 +445,15 @@
     <!-- Historical Prize CSV Import -->
     <div class="glass-card p-4 space-y-3 border border-emerald-500/30">
       <h2 class="text-sm font-bold text-white">Historical Prize Database Import</h2>
-      <p class="text-[11px] text-slate-400">Imports the complete 1PM and 8PM prize history from the master CSV. 6PM draws are excluded. Existing date/time entries are upgraded rather than duplicated.</p>
+      <p class="text-[11px] text-slate-400">Loads complete Nagaland 1PM and 8PM prize history only. Export a Full JSON Backup first. Replace mode supersedes all active draw history but preserves ticket tables and store batches. 6PM is excluded.</p>
       <label class="block cursor-pointer bg-slate-900 border border-slate-700 rounded-xl p-3 text-center text-xs font-semibold text-emerald-300">
         ↑ Select all_prize_numbers.csv
         <input type="file" id="historical-csv-input" accept=".csv,text/csv" class="hidden" onchange="handleHistoricalCsv(event)" />
       </label>
       <div id="historical-import-status" class="hidden rounded-xl bg-slate-900 border border-slate-700 p-3 text-xs text-slate-300 whitespace-pre-line"></div>
       <div id="historical-import-actions" class="hidden grid grid-cols-1 gap-2">
-        <button type="button" onclick="importHistoricalCsv('test')" class="bg-sky-500/20 border border-sky-500/40 text-sky-200 font-bold text-xs py-2.5 rounded-xl">Import one test draw (first verified draw)</button>
-        <button type="button" onclick="importHistoricalCsv('all')" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs py-3 rounded-xl">Import all verified 1PM + 8PM draws</button>
+        <button type="button" onclick="importHistoricalCsv('test')" class="bg-sky-500/20 border border-sky-500/40 text-sky-200 font-bold text-xs py-2.5 rounded-xl">Import one test draw</button>
+        <button type="button" onclick="importHistoricalCsv('replace')" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs py-3 rounded-xl">Replace active draw history with this CSV</button>
       </div>
     </div>
 
@@ -2814,10 +2814,12 @@ function renderDraws() {
       const rows = parseCsvRows(String(csvText || '').replace(/^\uFEFF/, ''));
       if (rows.length < 2) throw new Error('CSV is empty or has no data rows.');
       const headers = rows[0].map(h => h.trim().toLowerCase());
-      const required = ['date','draw','prize_tier','position','winning_number','verification_status','source_file'];
+      const required = ['date','draw','prize_tier','position','winning_number','verification_status'];
       const missing = required.filter(h => !headers.includes(h));
-      if (missing.length) throw new Error('This importer accepts only audited CSVs. Missing required columns: ' + missing.join(', '));
+      const sourceColumn = headers.includes('source_pdf') ? 'source_pdf' : headers.includes('source_file') ? 'source_file' : null;
+      if (missing.length || !sourceColumn) throw new Error('Missing required columns: ' + [...missing, ...(sourceColumn ? [] : ['source_pdf/source_file'])].join(', '));
       const ix = Object.fromEntries(required.map(h => [h, headers.indexOf(h)]));
+      ix.sourceRef = headers.indexOf(sourceColumn);
       const expected = { '1st': 1, 'Consolation': 1, '2nd': 10, '3rd': 10, '4th': 10, '5th': 100 };
       const patterns = {
         '1st': /^\d{2}[A-Z] \d{5}$/,
@@ -2839,14 +2841,14 @@ function renderDraws() {
         const position = Number(positionText);
         const number = (r[ix.winning_number] || '').trim();
         const verification = (r[ix.verification_status] || '').trim().toLowerCase();
-        const sourceFile = (r[ix.source_file] || '').trim();
+        const sourceFile = (r[ix.sourceRef] || '').trim();
         const key = date + '|' + drawCode;
         if (!grouped.has(key)) grouped.set(key, { date, drawCode, first: '', consolation: '', second: [], third: [], fourth: [], fifth: [], rowCount: 0, errors: [] });
         const g = grouped.get(key);
         g.rowCount++;
         const dateObj = new Date(date + 'T00:00:00Z');
         if (Number.isNaN(dateObj.getTime()) || dateObj.toISOString().slice(0,10) !== date) g.errors.push('invalid date');
-        if (verification !== 'human_verified') g.errors.push('contains unverified row');
+        if (!(verification === 'human_verified' || verification === 'count check passed - verify source')) g.errors.push('unsupported verification status: ' + verification);
         if (!sourceFile) g.errors.push('missing source reference');
         if (!(tier in expected)) { g.errors.push('unknown prize tier: ' + tier); continue; }
         if (!Number.isInteger(position) || position < 1 || position > expected[tier]) { g.errors.push('invalid position for ' + tier); continue; }
@@ -2897,7 +2899,7 @@ function renderDraws() {
           historicalCsvDraws = result.complete;
           if (!historicalCsvDraws.length) throw new Error('No complete 1PM/8PM draws found.');
           const test = historicalCsvDraws[0];
-          status.textContent = `Audited CSV validation successful.\nHuman-verified complete 1PM + 8PM draws: ${result.complete.length}\nRejected/incomplete groups: ${result.invalid.length}\nTest draw: ${test.date} · ${test.drawCode}\nTest counts: 1st 1 | Consolation 1 | 2nd 10 | 3rd 10 | 4th 10 | 5th 100\nOnly rows marked human_verified with a source reference are accepted. Import the test draw first, inspect it in Draws, then reselect the CSV for full import.\n\nRejected examples:\n${result.invalid.slice(0,10).join('\\n') || 'None'}`;
+          status.textContent = `CSV validation successful.\nComplete Nagaland 1PM + 8PM draws: ${result.complete.length}\nRejected/incomplete groups: ${result.invalid.length}\nTest draw: ${test.date} · ${test.drawCode}\nTest counts: 1st 1 | Consolation 1 | 2nd 10 | 3rd 10 | 4th 10 | 5th 100\nSource references and supported count-check statuses accepted. Export a full JSON backup first, then use Replace active draw history to make this CSV the new baseline.\n\nRejected examples:\n${result.invalid.slice(0,10).join('\\n') || 'None'}`;
           actions.classList.remove('hidden');
         } catch (err) {
           historicalCsvDraws = [];
@@ -2910,30 +2912,29 @@ function renderDraws() {
 
     function importHistoricalCsv(mode) {
       if (!historicalCsvDraws.length) { showToast('Select and validate the master CSV first'); return; }
-      const selected = mode === 'test'
-        ? historicalCsvDraws.slice(0, 1)
-        : historicalCsvDraws;
-      const existingByKey = new Map(draws.map(d => [d.date + '|' + (d.time === '8:00 PM' ? '8PM' : d.time === '6:00 PM' ? '6PM' : '1PM'), d]));
-      let added = 0, upgraded = 0;
-      selected.forEach(g => {
-        const time = g.drawCode === '8PM' ? '8:00 PM' : '1:00 PM';
-        const key = g.date + '|' + g.drawCode;
-        const old = existingByKey.get(key);
-        const record = normalizeDrawSchema({
-          id: old ? old.id : `historical-${g.date}-${g.drawCode}`,
-          date: g.date, time, name: 'Nagaland State Lotteries',
-          first: g.first, consolation: g.consolation,
-          second: g.second, third: g.third, fourth: g.fourth, fifth: g.fifth
-        });
-        if (old) upgraded++; else added++;
-        existingByKey.set(key, record);
-      });
-      draws = Array.from(existingByKey.values()).sort((a,b) => (b.date + b.time).localeCompare(a.date + a.time));
+      const selected = mode === 'test' ? historicalCsvDraws.slice(0, 1) : historicalCsvDraws;
+      const records = selected.map(g => normalizeDrawSchema({
+        id: `historical-${g.date}-${g.drawCode}`,
+        date: g.date,
+        time: g.drawCode === '8PM' ? '8:00 PM' : '1:00 PM',
+        name: 'Nagaland State Lotteries',
+        first: g.first, consolation: g.consolation,
+        second: g.second, third: g.third, fourth: g.fourth, fifth: g.fifth
+      }));
+      if (mode === 'replace') {
+        // Replace only draw history. Ticket-table data and store batches remain untouched.
+        draws = records;
+      } else {
+        const existingByKey = new Map(draws.map(d => [d.date + '|' + (d.time === '8:00 PM' ? '8PM' : d.time === '6:00 PM' ? '6PM' : '1PM'), d]));
+        records.forEach(record => existingByKey.set(record.date + '|' + (record.time === '8:00 PM' ? '8PM' : '1PM'), record));
+        draws = Array.from(existingByKey.values());
+      }
+      draws.sort((a,b) => (b.date + b.time).localeCompare(a.date + a.time));
       saveDrawsToStorage();
       renderDraws(); renderPatterns(); renderTicketTableResults(); renderStoreAnalyticsAndBatches();
       const status = document.getElementById('historical-import-status');
-      status.textContent += `\n\n${mode === 'test' ? 'TEST IMPORT' : 'FULL IMPORT'} COMPLETE\nAdded: ${added} · Upgraded/replaced: ${upgraded}\nCurrent app draws: ${draws.length}\nCheck the selected test draw in Draws before running the full import.`;
-      showToast(mode === 'test' ? 'Test draw imported with all six prize tiers' : `Imported ${selected.length} historical draws`);
+      status.textContent += `\n\n${mode === 'test' ? 'TEST IMPORT' : mode === 'replace' ? 'ACTIVE HISTORY REPLACED' : 'FULL IMPORT'} COMPLETE\nImported draws: ${records.length}\nCurrent app draws: ${draws.length}\nTicket tables and store batches were preserved.`;
+      showToast(mode === 'test' ? 'Test draw imported' : mode === 'replace' ? `Active history replaced with ${records.length} draws` : `Imported ${records.length} historical draws`);
     }
 
     function exportBackupJSON() {
