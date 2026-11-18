@@ -1471,7 +1471,7 @@ function renderDraws() {
       const barEl = document.getElementById('ocr-bar');
 
       statusBox.classList.remove('hidden');
-      msgEl.textContent = 'Preparing 3-pass OCR scanner...';
+      msgEl.textContent = 'Preparing 4-pass OCR scanner...';
       pctEl.textContent = '10%';
       barEl.style.width = '10%';
 
@@ -1488,19 +1488,13 @@ function renderDraws() {
           corePath: 'https://cdn.jsdelivr.net/npm/tesseract.js-core@5/tesseract-core.wasm.js'
         });
 
-        msgEl.textContent = 'Pass 1/3: Reading 1st Prize & Draw Header...';
+        msgEl.textContent = 'Pass 1/4: Reading the poster header...';
         pctEl.textContent = '30%';
         barEl.style.width = '30%';
         const topUrl = renderRedChannelTopBanner(img);
         const resTop = await worker.recognize(topUrl);
 
-        msgEl.textContent = 'Pass 2/3: Scanning 2nd, 3rd, 4th & 5th Prize grids...';
-        pctEl.textContent = '65%';
-        barEl.style.width = '65%';
         await worker.setParameters({ tessedit_pageseg_mode: '6' });
-        const fullUrl = renderHighContrastFullImage(img, 0, 1);
-        const resFull = await worker.recognize(fullUrl);
-
         let bottomText = '';
         lastResultOcrAmbiguousTokens = [];
         // Dedicated crops keep unrelated advertisements and prize amounts out of the number stream.
