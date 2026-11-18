@@ -1,0 +1,126 @@
+{
+  "year": 2025,
+  "created_at": "2026-11-18",
+  "scope": "Nagaland 1PM and 8PM only; exclude 6PM",
+  "sources": [
+    {
+      "domain": "lotterysambad.icu",
+      "index_url": "https://lotterysambad.icu/old-result",
+      "type": "daily PDF archive",
+      "status": "monthly archive pages confirmed"
+    },
+    {
+      "domain": "goodreturns.in",
+      "index_url": "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+      "type": "yearly 1PM/8PM first-prize chart",
+      "status": "full-year chart opened; first-prize only"
+    },
+    {
+      "domain": "kllotteryresults.in",
+      "index_url": "https://kllotteryresults.in/dear-lottery-chart/2025",
+      "type": "consolidated yearly chart",
+      "status": "first-prize chart opened; independent cross-check lead"
+    },
+    {
+      "domain": "lotterysambadresult.in",
+      "index_url": "https://lotterysambadresult.in/wp-content/uploads/2025/01/MD220125-1.pdf",
+      "type": "individual full-result PDF",
+      "status": "one full PDF opened; independent archive"
+    }
+  ],
+  "months": [
+    {
+      "month": "january",
+      "archive_url": "https://lotterysambad.icu/old-result/january-2025",
+      "status": "indexed",
+      "pdf_extraction": "not_yet_completed"
+    },
+    {
+      "month": "february",
+      "archive_url": "https://lotterysambad.icu/old-result/february-2025",
+      "status": "indexed",
+      "pdf_extraction": "not_yet_completed"
+    },
+    {
+      "month": "march",
+      "archive_url": "https://lotterysambad.icu/old-result/march-2025",
+      "status": "indexed",
+      "pdf_extraction": "not_yet_completed"
+    },
+    {
+      "month": "april",
+      "archive_url": "https://lotterysambad.icu/old-result/april-2025",
+      "status": "indexed",
+      "pdf_extraction": "not_yet_completed"
+    },
+    {
+      "month": "may",
+      "archive_url": "https://lotterysambad.icu/old-result/may-2025",
+      "status": "indexed",
+      "pdf_extraction": "not_yet_completed"
+    },
+    {
+      "month": "june",
+      "archive_url": "https://lotterysambad.icu/old-result/june-2025",
+      "status": "indexed",
+      "pdf_extraction": "not_yet_completed"
+    },
+    {
+      "month": "july",
+      "archive_url": "https://lotterysambad.icu/old-result/july-2025",
+      "status": "indexed",
+      "pdf_extraction": "not_yet_completed"
+    },
+    {
+      "month": "august",
+      "archive_url": "https://lotterysambad.icu/old-result/august-2025",
+      "status": "indexed",
+      "pdf_extraction": "not_yet_completed"
+    },
+    {
+      "month": "september",
+      "archive_url": "https://lotterysambad.icu/old-result/september-2025",
+      "status": "indexed",
+      "pdf_extraction": "not_yet_completed"
+    },
+    {
+      "month": "october",
+      "archive_url": "https://lotterysambad.icu/old-result/october-2025",
+      "status": "indexed",
+      "pdf_extraction": "not_yet_completed"
+    },
+    {
+      "month": "november",
+      "archive_url": "https://lotterysambad.icu/old-result/november-2025",
+      "status": "indexed",
+      "pdf_extraction": "not_yet_completed"
+    },
+    {
+      "month": "december",
+      "archive_url": "https://lotterysambad.icu/old-result/december-2025",
+      "status": "indexed",
+      "pdf_extraction": "not_yet_completed"
+    }
+  ],
+  "sample_full_pdfs": [
+    {
+      "date": "2025-01-22",
+      "draw": "1PM",
+      "url": "https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcyMjA0MtUrSEkDADHGBTI/1pm-22-01-2025.pdf",
+      "status": "opened"
+    },
+    {
+      "date": "2025-01-22",
+      "draw": "8PM",
+      "url": "https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTcyMjA0MtUrSEkDADIoBTk/8pm-22-01-2025.pdf",
+      "status": "opened"
+    },
+    {
+      "date": "2025-01-22",
+      "draw": "1PM",
+      "url": "https://lotterysambadresult.in/wp-content/uploads/2025/01/MD220125-1.pdf",
+      "status": "opened_independent"
+    }
+  ],
+  "policy": "No fabricated entries. Full prize-tier extraction required for complete status. Retain partial first-prize candidates separately. Broken URLs do not prove no draw."
+}
