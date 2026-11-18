@@ -120,9 +120,15 @@
     },
     {
       "month": "august",
-      "archive_url": "https://lotterysambad.icu/old-result/august-2025",
-      "status": "indexed",
-      "pdf_extraction": "not_yet_completed"
+      "status": "first_prize_recovered_with_date_gap",
+      "first_prize_records": 60,
+      "first_prize_coverage": "30 dates; both 1PM and 8PM. August 15 has ***** in the KLL yearly chart for all draws and no result row in Goodreturns monthly chart; not treated as a confirmed no-draw.",
+      "first_prize_sources": [
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://www.kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "full_tier_recovery": "Full-tier PDFs found for August 9 1PM, August 21 1PM, August 23 1PM; extraction remains pending",
+      "notes": "August 15 unresolved/blank in chart sources; no numbers invented"
     },
     {
       "month": "september",
