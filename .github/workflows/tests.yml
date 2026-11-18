@@ -21,4 +21,4 @@ jobs:
           python-version: "3.12"
 
       - name: Run validator tests
-        run: python -m unittest monitor.test_validate_result -v
+        run: python -m unittest monitor.test_validate_result monitor.test_human_verified_archive -v
