@@ -2922,6 +2922,8 @@ function renderDraws() {
         second: g.second, third: g.third, fourth: g.fourth, fifth: g.fifth
       }));
       if (mode === 'replace') {
+        // Download a full local backup before replacing draw history.
+        exportBackupJSON();
         // Replace only draw history. Ticket-table data and store batches remain untouched.
         draws = records;
       } else {
