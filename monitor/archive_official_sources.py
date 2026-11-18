@@ -67,7 +67,7 @@ def fetch_pdf(url, timeout=30):
     return data
 
 
-def archive_sources(csv_path, output_dir, fetcher=fetch_pdf, dry_run=False):
+def archive_sources(csv_path, output_dir, fetcher=fetch_pdf, dry_run=False, offset=0, limit=None):
     output_dir = Path(output_dir)
     manifest_path = output_dir / "manifest.json"
     manifest = []
@@ -76,7 +76,11 @@ def archive_sources(csv_path, output_dir, fetcher=fetch_pdf, dry_run=False):
     known = {(item["date"], item["draw"]): item for item in manifest}
     results = []
 
-    for draw_date, draw in read_draws(csv_path):
+    draws = read_draws(csv_path)
+    if offset < 0 or (limit is not None and limit < 1):
+        raise ValueError("offset must be >= 0 and limit must be >= 1")
+    draws = draws[offset:offset + limit if limit is not None else None]
+    for draw_date, draw in draws:
         filename = official_filename(draw_date, draw)
         candidates = source_candidates(draw_date, draw)
         key = (draw_date, draw)
@@ -144,9 +148,14 @@ def main():
     parser.add_argument("--csv", required=True, help="Candidate results CSV")
     parser.add_argument("--output-dir", default="sources/historical")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--offset", type=int, default=0, help="Skip this many sorted date/draw pairs")
+    parser.add_argument("--limit", type=int, default=25, help="Maximum date/draw pairs per batch")
     args = parser.parse_args()
     try:
-        results = archive_sources(args.csv, args.output_dir, dry_run=args.dry_run)
+        results = archive_sources(
+            args.csv, args.output_dir, dry_run=args.dry_run,
+            offset=args.offset, limit=args.limit
+        )
     except Exception as error:
         sys.exit(f"SOURCE ARCHIVE FAILED: {error}")
     for item in results:
