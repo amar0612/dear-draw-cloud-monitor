@@ -50,4 +50,4 @@ jobs:
           retention-days: 30
 
       - name: Run validator tests
-        run: python -m unittest monitor.test_validate_result monitor.test_human_verified_archive monitor.test_historical_csv_preflight monitor.test_archive_official_sources -v
+        run: python -m unittest monitor.test_validate_result monitor.test_human_verified_archive monitor.test_historical_csv_preflight monitor.test_archive_official_sources -v monitor.test_import_sambad_api
