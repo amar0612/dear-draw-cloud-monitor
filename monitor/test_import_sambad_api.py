@@ -17,7 +17,7 @@ def api_payload(draw="1pm", date="18-11-2026"):
             "date": date,
             "first": {"series": "08A", "number": "07390"},
             "prizes": [
-                {"tier": "consolation", "match": "number", "numbers": ["07390"]},
+                {"tier": "cons", "match": "number", "numbers": ["07390"]},
                 {"tier": "2nd", "match": "number", "numbers": [f"{n:05d}" for n in range(1, 11)]},
                 {"tier": "3rd", "match": "last4", "numbers": [f"{n:04d}" for n in range(1, 11)]},
                 {"tier": "4th", "match": "last4", "numbers": [f"{n:04d}" for n in range(11, 21)]},
