@@ -84,8 +84,15 @@
     {
       "month": "may",
       "archive_url": "https://lotterysambad.icu/old-result/may-2025",
-      "status": "indexed",
-      "pdf_extraction": "not_yet_completed"
+      "status": "first_prize_recovered",
+      "first_prize_records": 62,
+      "first_prize_coverage": "All 31 dates, both 1PM and 8PM",
+      "first_prize_sources": [
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "full_tier_recovery": "22 May 2025 1PM full-result PDF located independently at nagalandstatelotterysambad.com and lotterysambadresult.in; remaining May full-tier PDFs not yet enumerated/imported",
+      "pdf_extraction": "first-prize only; 22 May 1PM full PDF available for extraction"
     },
     {
       "month": "june",
@@ -226,6 +233,13 @@
       "draw": "1PM",
       "url": "https://www.7dear.in/media/dear/2025/04/MD240425.PDF",
       "status": "full_result_text_indexed"
+    },
+    {
+      "date": "2025-05-22",
+      "draw": "1PM",
+      "url": "https://nagalandstatelotterysambad.com/wp-content/uploads/2025/05/MD220525.pdf",
+      "status": "full_pdf_indexed",
+      "independent_duplicate": "https://lotterysambadresult.in/wp-content/uploads/2025/05/MD220525.pdf"
     }
   ],
   "policy": "No fabricated entries. Full prize-tier extraction required for complete status. Retain partial first-prize candidates separately. Broken URLs do not prove no draw."
