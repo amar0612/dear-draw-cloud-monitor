@@ -36,5 +36,18 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
 
+      - name: Discover sources for first 25 historical date/draw pairs
+        continue-on-error: true
+        run: python monitor/archive_official_sources.py --csv data/nagaland_master_prize_numbers.csv --output-dir historical-source-batch-000 --offset 0 --limit 25
+
+      - name: Upload first historical source batch
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nagaland-source-batch-000
+          path: historical-source-batch-000/
+          if-no-files-found: warn
+          retention-days: 30
+
       - name: Run validator tests
         run: python -m unittest monitor.test_validate_result monitor.test_human_verified_archive monitor.test_historical_csv_preflight monitor.test_archive_official_sources -v
