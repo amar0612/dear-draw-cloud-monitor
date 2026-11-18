@@ -108,9 +108,15 @@
     },
     {
       "month": "july",
-      "archive_url": "https://lotterysambad.icu/old-result/july-2025",
-      "status": "indexed",
-      "pdf_extraction": "not_yet_completed"
+      "status": "first_prize_recovered",
+      "first_prize_records": 62,
+      "first_prize_coverage": "All 31 dates, both 1PM and 8PM",
+      "first_prize_sources": [
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "full_tier_recovery": "Daily PDFs found for some dates; full-tier extraction not completed in this checkpoint",
+      "notes": "July 7 8PM, July 17 1PM and July 27 1PM daily PDFs located as examples; continue extracting full tiers"
     },
     {
       "month": "august",
