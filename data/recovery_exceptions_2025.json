@@ -1,6 +1,29 @@
 {
   "year": 2025,
   "scope": "Nagaland 1PM and 8PM only",
-  "exceptions": [],
+  "exceptions": [
+    {
+      "date": "2025-01-26",
+      "draws": [
+        "1PM",
+        "8PM"
+      ],
+      "status": "unresolved_missing_result",
+      "detail": "Date absent from Goodreturns January 2025 result chart and shown struck through in one old-result listing. This is not treated as proof that no draw occurred.",
+      "sources": [
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://nagalandstatelotterysambad.com/lottery-sambad-old-result/"
+      ]
+    },
+    {
+      "date_range": "2025-01-01_to_2025-01-31",
+      "draws": [
+        "1PM",
+        "8PM"
+      ],
+      "status": "partial_extraction_review",
+      "detail": "60 first-prize records recovered and cross-checked by five-digit value across two chart domains. Full prize tiers remain unextracted for all January draws except PDF sources identified for 2025-01-22; no full-tier claim made."
+    }
+  ],
   "note": "Date/draw exceptions to be added during monthly PDF extraction. Missing archive link is unresolved, not no-draw."
 }
