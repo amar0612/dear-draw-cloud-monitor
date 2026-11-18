@@ -2543,7 +2543,7 @@ function renderDraws() {
       const slot = d.time === '1:00 PM' ? '1PM' : d.time === '8:00 PM' ? '8PM' : null;
       if (!slot) return { error: 'Not a Nagaland 1PM/8PM draw' };
       if (d.isSample) return { error: 'Sample draw' };
-      if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(String(d.date || ''))) return { error: 'Invalid date' };
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(String(d.date || ''))) return { error: 'Invalid date' };
       const dateCheck = new Date(d.date + 'T00:00:00Z');
       if (Number.isNaN(dateCheck.getTime()) || dateCheck.toISOString().slice(0, 10) !== d.date) return { error: 'Invalid date' };
 
@@ -2554,12 +2554,12 @@ function renderDraws() {
       const first = String(d.first || '').trim();
       const consolation = String(d.consolation || '').trim();
       const countsOk = second.length === 10 && third.length === 10 && fourth.length === 10 && fifth.length === 100;
-      const formatsOk = /^\\d{2}[A-Z] \\d{5}$/.test(first) &&
-        /^\\d{5}$/.test(consolation) &&
-        second.every(n => /^\\d{5}$/.test(n)) &&
-        third.every(n => /^\\d{4}$/.test(n)) &&
-        fourth.every(n => /^\\d{4}$/.test(n)) &&
-        fifth.every(n => /^\\d{4}$/.test(n));
+      const formatsOk = /^\d{2}[A-Z] \d{5}$/.test(first) &&
+        /^\d{5}$/.test(consolation) &&
+        second.every(n => /^\d{5}$/.test(n)) &&
+        third.every(n => /^\d{4}$/.test(n)) &&
+        fourth.every(n => /^\d{4}$/.test(n)) &&
+        fifth.every(n => /^\d{4}$/.test(n));
       if (!countsOk || !formatsOk) return { error: 'Incomplete or invalid prize data (132 entries required)' };
       if (first.slice(-5) !== consolation) return { error: 'Consolation does not match first prize' };
 
@@ -2612,13 +2612,13 @@ function renderDraws() {
       upload.disabled = eligible.length === 0;
       box.classList.remove('hidden');
       box.textContent =
-        'LOCAL DATA PREVIEW\\n' +
-        'Total local draws: ' + draws.length + '\\n' +
-        'Eligible complete 1PM/8PM draws: ' + eligible.length + '\\n' +
-        'Excluded samples: ' + counts.samples + '\\n' +
-        'Excluded 6PM/other slots: ' + counts.otherSlots + '\\n' +
-        'Excluded incomplete/invalid draws: ' + counts.incomplete + '\\n' +
-        'Excluded duplicate local date/slot groups: ' + duplicateLocal + '\\n\\n' +
+        'LOCAL DATA PREVIEW\n' +
+        'Total local draws: ' + draws.length + '\n' +
+        'Eligible complete 1PM/8PM draws: ' + eligible.length + '\n' +
+        'Excluded samples: ' + counts.samples + '\n' +
+        'Excluded 6PM/other slots: ' + counts.otherSlots + '\n' +
+        'Excluded incomplete/invalid draws: ' + counts.incomplete + '\n' +
+        'Excluded duplicate local date/slot groups: ' + duplicateLocal + '\n\n' +
         'Nothing has been uploaded yet. Eligible records will be labelled LOCAL_IMPORT_UNVERIFIED.';
     }
 
@@ -2638,7 +2638,7 @@ function renderDraws() {
         if (!sessionData.session) throw new Error('Sign in before cloud migration.');
 
         const total = cloudMigrationPreview.length;
-        if (!confirm('Upload ' + total + ' complete local 1PM/8PM draws to Supabase?\\n\\nExisting cloud rows will never be overwritten. Imported rows remain marked LOCAL_IMPORT_UNVERIFIED.')) return;
+        if (!confirm('Upload ' + total + ' complete local 1PM/8PM draws to Supabase?\n\nExisting cloud rows will never be overwritten. Imported rows remain marked LOCAL_IMPORT_UNVERIFIED.')) return;
 
         button.disabled = true;
         box.classList.remove('hidden');
@@ -2684,19 +2684,19 @@ function renderDraws() {
         }
 
         box.textContent =
-          'CLOUD MIGRATION FINISHED\\n' +
-          'New records uploaded: ' + inserted + '\\n' +
-          'Already present and identical: ' + alreadyPresent + '\\n' +
-          'Conflicts skipped (not overwritten): ' + conflicts + '\\n' +
-          'Source records remain on this device.\\n' +
+          'CLOUD MIGRATION FINISHED\n' +
+          'New records uploaded: ' + inserted + '\n' +
+          'Already present and identical: ' + alreadyPresent + '\n' +
+          'Conflicts skipped (not overwritten): ' + conflicts + '\n' +
+          'Source records remain on this device.\n' +
           'Imported rows are labelled LOCAL_IMPORT_UNVERIFIED.';
         showToast('Cloud migration finished: ' + inserted + ' new draws');
         cloudMigrationPreview = null;
         button.disabled = true;
       } catch (error) {
         box.classList.remove('hidden');
-        box.textContent = 'CLOUD MIGRATION STOPPED\\n' + (error.message || String(error)) +
-          '\\nNo existing cloud rows were overwritten. Recheck permissions and retry.';
+        box.textContent = 'CLOUD MIGRATION STOPPED\n' + (error.message || String(error)) +
+          '\nNo existing cloud rows were overwritten. Recheck permissions and retry.';
         showToast('Cloud migration stopped — see details');
         button.disabled = false;
       }
