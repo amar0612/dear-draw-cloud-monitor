@@ -5,8 +5,6 @@
 
 grant insert on table public.draws to authenticated;
 
-drop policy if exists "authenticated_local_history_insert" on public.draws;
-
 create policy "authenticated_local_history_insert"
 on public.draws
 for insert
