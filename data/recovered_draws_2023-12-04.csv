@@ -1,5 +1,5 @@
 date,draw,prize_tier,position,winning_number,verification_status,source_file
-"2023-12-04","1PM","1st","1","42D 20032","single_source_pending_review","https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwMTQyMtYrSEkDADHJBTI/1pm-04-12-2023.pdf"
+"2023-12-04","1PM","1st","1","42D 20032","two_source_matched","https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwMTQyMtYrSEkDADHJBTI/1pm-04-12-2023.pdf"
 "2023-12-04","1PM","Consolation","1","20032","single_source_pending_review","https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwMTQyMtYrSEkDADHJBTI/1pm-04-12-2023.pdf"
 "2023-12-04","1PM","2nd","1","05225","single_source_pending_review","https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwMTQyMtYrSEkDADHJBTI/1pm-04-12-2023.pdf"
 "2023-12-04","1PM","2nd","2","07799","single_source_pending_review","https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwMTQyMtYrSEkDADHJBTI/1pm-04-12-2023.pdf"
@@ -131,7 +131,7 @@ date,draw,prize_tier,position,winning_number,verification_status,source_file
 "2023-12-04","1PM","5th","98","9823","single_source_pending_review","https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwMTQyMtYrSEkDADHJBTI/1pm-04-12-2023.pdf"
 "2023-12-04","1PM","5th","99","9871","single_source_pending_review","https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwMTQyMtYrSEkDADHJBTI/1pm-04-12-2023.pdf"
 "2023-12-04","1PM","5th","100","9999","single_source_pending_review","https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwMTQyMtYrSEkDADHJBTI/1pm-04-12-2023.pdf"
-"2023-12-04","8PM","1st","1","39B 17023","single_source_pending_review","https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTcwMTQyMtYrSEkDADIrBTk/8pm-04-12-2023.pdf"
+"2023-12-04","8PM","1st","1","39B 17023","two_source_matched","https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTcwMTQyMtYrSEkDADIrBTk/8pm-04-12-2023.pdf"
 "2023-12-04","8PM","Consolation","1","17023","single_source_pending_review","https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTcwMTQyMtYrSEkDADIrBTk/8pm-04-12-2023.pdf"
 "2023-12-04","8PM","2nd","1","00369","single_source_pending_review","https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTcwMTQyMtYrSEkDADIrBTk/8pm-04-12-2023.pdf"
 "2023-12-04","8PM","2nd","2","09257","single_source_pending_review","https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTcwMTQyMtYrSEkDADIrBTk/8pm-04-12-2023.pdf"
