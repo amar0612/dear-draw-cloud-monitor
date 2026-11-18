@@ -9,7 +9,10 @@
       "entries": 132,
       "source_domain": "lotterysambad.icu",
       "source_pdf": "https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwMTQyMtYrSEkDADHJBTI/1pm-04-12-2023.pdf",
-      "status": "single_source_pending_review"
+      "status": "single_source_pending_review",
+      "first_prize_status": "two_source_matched",
+      "first_prize_chart_match": true,
+      "overall_status": "single_source_pending_review"
     },
     {
       "date": "2023-12-04",
@@ -17,7 +20,18 @@
       "entries": 132,
       "source_domain": "lotterysambad.icu",
       "source_pdf": "https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTcwMTQyMtYrSEkDADIrBTk/8pm-04-12-2023.pdf",
-      "status": "single_source_pending_review"
+      "status": "single_source_pending_review",
+      "first_prize_status": "two_source_matched",
+      "first_prize_chart_match": true,
+      "overall_status": "single_source_pending_review"
+    }
+  ],
+  "sources": [
+    {
+      "domain": "kllotteryresults.in",
+      "url": "https://www.kllotteryresults.in/dear-lottery-chart/2023",
+      "retrieved_at": "2026-11-18",
+      "scope": "Yearly first-prize chart cross-check"
     }
   ]
 }
