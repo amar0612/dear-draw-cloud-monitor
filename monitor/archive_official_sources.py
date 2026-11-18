@@ -100,9 +100,13 @@ def archive_sources(csv_path, output_dir, fetcher=fetch_pdf, dry_run=False):
             known[key] = record
             results.append(record)
         except Exception as error:
-            results.append({"date": draw_date, "draw": draw, "url": url,
-                            "verification_status": "source_unavailable_or_error",
-                            "error": str(error)})
+            failure = {"date": draw_date, "draw": draw,
+                       "source_type": "official_nagaland_gazette",
+                       "source_url": url,
+                       "verification_status": "source_unavailable_or_error",
+                       "error": str(error)}
+            known[key] = failure
+            results.append(failure)
 
     if not dry_run:
         output_dir.mkdir(parents=True, exist_ok=True)
