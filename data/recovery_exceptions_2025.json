@@ -34,5 +34,21 @@
       "detail": "56 first-prize records recovered and cross-checked by five-digit value across two chart domains. Full prize tiers remain unextracted."
     }
   ],
-  "note": "Date/draw exceptions to be added during monthly PDF extraction. Missing archive link is unresolved, not no-draw."
+  "note": "January first-prize rows retained separately. 6PM excluded. Missing January 26 is unresolved, not a no-draw inference.",
+  "monthly_exceptions": [
+    {
+      "date": "2025-01-26",
+      "draw": "1PM and 8PM",
+      "issue": "Both yearly chart sources show no January 26 entry (KLL marks all draw columns *****); this does not establish that no draw occurred.",
+      "status": "unresolved_missing_chart_entry",
+      "action": "Retain gap and continue searching daily PDFs/alternate archives"
+    },
+    {
+      "date": "2025-01",
+      "draw": "both",
+      "issue": "Monthly archive URL indexed but not accessible during this retrieval; daily PDF links not comprehensively enumerated.",
+      "status": "partial_source_access",
+      "action": "Use alternate independent PDF domains and retain discovered full-result links"
+    }
+  ]
 }
