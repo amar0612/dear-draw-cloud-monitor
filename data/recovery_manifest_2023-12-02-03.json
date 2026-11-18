@@ -10,7 +10,10 @@
       "source_domain": "lotterysambad.icu",
       "source_pdf": "https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwMjQyMtYrSEkDADG3BTA/1pm-02-12-2023.pdf",
       "status": "single_source_pending_review",
-      "notes": "Full prize tiers extracted from the archive PDF; retained pending later batch audit."
+      "notes": "Full prize tiers extracted from the archive PDF; retained pending later batch audit.",
+      "first_prize_status": "two_source_matched",
+      "first_prize_chart_match": true,
+      "overall_status": "single_source_pending_review"
     },
     {
       "date": "2023-12-02",
@@ -19,7 +22,10 @@
       "source_domain": "lotterysambad.icu",
       "source_pdf": "https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTcwMjQyMtYrSEkDADIZBTc/8pm-02-12-2023.pdf",
       "status": "single_source_pending_review",
-      "notes": "Full prize tiers extracted from the archive PDF; retained pending later batch audit."
+      "notes": "Full prize tiers extracted from the archive PDF; retained pending later batch audit.",
+      "first_prize_status": "two_source_matched",
+      "first_prize_chart_match": true,
+      "overall_status": "single_source_pending_review"
     },
     {
       "date": "2023-12-03",
@@ -28,7 +34,10 @@
       "source_domain": "lotterysambad.icu",
       "source_pdf": "https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwNjQyMtYrSEkDADHABTE/1pm-03-12-2023.pdf",
       "status": "single_source_pending_review",
-      "notes": "Full prize tiers extracted from the archive PDF; retained pending later batch audit."
+      "notes": "Full prize tiers extracted from the archive PDF; retained pending later batch audit.",
+      "first_prize_status": "two_source_matched",
+      "first_prize_chart_match": true,
+      "overall_status": "single_source_pending_review"
     },
     {
       "date": "2023-12-03",
@@ -37,7 +46,18 @@
       "source_domain": "lotterysambad.icu",
       "source_pdf": "https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTcwNjQyMtYrSEkDADIiBTg/8pm-03-12-2023.pdf",
       "status": "single_source_pending_review",
-      "notes": "Full prize tiers extracted from the archive PDF; retained pending later batch audit."
+      "notes": "Full prize tiers extracted from the archive PDF; retained pending later batch audit.",
+      "first_prize_status": "two_source_matched",
+      "first_prize_chart_match": true,
+      "overall_status": "single_source_pending_review"
+    }
+  ],
+  "sources": [
+    {
+      "domain": "kllotteryresults.in",
+      "url": "https://www.kllotteryresults.in/dear-lottery-chart/2023",
+      "retrieved_at": "2026-11-18",
+      "scope": "Yearly first-prize chart cross-check"
     }
   ]
 }
