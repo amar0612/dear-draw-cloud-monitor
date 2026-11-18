@@ -72,6 +72,26 @@ class TestOfficialSourceArchive(unittest.TestCase):
         self.assertEqual(len(manifest), 2)
         self.assertTrue(all(x["verification_status"] == "source_unavailable_or_error" for x in manifest))
 
+    def test_offset_and_limit_bound_the_batch(self):
+        calls = []
+        def fake_fetch(url):
+            calls.append(url)
+            raise FileNotFoundError("not found")
+        results = archive_sources(
+            self.csv_path, self.root / "batch", fetcher=fake_fetch,
+            offset=1, limit=1
+        )
+        self.assertEqual(len(results), 1)
+        self.assertEqual(results[0]["date"], "2023-01-31")
+        self.assertEqual(results[0]["draw"], "1PM")
+        self.assertEqual(len(calls), 3)
+
+    def test_rejects_invalid_batch_bounds(self):
+        with self.assertRaises(ValueError):
+            archive_sources(self.csv_path, self.root / "invalid", dry_run=True, offset=-1)
+        with self.assertRaises(ValueError):
+            archive_sources(self.csv_path, self.root / "invalid", dry_run=True, limit=0)
+
     def test_dry_run_does_not_write_files(self):
         out = self.root / "dry"
         results = archive_sources(self.csv_path, out, dry_run=True)
