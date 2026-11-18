@@ -8,7 +8,7 @@
     "coverage": "2024 Jan-Dec, 1PM and 8PM first prize only"
   },
   "extraction": {
-    "records": 726,
+    "records": 724,
     "scope": "1st prize only; no series prefix or lower prize tiers available in this chart",
     "status": "partial_extraction_review",
     "sha256": null,
@@ -21,10 +21,10 @@
         "1PM",
         "8PM"
       ],
-      "entry_count": 726,
+      "entry_count": 724,
       "status": "partial_extraction_review",
       "source_url": "https://www.kllotteryresults.in/dear-lottery-chart/2024",
-      "note": "Every available five-digit first-prize value from the yearly matrix was retained with leading zeros. Empty/starred cells were logged separately; no absent draw was inferred."
+      "note": "Jan 28 first-prize rows are held in the separate full-draw file to avoid duplicate records. Remaining rows are first-prize-only."
     }
   ],
   "exceptions": [
