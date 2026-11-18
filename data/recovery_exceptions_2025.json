@@ -49,6 +49,13 @@
       "issue": "Monthly archive URL indexed but not accessible during this retrieval; daily PDF links not comprehensively enumerated.",
       "status": "partial_source_access",
       "action": "Use alternate independent PDF domains and retain discovered full-result links"
+    },
+    {
+      "date": "2025-03",
+      "draw": "both",
+      "issue": "Only first-prize chart rows imported for March; three independent full-result PDFs located but full tiers not yet extracted.",
+      "status": "partial_extraction_review",
+      "action": "Continue extracting full tiers from indexed PDFs; keep first-prize records retained"
     }
   ]
 }
