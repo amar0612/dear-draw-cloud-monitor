@@ -33,16 +33,14 @@
       "month": "january",
       "archive_url": "https://lotterysambad.icu/old-result/january-2025",
       "status": "partially_recovered",
-      "pdf_extraction": "first_prize_only_60_entries; full-tier extraction not completed",
-      "recovered_records": 60,
-      "covered_draws": 30,
-      "unresolved_date": "2025-01-26 (archive listings omit/strike through this date; no draw status asserted)",
+      "first_prize_records": 60,
+      "first_prize_coverage": "30 dates with both 1PM and 8PM; January 26 absent from both yearly chart sources and retained unresolved, not no-draw",
       "first_prize_sources": [
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "cross_check_note": "Five-digit first-prize values match across Goodreturns and KLLotteryResults for 30 dates. Series prefixes are present in Goodreturns only. Full prize tiers not yet extracted. Jan 22 has full-result PDF sources identified separately.",
-      "data_file": "data/recovered_draws_2025-01-first-prize.csv"
+      "full_tier_recovery": "Full prize breakdown recovered from Goodreturns for 2025-01-01 1PM; additional full-result PDFs located for 2025-01-08, 01-10, 01-11, 01-21 8PM and 01-22 both draws; not yet batch-imported",
+      "pdf_extraction": "partial; full-tier extraction continues"
     },
     {
       "month": "february",
@@ -137,6 +135,36 @@
       "draw": "1PM",
       "url": "https://lotterysambadresult.in/wp-content/uploads/2025/01/MD220125-1.pdf",
       "status": "opened_independent"
+    },
+    {
+      "date": "2025-01-01",
+      "draw": "1PM",
+      "url": "https://www.goodreturns.in/nagaland-dear-1-pm-lottery-results.html?id=1446",
+      "status": "full_tiers_visible_in_page"
+    },
+    {
+      "date": "2025-01-08",
+      "draw": "8PM",
+      "url": "https://www.lotterysambad1.com/wp-content/uploads/2025/01/ED080125.pdf",
+      "status": "full_pdf_text_indexed"
+    },
+    {
+      "date": "2025-01-10",
+      "draw": "8PM",
+      "url": "https://lotterysambads.net/wp-content/uploads/2025/01/ED100125.pdf",
+      "status": "full_pdf_text_indexed"
+    },
+    {
+      "date": "2025-01-11",
+      "draw": "8PM",
+      "url": "https://nagalandstatelotterysambad.com/wp-content/uploads/2025/01/ED110125.pdf",
+      "status": "full_pdf_text_indexed"
+    },
+    {
+      "date": "2025-01-21",
+      "draw": "8PM",
+      "url": "https://lotterysambadresult.in/wp-content/uploads/2025/01/ED210125.pdf",
+      "status": "full_pdf_text_indexed"
     }
   ],
   "policy": "No fabricated entries. Full prize-tier extraction required for complete status. Retain partial first-prize candidates separately. Broken URLs do not prove no draw."
