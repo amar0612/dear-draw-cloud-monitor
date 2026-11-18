@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Idempotently publish a validated Sambad API draw into Supabase.
 
-Uses the service-role key only in GitHub Actions (never in browser code).
+Uses the Supabase server-side secret key only in GitHub Actions (never in browser code).
 Existing date/slot rows are compared and never overwritten automatically.
 """
 import argparse
@@ -54,9 +54,12 @@ def main():
     parser.add_argument("--file", required=True)
     args = parser.parse_args()
 
-    key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
+    key = os.environ.get("SUPABASE_SECRET_KEY") or os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
     if not key:
-        sys.exit("ERROR: GitHub secret SUPABASE_SERVICE_ROLE_KEY is not configured.")
+        sys.exit(
+            "ERROR: Configure GitHub secret SUPABASE_SECRET_KEY "
+            "(legacy SUPABASE_SERVICE_ROLE_KEY is also accepted)."
+        )
 
     record = json.loads(Path(args.file).read_text(encoding="utf-8"))
     from validate_result import validate_result
