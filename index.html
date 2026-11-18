@@ -452,7 +452,7 @@
       </label>
       <div id="historical-import-status" class="hidden rounded-xl bg-slate-900 border border-slate-700 p-3 text-xs text-slate-300 whitespace-pre-line"></div>
       <div id="historical-import-actions" class="hidden grid grid-cols-1 gap-2">
-        <button type="button" onclick="importHistoricalCsv('test')" class="bg-sky-500/20 border border-sky-500/40 text-sky-200 font-bold text-xs py-2.5 rounded-xl">Import one test draw (01/04/2021 · 1PM)</button>
+        <button type="button" onclick="importHistoricalCsv('test')" class="bg-sky-500/20 border border-sky-500/40 text-sky-200 font-bold text-xs py-2.5 rounded-xl">Import one test draw (first verified draw)</button>
         <button type="button" onclick="importHistoricalCsv('all')" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs py-3 rounded-xl">Import all verified 1PM + 8PM draws</button>
       </div>
     </div>
@@ -2719,9 +2719,8 @@ function renderDraws() {
           const result = buildHistoricalDrawGroups(ev.target.result);
           historicalCsvDraws = result.complete;
           if (!historicalCsvDraws.length) throw new Error('No complete 1PM/8PM draws found.');
-          const test = historicalCsvDraws.find(d => d.date === '2021-04-01' && d.drawCode === '1PM');
-          if (!test) throw new Error('The expected test draw 2021-04-01 1PM was not found.');
-          status.textContent = `CSV validated successfully.\nComplete 1PM + 8PM draws: ${result.complete.length}\nIncomplete groups skipped: ${result.invalid.length}\nTest draw: 01/04/2021 · 1PM\nTest counts: 1st 1 | Consolation 1 | 2nd 10 | 3rd 10 | 4th 10 | 5th 100\nChoose the test import first. After checking it in Draws, upload the same CSV again and choose full import.`;
+          const test = historicalCsvDraws[0];
+          status.textContent = `Audited CSV validation successful.\nHuman-verified complete 1PM + 8PM draws: ${result.complete.length}\nRejected/incomplete groups: ${result.invalid.length}\nTest draw: ${test.date} · ${test.drawCode}\nTest counts: 1st 1 | Consolation 1 | 2nd 10 | 3rd 10 | 4th 10 | 5th 100\nOnly rows marked human_verified with a source reference are accepted. Import the test draw first, inspect it in Draws, then reselect the CSV for full import.\n\nRejected examples:\n${result.invalid.slice(0,10).join('\\n') || 'None'}`;
           actions.classList.remove('hidden');
         } catch (err) {
           historicalCsvDraws = [];
@@ -2735,7 +2734,7 @@ function renderDraws() {
     function importHistoricalCsv(mode) {
       if (!historicalCsvDraws.length) { showToast('Select and validate the master CSV first'); return; }
       const selected = mode === 'test'
-        ? historicalCsvDraws.filter(d => d.date === '2021-04-01' && d.drawCode === '1PM')
+        ? historicalCsvDraws.slice(0, 1)
         : historicalCsvDraws;
       const existingByKey = new Map(draws.map(d => [d.date + '|' + (d.time === '8:00 PM' ? '8PM' : d.time === '6:00 PM' ? '6PM' : '1PM'), d]));
       let added = 0, upgraded = 0;
@@ -2756,7 +2755,7 @@ function renderDraws() {
       saveDrawsToStorage();
       renderDraws(); renderPatterns(); renderTicketTableResults(); renderStoreAnalyticsAndBatches();
       const status = document.getElementById('historical-import-status');
-      status.textContent += `\n\n${mode === 'test' ? 'TEST IMPORT' : 'FULL IMPORT'} COMPLETE\nAdded: ${added} · Upgraded/replaced: ${upgraded}\nCurrent app draws: ${draws.length}\nCheck 01/04/2021 1PM in Draws before running the full import.`;
+      status.textContent += `\n\n${mode === 'test' ? 'TEST IMPORT' : 'FULL IMPORT'} COMPLETE\nAdded: ${added} · Upgraded/replaced: ${upgraded}\nCurrent app draws: ${draws.length}\nCheck the selected test draw in Draws before running the full import.`;
       showToast(mode === 'test' ? 'Test draw imported with all six prize tiers' : `Imported ${selected.length} historical draws`);
     }
 
