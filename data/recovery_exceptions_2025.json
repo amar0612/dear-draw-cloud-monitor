@@ -84,6 +84,20 @@
       "issue": "All 31 dates have first-prize records. Full prize tiers not yet extracted; individual daily result PDFs found for selected dates.",
       "status": "partial_extraction_review",
       "action": "Continue retrieving and extracting July daily PDFs; preserve full prize tiers when available"
+    },
+    {
+      "date": "2025-08-15",
+      "draw": "1PM and 8PM",
+      "issue": "KLL yearly chart displays ***** for August 15 across draw columns; Goodreturns monthly table omits August 15. This is unresolved and is not proof that no draw occurred.",
+      "status": "unresolved_source_gap",
+      "action": "Search alternate archives and daily PDFs for August 15 before classifying"
+    },
+    {
+      "date": "2025-08",
+      "draw": "both",
+      "issue": "60 first-prize records recovered for the other 30 dates; full prize tiers not extracted. Full-result PDFs located for selected dates.",
+      "status": "partial_extraction_review",
+      "action": "Continue daily PDF extraction for full tiers"
     }
   ]
 }
