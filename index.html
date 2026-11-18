@@ -2634,7 +2634,7 @@ function renderDraws() {
     }
 
     function buildHistoricalDrawGroups(csvText) {
-      const rows = parseCsvRows(String(csvText || '').replace(/^\\uFEFF/, ''));
+      const rows = parseCsvRows(String(csvText || '').replace(/^\uFEFF/, ''));
       if (rows.length < 2) throw new Error('CSV is empty or has no data rows.');
       const headers = rows[0].map(h => h.trim().toLowerCase());
       const required = ['date','draw','prize_tier','position','winning_number','verification_status','source_file'];
@@ -2643,12 +2643,12 @@ function renderDraws() {
       const ix = Object.fromEntries(required.map(h => [h, headers.indexOf(h)]));
       const expected = { '1st': 1, 'Consolation': 1, '2nd': 10, '3rd': 10, '4th': 10, '5th': 100 };
       const patterns = {
-        '1st': /^\\d{2}[A-Z] \\d{5}$/,
-        'Consolation': /^\\d{5}$/,
-        '2nd': /^\\d{5}$/,
-        '3rd': /^\\d{4}$/,
-        '4th': /^\\d{4}$/,
-        '5th': /^\\d{4}$/
+        '1st': /^\d{2}[A-Z] \d{5}$/,
+        'Consolation': /^\d{5}$/,
+        '2nd': /^\d{5}$/,
+        '3rd': /^\d{4}$/,
+        '4th': /^\d{4}$/,
+        '5th': /^\d{4}$/
       };
       const grouped = new Map();
       const invalidRows = [];
@@ -2656,7 +2656,7 @@ function renderDraws() {
         const r = rows[i];
         const date = (r[ix.date] || '').trim();
         const drawCode = (r[ix.draw] || '').trim().toUpperCase();
-        if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(date) || !['1PM','8PM'].includes(drawCode)) continue;
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || !['1PM','8PM'].includes(drawCode)) continue;
         const tier = (r[ix.prize_tier] || '').trim();
         const positionText = (r[ix.position] || '').trim();
         const position = Number(positionText);
