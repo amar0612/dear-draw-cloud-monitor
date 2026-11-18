@@ -1501,10 +1501,13 @@ function renderDraws() {
         msgEl.textContent = 'Pass 2/4: Reading first prize and draw details...';
         pctEl.textContent = '45%';
         barEl.style.width = '45%';
-        const firstPrizeUrl = renderHighContrastFullImage(img, 0.08, 0.28);
+        // Sparse-text mode works better for the isolated first-prize banner.
+        await worker.setParameters({ tessedit_pageseg_mode: '11' });
+        const firstPrizeUrl = renderHighContrastFullImage(img, 0.10, 0.34);
         const resFirstPrize = await worker.recognize(firstPrizeUrl);
 
         msgEl.textContent = 'Pass 3/4: Reading 2nd, 3rd and 4th prize grids...';
+        await worker.setParameters({ tessedit_pageseg_mode: '6' });
         pctEl.textContent = '65%';
         barEl.style.width = '65%';
         const prizeGridUrl = renderHighContrastFullImage(img, 0.29, 0.48);
