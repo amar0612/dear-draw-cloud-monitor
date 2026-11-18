@@ -1392,7 +1392,7 @@ function renderDraws() {
         document.getElementById('inp-p2').value = fiveDigitList.slice(0, 10).join(' ');
       }
 
-      const exclude4 = new Set(['2025', '2026', '2027', '1000', '9000']);
+      const exclude4 = new Set(['2025', '2026', '2027', '1000', '9000', '7450']);
       const fourDigitList = extractPureNumberStream(gridSource, 4, exclude4);
 
       if (fourDigitList.length >= 20) {
