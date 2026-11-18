@@ -1,0 +1,26 @@
+[
+  {
+    "date": "2023-01-10",
+    "draw": "8PM",
+    "draw_name": "Dear Parrot Evening Tuesday Weekly Lottery",
+    "draw_number": 211,
+    "source_type": "third_party_mirror_copy",
+    "source_url": "https://lotterysambadresult.in/wp-content/uploads/2023/01/ED100123.pdf",
+    "source_file": "2023/ED100123.pdf",
+    "sha256": "2c62b83c8daf444e31fec5406c1fcbde8184b1f8880fb96c7c87d085de2df886",
+    "bytes": 673933,
+    "verification_status": "mirror_copy_pending_official_comparison"
+  },
+  {
+    "date": "2023-01-31",
+    "draw": "1PM",
+    "draw_name": "Dear Teesta Morning Tuesday Weekly Lottery",
+    "draw_number": 114,
+    "source_type": "third_party_mirror_copy",
+    "source_url": "https://lotterysambadresult.in/wp-content/uploads/2023/01/MD310123.pdf",
+    "source_file": "2023/MD310123.pdf",
+    "sha256": "cf235502972f73f56758ad646d59aceef5b1848331f584747bb3ea8ab9fd379c",
+    "bytes": 661920,
+    "verification_status": "mirror_copy_pending_official_comparison"
+  }
+]

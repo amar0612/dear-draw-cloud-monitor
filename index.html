@@ -172,7 +172,7 @@
     <div class="glass-card p-4 space-y-3">
       <div class="flex items-start justify-between gap-2">
         <div>
-          <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">Method 1 • 3-Pass Poster OCR</span>
+          <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">Method 1 • 4-Pass Poster OCR</span>
           <h2 class="text-sm font-bold text-white mt-1.5">Scan Result Poster Image</h2>
           <p class="text-[11px] text-slate-400 mt-0.5">Extracts 1st Prize via red-channel contrast, filters Consolation Prize noise, and repairs/splits 2nd–5th Prize grids.</p>
         </div>
@@ -452,7 +452,7 @@
       </label>
       <div id="historical-import-status" class="hidden rounded-xl bg-slate-900 border border-slate-700 p-3 text-xs text-slate-300 whitespace-pre-line"></div>
       <div id="historical-import-actions" class="hidden grid grid-cols-1 gap-2">
-        <button type="button" onclick="importHistoricalCsv('test')" class="bg-sky-500/20 border border-sky-500/40 text-sky-200 font-bold text-xs py-2.5 rounded-xl">Import one test draw (01/04/2021 · 1PM)</button>
+        <button type="button" onclick="importHistoricalCsv('test')" class="bg-sky-500/20 border border-sky-500/40 text-sky-200 font-bold text-xs py-2.5 rounded-xl">Import one test draw (first verified draw)</button>
         <button type="button" onclick="importHistoricalCsv('all')" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs py-3 rounded-xl">Import all verified 1PM + 8PM draws</button>
       </div>
     </div>
@@ -1279,24 +1279,36 @@ function renderDraws() {
     function stripNoiseLines(rawText) {
       return String(rawText || '')
         .split(/\r?\n/)
-        .filter(line => !/cons\.?\s*prize|remaining\s*serial|seller\s*amount|1000\/-|500\/-|120\/-|10\/-|crore|lakh|mrp|draw\s*on|guaranteed|sold\s*by/i.test(line))
+        .filter(line => !/cons\.?\s*prize|remaining\s*serial|seller\s*amount|crore|lakh|mrp|draw\s*on|guaranteed|sold\s*by/i.test(line))
         .join('\n');
     }
+
+    // Result-poster OCR is deliberately conservative: ambiguous letters are never
+    // silently converted into winning digits. Physical-ticket OCR keeps its
+    // separate repairNumericToken() behavior.
+    let lastResultOcrAmbiguousTokens = [];
 
     function extractPureNumberStream(text, digitLen, excludeSet) {
       const cleaned = stripNoiseLines(text);
       const rawTokens = cleaned.split(/[^A-Za-z0-9|!$]+/).filter(Boolean);
       const results = [];
+      const ambiguousPattern = /[OQDBIl|!ZSGT$gq]/i;
+      const numericGlyphsOnly = /^[0-9OQDBIl|!ZSGT$gq]+$/i;
 
       for (const tok of rawTokens) {
-        const repaired = repairNumericToken(tok);
-        if (!/^\d+$/.test(repaired)) continue;
+        // Keep only number-shaped tokens containing ambiguous OCR glyphs for manual review.
+        if (tok.length >= digitLen && numericGlyphsOnly.test(tok) && ambiguousPattern.test(tok)) {
+          if (lastResultOcrAmbiguousTokens.length < 80) lastResultOcrAmbiguousTokens.push(tok);
+          continue;
+        }
+        // Only source-read digits are accepted. Never turn O/Q/D into 0 or B into 8.
+        if (!/^\d+$/.test(tok)) continue;
 
-        if (repaired.length === digitLen) {
-          if (!excludeSet.has(repaired)) results.push(repaired);
-        } else if (repaired.length > digitLen && repaired.length % digitLen === 0) {
-          for (let i = 0; i < repaired.length; i += digitLen) {
-            const chunk = repaired.slice(i, i + digitLen);
+        if (tok.length === digitLen) {
+          if (!excludeSet.has(tok)) results.push(tok);
+        } else if (tok.length > digitLen && tok.length % digitLen === 0) {
+          for (let i = 0; i < tok.length; i += digitLen) {
+            const chunk = tok.slice(i, i + digitLen);
             if (!excludeSet.has(chunk)) results.push(chunk);
           }
         }
@@ -1330,14 +1342,16 @@ function renderDraws() {
         return;
       }
 
-      const p1Regex = /\b([0-9OQDIl|!]{2}[A-Z])\s*[-:]?\s*([0-9OQDIl|!ZSBG]{5})\b/gi;
+      lastResultOcrAmbiguousTokens = [];
+      // First-prize digits must be read as digits; ambiguous OCR glyphs are not repaired.
+      const p1Regex = /\b([0-9]{2}[A-Z])\s*[-:]?\s*([0-9]{5})\b/gi;
       let p1Series = '';
       let p1Five = '';
       let match;
       while ((match = p1Regex.exec(raw)) !== null) {
-        const serNum = repairNumericToken(match[1].slice(0, 2));
+        const serNum = match[1].slice(0, 2);
         const serChar = match[1].slice(2).toUpperCase();
-        const ticket = repairNumericToken(match[2]);
+        const ticket = match[2];
         if (/^\d{2}[A-Z]$/.test(serNum + serChar) && /^\d{5}$/.test(ticket)) {
           p1Series = serNum + serChar;
           p1Five = ticket;
@@ -1378,7 +1392,7 @@ function renderDraws() {
         document.getElementById('inp-p2').value = fiveDigitList.slice(0, 10).join(' ');
       }
 
-      const exclude4 = new Set(['2025', '2026', '2027', '1000']);
+      const exclude4 = new Set(['2025', '2026', '2027', '1000', '9000', '7450', '1250', '1954']);
       const fourDigitList = extractPureNumberStream(gridSource, 4, exclude4);
 
       if (fourDigitList.length >= 20) {
@@ -1400,7 +1414,9 @@ function renderDraws() {
       updateLiveCounts();
       const c2 = tokenizeNums(document.getElementById('inp-p2').value, 5).length;
       const c5 = tokenizeNums(document.getElementById('inp-p5').value, 4).length;
-      showToast(`Extracted ${c2}/10 (2nd) & ${c5}/100 (5th Prize)`);
+      const skipped = lastResultOcrAmbiguousTokens.length;
+      const reviewTokens = lastResultOcrAmbiguousTokens.slice(0, 8).join(', ');
+      showToast(`Extracted ${c2}/10 (2nd) & ${c5}/100 (5th Prize)${skipped ? ` • Skipped ${skipped} ambiguous token(s): ${reviewTokens} — check poster` : ''}`);
     }
 
     function renderRedChannelTopBanner(img) {
@@ -1455,7 +1471,7 @@ function renderDraws() {
       const barEl = document.getElementById('ocr-bar');
 
       statusBox.classList.remove('hidden');
-      msgEl.textContent = 'Preparing 3-pass OCR scanner...';
+      msgEl.textContent = 'Preparing 4-pass OCR scanner...';
       pctEl.textContent = '10%';
       barEl.style.width = '10%';
 
@@ -1472,39 +1488,47 @@ function renderDraws() {
           corePath: 'https://cdn.jsdelivr.net/npm/tesseract.js-core@5/tesseract-core.wasm.js'
         });
 
-        msgEl.textContent = 'Pass 1/3: Reading 1st Prize & Draw Header...';
+        msgEl.textContent = 'Pass 1/4: Reading the poster header...';
         pctEl.textContent = '30%';
         barEl.style.width = '30%';
         const topUrl = renderRedChannelTopBanner(img);
         const resTop = await worker.recognize(topUrl);
 
-        msgEl.textContent = 'Pass 2/3: Scanning 2nd, 3rd, 4th & 5th Prize grids...';
+        await worker.setParameters({ tessedit_pageseg_mode: '6' });
+        let bottomText = '';
+        lastResultOcrAmbiguousTokens = [];
+        // Dedicated crops keep unrelated advertisements and prize amounts out of the number stream.
+        msgEl.textContent = 'Pass 2/4: Reading first prize and draw details...';
+        pctEl.textContent = '45%';
+        barEl.style.width = '45%';
+        // Sparse-text mode works better for the isolated first-prize banner.
+        await worker.setParameters({ tessedit_pageseg_mode: '11' });
+        const firstPrizeUrl = renderHighContrastFullImage(img, 0.10, 0.34);
+        const resFirstPrize = await worker.recognize(firstPrizeUrl);
+
+        msgEl.textContent = 'Pass 3/4: Reading 2nd, 3rd and 4th prize grids...';
+        await worker.setParameters({ tessedit_pageseg_mode: '6' });
         pctEl.textContent = '65%';
         barEl.style.width = '65%';
-        await worker.setParameters({ tessedit_pageseg_mode: '6' });
-        const fullUrl = renderHighContrastFullImage(img, 0, 1);
-        const resFull = await worker.recognize(fullUrl);
+        const prizeGridUrl = renderHighContrastFullImage(img, 0.29, 0.48);
+        const resPrizeGrid = await worker.recognize(prizeGridUrl);
 
-        let bottomText = '';
-        const quick4Check = extractPureNumberStream(resFull.data.text, 4, new Set(['2025', '2026', '1000']));
-        if (quick4Check.length < 120) {
-          msgEl.textContent = 'Pass 3/3: Polishing 10×10 5th Prize table...';
-          pctEl.textContent = '88%';
-          barEl.style.width = '88%';
-          const bottomUrl = renderHighContrastFullImage(img, 0.72, 0.96);
-          const resBottom = await worker.recognize(bottomUrl);
-          bottomText = resBottom.data.text;
-        }
+        msgEl.textContent = 'Pass 4/4: Reading the 5th prize table...';
+        pctEl.textContent = '85%';
+        barEl.style.width = '85%';
+        const bottomUrl = renderHighContrastFullImage(img, 0.72, 0.96);
+        const resBottom = await worker.recognize(bottomUrl);
+        bottomText = resBottom.data.text;
 
         await worker.terminate();
 
-        const combinedText = `${resTop.data.text}\n${resFull.data.text}`;
+        const combinedText = `${resTop.data.text}\n${resFirstPrize.data.text}\n${resPrizeGrid.data.text}`;
         document.getElementById('smart-paste-box').value = combinedText;
 
         msgEl.textContent = 'Scan complete! Auto-filling prize boxes...';
         pctEl.textContent = '100%';
         barEl.style.width = '100%';
-        parseSmartPaste(resFull.data.text, bottomText);
+        parseSmartPaste(resPrizeGrid.data.text, bottomText);
       } catch (err) {
         msgEl.textContent = 'OCR failed on this image. Use Method 2 Smart Paste below.';
         pctEl.textContent = 'Error';
@@ -2613,37 +2637,69 @@ function renderDraws() {
       const rows = parseCsvRows(String(csvText || '').replace(/^\uFEFF/, ''));
       if (rows.length < 2) throw new Error('CSV is empty or has no data rows.');
       const headers = rows[0].map(h => h.trim().toLowerCase());
-      const required = ['date','draw','prize_tier','position','winning_number'];
+      const required = ['date','draw','prize_tier','position','winning_number','verification_status','source_file'];
       const missing = required.filter(h => !headers.includes(h));
-      if (missing.length) throw new Error('Missing CSV columns: ' + missing.join(', '));
+      if (missing.length) throw new Error('This importer accepts only audited CSVs. Missing required columns: ' + missing.join(', '));
       const ix = Object.fromEntries(required.map(h => [h, headers.indexOf(h)]));
+      const expected = { '1st': 1, 'Consolation': 1, '2nd': 10, '3rd': 10, '4th': 10, '5th': 100 };
+      const patterns = {
+        '1st': /^\d{2}[A-Z] \d{5}$/,
+        'Consolation': /^\d{5}$/,
+        '2nd': /^\d{5}$/,
+        '3rd': /^\d{4}$/,
+        '4th': /^\d{4}$/,
+        '5th': /^\d{4}$/
+      };
       const grouped = new Map();
+      const invalidRows = [];
       for (let i = 1; i < rows.length; i++) {
         const r = rows[i];
         const date = (r[ix.date] || '').trim();
         const drawCode = (r[ix.draw] || '').trim().toUpperCase();
         if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || !['1PM','8PM'].includes(drawCode)) continue;
         const tier = (r[ix.prize_tier] || '').trim();
-        const position = Number((r[ix.position] || '').trim());
+        const positionText = (r[ix.position] || '').trim();
+        const position = Number(positionText);
         const number = (r[ix.winning_number] || '').trim();
-        if (!number || !Number.isInteger(position) || position < 1) continue;
+        const verification = (r[ix.verification_status] || '').trim().toLowerCase();
+        const sourceFile = (r[ix.source_file] || '').trim();
         const key = date + '|' + drawCode;
-        if (!grouped.has(key)) grouped.set(key, { date, drawCode, first: '', consolation: '', second: [], third: [], fourth: [], fifth: [], counts: {} });
+        if (!grouped.has(key)) grouped.set(key, { date, drawCode, first: '', consolation: '', second: [], third: [], fourth: [], fifth: [], rowCount: 0, errors: [] });
         const g = grouped.get(key);
-        if (tier === '1st' && position === 1) g.first = number;
-        else if (tier === 'Consolation' && position === 1) g.consolation = number;
-        else if (['2nd','3rd','4th','5th'].includes(tier)) {
-          const target = tier === '2nd' ? g.second : tier === '3rd' ? g.third : tier === '4th' ? g.fourth : g.fifth;
+        g.rowCount++;
+        const dateObj = new Date(date + 'T00:00:00Z');
+        if (Number.isNaN(dateObj.getTime()) || dateObj.toISOString().slice(0,10) !== date) g.errors.push('invalid date');
+        if (verification !== 'human_verified') g.errors.push('contains unverified row');
+        if (!sourceFile) g.errors.push('missing source reference');
+        if (!(tier in expected)) { g.errors.push('unknown prize tier: ' + tier); continue; }
+        if (!Number.isInteger(position) || position < 1 || position > expected[tier]) { g.errors.push('invalid position for ' + tier); continue; }
+        if (!patterns[tier].test(number)) { g.errors.push('invalid number format for ' + tier + ' position ' + position); continue; }
+        const target = tier === '1st' ? null : tier === 'Consolation' ? null : tier === '2nd' ? g.second : tier === '3rd' ? g.third : tier === '4th' ? g.fourth : g.fifth;
+        if (tier === '1st') {
+          if (g.first) g.errors.push('duplicate 1st prize position');
+          g.first = number;
+        } else if (tier === 'Consolation') {
+          if (g.consolation) g.errors.push('duplicate consolation position');
+          g.consolation = number;
+        } else {
+          if (target[position - 1]) g.errors.push('duplicate ' + tier + ' position ' + position);
           target[position - 1] = number;
         }
       }
-      const expected = { second: 10, third: 10, fourth: 10, fifth: 100 };
       const complete = [];
       const invalid = [];
       for (const g of grouped.values()) {
-        const ok = !!g.first && !!g.consolation && Object.entries(expected).every(([k,n]) => g[k].length === n && g[k].every(Boolean));
-        if (ok) complete.push(g);
-        else invalid.push(g.date + ' ' + g.drawCode);
+        const tierCountsOk = Object.entries(expected).every(([tier,n]) => {
+          const values = tier === '1st' ? (g.first ? [g.first] : []) :
+            tier === 'Consolation' ? (g.consolation ? [g.consolation] : []) :
+            tier === '2nd' ? g.second : tier === '3rd' ? g.third : tier === '4th' ? g.fourth : g.fifth;
+          return values.length === n && values.every(Boolean);
+        });
+        if (!tierCountsOk) g.errors.push('incomplete prize counts or missing positions');
+        if (g.first && g.consolation && g.first.slice(-5) !== g.consolation) g.errors.push('consolation does not match first prize suffix');
+        if (g.rowCount !== 132) g.errors.push('expected 132 source rows, found ' + g.rowCount);
+        if (g.errors.length) invalid.push(g.date + ' ' + g.drawCode + ': ' + [...new Set(g.errors)].join('; '));
+        else complete.push(g);
       }
       complete.sort((a,b) => (a.date + a.drawCode).localeCompare(b.date + b.drawCode));
       return { complete, invalid, groups: grouped.size };
@@ -2663,9 +2719,8 @@ function renderDraws() {
           const result = buildHistoricalDrawGroups(ev.target.result);
           historicalCsvDraws = result.complete;
           if (!historicalCsvDraws.length) throw new Error('No complete 1PM/8PM draws found.');
-          const test = historicalCsvDraws.find(d => d.date === '2021-04-01' && d.drawCode === '1PM');
-          if (!test) throw new Error('The expected test draw 2021-04-01 1PM was not found.');
-          status.textContent = `CSV validated successfully.\nComplete 1PM + 8PM draws: ${result.complete.length}\nIncomplete groups skipped: ${result.invalid.length}\nTest draw: 01/04/2021 · 1PM\nTest counts: 1st 1 | Consolation 1 | 2nd 10 | 3rd 10 | 4th 10 | 5th 100\nChoose the test import first. After checking it in Draws, upload the same CSV again and choose full import.`;
+          const test = historicalCsvDraws[0];
+          status.textContent = `Audited CSV validation successful.\nHuman-verified complete 1PM + 8PM draws: ${result.complete.length}\nRejected/incomplete groups: ${result.invalid.length}\nTest draw: ${test.date} · ${test.drawCode}\nTest counts: 1st 1 | Consolation 1 | 2nd 10 | 3rd 10 | 4th 10 | 5th 100\nOnly rows marked human_verified with a source reference are accepted. Import the test draw first, inspect it in Draws, then reselect the CSV for full import.\n\nRejected examples:\n${result.invalid.slice(0,10).join('\\n') || 'None'}`;
           actions.classList.remove('hidden');
         } catch (err) {
           historicalCsvDraws = [];
@@ -2679,7 +2734,7 @@ function renderDraws() {
     function importHistoricalCsv(mode) {
       if (!historicalCsvDraws.length) { showToast('Select and validate the master CSV first'); return; }
       const selected = mode === 'test'
-        ? historicalCsvDraws.filter(d => d.date === '2021-04-01' && d.drawCode === '1PM')
+        ? historicalCsvDraws.slice(0, 1)
         : historicalCsvDraws;
       const existingByKey = new Map(draws.map(d => [d.date + '|' + (d.time === '8:00 PM' ? '8PM' : d.time === '6:00 PM' ? '6PM' : '1PM'), d]));
       let added = 0, upgraded = 0;
@@ -2700,7 +2755,7 @@ function renderDraws() {
       saveDrawsToStorage();
       renderDraws(); renderPatterns(); renderTicketTableResults(); renderStoreAnalyticsAndBatches();
       const status = document.getElementById('historical-import-status');
-      status.textContent += `\n\n${mode === 'test' ? 'TEST IMPORT' : 'FULL IMPORT'} COMPLETE\nAdded: ${added} · Upgraded/replaced: ${upgraded}\nCurrent app draws: ${draws.length}\nCheck 01/04/2021 1PM in Draws before running the full import.`;
+      status.textContent += `\n\n${mode === 'test' ? 'TEST IMPORT' : 'FULL IMPORT'} COMPLETE\nAdded: ${added} · Upgraded/replaced: ${upgraded}\nCurrent app draws: ${draws.length}\nCheck the selected test draw in Draws before running the full import.`;
       showToast(mode === 'test' ? 'Test draw imported with all six prize tiers' : `Imported ${selected.length} historical draws`);
     }
 

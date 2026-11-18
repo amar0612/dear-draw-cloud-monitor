@@ -1,7 +1,7 @@
-
-name: Nagaland Lottery PDF Monitor
+name: Nagaland Lottery Daily Result Fetch and Cloud Sync
 
 on:
+  # GitHub cron uses UTC: 07:40 = 13:10 IST; 14:40 = 20:10 IST.
   schedule:
     - cron: "40 7 * * *"
     - cron: "40 14 * * *"
@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       draw:
-        description: "Choose which draw to check"
+        description: "Choose which Nagaland draw to fetch"
         required: true
         type: choice
         options:
@@ -20,11 +20,12 @@ permissions:
   contents: read
 
 jobs:
-  check-result:
+  fetch-and-sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-        env:
+    timeout-minutes: 75
+    env:
       SAMBAD_API_TOKEN: ${{ secrets.LOTTERY_SAMBAD_API_TOKEN }}
+      SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
 
     steps:
       - name: Checkout repository
@@ -37,6 +38,7 @@ jobs:
 
       - name: Select draw
         id: draw
+        shell: bash
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "draw=${{ inputs.draw }}" >> "$GITHUB_OUTPUT"
@@ -46,7 +48,42 @@ jobs:
             echo "draw=8pm" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Check official result PDF
+      - name: Verify required secrets
+        shell: bash
         run: |
-          python monitor/poll_official_pdf.py \
-            --draw "${{ steps.draw.outputs.draw }}"
+          test -n "$SAMBAD_API_TOKEN" || { echo "Missing GitHub secret LOTTERY_SAMBAD_API_TOKEN"; exit 1; }
+          test -n "$SUPABASE_SECRET_KEY" || { echo "Missing GitHub secret SUPABASE_SECRET_KEY"; exit 1; }
+
+      - name: Fetch published result with retries
+        shell: bash
+        run: |
+          mkdir -p api-results
+          for attempt in $(seq 1 12); do
+            echo "API fetch attempt $attempt/12 for ${{ steps.draw.outputs.draw }}"
+            if python monitor/import_sambad_api.py \
+              --draw "${{ steps.draw.outputs.draw }}" \
+              --output-dir api-results; then
+              echo "Result fetched and structurally validated."
+              exit 0
+            fi
+            if [ "$attempt" -lt 12 ]; then
+              echo "Result not published/available yet; retrying in 5 minutes."
+              sleep 300
+            fi
+          done
+          echo "Result was not fetched after 12 attempts."
+          exit 1
+
+      - name: Sync validated result to Supabase
+        run: |
+          FILE="api-results/$(TZ=Asia/Kolkata date +%Y-%m-%d)_${{ steps.draw.outputs.draw == '1pm' && '1PM' || '8PM' }}.json"
+          python monitor/sync_result_to_supabase.py --file "$FILE"
+
+      - name: Archive fetched result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nagaland-result-${{ steps.draw.outputs.draw }}-${{ github.run_id }}
+          path: api-results/*.json
+          if-no-files-found: ignore
+          retention-days: 90

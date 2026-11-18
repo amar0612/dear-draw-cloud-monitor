@@ -1,0 +1,36 @@
+name: Archive Official Nagaland Gazettes
+
+on:
+  workflow_dispatch:
+    inputs:
+      csv_path:
+        description: Candidate CSV containing date and draw columns
+        required: true
+        default: data/human_verified_draws_2023-01.csv
+
+permissions:
+  contents: read
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download official gazettes and create SHA256 manifest
+        run: python monitor/archive_official_sources.py --csv "${{ inputs.csv_path }}" --output-dir official-source-archive
+
+      - name: Upload source PDFs and manifest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nagaland-official-gazettes
+          path: official-source-archive/
+          if-no-files-found: error
+          retention-days: 90
