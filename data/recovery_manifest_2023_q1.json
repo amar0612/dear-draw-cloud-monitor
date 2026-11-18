@@ -1,0 +1,43 @@
+{
+  "year": 2023,
+  "quarter": "Q1",
+  "scope": "Nagaland 1PM and 8PM only; exclude 6PM",
+  "sources": [
+    {
+      "domain": "kllotteryresults.in",
+      "url": "https://www.kllotteryresults.in/dear-lottery-chart/2023",
+      "status": "Jan-Mar 1PM/8PM yearly chart transcribed"
+    },
+    {
+      "domain": "todaysoch.com",
+      "url": "https://www.todaysoch.com/2023/10/dear-lottery-result-chart.html",
+      "status": "February and March cross-check; January 1-24 cross-check only; Jan 25-31 marked missing by this source"
+    }
+  ],
+  "months": [
+    {
+      "month": "january",
+      "status": "partial_recovery",
+      "first_prize_records": 60,
+      "coverage": "Jan 1-25 and Jan 27-31; Jan 26 blank/unresolved in KLL chart; Jan 25 and Jan 27-31 only one source found in this pass",
+      "full_tiers": "not extracted"
+    },
+    {
+      "month": "february",
+      "status": "first_prize_recovered",
+      "first_prize_records": 56,
+      "coverage": "All 28 dates, both 1PM and 8PM; two sources matched",
+      "full_tiers": "not extracted"
+    },
+    {
+      "month": "march",
+      "status": "first_prize_recovered",
+      "first_prize_records": 62,
+      "coverage": "All 31 dates, both 1PM and 8PM; two sources matched",
+      "full_tiers": "not extracted"
+    }
+  ],
+  "total_first_prize_records": 178,
+  "verification": "Series not applicable for 2023 chart; five-digit first-prize values. 6PM excluded.",
+  "policy": "No invented results. Jan 26 unresolved. Single-source Jan entries retained pending review. First-prize only; full prize tiers pending daily PDF recovery."
+}
