@@ -1,0 +1,15 @@
+{
+  "batch": "2023-12-05-31-first-prize",
+  "retrieved_at": "2026-11-18",
+  "source": {
+    "domain": "kllotteryresults.in",
+    "url": "https://www.kllotteryresults.in/dear-lottery-chart/2023",
+    "type": "yearly consolidated chart",
+    "scope": "December 2023 1PM and 8PM first prize only"
+  },
+  "records": 54,
+  "draws": 27,
+  "status": "partial_extraction_review",
+  "note": "Only first-prize five-digit values are present in the yearly chart. No series prefixes or lower prize tiers were available in this source. First four dates are separately present in the full-draw batch and intentionally not duplicated here.",
+  "exceptions": []
+}
