@@ -119,6 +119,20 @@
       "issue": "58 first-prize records recovered for October 1 and October 3–31; full prize tiers not extracted.",
       "status": "partial_extraction_review",
       "action": "Continue searching October daily PDFs for complete prize tiers"
+    },
+    {
+      "date": "2025-11",
+      "draw": "both",
+      "issue": "60 first-prize records recovered from Goodreturns and KLLotteryResults yearly charts; full prize tiers not imported. A full-result PDF for November 15 1PM is indexed.",
+      "status": "partial_extraction_review",
+      "action": "Extract full tiers from November 15 PDF and search remaining November dates"
+    },
+    {
+      "date": "2025-12",
+      "draw": "both",
+      "issue": "62 first-prize records recovered for all dates; full prize tiers not extracted in this checkpoint.",
+      "status": "partial_extraction_review",
+      "action": "Search December daily PDFs and import all available prize tiers"
     }
   ]
 }
