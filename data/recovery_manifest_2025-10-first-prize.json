@@ -1,0 +1,37 @@
+{
+  "batch": "2025-10-first-prize-cross-match",
+  "retrieved_at": "2026-11-18",
+  "sources": [
+    {
+      "domain": "kllotteryresults.in",
+      "url": "https://kllotteryresults.in/dear-lottery-chart/2025",
+      "scope": "2025 yearly first-prize matrix, October columns"
+    },
+    {
+      "domain": "keralastatelottery.in",
+      "url": "https://www.keralastatelottery.in/dearlotterychart/",
+      "scope": "October 2025 date-wise monthly chart"
+    }
+  ],
+  "records": 60,
+  "draws_with_data": 29,
+  "status": "partial_extraction_review",
+  "tier_status": "two_source_matched",
+  "exceptions": [
+    {
+      "date": "2025-10-02",
+      "draw": "1PM",
+      "issue": "Both chart sources show no result marker for this date",
+      "status": "source_gap_pending_alternate_source",
+      "note": "No number imported; not treated as proof that draw did not occur."
+    },
+    {
+      "date": "2025-10-02",
+      "draw": "8PM",
+      "issue": "Both chart sources show no result marker for this date",
+      "status": "source_gap_pending_alternate_source",
+      "note": "No number imported; not treated as proof that draw did not occur."
+    }
+  ],
+  "note": "All nonblank October values match across both sources. Only first prize available; no full prize tiers. 6PM excluded."
+}
