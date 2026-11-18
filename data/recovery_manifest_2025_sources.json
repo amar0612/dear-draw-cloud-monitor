@@ -71,8 +71,15 @@
     {
       "month": "april",
       "archive_url": "https://lotterysambad.icu/old-result/april-2025",
-      "status": "indexed",
-      "pdf_extraction": "not_yet_completed"
+      "status": "first_prize_recovered",
+      "first_prize_records": 60,
+      "first_prize_coverage": "All 30 dates, both 1PM and 8PM",
+      "first_prize_sources": [
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "full_tier_recovery": "Full result pages/PDFs located for 4 April 1PM, 5 April 1PM, 14 April 8PM, 21 April 8PM, and 24 April 1PM; extraction not yet committed as full tier dataset",
+      "pdf_extraction": "first-prize only; full-tier recovery continues"
     },
     {
       "month": "may",
@@ -189,6 +196,36 @@
       "draw": "1PM",
       "url": "https://lotterysambadresult.in/wp-content/uploads/2025/03/MD210325-1.pdf",
       "status": "full_pdf_indexed"
+    },
+    {
+      "date": "2025-04-04",
+      "draw": "1PM",
+      "url": "https://files.dhankesari.net/dhanpdf/1PM/MD040425.pdf",
+      "status": "full_result_text_indexed"
+    },
+    {
+      "date": "2025-04-05",
+      "draw": "1PM",
+      "url": "https://lotterysambadresult.in/wp-content/uploads/2025/04/MD050425.pdf",
+      "status": "full_result_text_indexed"
+    },
+    {
+      "date": "2025-04-14",
+      "draw": "8PM",
+      "url": "https://nagalandstatelotterysambad.com/wp-content/uploads/2025/04/ED140425.pdf",
+      "status": "full_result_text_indexed"
+    },
+    {
+      "date": "2025-04-21",
+      "draw": "8PM",
+      "url": "https://lotterysambads.net/wp-content/uploads/2025/04/ED210425.pdf",
+      "status": "full_result_text_indexed"
+    },
+    {
+      "date": "2025-04-24",
+      "draw": "1PM",
+      "url": "https://www.7dear.in/media/dear/2025/04/MD240425.PDF",
+      "status": "full_result_text_indexed"
     }
   ],
   "policy": "No fabricated entries. Full prize-tier extraction required for complete status. Retain partial first-prize candidates separately. Broken URLs do not prove no draw."
