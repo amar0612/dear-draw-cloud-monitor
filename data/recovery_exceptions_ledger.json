@@ -1,0 +1,71 @@
+{
+  "updated_at": "2026-11-18",
+  "scope": "Nagaland 1PM and 8PM only; 6PM excluded",
+  "unresolved": [
+    {
+      "date": "2023-12-05",
+      "draw": "1PM",
+      "source_domain": "lotterysambad.icu",
+      "issue": "Monthly archive PDF link returned broken/404 in prior recovery attempt",
+      "status": "broken_archive_link_404",
+      "action": "Seek alternate archive; do not infer draw absence"
+    },
+    {
+      "date": "2023-12-05",
+      "draw": "8PM",
+      "source_domain": "lotterysambad.icu",
+      "issue": "Monthly archive PDF link returned broken/404 in prior recovery attempt",
+      "status": "broken_archive_link_404",
+      "action": "Seek alternate archive; do not infer draw absence"
+    },
+    {
+      "date": "2024-01-26",
+      "draw": "1PM",
+      "source_domain": "kllotteryresults.in",
+      "issue": "No first-prize value exposed in 2024 yearly chart",
+      "status": "source_gap_pending_alternate_source",
+      "action": "Search date-specific pages and monthly PDF archives; do not infer no draw"
+    },
+    {
+      "date": "2024-01-26",
+      "draw": "8PM",
+      "source_domain": "kllotteryresults.in",
+      "issue": "No first-prize value exposed in 2024 yearly chart",
+      "status": "source_gap_pending_alternate_source",
+      "action": "Search date-specific pages and monthly PDF archives; do not infer no draw"
+    },
+    {
+      "date": "2024-08-15",
+      "draw": "1PM",
+      "source_domain": "kllotteryresults.in",
+      "issue": "No first-prize value exposed in 2024 yearly chart",
+      "status": "source_gap_pending_alternate_source",
+      "action": "Search date-specific pages and monthly PDF archives; do not infer no draw"
+    },
+    {
+      "date": "2024-08-15",
+      "draw": "8PM",
+      "source_domain": "kllotteryresults.in",
+      "issue": "No first-prize value exposed in 2024 yearly chart",
+      "status": "source_gap_pending_alternate_source",
+      "action": "Search date-specific pages and monthly PDF archives; do not infer no draw"
+    },
+    {
+      "date": "2024-10-02",
+      "draw": "1PM",
+      "source_domain": "kllotteryresults.in",
+      "issue": "No first-prize value exposed in 2024 yearly chart",
+      "status": "source_gap_pending_alternate_source",
+      "action": "Search date-specific pages and monthly PDF archives; do not infer no draw"
+    },
+    {
+      "date": "2024-10-02",
+      "draw": "8PM",
+      "source_domain": "kllotteryresults.in",
+      "issue": "No first-prize value exposed in 2024 yearly chart",
+      "status": "source_gap_pending_alternate_source",
+      "action": "Search date-specific pages and monthly PDF archives; do not infer no draw"
+    }
+  ],
+  "note": "Exceptions are unresolved source coverage gaps, not evidence that the draws did not occur. Keep searching alternate archives and preserve any partial results found."
+}
