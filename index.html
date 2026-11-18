@@ -1283,20 +1283,31 @@ function renderDraws() {
         .join('\n');
     }
 
+    // Result-poster OCR is deliberately conservative: ambiguous letters are never
+    // silently converted into winning digits. Physical-ticket OCR keeps its
+    // separate repairNumericToken() behavior.
+    let lastResultOcrAmbiguousTokens = [];
+
     function extractPureNumberStream(text, digitLen, excludeSet) {
       const cleaned = stripNoiseLines(text);
       const rawTokens = cleaned.split(/[^A-Za-z0-9|!$]+/).filter(Boolean);
       const results = [];
+      const ambiguousPattern = /[OQD BIl|!ZSGT$]/i;
 
       for (const tok of rawTokens) {
-        const repaired = repairNumericToken(tok);
-        if (!/^\d+$/.test(repaired)) continue;
+        // Preserve suspicious OCR tokens for manual comparison with the source poster.
+        if (ambiguousPattern.test(tok) && /[A-Za-z|!$]/.test(tok)) {
+          if (lastResultOcrAmbiguousTokens.length < 80) lastResultOcrAmbiguousTokens.push(tok);
+          continue;
+        }
+        // Only source-read digits are accepted. Never turn O/Q/D into 0 or B into 8.
+        if (!/^\d+$/.test(tok)) continue;
 
-        if (repaired.length === digitLen) {
-          if (!excludeSet.has(repaired)) results.push(repaired);
-        } else if (repaired.length > digitLen && repaired.length % digitLen === 0) {
-          for (let i = 0; i < repaired.length; i += digitLen) {
-            const chunk = repaired.slice(i, i + digitLen);
+        if (tok.length === digitLen) {
+          if (!excludeSet.has(tok)) results.push(tok);
+        } else if (tok.length > digitLen && tok.length % digitLen === 0) {
+          for (let i = 0; i < tok.length; i += digitLen) {
+            const chunk = tok.slice(i, i + digitLen);
             if (!excludeSet.has(chunk)) results.push(chunk);
           }
         }
@@ -1330,14 +1341,16 @@ function renderDraws() {
         return;
       }
 
-      const p1Regex = /\b([0-9OQDIl|!]{2}[A-Z])\s*[-:]?\s*([0-9OQDIl|!ZSBG]{5})\b/gi;
+      lastResultOcrAmbiguousTokens = [];
+      // First-prize digits must be read as digits; ambiguous OCR glyphs are not repaired.
+      const p1Regex = /\b([0-9]{2}[A-Z])\s*[-:]?\s*([0-9]{5})\b/gi;
       let p1Series = '';
       let p1Five = '';
       let match;
       while ((match = p1Regex.exec(raw)) !== null) {
-        const serNum = repairNumericToken(match[1].slice(0, 2));
+        const serNum = match[1].slice(0, 2);
         const serChar = match[1].slice(2).toUpperCase();
-        const ticket = repairNumericToken(match[2]);
+        const ticket = match[2];
         if (/^\d{2}[A-Z]$/.test(serNum + serChar) && /^\d{5}$/.test(ticket)) {
           p1Series = serNum + serChar;
           p1Five = ticket;
@@ -1400,7 +1413,8 @@ function renderDraws() {
       updateLiveCounts();
       const c2 = tokenizeNums(document.getElementById('inp-p2').value, 5).length;
       const c5 = tokenizeNums(document.getElementById('inp-p5').value, 4).length;
-      showToast(`Extracted ${c2}/10 (2nd) & ${c5}/100 (5th Prize)`);
+      const skipped = lastResultOcrAmbiguousTokens.length;
+      showToast(`Extracted ${c2}/10 (2nd) & ${c5}/100 (5th Prize)${skipped ? ` • ${skipped} ambiguous OCR token(s) skipped — verify against poster` : ''}`);
     }
 
     function renderRedChannelTopBanner(img) {
@@ -1486,6 +1500,7 @@ function renderDraws() {
         const resFull = await worker.recognize(fullUrl);
 
         let bottomText = '';
+        lastResultOcrAmbiguousTokens = [];
         const quick4Check = extractPureNumberStream(resFull.data.text, 4, new Set(['2025', '2026', '1000']));
         if (quick4Check.length < 120) {
           msgEl.textContent = 'Pass 3/3: Polishing 10×10 5th Prize table...';
