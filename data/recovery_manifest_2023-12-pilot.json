@@ -12,7 +12,9 @@
       "independent_first_prize_chart": "https://www.todaysoch.com/2023/10/dear-lottery-result-chart.html",
       "first_prize_chart_match": true,
       "status": "single_source_pending_review",
-      "notes": "Full tier list extracted from PDF text. First prize independently matches yearly/monthly chart. PDF is from an independent archive; no official Gazette check performed."
+      "notes": "Full tier list extracted from PDF text. First prize independently matches yearly/monthly chart. PDF is from an independent archive; no official Gazette check performed.",
+      "first_prize_status": "two_source_matched",
+      "overall_status": "single_source_pending_review"
     },
     {
       "date": "2023-12-01",
@@ -23,7 +25,17 @@
       "independent_first_prize_chart": "https://www.todaysoch.com/2023/10/dear-lottery-result-chart.html",
       "first_prize_chart_match": true,
       "status": "single_source_pending_review",
-      "notes": "Full tier list extracted from PDF text. First prize independently matches yearly/monthly chart. PDF is from an independent archive; no official Gazette check performed."
+      "notes": "Full tier list extracted from PDF text. First prize independently matches yearly/monthly chart. PDF is from an independent archive; no official Gazette check performed.",
+      "first_prize_status": "two_source_matched",
+      "overall_status": "single_source_pending_review"
+    }
+  ],
+  "sources": [
+    {
+      "domain": "kllotteryresults.in",
+      "url": "https://www.kllotteryresults.in/dear-lottery-chart/2023",
+      "retrieved_at": "2026-11-18",
+      "scope": "Yearly first-prize chart cross-check"
     }
   ]
 }
