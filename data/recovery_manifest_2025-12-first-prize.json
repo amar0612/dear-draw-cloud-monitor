@@ -1,0 +1,489 @@
+{
+  "batch": "2025-12-first-prize-cross-match",
+  "retrieved_at": "2026-11-18",
+  "sources": [
+    {
+      "domain": "kllotteryresults.in",
+      "url": "https://kllotteryresults.in/dear-lottery-chart/2025",
+      "scope": "2025 yearly first-prize matrix, December columns"
+    },
+    {
+      "domain": "keralastatelottery.in",
+      "url": "https://www.keralastatelottery.in/dearlotterychart/",
+      "scope": "December 2025 date-wise monthly chart"
+    }
+  ],
+  "draws": [
+    {
+      "date": "2025-12-01",
+      "draws": {
+        "1PM": {
+          "first_prize": "77280",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "83621",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-02",
+      "draws": {
+        "1PM": {
+          "first_prize": "98035",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "59079",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-03",
+      "draws": {
+        "1PM": {
+          "first_prize": "92327",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "31990",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-04",
+      "draws": {
+        "1PM": {
+          "first_prize": "06638",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "26932",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-05",
+      "draws": {
+        "1PM": {
+          "first_prize": "29648",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "36083",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-06",
+      "draws": {
+        "1PM": {
+          "first_prize": "16455",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "50080",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-07",
+      "draws": {
+        "1PM": {
+          "first_prize": "94211",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "05875",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-08",
+      "draws": {
+        "1PM": {
+          "first_prize": "11197",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "57636",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-09",
+      "draws": {
+        "1PM": {
+          "first_prize": "99724",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "08432",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-10",
+      "draws": {
+        "1PM": {
+          "first_prize": "68796",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "54228",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-11",
+      "draws": {
+        "1PM": {
+          "first_prize": "66836",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "33902",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-12",
+      "draws": {
+        "1PM": {
+          "first_prize": "13945",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "20258",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-13",
+      "draws": {
+        "1PM": {
+          "first_prize": "29958",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "71965",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-14",
+      "draws": {
+        "1PM": {
+          "first_prize": "71938",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "56080",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-15",
+      "draws": {
+        "1PM": {
+          "first_prize": "58783",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "62990",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-16",
+      "draws": {
+        "1PM": {
+          "first_prize": "62371",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "28913",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-17",
+      "draws": {
+        "1PM": {
+          "first_prize": "89948",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "22471",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-18",
+      "draws": {
+        "1PM": {
+          "first_prize": "14535",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "80215",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-19",
+      "draws": {
+        "1PM": {
+          "first_prize": "84340",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "04899",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-20",
+      "draws": {
+        "1PM": {
+          "first_prize": "87879",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "79090",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-21",
+      "draws": {
+        "1PM": {
+          "first_prize": "28450",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "05283",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-22",
+      "draws": {
+        "1PM": {
+          "first_prize": "08670",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "94763",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-23",
+      "draws": {
+        "1PM": {
+          "first_prize": "29549",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "28111",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-24",
+      "draws": {
+        "1PM": {
+          "first_prize": "77830",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "70363",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-25",
+      "draws": {
+        "1PM": {
+          "first_prize": "97720",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "33617",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-26",
+      "draws": {
+        "1PM": {
+          "first_prize": "15289",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "39960",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-27",
+      "draws": {
+        "1PM": {
+          "first_prize": "55539",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "49692",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-28",
+      "draws": {
+        "1PM": {
+          "first_prize": "04933",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "07783",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-29",
+      "draws": {
+        "1PM": {
+          "first_prize": "36572",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "70708",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-30",
+      "draws": {
+        "1PM": {
+          "first_prize": "36134",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "02848",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "draws": {
+        "1PM": {
+          "first_prize": "86547",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        },
+        "8PM": {
+          "first_prize": "81816",
+          "tier_status": "two_source_matched",
+          "draw_status": "partial_extraction_review"
+        }
+      }
+    }
+  ],
+  "counts": {
+    "records": 62,
+    "first_prize_rows": 62,
+    "full_draws": 0
+  },
+  "note": "All 31 dates and both requested draw slots match across the two yearly/monthly chart sources. Only first-prize values are exposed; series prefixes, consolation and 2nd-5th tiers are not included in this batch. 6PM excluded."
+}
