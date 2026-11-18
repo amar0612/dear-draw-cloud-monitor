@@ -1,0 +1,44 @@
+{
+  "year": 2026,
+  "created_at": "2026-11-18",
+  "scope": "Nagaland 1PM and 8PM only; exclude 6PM",
+  "sources": [
+    {
+      "domain": "goodreturns.in",
+      "url": "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2026",
+      "type": "yearly date-wise series-prefixed first-prize chart",
+      "status": "January-March data extracted"
+    },
+    {
+      "domain": "kllotteryresults.in",
+      "url": "https://kllotteryresults.in/dear-lottery-chart/2026",
+      "type": "consolidated and time-wise five-digit chart",
+      "status": "January-March suffixes cross-checked"
+    }
+  ],
+  "months": [
+    {
+      "month": "january",
+      "status": "first_prize_recovered_with_date_gap",
+      "first_prize_records": 60,
+      "coverage": "Jan 1-25 and Jan 27-31; Jan 26 unresolved/blank in chart, not treated as no-draw",
+      "full_tiers": "not extracted"
+    },
+    {
+      "month": "february",
+      "status": "first_prize_recovered",
+      "first_prize_records": 56,
+      "coverage": "All 28 dates, both 1PM and 8PM",
+      "full_tiers": "not extracted"
+    },
+    {
+      "month": "march",
+      "status": "first_prize_recovered",
+      "first_prize_records": 62,
+      "coverage": "All 31 dates, both 1PM and 8PM",
+      "full_tiers": "not extracted"
+    }
+  ],
+  "verification": "Goodreturns series-prefixed values retained; KLLotteryResults independently cross-checked five-digit suffixes. Not equivalent to independent verification of series letters.",
+  "policy": "No fabricated entries. Missing chart cells remain unresolved. First-prize only; full prize tiers to be extracted from daily PDFs where available."
+}
