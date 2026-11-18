@@ -1,0 +1,117 @@
+{
+  "year": 2024,
+  "created_at": "2026-11-18",
+  "scope": "Nagaland 1PM and 8PM only; exclude 6PM",
+  "policy": "Import full prize tiers only when source PDF content supports extraction; preserve partial records and conflicts with explicit statuses; never infer no-draw from missing/broken links.",
+  "archive_sources": [
+    {
+      "domain": "lotterysambad.icu",
+      "index_url": "https://lotterysambad.icu/old-result",
+      "description": "Monthly archive pages with date-wise 1PM, 6PM, 8PM PDF links; independent archive, not government source."
+    },
+    {
+      "domain": "dearresult.in",
+      "index_url": "https://dearresult.in/old-result/january-2024",
+      "description": "Independent monthly archive; January 2024 page exposes daily PDFs for all three draws."
+    },
+    {
+      "domain": "kllotteryresults.in",
+      "index_url": "https://kllotteryresults.in/dear-lottery-chart/2024",
+      "description": "Year chart useful for first-prize cross-check; not a substitute for full prize-tier PDF."
+    },
+    {
+      "domain": "lotterysambadfax.com",
+      "index_url": "https://www.lotterysambadfax.com/results",
+      "description": "Date-wise archive with full result pages/PDFs."
+    }
+  ],
+  "months": [
+    {
+      "month": "january",
+      "archive_page": "https://lotterysambad.icu/old-result/january-2024",
+      "status": "source_indexed_pending_extraction"
+    },
+    {
+      "month": "february",
+      "archive_page": "https://lotterysambad.icu/old-result/february-2024",
+      "status": "source_indexed_pending_extraction"
+    },
+    {
+      "month": "march",
+      "archive_page": "https://lotterysambad.icu/old-result/march-2024",
+      "status": "source_indexed_pending_extraction"
+    },
+    {
+      "month": "april",
+      "archive_page": "https://lotterysambad.icu/old-result/april-2024",
+      "status": "source_indexed_pending_extraction"
+    },
+    {
+      "month": "may",
+      "archive_page": "https://lotterysambad.icu/old-result/may-2024",
+      "status": "source_indexed_pending_extraction"
+    },
+    {
+      "month": "june",
+      "archive_page": "https://lotterysambad.icu/old-result/june-2024",
+      "status": "source_indexed_pending_extraction"
+    },
+    {
+      "month": "july",
+      "archive_page": "https://lotterysambad.icu/old-result/july-2024",
+      "status": "source_indexed_pending_extraction"
+    },
+    {
+      "month": "august",
+      "archive_page": "https://lotterysambad.icu/old-result/august-2024",
+      "status": "source_indexed_pending_extraction"
+    },
+    {
+      "month": "september",
+      "archive_page": "https://lotterysambad.icu/old-result/september-2024",
+      "status": "source_indexed_pending_extraction"
+    },
+    {
+      "month": "october",
+      "archive_page": "https://lotterysambad.icu/old-result/october-2024",
+      "status": "source_indexed_pending_extraction"
+    },
+    {
+      "month": "november",
+      "archive_page": "https://lotterysambad.icu/old-result/november-2024",
+      "status": "source_indexed_pending_extraction"
+    },
+    {
+      "month": "december",
+      "archive_page": "https://lotterysambad.icu/old-result/december-2024",
+      "status": "source_indexed_pending_extraction"
+    }
+  ],
+  "sampled_pdf_checks": [
+    {
+      "date": "2024-01-01",
+      "draw": "1PM",
+      "url": "https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwNDA0MtErSEkDADGkBS4/1pm-01-01-2024.pdf",
+      "status": "opened_pdf_text_available"
+    },
+    {
+      "date": "2024-01-01",
+      "draw": "8PM",
+      "url": "https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTcwNDA0MtErSEkDADIGBTU/8pm-01-01-2024.pdf",
+      "status": "opened_pdf_text_available"
+    },
+    {
+      "date": "2024-02-01",
+      "draw": "1PM",
+      "url": "https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwNDAyMtErSEkDADGrBS8/1pm-01-02-2024.pdf",
+      "status": "opened_pdf_text_available"
+    },
+    {
+      "date": "2024-02-01",
+      "draw": "8PM",
+      "url": "https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTcwNDAyMtErSEkDADINBTY/8pm-01-02-2024.pdf",
+      "status": "pdf_link_open_attempt_failed"
+    }
+  ],
+  "note": "This is a source discovery/index checkpoint only. No full-year draw data is claimed imported yet."
+}
