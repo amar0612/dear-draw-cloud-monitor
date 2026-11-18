@@ -32,8 +32,17 @@
     {
       "month": "january",
       "archive_url": "https://lotterysambad.icu/old-result/january-2025",
-      "status": "indexed",
-      "pdf_extraction": "not_yet_completed"
+      "status": "partially_recovered",
+      "pdf_extraction": "first_prize_only_60_entries; full-tier extraction not completed",
+      "recovered_records": 60,
+      "covered_draws": 30,
+      "unresolved_date": "2025-01-26 (archive listings omit/strike through this date; no draw status asserted)",
+      "first_prize_sources": [
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "cross_check_note": "Five-digit first-prize values match across Goodreturns and KLLotteryResults for 30 dates. Series prefixes are present in Goodreturns only. Full prize tiers not yet extracted. Jan 22 has full-result PDF sources identified separately.",
+      "data_file": "data/recovered_draws_2025-01-first-prize.csv"
     },
     {
       "month": "february",
