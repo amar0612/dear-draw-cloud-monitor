@@ -54,12 +54,6 @@ jobs:
           test -n "$SAMBAD_API_TOKEN" || { echo "Missing GitHub secret LOTTERY_SAMBAD_API_TOKEN"; exit 1; }
           test -n "$SUPABASE_SECRET_KEY" || { echo "Missing GitHub secret SUPABASE_SECRET_KEY"; exit 1; }
 
-      - name: Check official result PDF
-        continue-on-error: true
-        run: |
-          python monitor/poll_official_pdf.py \
-            --draw "${{ steps.draw.outputs.draw }}"
-
       - name: Fetch published result with retries
         shell: bash
         run: |
