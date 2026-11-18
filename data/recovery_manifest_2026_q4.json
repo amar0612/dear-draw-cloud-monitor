@@ -1,0 +1,45 @@
+{
+  "year": 2026,
+  "quarter": "Q4",
+  "retrieved_at": "2026-11-18",
+  "scope": "Nagaland 1PM and 8PM only; exclude 6PM",
+  "sources": [
+    {
+      "domain": "goodreturns.in",
+      "url": "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2026",
+      "status": "October and November 1-17 chart transcribed"
+    },
+    {
+      "domain": "lotterysambadfax.com",
+      "url": "https://www.lotterysambadfax.com/chart/2026-10",
+      "status": "October 1PM/8PM independently matched; October 2 absent"
+    },
+    {
+      "domain": "dearlottery.in",
+      "url": "https://dearlottery.in/",
+      "status": "November 1-17 1PM/8PM chart independently matched"
+    }
+  ],
+  "months": [
+    {
+      "month": "october",
+      "status": "first_prize_recovered_with_date_gap",
+      "first_prize_records": 60,
+      "coverage": "October 1 and October 3-31, both draws; October 2 absent from the consulted charts and archive index"
+    },
+    {
+      "month": "november",
+      "status": "partial_month_recovered",
+      "first_prize_records": 34,
+      "coverage": "November 1-17, both draws; November 18 onward not imported because the 18 November draw results were not yet published at retrieval time"
+    },
+    {
+      "month": "december",
+      "status": "not_yet_available",
+      "first_prize_records": 0,
+      "coverage": "December 2026 is in the future as of 18 November 2026; no results can yet be imported"
+    }
+  ],
+  "verification": "October Goodreturns entries matched Lotterysambadfax. November Goodreturns entries matched DearLottery.in. All records are first prize only.",
+  "policy": "No invented results. October 2 is unresolved, not assumed no-draw. December is future and remains pending. 6PM excluded; full tiers pending."
+}
