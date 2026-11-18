@@ -12,7 +12,10 @@
       "status": "single_source_pending_review",
       "first_prize_status": "two_source_matched",
       "first_prize_chart_match": true,
-      "overall_status": "single_source_pending_review"
+      "overall_status": "single_source_pending_review",
+      "retrieved_at": "2026-11-18",
+      "source_link_status": "opened_pdf_successfully",
+      "notes": "PDF opened and prize tiers extracted from archive page. Single archive source so retained with review flag."
     },
     {
       "date": "2023-12-04",
@@ -23,7 +26,10 @@
       "status": "single_source_pending_review",
       "first_prize_status": "two_source_matched",
       "first_prize_chart_match": true,
-      "overall_status": "single_source_pending_review"
+      "overall_status": "single_source_pending_review",
+      "retrieved_at": "2026-11-18",
+      "source_link_status": "opened_pdf_successfully",
+      "notes": "PDF opened and prize tiers extracted from archive page. Single archive source so retained with review flag."
     }
   ],
   "sources": [
