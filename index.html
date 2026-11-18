@@ -1279,7 +1279,7 @@ function renderDraws() {
     function stripNoiseLines(rawText) {
       return String(rawText || '')
         .split(/\r?\n/)
-        .filter(line => !/cons\.?\s*prize|remaining\s*serial|seller\s*amount|9000\/-|1000\/-|500\/-|450\/-|250\/-|120\/-|10\/-|crore|lakh|mrp|draw\s*on|guaranteed|sold\s*by/i.test(line))
+        .filter(line => !/cons\.?\s*prize|remaining\s*serial|seller\s*amount|crore|lakh|mrp|draw\s*on|guaranteed|sold\s*by/i.test(line))
         .join('\n');
     }
 
