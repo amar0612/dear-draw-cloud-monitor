@@ -1,0 +1,30 @@
+{
+  "year": 2026,
+  "exceptions": [
+    {
+      "date": "2026-01-26",
+      "draw": "1PM and 8PM",
+      "issue": "No value shown in the consulted yearly charts.",
+      "status": "unresolved_source_gap",
+      "action": "Search daily PDF and alternate archives; do not classify as no-draw"
+    },
+    {
+      "date": "2026-01",
+      "draw": "both",
+      "issue": "60 first-prize records imported; full prize tiers not extracted.",
+      "status": "partial_extraction_review"
+    },
+    {
+      "date": "2026-02",
+      "draw": "both",
+      "issue": "56 first-prize records imported; full prize tiers not extracted.",
+      "status": "partial_extraction_review"
+    },
+    {
+      "date": "2026-03",
+      "draw": "both",
+      "issue": "62 first-prize records imported; full prize tiers not extracted.",
+      "status": "partial_extraction_review"
+    }
+  ]
+}
