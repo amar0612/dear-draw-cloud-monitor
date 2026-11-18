@@ -1,0 +1,45 @@
+{
+  "year": 2026,
+  "quarter": "Q2",
+  "created_at": "2026-11-18",
+  "scope": "Nagaland 1PM and 8PM only; exclude 6PM",
+  "sources": [
+    {
+      "domain": "goodreturns.in",
+      "url": "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2026",
+      "type": "monthly 1PM/8PM series-prefixed chart",
+      "status": "April-June entries transcribed"
+    },
+    {
+      "domain": "kllotteryresults.in",
+      "url": "https://kllotteryresults.in/dear-lottery-chart/2026",
+      "type": "consolidated yearly 1PM/6PM/8PM five-digit chart",
+      "status": "last five digits cross-checked"
+    }
+  ],
+  "months": [
+    {
+      "month": "april",
+      "status": "first_prize_recovered",
+      "first_prize_records": 60,
+      "coverage": "All 30 dates, both draws",
+      "full_tiers": "not extracted"
+    },
+    {
+      "month": "may",
+      "status": "first_prize_recovered",
+      "first_prize_records": 62,
+      "coverage": "All 31 dates, both draws",
+      "full_tiers": "not extracted"
+    },
+    {
+      "month": "june",
+      "status": "first_prize_recovered",
+      "first_prize_records": 60,
+      "coverage": "All 30 dates, both draws",
+      "full_tiers": "not extracted"
+    }
+  ],
+  "verification": "Series-prefixed values transcribed from Goodreturns; five-digit suffixes cross-checked against KLLotteryResults. Series letters are not independently confirmed by KLL.",
+  "policy": "First-prize only. No 6PM entries. Full prize tiers pending daily PDF extraction; do not infer no-draw from missing chart cells."
+}
