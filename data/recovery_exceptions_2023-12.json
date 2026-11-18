@@ -1,0 +1,21 @@
+{
+  "month": "2023-12",
+  "scope": "Nagaland 1PM and 8PM only",
+  "exceptions": [
+    {
+      "date": "2023-12-05",
+      "draw": "1PM",
+      "source": "lotterysambad.icu",
+      "status": "broken_archive_link_404",
+      "action": "Retain as unresolved source exception; seek alternate archive"
+    },
+    {
+      "date": "2023-12-05",
+      "draw": "8PM",
+      "source": "lotterysambad.icu",
+      "status": "broken_archive_link_404",
+      "action": "Retain as unresolved source exception; seek alternate archive"
+    }
+  ],
+  "note": "A broken link is not evidence that a draw did not occur. Do not create placeholder winning numbers."
+}
