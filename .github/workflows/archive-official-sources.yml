@@ -27,6 +27,7 @@ jobs:
         run: python monitor/archive_official_sources.py --csv "${{ inputs.csv_path }}" --output-dir official-source-archive
 
       - name: Upload source PDFs and manifest
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: nagaland-official-gazettes
