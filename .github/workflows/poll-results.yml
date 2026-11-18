@@ -48,6 +48,12 @@ jobs:
             echo "draw=8pm" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Verify required secrets
+        shell: bash
+        run: |
+          test -n "$SAMBAD_API_TOKEN" || { echo "Missing GitHub secret LOTTERY_SAMBAD_API_TOKEN"; exit 1; }
+          test -n "$SUPABASE_SERVICE_ROLE_KEY" || { echo "Missing GitHub secret SUPABASE_SERVICE_ROLE_KEY"; exit 1; }
+
       - name: Check official result PDF
         continue-on-error: true
         run: |
@@ -76,7 +82,7 @@ jobs:
 
       - name: Sync validated result to Supabase
         run: |
-          FILE="api-results/$(date -u +%Y-%m-%d)_${{ steps.draw.outputs.draw == '1pm' && '1PM' || '8PM' }}.json"
+          FILE="api-results/$(TZ=Asia/Kolkata date +%Y-%m-%d)_${{ steps.draw.outputs.draw == '1pm' && '1PM' || '8PM' }}.json"
           python monitor/sync_result_to_supabase.py --file "$FILE"
 
       - name: Archive fetched result
