@@ -77,6 +77,13 @@
       "issue": "All 30 dates have first-prize records, but full prize tiers were not extracted in this checkpoint.",
       "status": "partial_extraction_review",
       "action": "Continue searching June daily/monthly PDFs for full prize tiers"
+    },
+    {
+      "date": "2025-07",
+      "draw": "both",
+      "issue": "All 31 dates have first-prize records. Full prize tiers not yet extracted; individual daily result PDFs found for selected dates.",
+      "status": "partial_extraction_review",
+      "action": "Continue retrieving and extracting July daily PDFs; preserve full prize tiers when available"
     }
   ]
 }
