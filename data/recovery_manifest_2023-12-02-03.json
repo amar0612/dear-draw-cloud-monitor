@@ -1,0 +1,43 @@
+{
+  "batch": "2023-12-02-03",
+  "created_at": "2026-11-18",
+  "policy": "Inclusive recovery; preserve provenance; 1PM and 8PM only; 6PM excluded.",
+  "records": [
+    {
+      "date": "2023-12-02",
+      "draw": "1PM",
+      "entries": 132,
+      "source_domain": "lotterysambad.icu",
+      "source_pdf": "https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwMjQyMtYrSEkDADG3BTA/1pm-02-12-2023.pdf",
+      "status": "single_source_pending_review",
+      "notes": "Full prize tiers extracted from the archive PDF; retained pending later batch audit."
+    },
+    {
+      "date": "2023-12-02",
+      "draw": "8PM",
+      "entries": 132,
+      "source_domain": "lotterysambad.icu",
+      "source_pdf": "https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTcwMjQyMtYrSEkDADIZBTc/8pm-02-12-2023.pdf",
+      "status": "single_source_pending_review",
+      "notes": "Full prize tiers extracted from the archive PDF; retained pending later batch audit."
+    },
+    {
+      "date": "2023-12-03",
+      "draw": "1PM",
+      "entries": 132,
+      "source_domain": "lotterysambad.icu",
+      "source_pdf": "https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwNjQyMtYrSEkDADHABTE/1pm-03-12-2023.pdf",
+      "status": "single_source_pending_review",
+      "notes": "Full prize tiers extracted from the archive PDF; retained pending later batch audit."
+    },
+    {
+      "date": "2023-12-03",
+      "draw": "8PM",
+      "entries": 132,
+      "source_domain": "lotterysambad.icu",
+      "source_pdf": "https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTcwNjQyMtYrSEkDADIiBTg/8pm-03-12-2023.pdf",
+      "status": "single_source_pending_review",
+      "notes": "Full prize tiers extracted from the archive PDF; retained pending later batch audit."
+    }
+  ]
+}
