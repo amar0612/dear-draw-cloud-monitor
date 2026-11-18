@@ -39,6 +39,8 @@ def source_candidates(draw_date, draw):
         ("official_nagaland_gazette_legacy_name", BASE_URL + legacy_upper),
         ("third_party_mirror_copy", MIRROR_BASE + f"{date_obj:%Y/%m}/" + legacy),
         ("third_party_mirror_copy", MIRROR_BASE + f"{date_obj:%Y/%m}/" + ("ML" if draw == "1PM" else "EL") + f"{date_obj:%d%m%y}.pdf"),
+        # Date-specific PDF route confirmed on lotterysambadfax.com result pages.
+        ("independent_archive_pdf", f"https://www.lotterysambadfax.com/dl/{date_obj:%Y-%m-%d}/" + ("1pm" if draw == "1PM" else "8pm") + ".pdf"),
     ]
 
 
