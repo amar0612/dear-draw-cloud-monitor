@@ -72,6 +72,8 @@ def archive_sources(csv_path, output_dir, fetcher=fetch_pdf, dry_run=False):
             continue
         try:
             data = fetcher(url)
+            if not isinstance(data, (bytes, bytearray)) or not data.startswith(b"%PDF-"):
+                raise ValueError("Official source URL did not return a valid PDF")
             digest = hashlib.sha256(data).hexdigest()
             relative = Path(draw_date[:4]) / filename
             destination = output_dir / relative
