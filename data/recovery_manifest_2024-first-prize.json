@@ -64,5 +64,49 @@
       "issue": "No first-prize value exposed in yearly chart",
       "status": "source_gap_pending_alternate_source"
     }
+  ],
+  "sources": [
+    {
+      "domain": "lotterysambad.co",
+      "url": "https://www.lotterysambad.co/2024/january/28/",
+      "retrieved_at": "2026-11-18",
+      "scope": "Jan 28 2024 full prize list page"
+    },
+    {
+      "domain": "o.vcdn.cc",
+      "url": "https://o.vcdn.cc/Dear/MN280124.PDF",
+      "retrieved_at": "2026-11-18",
+      "scope": "Jan 28 2024 1PM PDF"
+    },
+    {
+      "domain": "o.vcdn.cc",
+      "url": "https://o.vcdn.cc/Dear/EN280124.PDF",
+      "retrieved_at": "2026-11-18",
+      "scope": "Jan 28 2024 8PM PDF"
+    }
+  ],
+  "cross_source_matches": [
+    {
+      "date": "2024-01-28",
+      "draw": "1PM",
+      "tier": "1st",
+      "number": "46982",
+      "sources": [
+        "kllotteryresults.in",
+        "lotterysambad.co / o.vcdn.cc"
+      ],
+      "status": "two_source_matched"
+    },
+    {
+      "date": "2024-01-28",
+      "draw": "8PM",
+      "tier": "1st",
+      "number": "57269",
+      "sources": [
+        "kllotteryresults.in",
+        "lotterysambad.co / o.vcdn.cc"
+      ],
+      "status": "two_source_matched"
+    }
   ]
 }
