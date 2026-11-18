@@ -58,7 +58,7 @@ def read_draws(csv_path):
     return sorted(grouped)
 
 
-def fetch_pdf(url, timeout=30):
+def fetch_pdf(url, timeout=10):
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     with urllib.request.urlopen(request, timeout=timeout) as response:
         data = response.read()
