@@ -63,6 +63,13 @@
       "issue": "First-prize chart entries imported for all 30 dates; five full-result source files/pages identified but prize tiers not yet extracted into CSV.",
       "status": "partial_extraction_review",
       "action": "Retain first-prize records and continue full-tier extraction separately"
+    },
+    {
+      "date": "2025-05",
+      "draw": "both",
+      "issue": "First-prize rows imported for all 31 dates; only 22 May 1PM full-result PDF independently located in this pass; other full prize tiers not yet extracted.",
+      "status": "partial_extraction_review",
+      "action": "Retain first-prize rows and extract 22 May full sheet before continuing alternate PDF search"
     }
   ]
 }
