@@ -20,5 +20,5 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Run validator tests
-        run: python -m unittest monitor.test_validate_result monitor.test_human_verified_archive -v
+      - name: Preflight human-verified historical archive\n        run: python monitor/validate_historical_csv.py data/human_verified_draws_2023-01.csv\n\n      - name: Run validator tests
+        run: python -m unittest monitor.test_validate_result monitor.test_human_verified_archive monitor.test_historical_csv_preflight -v
