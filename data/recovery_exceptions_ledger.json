@@ -6,17 +6,21 @@
       "date": "2023-12-05",
       "draw": "1PM",
       "source_domain": "lotterysambad.icu",
-      "issue": "Monthly archive PDF link returned broken/404 in prior recovery attempt",
-      "status": "broken_archive_link_404",
-      "action": "Seek alternate archive; do not infer draw absence"
+      "issue": "Monthly archive full-prize PDF link returned broken/404; first-prize number recovered from yearly chart",
+      "status": "partial_extraction_review",
+      "action": "Keep first-prize row; continue searching alternate source for series and lower prize tiers",
+      "partial_source_domain": "kllotteryresults.in",
+      "partial_source_url": "https://www.kllotteryresults.in/dear-lottery-chart/2023"
     },
     {
       "date": "2023-12-05",
       "draw": "8PM",
       "source_domain": "lotterysambad.icu",
-      "issue": "Monthly archive PDF link returned broken/404 in prior recovery attempt",
-      "status": "broken_archive_link_404",
-      "action": "Seek alternate archive; do not infer draw absence"
+      "issue": "Monthly archive full-prize PDF link returned broken/404; first-prize number recovered from yearly chart",
+      "status": "partial_extraction_review",
+      "action": "Keep first-prize row; continue searching alternate source for series and lower prize tiers",
+      "partial_source_domain": "kllotteryresults.in",
+      "partial_source_url": "https://www.kllotteryresults.in/dear-lottery-chart/2023"
     },
     {
       "date": "2024-01-26",
