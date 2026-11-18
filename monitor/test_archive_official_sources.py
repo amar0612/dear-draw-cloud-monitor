@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from monitor.archive_official_sources import archive_sources, official_filename, read_draws
+from monitor.archive_official_sources import archive_sources, official_filename, read_draws, source_candidates
 
 
 class TestOfficialSourceArchive(unittest.TestCase):
@@ -26,8 +26,11 @@ class TestOfficialSourceArchive(unittest.TestCase):
         self.temp.cleanup()
 
     def test_official_filename_mapping(self):
-        self.assertEqual(official_filename("2023-01-10", "8PM"), "EN100123.PDF")
-        self.assertEqual(official_filename("2023-01-31", "1PM"), "MN310123.PDF")
+        self.assertEqual(official_filename("2023-01-10", "8PM"), "ED100123.pdf")
+        self.assertEqual(official_filename("2023-01-31", "1PM"), "MD310123.pdf")
+        candidates = source_candidates("2023-01-10", "8PM")
+        self.assertEqual(candidates[0][0], "official_nagaland_gazette")
+        self.assertEqual(candidates[-1][0], "third_party_mirror_copy")
         with self.assertRaises(ValueError):
             official_filename("2023-01-10", "6PM")
 
@@ -38,11 +41,14 @@ class TestOfficialSourceArchive(unittest.TestCase):
 
     def test_downloads_and_records_hash_without_marking_verified(self):
         payloads = {
-            "EN100123.PDF": b"%PDF-1.4 official gazette A",
-            "MN310123.PDF": b"%PDF-1.4 official gazette B",
+            "ED100123.pdf": b"%PDF-1.4 mirror copy A",
+            "MD310123.pdf": b"%PDF-1.4 mirror copy B",
         }
         def fake_fetch(url):
-            return payloads[url.rsplit("/", 1)[-1]]
+            name = url.rsplit("/", 1)[-1]
+            if name not in payloads:
+                raise FileNotFoundError("simulated official archive 404")
+            return payloads[name]
 
         out = self.root / "official"
         results = archive_sources(self.csv_path, out, fetcher=fake_fetch)
@@ -50,7 +56,8 @@ class TestOfficialSourceArchive(unittest.TestCase):
         manifest = json.loads((out / "manifest.json").read_text())
         self.assertEqual(len(manifest), 2)
         for item in manifest:
-            self.assertEqual(item["verification_status"], "downloaded_pending_number_comparison")
+            self.assertEqual(item["source_type"], "third_party_mirror_copy")
+            self.assertEqual(item["verification_status"], "mirror_copy_pending_official_comparison")
             data = (out / item["source_file"]).read_bytes()
             self.assertEqual(item["sha256"], hashlib.sha256(data).hexdigest())
             self.assertTrue(data.startswith(b"%PDF-"))
