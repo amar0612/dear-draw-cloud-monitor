@@ -1,0 +1,49 @@
+name: Discover Historical Nagaland PDF Sources
+
+on:
+  workflow_dispatch:
+    inputs:
+      csv_path:
+        description: Candidate CSV with date and draw columns
+        required: true
+        default: data/nagaland_master_prize_numbers.csv
+      offset:
+        description: Number of sorted date/draw pairs to skip
+        required: true
+        default: "0"
+      limit:
+        description: Maximum date/draw pairs to inspect in this batch (max 25 recommended)
+        required: true
+        default: "25"
+
+permissions:
+  contents: read
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download candidate sources and create provenance manifest
+        run: |
+          python monitor/archive_official_sources.py \
+            --csv "${{ inputs.csv_path }}" \
+            --output-dir historical-source-batch \
+            --offset "${{ inputs.offset }}" \
+            --limit "${{ inputs.limit }}"
+
+      - name: Upload source PDFs and manifest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nagaland-historical-source-batch-${{ inputs.offset }}
+          path: historical-source-batch/
+          if-no-files-found: warn
+          retention-days: 30
