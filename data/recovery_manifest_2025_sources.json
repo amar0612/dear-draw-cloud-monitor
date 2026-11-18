@@ -58,8 +58,15 @@
     {
       "month": "march",
       "archive_url": "https://lotterysambad.icu/old-result/march-2025",
-      "status": "indexed",
-      "pdf_extraction": "not_yet_completed"
+      "status": "first_prize_recovered",
+      "first_prize_records": 62,
+      "first_prize_coverage": "All 31 dates, both 1PM and 8PM",
+      "first_prize_sources": [
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "full_tier_recovery": "Full result PDFs independently located for 5 March 8PM, 14 March 8PM, and 21 March 1PM; not yet imported",
+      "pdf_extraction": "first-prize only; full-tier recovery continues"
     },
     {
       "month": "april",
@@ -164,6 +171,24 @@
       "draw": "8PM",
       "url": "https://lotterysambadresult.in/wp-content/uploads/2025/01/ED210125.pdf",
       "status": "full_pdf_text_indexed"
+    },
+    {
+      "date": "2025-03-05",
+      "draw": "8PM",
+      "url": "https://lotterysambadresult.in/wp-content/uploads/2025/03/ED050325-1.pdf",
+      "status": "full_pdf_indexed"
+    },
+    {
+      "date": "2025-03-14",
+      "draw": "8PM",
+      "url": "https://nagalandstatelotterysambad.com/wp-content/uploads/2025/03/ED140325.pdf",
+      "status": "full_pdf_indexed"
+    },
+    {
+      "date": "2025-03-21",
+      "draw": "1PM",
+      "url": "https://lotterysambadresult.in/wp-content/uploads/2025/03/MD210325-1.pdf",
+      "status": "full_pdf_indexed"
     }
   ],
   "policy": "No fabricated entries. Full prize-tier extraction required for complete status. Retain partial first-prize candidates separately. Broken URLs do not prove no draw."
