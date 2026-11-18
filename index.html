@@ -1279,7 +1279,7 @@ function renderDraws() {
     function stripNoiseLines(rawText) {
       return String(rawText || '')
         .split(/\r?\n/)
-        .filter(line => !/cons\.?\s*prize|remaining\s*serial|seller\s*amount|1000\/-|500\/-|120\/-|10\/-|crore|lakh|mrp|draw\s*on|guaranteed|sold\s*by/i.test(line))
+        .filter(line => !/cons\.?\s*prize|remaining\s*serial|seller\s*amount|9000\/-|1000\/-|500\/-|450\/-|250\/-|120\/-|10\/-|crore|lakh|mrp|draw\s*on|guaranteed|sold\s*by/i.test(line))
         .join('\n');
     }
 
@@ -1392,7 +1392,7 @@ function renderDraws() {
         document.getElementById('inp-p2').value = fiveDigitList.slice(0, 10).join(' ');
       }
 
-      const exclude4 = new Set(['2025', '2026', '2027', '1000']);
+      const exclude4 = new Set(['2025', '2026', '2027', '1000', '9000']);
       const fourDigitList = extractPureNumberStream(gridSource, 4, exclude4);
 
       if (fourDigitList.length >= 20) {
@@ -1503,25 +1503,35 @@ function renderDraws() {
 
         let bottomText = '';
         lastResultOcrAmbiguousTokens = [];
-        const quick4Check = extractPureNumberStream(resFull.data.text, 4, new Set(['2025', '2026', '1000']));
-        if (quick4Check.length < 120) {
-          msgEl.textContent = 'Pass 3/3: Polishing 10×10 5th Prize table...';
-          pctEl.textContent = '88%';
-          barEl.style.width = '88%';
-          const bottomUrl = renderHighContrastFullImage(img, 0.72, 0.96);
-          const resBottom = await worker.recognize(bottomUrl);
-          bottomText = resBottom.data.text;
-        }
+        // Dedicated crops keep unrelated advertisements and prize amounts out of the number stream.
+        msgEl.textContent = 'Pass 2/4: Reading first prize and draw details...';
+        pctEl.textContent = '45%';
+        barEl.style.width = '45%';
+        const firstPrizeUrl = renderHighContrastFullImage(img, 0.08, 0.28);
+        const resFirstPrize = await worker.recognize(firstPrizeUrl);
+
+        msgEl.textContent = 'Pass 3/4: Reading 2nd, 3rd and 4th prize grids...';
+        pctEl.textContent = '65%';
+        barEl.style.width = '65%';
+        const prizeGridUrl = renderHighContrastFullImage(img, 0.29, 0.48);
+        const resPrizeGrid = await worker.recognize(prizeGridUrl);
+
+        msgEl.textContent = 'Pass 4/4: Reading the 5th prize table...';
+        pctEl.textContent = '85%';
+        barEl.style.width = '85%';
+        const bottomUrl = renderHighContrastFullImage(img, 0.72, 0.96);
+        const resBottom = await worker.recognize(bottomUrl);
+        bottomText = resBottom.data.text;
 
         await worker.terminate();
 
-        const combinedText = `${resTop.data.text}\n${resFull.data.text}`;
+        const combinedText = `${resTop.data.text}\n${resFirstPrize.data.text}\n${resPrizeGrid.data.text}`;
         document.getElementById('smart-paste-box').value = combinedText;
 
         msgEl.textContent = 'Scan complete! Auto-filling prize boxes...';
         pctEl.textContent = '100%';
         barEl.style.width = '100%';
-        parseSmartPaste(resFull.data.text, bottomText);
+        parseSmartPaste(resPrizeGrid.data.text, bottomText);
       } catch (err) {
         msgEl.textContent = 'OCR failed on this image. Use Method 2 Smart Paste below.';
         pctEl.textContent = 'Error';
