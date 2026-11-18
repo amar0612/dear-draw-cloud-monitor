@@ -56,6 +56,13 @@
       "issue": "Only first-prize chart rows imported for March; three independent full-result PDFs located but full tiers not yet extracted.",
       "status": "partial_extraction_review",
       "action": "Continue extracting full tiers from indexed PDFs; keep first-prize records retained"
+    },
+    {
+      "date": "2025-04",
+      "draw": "both",
+      "issue": "First-prize chart entries imported for all 30 dates; five full-result source files/pages identified but prize tiers not yet extracted into CSV.",
+      "status": "partial_extraction_review",
+      "action": "Retain first-prize records and continue full-tier extraction separately"
     }
   ]
 }
