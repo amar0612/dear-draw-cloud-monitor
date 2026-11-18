@@ -58,8 +58,12 @@ class TestOfficialSourceArchive(unittest.TestCase):
     def test_refuses_non_pdf_response(self):
         def fake_fetch(_url):
             return b"<html>not a PDF</html>"
-        results = archive_sources(self.csv_path, self.root / "bad", fetcher=fake_fetch)
+        out = self.root / "bad"
+        results = archive_sources(self.csv_path, out, fetcher=fake_fetch)
         self.assertTrue(all(x["verification_status"] == "source_unavailable_or_error" for x in results))
+        manifest = json.loads((out / "manifest.json").read_text())
+        self.assertEqual(len(manifest), 2)
+        self.assertTrue(all(x["verification_status"] == "source_unavailable_or_error" for x in manifest))
 
     def test_dry_run_does_not_write_files(self):
         out = self.root / "dry"
