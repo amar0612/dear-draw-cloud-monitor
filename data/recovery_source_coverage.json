@@ -36,6 +36,13 @@
       "coverage": "Government state lottery archive interface; exact date range not yet determined",
       "content": "DBF/PDF selectors for multiple draw times",
       "limitations": "Time labels differ from requested 1PM/8PM; requires careful identification of matching Nagaland Dear draws."
+    },
+    {
+      "domain": "keralastatelottery.in",
+      "url": "https://www.keralastatelottery.in/dearlotterychart/",
+      "coverage": "2025 monthly charts; observed Jan-Dec tables, several months mislabeled in page headings",
+      "content": "Date-wise first-prize values for 1PM, 6PM, 8PM",
+      "limitations": "Some chart dates marked === or blank; verify month mapping against independent yearly chart; first prize only."
     }
   ],
   "extracted_batches": [
@@ -70,6 +77,33 @@
       "rows": 264,
       "first_prize_status": "two_source_matched",
       "other_tiers": "single_source_pending_review"
+    },
+    {
+      "batch": "2025-10",
+      "draws_with_data": 30,
+      "rows": 60,
+      "content": "first prize only",
+      "status": "partial_extraction_review",
+      "first_prize_tier_status": "two_source_matched",
+      "exceptions": 2
+    },
+    {
+      "batch": "2025-11",
+      "draws_with_data": 30,
+      "rows": 60,
+      "content": "first prize only",
+      "status": "partial_extraction_review",
+      "first_prize_tier_status": "two_source_matched",
+      "exceptions": 0
+    },
+    {
+      "batch": "2025-12",
+      "draws_with_data": 31,
+      "rows": 62,
+      "content": "first prize only",
+      "status": "partial_extraction_review",
+      "first_prize_tier_status": "two_source_matched",
+      "exceptions": 0
     }
   ],
   "next_work": [
