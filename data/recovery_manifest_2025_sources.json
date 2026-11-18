@@ -156,14 +156,27 @@
     {
       "month": "november",
       "archive_url": "https://lotterysambad.icu/old-result/november-2025",
-      "status": "indexed",
-      "pdf_extraction": "not_yet_completed"
+      "status": "first_prize_recovered",
+      "first_prize_records": 60,
+      "first_prize_coverage": "All 30 dates, both 1PM and 8PM",
+      "first_prize_sources": [
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "full_tier_recovery": "Full-tier PDF for November 15 1PM located; extraction pending",
+      "notes": "November 15 1PM official-style PDF indexed at lotterysambadresult.in"
     },
     {
       "month": "december",
       "archive_url": "https://lotterysambad.icu/old-result/december-2025",
-      "status": "indexed",
-      "pdf_extraction": "not_yet_completed"
+      "status": "first_prize_recovered",
+      "first_prize_records": 62,
+      "first_prize_coverage": "All 31 dates, both 1PM and 8PM",
+      "first_prize_sources": [
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "full_tier_recovery": "No full-tier extraction completed in this checkpoint"
     }
   ],
   "sample_full_pdfs": [
