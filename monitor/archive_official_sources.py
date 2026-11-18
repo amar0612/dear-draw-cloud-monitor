@@ -38,6 +38,7 @@ def source_candidates(draw_date, draw):
         ("official_nagaland_gazette", BASE_URL + current_name),
         ("official_nagaland_gazette_legacy_name", BASE_URL + legacy_upper),
         ("third_party_mirror_copy", MIRROR_BASE + f"{date_obj:%Y/%m}/" + legacy),
+        ("third_party_mirror_copy", MIRROR_BASE + f"{date_obj:%Y/%m}/" + ("ML" if draw == "1PM" else "EL") + f"{date_obj:%d%m%y}.pdf"),
     ]
 
 
