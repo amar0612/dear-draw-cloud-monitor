@@ -30,7 +30,8 @@ class TestOfficialSourceArchive(unittest.TestCase):
         self.assertEqual(official_filename("2023-01-31", "1PM"), "MD310123.pdf")
         candidates = source_candidates("2023-01-10", "8PM")
         self.assertEqual(candidates[0][0], "official_nagaland_gazette")
-        self.assertEqual(candidates[-1][0], "third_party_mirror_copy")
+        self.assertEqual(candidates[-1][0], "independent_archive_pdf")
+        self.assertTrue(any(url.endswith("/2023-01-10/8pm.pdf") for _, url in candidates))
         self.assertTrue(any(url.endswith("EL100123.pdf") for _, url in candidates))
         self.assertTrue(any(url.endswith("ML310123.pdf") for _, url in source_candidates("2023-01-31", "1PM")))
         with self.assertRaises(ValueError):
@@ -86,7 +87,7 @@ class TestOfficialSourceArchive(unittest.TestCase):
         self.assertEqual(len(results), 1)
         self.assertEqual(results[0]["date"], "2023-01-31")
         self.assertEqual(results[0]["draw"], "1PM")
-        self.assertEqual(len(calls), 4)
+        self.assertEqual(len(calls), 5)
 
     def test_rejects_invalid_batch_bounds(self):
         with self.assertRaises(ValueError):
