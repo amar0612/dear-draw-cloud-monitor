@@ -9,11 +9,18 @@
       "entries": 132,
       "source_domain": "lotterysambad.icu",
       "source_pdf": "https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwMjQyMtYrSEkDADG3BTA/1pm-02-12-2023.pdf",
-      "status": "single_source_pending_review",
-      "notes": "Full prize tiers extracted from the archive PDF; retained pending later batch audit.",
+      "status": "cross_source_matched",
+      "notes": "PDF opened on lotterysambad.icu and independently matching PDF content found on lotterysambadresult.in.",
       "first_prize_status": "two_source_matched",
       "first_prize_chart_match": true,
-      "overall_status": "single_source_pending_review"
+      "overall_status": "single_source_pending_review",
+      "retrieved_at": "2026-11-18",
+      "source_link_status": "opened_pdf_successfully",
+      "additional_source": {
+        "domain": "lotterysambadresult.in",
+        "url": "https://lotterysambadresult.in/wp-content/uploads/2023/12/MD021223.pdf",
+        "match_scope": "Full 132-entry prize list; exact match"
+      }
     },
     {
       "date": "2023-12-02",
@@ -25,7 +32,9 @@
       "notes": "Full prize tiers extracted from the archive PDF; retained pending later batch audit.",
       "first_prize_status": "two_source_matched",
       "first_prize_chart_match": true,
-      "overall_status": "single_source_pending_review"
+      "overall_status": "single_source_pending_review",
+      "retrieved_at": "2026-11-18",
+      "source_link_status": "opened_pdf_successfully"
     },
     {
       "date": "2023-12-03",
@@ -37,7 +46,9 @@
       "notes": "Full prize tiers extracted from the archive PDF; retained pending later batch audit.",
       "first_prize_status": "two_source_matched",
       "first_prize_chart_match": true,
-      "overall_status": "single_source_pending_review"
+      "overall_status": "single_source_pending_review",
+      "retrieved_at": "2026-11-18",
+      "source_link_status": "opened_pdf_successfully"
     },
     {
       "date": "2023-12-03",
@@ -49,7 +60,9 @@
       "notes": "Full prize tiers extracted from the archive PDF; retained pending later batch audit.",
       "first_prize_status": "two_source_matched",
       "first_prize_chart_match": true,
-      "overall_status": "single_source_pending_review"
+      "overall_status": "single_source_pending_review",
+      "retrieved_at": "2026-11-18",
+      "source_link_status": "opened_pdf_successfully"
     }
   ],
   "sources": [
