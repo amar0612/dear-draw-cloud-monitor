@@ -15,6 +15,14 @@ on:
         description: Last date to include (YYYY-MM-DD)
         required: true
         default: "2026-11-20"
+      offset:
+        description: Number of filtered date/draw pairs to skip
+        required: true
+        default: "0"
+      limit:
+        description: Maximum date/draw pairs to archive in this batch
+        required: true
+        default: "25"
 
 permissions:
   contents: read
@@ -37,7 +45,9 @@ jobs:
             --csv "${{ inputs.csv_path }}" \
             --output-dir official-source-archive \
             --start-date "${{ inputs.start_date }}" \
-            --end-date "${{ inputs.end_date }}"
+            --end-date "${{ inputs.end_date }}" \\
+            --offset "${{ inputs.offset }}" \\
+            --limit "${{ inputs.limit }}"
 
       - name: Upload source PDFs and manifest
         if: always()
