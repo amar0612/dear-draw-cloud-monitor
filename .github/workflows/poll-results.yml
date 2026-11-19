@@ -61,7 +61,7 @@ jobs:
           mkdir -p api-results
           DRAW="${{ steps.draw.outputs.draw }}"
           if [ "$DRAW" = "8pm" ]; then
-            MAX_ATTEMPTS=36
+            MAX_ATTEMPTS=37
           else
             MAX_ATTEMPTS=12
           fi
@@ -87,7 +87,7 @@ jobs:
             printf '{"date":"%s","draw":"8PM","status":"PENDING_NOT_PUBLISHED","attempts":%s}\n' \
               "$DRAW_DATE" "$MAX_ATTEMPTS" > "api-results/${DRAW_DATE}_8PM_PENDING.json"
             echo "available=false" >> "$GITHUB_OUTPUT"
-            echo "PENDING: 8PM result was not published after 36 attempts (3 hours). No incomplete data was uploaded."
+            echo "PENDING: 8PM result was not published after 37 attempts (about 3 hours). No incomplete data was uploaded."
             exit 0
           fi
 
