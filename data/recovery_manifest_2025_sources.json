@@ -7,7 +7,7 @@
       "domain": "lotterysambad.icu",
       "index_url": "https://lotterysambad.icu/old-result",
       "type": "daily PDF archive",
-      "status": "All 12 monthly archive index pages opened 2026-11-19. Forty-two daily 1PM/8PM PDF links tested: 35 parsed (31 new full-tier sheets imported, four existing sheets cross-checked), seven failures (Jan 26 and Oct 2 both 404; April 1 both and May 3 1PM failed PDF parsing). Not all daily links have been tested; 6PM excluded."
+      "status": "All 12 monthly archive index pages opened 2026-11-19. Fifty-two daily 1PM/8PM PDF links tested: 45 parsed (40 new full-tier sheets imported, four existing sheets re-opened from the same archive, one independent PDF cross-check), seven failures (Jan 26 and Oct 2 both 404; April 1 both and May 3 1PM failed parsing). Not all daily links tested; 6PM excluded."
     },
     {
       "domain": "goodreturns.in",
@@ -160,14 +160,14 @@
       ],
       "full_tier_recovery": "10 full sheets (1,320 entries): Apr 4 1PM; Apr 5 both; Apr 14 8PM; Apr 15 1PM; Apr 21 8PM; Apr 24 1PM; Apr 28 1PM; Apr 30 both. Remaining 50 draw slots first-prize-only.",
       "pdf_extraction": "partial; 10 full sheets (1,320 entries), 50 first-prize-only draw slots",
-      "full_tier_draws": 14,
-      "full_tier_entries": 1848,
+      "full_tier_draws": 15,
+      "full_tier_entries": 1980,
       "partial_draws": 50,
       "unresolved_draws": 0,
       "full_tier_new_draws_2026_11_19_ac2": 2,
       "full_tier_expected_draw_slots": 60,
       "full_tier_unresolved_draw_slots": 0,
-      "partial_first_prize_only_slots": 46
+      "partial_first_prize_only_slots": 45
     },
     {
       "month": "may",
@@ -181,15 +181,15 @@
       ],
       "full_tier_recovery": "4 full sheets (528 entries): May 8 1PM, May 12 both, May 22 1PM. Remaining 58 draw slots first-prize-only.",
       "pdf_extraction": "partial; 4 full sheets (528 entries), 58 first-prize-only draw slots",
-      "full_tier_draws": 9,
-      "full_tier_entries": 1188,
+      "full_tier_draws": 11,
+      "full_tier_entries": 1452,
       "partial_draws": 58,
       "unresolved_draws": 0,
       "full_tier_new_draws_2026_11_19_ab": 2,
       "full_tier_new_draws_2026_11_19_ac2": 2,
       "full_tier_expected_draw_slots": 62,
       "full_tier_unresolved_draw_slots": 0,
-      "partial_first_prize_only_slots": 53
+      "partial_first_prize_only_slots": 51
     },
     {
       "month": "june",
@@ -203,15 +203,15 @@
       "full_tier_recovery": "6 full sheets (792 entries): Jun 6 both, Jun 19 both, Jun 30 both. Remaining 54 draw slots first-prize-only.",
       "pdf_extraction": "partial; 6 full sheets (792 entries), 54 first-prize-only draw slots",
       "archive_url": "https://lotterysambad.icu/old-result/june-2025",
-      "full_tier_draws": 12,
-      "full_tier_entries": 1584,
+      "full_tier_draws": 14,
+      "full_tier_entries": 1848,
       "partial_draws": 54,
       "unresolved_draws": 0,
       "full_tier_new_draws_2026_11_19_ab": 2,
       "full_tier_new_draws_2026_11_19_ac2": 2,
       "full_tier_expected_draw_slots": 60,
       "full_tier_unresolved_draw_slots": 0,
-      "partial_first_prize_only_slots": 48
+      "partial_first_prize_only_slots": 46
     },
     {
       "month": "july",
@@ -224,8 +224,8 @@
       ],
       "full_tier_recovery": "3 full sheets (396 entries): Jul 23 both and Jul 31 1PM. Remaining 59 draw slots first-prize-only.",
       "notes": "July 7 8PM, July 17 1PM and July 27 1PM daily PDFs located as examples; continue extracting full tiers",
-      "full_tier_draws": 9,
-      "full_tier_entries": 1188,
+      "full_tier_draws": 11,
+      "full_tier_entries": 1452,
       "partial_draws": 59,
       "unresolved_draws": 0,
       "pdf_extraction": "partial; 3 full sheets (396 entries), 59 first-prize-only draw slots",
@@ -233,7 +233,7 @@
       "full_tier_new_draws_2026_11_19_ac2": 2,
       "full_tier_expected_draw_slots": 62,
       "full_tier_unresolved_draw_slots": 0,
-      "partial_first_prize_only_slots": 53
+      "partial_first_prize_only_slots": 51
     },
     {
       "month": "august",
@@ -246,8 +246,8 @@
       ],
       "full_tier_recovery": "5 full sheets (660 entries): Aug 1 8PM, Aug 9 1PM, Aug 16 8PM, Aug 21 1PM, Aug 23 1PM. Aug 15 both draws unresolved; remaining 55 known draw slots first-prize-only.",
       "notes": "August 15 unresolved/blank in chart sources; no numbers invented",
-      "full_tier_draws": 11,
-      "full_tier_entries": 1452,
+      "full_tier_draws": 13,
+      "full_tier_entries": 1716,
       "partial_draws": 55,
       "unresolved_draws": 2,
       "pdf_extraction": "partial; 5 full sheets (660 entries), 55 first-prize-only draw slots, 2 unresolved",
@@ -255,7 +255,7 @@
       "full_tier_new_draws_2026_11_19_ac2": 2,
       "full_tier_expected_draw_slots": 62,
       "full_tier_unresolved_draw_slots": 2,
-      "partial_first_prize_only_slots": 49
+      "partial_first_prize_only_slots": 47
     },
     {
       "month": "september",
@@ -1524,9 +1524,9 @@
     "binary_pdf_preserved": false,
     "sha256_calculated": false
   },
-  "full_tier_total_draws": 292,
-  "full_tier_total_entries": 38544,
-  "full_tier_clean_tier_count_draws": 292,
+  "full_tier_total_draws": 301,
+  "full_tier_total_entries": 39732,
+  "full_tier_clean_tier_count_draws": 301,
   "full_tier_source_conflict_draws": 0,
   "full_tier_batch_2026_11_19_c": {
     "file": "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_c.csv",
@@ -1820,9 +1820,9 @@
   },
   "official_first_prize_crosscheck_file": "data/recovered_draws_2025_official_first_prize_crosschecks_2026-11-19.csv",
   "full_tier_extraction_2026_11_19": {
-    "draws_imported": 292,
-    "entries_imported": 38544,
-    "clean_full_sheet_draws": 292,
+    "draws_imported": 301,
+    "entries_imported": 39732,
+    "clean_full_sheet_draws": 301,
     "source_conflict_draws": 0,
     "files": [
       "data/recovered_draws_2025-01-01-1pm-full.csv",
@@ -1856,6 +1856,7 @@
       "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_ac2.csv",
       "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_ad.csv",
       "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_ae.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_af.csv",
       "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_b.csv",
       "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_c.csv",
       "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_d.csv",
@@ -1879,8 +1880,8 @@
       "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_y.csv",
       "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_z.csv"
     ],
-    "note": "292 unique full-tier draw sheets contain 132 rows each (38,544 prize entries). Of 730 expected 1PM/8PM slots, 724 have first-prize records: 292 complete full-tier sheets and 432 first-prize-only partial slots; six slots remain unresolved (Jan 26, Aug 15, Oct 2; both draws). Zero unresolved source conflicts; two resolved conflicts are retained. First-prize values are cross-source matched where charts are available; lower tiers on archive PDFs remain single-source pending review. All 12 monthly archive index pages were opened. Forty-two daily PDF links were tested: 35 parsed (31 new sheets imported, four existing sheets cross-checked), seven failed (Jan 26 and Oct 2 both 404; April 1 both PDFs and May 3 1PM PDF failed parsing). Not every daily link has been tested. Original PDF binaries could not be preserved; no SHA-256 hashes are claimed.",
-    "partial_draws": 432,
+    "note": "301 unique full-tier draw sheets contain 132 rows each (39,732 prize entries). Of 730 expected 1PM/8PM slots, 724 have first-prize records: 301 complete full-tier sheets and 423 first-prize-only partial slots; six slots remain unresolved (Jan 26, Aug 15, Oct 2; both draws). Zero unresolved source conflicts; two resolved conflicts retained. First-prize values are cross-source matched where charts are available; lower tiers on archive PDFs remain single-source pending review. All 12 monthly archive index pages were opened. Fifty-two daily PDF links were tested: 45 parsed (40 new full sheets imported, four previously imported sheets re-opened from the same archive, one independent additional PDF cross-check); seven failed (Jan 26 and Oct 2 both 404; April 1 both PDFs and May 3 1PM PDF failed parsing). Not every daily link has been tested. Original PDF binaries could not be preserved; no SHA-256 hashes are claimed.",
+    "partial_draws": 423,
     "unresolved_draws": 6
   },
   "february_full_tier_recovery": {
@@ -2065,9 +2066,19 @@
     "2025-07-03 1PM",
     "2025-07-03 8PM",
     "2025-08-04 1PM",
-    "2025-08-04 8PM"
+    "2025-08-04 8PM",
+    "2025-04-04 1PM",
+    "2025-04-04 8PM",
+    "2025-05-04 1PM",
+    "2025-05-04 8PM",
+    "2025-06-04 1PM",
+    "2025-06-04 8PM",
+    "2025-07-04 1PM",
+    "2025-07-04 8PM",
+    "2025-08-05 1PM",
+    "2025-08-05 8PM"
   ],
-  "full_tier_partial_draws": 432,
+  "full_tier_partial_draws": 423,
   "full_tier_unresolved_draws": 6,
   "full_tier_batch_2026_11_19_ac": {
     "file": "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_ac.csv",
@@ -2119,5 +2130,32 @@
     "retrieval_date": "2026-11-19",
     "binary_pdf_preserved": false,
     "sha256_calculated": false
-  }
+  },
+  "full_tier_batch_2026_11_19_af": {
+    "file": "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_af.csv",
+    "draws": 9,
+    "entries": 1188,
+    "expected_entries_per_draw": 132,
+    "draws_list": [
+      "2025-04-04 8PM",
+      "2025-05-04 1PM",
+      "2025-05-04 8PM",
+      "2025-06-04 1PM",
+      "2025-06-04 8PM",
+      "2025-07-04 1PM",
+      "2025-07-04 8PM",
+      "2025-08-05 1PM",
+      "2025-08-05 8PM"
+    ],
+    "tier_status_summary": {
+      "first": "cross_source_matched",
+      "consolation_and_lower_tiers": "single_source_pending_review"
+    },
+    "source_type": "lotterysambad.icu daily PDFs; first-prize values cross-checked against Goodreturns and KLLotteryResults yearly charts",
+    "retrieval_date": "2026-11-19",
+    "binary_pdf_preserved": false,
+    "sha256_calculated": false
+  },
+  "source_crosschecks_file": "data/recovery_source_crosschecks_2025.csv",
+  "independent_existing_sheet_pdf_crosschecks_added": 1
 }
