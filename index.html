@@ -85,22 +85,13 @@
       <button type="button" onclick="setTimeFilter('8:00 PM')" id="filter-8:00 PM" class="time-pill py-2 rounded-xl text-slate-300 hover:bg-slate-800 transition">8:00 PM</button>
     </div>
 
-    <!-- Legend & Date Dropdown -->
     <div class="glass-card px-3 py-2.5 flex flex-wrap items-center justify-between gap-2 text-xs">
+      <div><p class="text-[10px] uppercase tracking-wider text-slate-500 font-bold">Latest available results</p>
+        <p id="latest-draw-date" class="text-sm font-bold text-white mt-0.5">Loading latest draw…</p></div>
       <div class="flex items-center gap-3">
-        <span class="flex items-center gap-1.5 text-amber-300 font-medium">
-          <span class="w-2 h-2 rounded-full bg-amber-400"></span>Repeat Hit <span class="text-[10px] text-slate-400">(Tap)</span>
-        </span>
-        <span class="flex items-center gap-1.5 text-sky-300 font-medium">
-          <span class="w-2 h-2 rounded-full bg-sky-400"></span>Nearby <span class="text-[10px] text-slate-400">(Tap)</span>
-        </span>
+        <span class="flex items-center gap-1.5 text-amber-300 font-medium"><span class="w-2 h-2 rounded-full bg-amber-400"></span>Repeat Hit</span>
+        <span class="flex items-center gap-1.5 text-sky-300 font-medium"><span class="w-2 h-2 rounded-full bg-sky-400"></span>Nearby</span>
       </div>
-      
-<div class="flex items-center gap-2">
-  <input type="date" id="date-filter" onchange="renderDraws()" aria-label="Choose draw date" class="min-w-0 bg-slate-900 border border-slate-700 text-slate-200 text-xs rounded-xl px-2.5 py-2 focus:outline-none focus:border-emerald-500" />
-  <button type="button" onclick="clearDrawDateFilter()" class="shrink-0 bg-slate-800 border border-slate-700 text-slate-200 text-xs rounded-xl px-3 py-2">All Dates</button>
-</div>
-
     </div>
 
     <!-- Draws Feed Container -->
@@ -656,8 +647,6 @@
     let latestPatternCache = null;
     let drawRevision = 0;
     let latestPatternCacheRevision = -1;
-    const DRAW_PAGE_SIZE = 8;
-    let visibleDrawCount = DRAW_PAGE_SIZE;
     let savedTableTickets = [];
     let savedStoreBatches = [];
     let currentTableFilter = 'ALL';
@@ -704,7 +693,6 @@
       drawRevision++;
       latestPatternCache = null;
       latestPatternCacheRevision = -1;
-      visibleDrawCount = DRAW_PAGE_SIZE;
       updateHeaderStats();
     }
 
@@ -1079,18 +1067,18 @@ dateSelect.value = targetDate || '';
       return `<div data-num4="${n4}" class="num-chip text-center py-1.5 px-1 rounded-lg bg-slate-900/90 border border-slate-800 text-slate-200 font-medium text-xs">${numStr}</div>`;
     }
 
-    function clearDrawDateFilter() {
-  document.getElementById('date-filter').value = '';
-  renderDraws();
-}
-
-function renderDraws() {
-  const dateFilter = document.getElementById('date-filter').value || 'ALL';
+    function renderDraws() {
+  const latestDate = draws.reduce((latest, draw) => {
+         const date = String(draw.date || '');
+         return /^\d{4}-\d{2}-\d{2}$/.test(date) && date > latest ? date : latest;
+       }, '');
+       const latestDateEl = document.getElementById('latest-draw-date');
+       if (latestDateEl) latestDateEl.textContent = latestDate ? formatDisplayDate(latestDate) : 'No draws available';
       const { highlightStatus } = analyzePatterns();
 
       const filtered = [...draws]
         .filter(d => currentTimeFilter === 'ALL' || d.time === currentTimeFilter)
-        .filter(d => dateFilter === 'ALL' || d.date === dateFilter)
+        .filter(d => d.date === latestDate)
         .sort((a, b) => {
           const keyA = a.date + (a.time === '8:00 PM' ? '3' : a.time === '6:00 PM' ? '2' : '1');
           const keyB = b.date + (b.time === '8:00 PM' ? '3' : b.time === '6:00 PM' ? '2' : '1');
@@ -1103,8 +1091,7 @@ function renderDraws() {
         return;
       }
 
-      const visible = filtered.slice(0, visibleDrawCount);
-      container.innerHTML = visible.map(draw => {
+      container.innerHTML = filtered.map(draw => {
         const hl = highlightStatus[draw.id] || {};
         const p1Four = extract4Digit(draw.first);
         const p1Status = hl[p1Four];
@@ -1185,15 +1172,6 @@ function renderDraws() {
           </section>
         `;
       }).join('');
-
-      if (filtered.length > visible.length) {
-        const more = document.createElement('button');
-        more.type = 'button';
-        more.className = 'w-full glass-card py-3 text-sm font-bold text-emerald-300 border border-emerald-500/30 active:scale-[0.99]';
-        more.textContent = 'Load ' + Math.min(DRAW_PAGE_SIZE, filtered.length - visible.length) + ' more draws (' + visible.length + ' of ' + filtered.length + ')';
-        more.addEventListener('click', () => { visibleDrawCount += DRAW_PAGE_SIZE; renderDraws(); });
-        container.appendChild(more);
-      }
     }
 
     function renderPatterns() {
