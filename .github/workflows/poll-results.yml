@@ -22,7 +22,7 @@ permissions:
 jobs:
   fetch-and-sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 75
+    timeout-minutes: 195
     env:
       SAMBAD_API_TOKEN: ${{ secrets.LOTTERY_SAMBAD_API_TOKEN }}
       SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
@@ -55,26 +55,47 @@ jobs:
           test -n "$SUPABASE_SECRET_KEY" || { echo "Missing GitHub secret SUPABASE_SECRET_KEY"; exit 1; }
 
       - name: Fetch published result with retries
+        id: fetch
         shell: bash
         run: |
           mkdir -p api-results
-          for attempt in $(seq 1 12); do
-            echo "API fetch attempt $attempt/12 for ${{ steps.draw.outputs.draw }}"
+          DRAW="${{ steps.draw.outputs.draw }}"
+          if [ "$DRAW" = "8pm" ]; then
+            MAX_ATTEMPTS=36
+          else
+            MAX_ATTEMPTS=12
+          fi
+
+          for attempt in $(seq 1 "$MAX_ATTEMPTS"); do
+            echo "API fetch attempt $attempt/$MAX_ATTEMPTS for $DRAW"
             if python monitor/import_sambad_api.py \
-              --draw "${{ steps.draw.outputs.draw }}" \
+              --draw "$DRAW" \
               --output-dir api-results; then
               echo "Result fetched and structurally validated."
+              echo "available=true" >> "$GITHUB_OUTPUT"
               exit 0
             fi
-            if [ "$attempt" -lt 12 ]; then
+
+            if [ "$attempt" -lt "$MAX_ATTEMPTS" ]; then
               echo "Result not published/available yet; retrying in 5 minutes."
               sleep 300
             fi
           done
-          echo "Result was not fetched after 12 attempts."
+
+          if [ "$DRAW" = "8pm" ]; then
+            DRAW_DATE="$(TZ=Asia/Kolkata date +%Y-%m-%d)"
+            printf '{"date":"%s","draw":"8PM","status":"PENDING_NOT_PUBLISHED","attempts":%s}\n' \
+              "$DRAW_DATE" "$MAX_ATTEMPTS" > "api-results/${DRAW_DATE}_8PM_PENDING.json"
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            echo "PENDING: 8PM result was not published after 36 attempts (3 hours). No incomplete data was uploaded."
+            exit 0
+          fi
+
+          echo "ERROR: 1PM result was not fetched after $MAX_ATTEMPTS attempts."
           exit 1
 
       - name: Sync validated result to Supabase
+        if: steps.fetch.outputs.available == 'true'
         run: |
           FILE="api-results/$(TZ=Asia/Kolkata date +%Y-%m-%d)_${{ steps.draw.outputs.draw == '1pm' && '1PM' || '8PM' }}.json"
           python monitor/sync_result_to_supabase.py --file "$FILE"
