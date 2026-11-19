@@ -48,6 +48,21 @@ class TestOfficialSourceArchive(unittest.TestCase):
         self.assertFalse(any("api.sambad.com" in u for u in urls))
         self.assertFalse(any("kllotteryresults.in" in u for u in urls))
 
+
+    def test_reads_master_csv_draw_date_and_draw_time_columns(self):
+        master_csv = self.root / "master.csv"
+        with master_csv.open("w", newline="", encoding="utf-8") as handle:
+            writer = csv.DictWriter(handle, fieldnames=["draw_date", "draw_time", "prize_number"])
+            writer.writeheader()
+            writer.writerows([
+                {"draw_date": "2024-06-01", "draw_time": "1 PM", "prize_number": "12345"},
+                {"draw_date": "2024-06-01", "draw_time": "8 PM", "prize_number": "67890"},
+                {"draw_date": "2024-06-01", "draw_time": "6 PM", "prize_number": "11111"},
+            ])
+        self.assertEqual(read_draws(master_csv), [
+            ("2024-06-01", "1PM"), ("2024-06-01", "8PM")
+        ])
+
     def test_reads_only_nagaland_slots(self):
         self.assertEqual(read_draws(self.csv_path), [
             ("2023-01-10", "8PM"), ("2023-01-31", "1PM")
