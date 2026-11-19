@@ -69,7 +69,7 @@
       "detail": "Two 8PM PDFs and the lotterysambad.co daily result page agree on the 100-number 5th-tier list. The alternate Dhankesari page rendering is retained as a superseded candidate."
     }
   ],
-  "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Full-tier audit: 333 complete 132-entry sheets (43,956 prize rows), 391 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts (two resolved conflicts retained). All 12 monthly archive pages opened; 92 daily links tested, 83 parsed (72 new imports, eight same-archive reopens, three independent additional PDF cross-checks), nine failed (Jan 26 and Oct 2 404; April 1 both PDFs and May 3/May 5/May 7 1PM parse failures). Not every daily PDF link has been tested. 6PM excluded. Original PDF binaries were not preserved; no hashes claimed.",
+  "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Full-tier audit: 340 complete 132-entry sheets (44,880 prize rows), 384 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts (two resolved conflicts retained). All 12 monthly archive pages opened; 102 daily links tested, 93 parsed (79 new imports, 11 same-archive reopens, three independent additional PDF cross-checks), nine failed (Jan 26 and Oct 2 404; April 1 both PDFs and May 3/May 5/May 7 1PM parse failures). Not every daily PDF link has been tested. 6PM excluded. Original PDF binaries were not preserved; no hashes claimed.",
   "monthly_exceptions": [
     {
       "date": "2025-01-26",
