@@ -78,10 +78,9 @@
   <!-- ==================== TAB 1: DRAWS ==================== -->
   <main id="tab-draws" class="max-w-3xl mx-auto px-4 pt-3 space-y-4">
     <!-- Time Filter Pills -->
-    <div class="glass-card p-1.5 grid grid-cols-4 gap-1 text-xs font-semibold">
+    <div class="glass-card p-1.5 grid grid-cols-3 gap-1 text-xs font-semibold">
       <button type="button" onclick="setTimeFilter('ALL')" id="filter-ALL" class="time-pill py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold transition">All Times</button>
       <button type="button" onclick="setTimeFilter('1:00 PM')" id="filter-1:00 PM" class="time-pill py-2 rounded-xl text-slate-300 hover:bg-slate-800 transition">1:00 PM</button>
-      <button type="button" onclick="setTimeFilter('6:00 PM')" id="filter-6:00 PM" class="time-pill py-2 rounded-xl text-slate-300 hover:bg-slate-800 transition">6:00 PM</button>
       <button type="button" onclick="setTimeFilter('8:00 PM')" id="filter-8:00 PM" class="time-pill py-2 rounded-xl text-slate-300 hover:bg-slate-800 transition">8:00 PM</button>
     </div>
 
@@ -668,17 +667,25 @@
     }
 
     function cloudRowToDraw(row) {
-      const prizes = row && row.prizes;
-      const firstList = prizes && prizes['1st'];
-      const consolationList = prizes && prizes['Consolation'];
-      if (!row || !/^\\d{4}-\\d{2}-\\d{2}$/.test(String(row.draw_date || ''))) return null;
-      if (!['1PM', '8PM'].includes(row.draw_slot)) return null;
-      if (!Array.isArray(firstList) || firstList.length !== 1 ||
-          !Array.isArray(consolationList) || consolationList.length !== 1 ||
-          !Array.isArray(prizes['2nd']) || prizes['2nd'].length !== 10 ||
-          !Array.isArray(prizes['3rd']) || prizes['3rd'].length !== 10 ||
-          !Array.isArray(prizes['4th']) || prizes['4th'].length !== 10 ||
-          !Array.isArray(prizes['5th']) || prizes['5th'].length !== 100) return null;
+      window.__ddaCloudRowRejectReason = '';
+      const reject = reason => { window.__ddaCloudRowRejectReason = reason; return null; };
+      if (!row) return reject('missing row');
+      if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(String(row.draw_date || ''))) return reject('invalid draw_date');
+      if (!['1PM', '8PM'].includes(row.draw_slot)) return reject('unexpected draw_slot');
+
+      const prizes = row.prizes;
+      if (!prizes || typeof prizes !== 'object' || Array.isArray(prizes)) return reject('prizes is not an object');
+      const required = ['1st', 'Consolation', '2nd', '3rd', '4th', '5th'];
+      const missing = required.filter(key => !Object.prototype.hasOwnProperty.call(prizes, key));
+      if (missing.length) return reject('missing prize keys: ' + missing.join(', '));
+
+      const firstList = prizes['1st'];
+      const consolationList = prizes['Consolation'];
+      const expected = {'1st':1,'Consolation':1,'2nd':10,'3rd':10,'4th':10,'5th':100};
+      for (const key of required) {
+        if (!Array.isArray(prizes[key])) return reject(key + ' is not an array');
+        if (prizes[key].length !== expected[key]) return reject(key + ' has ' + prizes[key].length + ', expected ' + expected[key]);
+      }
 
       const first = String(firstList[0] || '').trim();
       const consolation = String(consolationList[0] || '').trim();
@@ -686,12 +693,13 @@
       const third = prizes['3rd'].map(String);
       const fourth = prizes['4th'].map(String);
       const fifth = prizes['5th'].map(String);
-      if (!/^\\d{2}[A-Z] \\d{5}$/.test(first) || !/^\\d{5}$/.test(consolation) ||
-          first.slice(-5) !== consolation ||
-          !second.every(n => /^\\d{5}$/.test(n)) ||
-          !third.every(n => /^\\d{4}$/.test(n)) ||
-          !fourth.every(n => /^\\d{4}$/.test(n)) ||
-          !fifth.every(n => /^\\d{4}$/.test(n))) return null;
+      if (!/^\\d{2}[A-Z] \\d{5}$/.test(first)) return reject('1st prize format mismatch');
+      if (!/^\\d{5}$/.test(consolation)) return reject('Consolation format mismatch');
+      if (first.slice(-5) !== consolation) return reject('1st prize and consolation do not match');
+      if (!second.every(n => /^\\d{5}$/.test(n))) return reject('2nd prize number format mismatch');
+      if (!third.every(n => /^\\d{4}$/.test(n))) return reject('3rd prize number format mismatch');
+      if (!fourth.every(n => /^\\d{4}$/.test(n))) return reject('4th prize number format mismatch');
+      if (!fifth.every(n => /^\\d{4}$/.test(n))) return reject('5th prize number format mismatch');
 
       return normalizeDrawSchema({
         id: 'cloud_' + row.draw_date + '_' + row.draw_slot,
@@ -744,10 +752,16 @@
         }
 
         let added = 0, identical = 0, conflicts = 0, invalid = 0, replacedSamples = 0;
+        const invalidReasons = {};
         const merged = [...draws];
         for (const row of cloudRows) {
           const cloudDraw = cloudRowToDraw(row);
-          if (!cloudDraw) { invalid++; continue; }
+          if (!cloudDraw) {
+            invalid++;
+            const reason = window.__ddaCloudRowRejectReason || 'unknown validation failure';
+            invalidReasons[reason] = (invalidReasons[reason] || 0) + 1;
+            continue;
+          }
           const slotMatches = d => d.date === cloudDraw.date && d.time === cloudDraw.time && !d.isSample;
           const existingIndex = merged.findIndex(slotMatches);
           if (existingIndex >= 0) {
@@ -773,13 +787,14 @@
           renderDraws();
         }
 
+        const reasonText = Object.entries(invalidReasons).map(([reason, count]) => count + '× ' + reason).join('; ');
         const summary = 'CLOUD SYNC ✓ ' + cloudRows.length + ' cloud rows checked · ' +
           (added + replacedSamples) + ' added · ' + identical + ' already matched' +
           (conflicts ? ' · ' + conflicts + ' conflicts kept local' : '') +
-          (invalid ? ' · ' + invalid + ' invalid skipped' : '');
+          (invalid ? ' · ' + invalid + ' invalid: ' + reasonText : '');
         setCloudSyncStatus(summary, conflicts || invalid ? 'info' : 'success');
         if (conflicts) console.warn('Dear Draw Analyzer: cloud/local conflicts were preserved, not overwritten.', conflicts);
-        if (invalid) console.warn('Dear Draw Analyzer: invalid cloud draw rows were skipped.', invalid);
+        if (invalid) console.warn('Dear Draw Analyzer: invalid cloud draw rows were skipped.', invalidReasons);
       } catch (error) {
         console.error('Dear Draw Analyzer cloud sync failed:', error);
         setCloudSyncStatus('CLOUD SYNC FAILED: ' + (error.message || String(error)) + ' — local history is unchanged.', 'error');
