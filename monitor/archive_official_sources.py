@@ -65,7 +65,7 @@ def _direct_registry_urls(row, draw_date, draw):
     if index == "2":
         return [base.replace("ENDDMMYY.PDF", current)]
     if index == "13":
-        return [base.replace("1pm", "1pm" if draw == "1PM" else "8pm")]
+        return [base.replace("YYYY-MM-DD", draw_date).replace("1pm", "1pm" if draw == "1PM" else "8pm")]
     if index == "22":
         names = [legacy, legacy.upper(), ("ML" if draw == "1PM" else "EL") + d.strftime("%d%m%y") + ".pdf"]
         monthly_base = f"https://lotterysambadresult.in/wp-content/uploads/{d:%Y/%m}/"
@@ -131,6 +131,7 @@ def fetch_pdf(url, timeout=12):
 
 def _matching_link(href, label, draw_date, draw):
     joined = (unquote(href) + " " + html.unescape(label)).lower()
+    d = date.fromisoformat(draw_date)
     tokens = _date_tokens(draw_date)
     compact = re.sub(r"[^0-9]", "", draw_date)
     date_match = any(token in joined for token in tokens) or compact in re.sub(r"[^0-9]", "", joined)
