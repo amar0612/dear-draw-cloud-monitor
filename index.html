@@ -542,48 +542,7 @@
 <script src="./auth.js"></script>
   <script src="./auth-ui.js"></script>
   
-<script>
-(async function () {
-  const box = document.createElement('div');
-  box.style.cssText =
-    'position:fixed;bottom:80px;left:12px;right:12px;' +
-    'z-index:99999;padding:14px;border-radius:12px;' +
-    'background:#1e293b;color:white;font:14px system-ui;' +
-    'text-align:center;';
-  box.textContent = 'Checking Supabase cloud connection…';
-  document.body.appendChild(box);
-
-  try {
-    const client = window.ddaSupabase;
-
-    if (!client) {
-      throw new Error('Supabase client not loaded');
-    }
-
-    const { data: sessionData, error: sessionError } =
-      await client.auth.getSession();
-
-    if (sessionError) throw sessionError;
-
-    if (!sessionData.session) {
-      throw new Error('No active cloud session');
-    }
-
-    const { count, error } = await client
-      .from('draws')
-      .select('id', { count: 'exact', head: true });
-
-    if (error) throw error;
-
-    box.style.background = '#065f46';
-    box.textContent =
-      'CLOUD CONNECTED ✓  Draw records visible: ' + count;
-  } catch (error) {
-    box.style.background = '#7f1d1d';
-    box.textContent = 'CLOUD TEST FAILED: ' + error.message;
-  }
-})();
-</script>
+<div id="dda-cloud-status" role="status" aria-live="polite" style="position:fixed;bottom:80px;left:12px;right:12px;z-index:99999;padding:12px 14px;border-radius:12px;background:#1e293b;color:white;font:13px system-ui;text-align:center;display:none;"></div>
 
   <script>
     const STORAGE_KEY = 'dear_lottery_draws_v2';
@@ -695,6 +654,159 @@
       latestPatternCacheRevision = -1;
       updateHeaderStats();
     }
+
+    function setCloudSyncStatus(message, kind = 'info') {
+      const box = document.getElementById('dda-cloud-status');
+      if (!box) return;
+      box.textContent = message;
+      box.style.display = 'block';
+      box.style.background = kind === 'success' ? '#065f46' : kind === 'error' ? '#7f1d1d' : '#1e293b';
+      if (kind === 'success') {
+        clearTimeout(window.__ddaCloudStatusTimer);
+        window.__ddaCloudStatusTimer = setTimeout(() => { box.style.display = 'none'; }, 4500);
+      }
+    }
+
+    function cloudRowToDraw(row) {
+      const prizes = row && row.prizes;
+      const firstList = prizes && prizes['1st'];
+      const consolationList = prizes && prizes['Consolation'];
+      if (!row || !/^\\d{4}-\\d{2}-\\d{2}$/.test(String(row.draw_date || ''))) return null;
+      if (!['1PM', '8PM'].includes(row.draw_slot)) return null;
+      if (!Array.isArray(firstList) || firstList.length !== 1 ||
+          !Array.isArray(consolationList) || consolationList.length !== 1 ||
+          !Array.isArray(prizes['2nd']) || prizes['2nd'].length !== 10 ||
+          !Array.isArray(prizes['3rd']) || prizes['3rd'].length !== 10 ||
+          !Array.isArray(prizes['4th']) || prizes['4th'].length !== 10 ||
+          !Array.isArray(prizes['5th']) || prizes['5th'].length !== 100) return null;
+
+      const first = String(firstList[0] || '').trim();
+      const consolation = String(consolationList[0] || '').trim();
+      const second = prizes['2nd'].map(String);
+      const third = prizes['3rd'].map(String);
+      const fourth = prizes['4th'].map(String);
+      const fifth = prizes['5th'].map(String);
+      if (!/^\\d{2}[A-Z] \\d{5}$/.test(first) || !/^\\d{5}$/.test(consolation) ||
+          first.slice(-5) !== consolation ||
+          !second.every(n => /^\\d{5}$/.test(n)) ||
+          !third.every(n => /^\\d{4}$/.test(n)) ||
+          !fourth.every(n => /^\\d{4}$/.test(n)) ||
+          !fifth.every(n => /^\\d{4}$/.test(n))) return null;
+
+      return normalizeDrawSchema({
+        id: 'cloud_' + row.draw_date + '_' + row.draw_slot,
+        date: row.draw_date,
+        time: row.draw_slot === '1PM' ? '1:00 PM' : '8:00 PM',
+        name: 'Nagaland Dear Lottery ' + row.draw_slot,
+        first, consolation, second, third, fourth, fifth,
+        isSample: false,
+        cloudSource: row.source,
+        cloudVerificationStatus: row.verification_status
+      });
+    }
+
+    function drawContentKey(draw) {
+      return JSON.stringify([
+        draw.first, draw.consolation,
+        draw.second || [], draw.third || [],
+        draw.fourth || [], draw.fifth || []
+      ]);
+    }
+
+    let cloudSyncInProgress = false;
+    async function syncCloudDraws(options = {}) {
+      if (cloudSyncInProgress) return;
+      const client = window.ddaSupabase;
+      if (!client) {
+        setCloudSyncStatus('Cloud sync unavailable — Supabase client did not load.', 'error');
+        return;
+      }
+      cloudSyncInProgress = true;
+      try {
+        const { data: sessionData, error: sessionError } = await client.auth.getSession();
+        if (sessionError) throw sessionError;
+        if (!sessionData.session) {
+          setCloudSyncStatus('Sign in to enable automatic cloud draw sync.');
+          return;
+        }
+
+        const cloudRows = [];
+        const pageSize = 1000;
+        for (let from = 0; ; from += pageSize) {
+          const { data, error } = await client.from('draws')
+            .select('id,draw_date,draw_slot,prizes,source,verification_status')
+            .in('draw_slot', ['1PM', '8PM'])
+            .order('draw_date', { ascending: true })
+            .range(from, from + pageSize - 1);
+          if (error) throw error;
+          cloudRows.push(...(data || []));
+          if (!data || data.length < pageSize) break;
+        }
+
+        let added = 0, identical = 0, conflicts = 0, invalid = 0, replacedSamples = 0;
+        const merged = [...draws];
+        for (const row of cloudRows) {
+          const cloudDraw = cloudRowToDraw(row);
+          if (!cloudDraw) { invalid++; continue; }
+          const slotMatches = d => d.date === cloudDraw.date && d.time === cloudDraw.time && !d.isSample;
+          const existingIndex = merged.findIndex(slotMatches);
+          if (existingIndex >= 0) {
+            if (drawContentKey(merged[existingIndex]) === drawContentKey(cloudDraw)) identical++;
+            else conflicts++;
+            continue;
+          }
+          const sampleIndex = merged.findIndex(d =>
+            d.date === cloudDraw.date && d.time === cloudDraw.time && d.isSample
+          );
+          if (sampleIndex >= 0) {
+            merged.splice(sampleIndex, 1, cloudDraw);
+            replacedSamples++;
+          } else {
+            merged.push(cloudDraw);
+            added++;
+          }
+        }
+
+        if (added || replacedSamples) {
+          draws = merged;
+          saveDrawsToStorage();
+          renderDraws();
+        }
+
+        const summary = 'CLOUD SYNC ✓ ' + cloudRows.length + ' cloud rows checked · ' +
+          (added + replacedSamples) + ' added · ' + identical + ' already matched' +
+          (conflicts ? ' · ' + conflicts + ' conflicts kept local' : '') +
+          (invalid ? ' · ' + invalid + ' invalid skipped' : '');
+        setCloudSyncStatus(summary, conflicts || invalid ? 'info' : 'success');
+        if (conflicts) console.warn('Dear Draw Analyzer: cloud/local conflicts were preserved, not overwritten.', conflicts);
+        if (invalid) console.warn('Dear Draw Analyzer: invalid cloud draw rows were skipped.', invalid);
+      } catch (error) {
+        console.error('Dear Draw Analyzer cloud sync failed:', error);
+        setCloudSyncStatus('CLOUD SYNC FAILED: ' + (error.message || String(error)) + ' — local history is unchanged.', 'error');
+      } finally {
+        cloudSyncInProgress = false;
+      }
+    }
+
+    function startAutomaticCloudSync() {
+      if (window.__ddaCloudSyncStarted) return;
+      window.__ddaCloudSyncStarted = true;
+      syncCloudDraws({ quiet: true });
+      window.__ddaCloudSyncInterval = setInterval(() => syncCloudDraws({ quiet: true }), 5 * 60 * 1000);
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') syncCloudDraws({ quiet: true });
+      });
+      const client = window.ddaSupabase;
+      if (client && client.auth) {
+        client.auth.onAuthStateChange((event, session) => {
+          if (session && ['SIGNED_IN', 'TOKEN_REFRESHED', 'INITIAL_SESSION'].includes(event)) {
+            setTimeout(() => syncCloudDraws({ quiet: true }), 0);
+          }
+        });
+      }
+    }
+
+
 
     function loadTicketTable() {
       try {
@@ -3066,7 +3178,7 @@ dateSelect.value = targetDate || '';
       if (batchInp && !batchInp.value) batchInp.value = todayIso;
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', async () => {
       try {
         draws = loadDraws();
         savedTableTickets = loadTicketTable();
@@ -3074,6 +3186,7 @@ dateSelect.value = targetDate || '';
         setDefaultFormDate();
         updateHeaderStats();
         renderDraws();
+        startAutomaticCloudSync();
         renderStoreQuickChips();
         if (savedTableTickets.length > 0) {
           const tblInput = document.getElementById('table-tickets-input');
