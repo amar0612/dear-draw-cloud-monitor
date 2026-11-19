@@ -15,6 +15,14 @@ on:
         description: Maximum date/draw pairs to inspect in this batch (max 25 recommended)
         required: true
         default: "25"
+      start_date:
+        description: First date to include (YYYY-MM-DD)
+        required: true
+        default: "2024-06-01"
+      end_date:
+        description: Last date to include (YYYY-MM-DD)
+        required: true
+        default: "2026-11-20"
 
 permissions:
   contents: read
@@ -37,7 +45,9 @@ jobs:
             --csv "${{ inputs.csv_path }}" \
             --output-dir historical-source-batch \
             --offset "${{ inputs.offset }}" \
-            --limit "${{ inputs.limit }}"
+            --limit "${{ inputs.limit }}" \
+            --start-date "${{ inputs.start_date }}" \
+            --end-date "${{ inputs.end_date }}"
 
       - name: Upload source PDFs and manifest
         if: always()
