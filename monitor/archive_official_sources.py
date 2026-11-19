@@ -19,7 +19,8 @@ from urllib.parse import unquote, urljoin, urlparse
 BASE_URL = "https://www.nagalandlotteries.com/old_results/"
 MIRROR_BASE = "https://lotterysambadresult.in/wp-content/uploads/"
 USER_AGENT = "DearDrawAnalyzer/1.0 (historical result source archive)"
-REQUIRED = {"date", "draw"}
+DATE_COLUMNS = ("date", "draw_date", "result_date")
+DRAW_COLUMNS = ("draw", "draw_time", "time", "draw_slot")
 DEFAULT_REGISTRY = Path(__file__).resolve().parents[1] / "data" / "nagaland_source_registry.csv"
 EXCLUDED_REGISTRY_INDICES = {"23", "24"}
 NON_PDF_REGISTRY_INDICES = {"3", "21"}
@@ -109,12 +110,19 @@ def read_draws(csv_path):
     grouped = set()
     with Path(csv_path).open(newline="", encoding="utf-8-sig") as handle:
         reader = csv.DictReader(handle)
-        missing = REQUIRED - set(reader.fieldnames or [])
-        if missing:
-            raise ValueError(f"Missing CSV columns: {', '.join(sorted(missing))}")
+        headers = set(reader.fieldnames or [])
+        date_column = next((name for name in DATE_COLUMNS if name in headers), None)
+        draw_column = next((name for name in DRAW_COLUMNS if name in headers), None)
+        if not date_column or not draw_column:
+            raise ValueError(
+                "CSV must contain a date column (date/draw_date/result_date) "
+                "and a draw column (draw/draw_time/time/draw_slot)"
+            )
         for row in reader:
-            draw_date = (row.get("date") or "").strip()
-            draw = (row.get("draw") or "").strip().upper()
+            draw_date = (row.get(date_column) or "").strip()[:10]
+            raw_draw = (row.get(draw_column) or "").strip().upper().replace(" ", "")
+            draw = {"1PM": "1PM", "13:00": "1PM", "1:00PM": "1PM",
+                    "8PM": "8PM", "20:00": "8PM", "8:00PM": "8PM"}.get(raw_draw, raw_draw)
             if draw not in {"1PM", "8PM"}:
                 continue
             date.fromisoformat(draw_date)
