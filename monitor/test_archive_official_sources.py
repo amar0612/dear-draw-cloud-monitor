@@ -60,6 +60,9 @@ class TestOfficialSourceArchive(unittest.TestCase):
         generic = b'<a href="/download/result.pdf">Download 8PM PDF</a>'
         child_links = _extract_links(generic, "https://example.test/results/2023-01-10/", "2023-01-10", "8PM")
         self.assertEqual(child_links, ["https://example.test/download/result.pdf"])
+        two_slots = b'<a href="/download/one.pdf">1PM PDF</a><a href="/download/eight.pdf">8PM PDF</a>'
+        only_eight = _extract_links(two_slots, "https://example.test/results/2023-01-10/", "2023-01-10", "8PM")
+        self.assertEqual(only_eight, ["https://example.test/download/eight.pdf"])
 
     def test_retains_multiple_source_copies_and_flags_hash_conflict(self):
         calls = []
