@@ -6,7 +6,15 @@ on:
       csv_path:
         description: Candidate CSV containing date and draw columns
         required: true
-        default: data/human_verified_draws_2023-01.csv
+        default: data/nagaland_master_prize_numbers.csv
+      start_date:
+        description: First date to include (YYYY-MM-DD)
+        required: true
+        default: "2024-06-01"
+      end_date:
+        description: Last date to include (YYYY-MM-DD)
+        required: true
+        default: "2026-11-20"
 
 permissions:
   contents: read
@@ -23,8 +31,13 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Download official gazettes and create SHA256 manifest
-        run: python monitor/archive_official_sources.py --csv "${{ inputs.csv_path }}" --output-dir official-source-archive
+      - name: Download Nagaland source PDFs and create SHA256 manifest
+        run: |
+          python monitor/archive_official_sources.py \
+            --csv "${{ inputs.csv_path }}" \
+            --output-dir official-source-archive \
+            --start-date "${{ inputs.start_date }}" \
+            --end-date "${{ inputs.end_date }}"
 
       - name: Upload source PDFs and manifest
         if: always()
