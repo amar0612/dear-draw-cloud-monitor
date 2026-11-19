@@ -32,9 +32,44 @@
       ],
       "status": "partial_extraction_review",
       "detail": "56 first-prize records recovered and cross-checked by five-digit value across two chart domains. Full prize tiers remain unextracted."
+    },
+    {
+      "date": "2025-06-30",
+      "draw": "1PM",
+      "tier": "1st",
+      "status": "source_conflict_review",
+      "detail": "The lotterysambad.icu PDF linked under 1PM resolves to a sheet with 97L 70848, which independent date results identify as the 6PM result. The 1PM first prize 68C 85615 is corroborated by Goodreturns/KLL and the Dhankesari 1PM PDF/page. The mislabelled PDF candidate is retained in recovery_source_conflicts_2025-06-30.csv and excluded from 1PM import."
+    },
+    {
+      "date": "2025-06-30",
+      "draw": "1PM",
+      "tier": "2nd",
+      "status": "source_conflict_review",
+      "detail": "Dhankesari page renders 85615 twice and omits 90135 and 95788; linked 1PM PDF lists 90135 and 95788 instead. Both candidate lists preserved."
+    },
+    {
+      "date": "2025-06-30",
+      "draw": "1PM",
+      "tier": "5th",
+      "status": "source_conflict_review",
+      "detail": "Dhankesari page 5th-prize list differs from linked 1PM PDF's 100-number list. Both candidate versions preserved."
+    },
+    {
+      "date": "2025-06-30",
+      "draw": "8PM",
+      "tier": "2nd",
+      "status": "source_conflict_review",
+      "detail": "Dhankesari page renders 07239 twice and omits 91215 and 97397; two 8PM PDFs list 91215 and 97397. Both candidates preserved."
+    },
+    {
+      "date": "2025-06-30",
+      "draw": "8PM",
+      "tier": "5th",
+      "status": "source_conflict_review",
+      "detail": "Dhankesari page 5th-prize list differs from two matching 8PM PDFs; page version preserved separately."
     }
   ],
-  "note": "January first-prize rows retained separately. 6PM excluded. Missing January 26 is unresolved, not a no-draw inference.",
+  "note": "2025 first-prize CSVs audited on 2026-11-19: 724 rows (362 dates with both 1PM and 8PM); Jan 26, Aug 15 and Oct 2 remain unresolved for both draws. October CSV contains 60 rows (30 dates), correcting the prior manifest's stale 58-row count. 6PM excluded.",
   "monthly_exceptions": [
     {
       "date": "2025-01-26",
@@ -116,9 +151,9 @@
     {
       "date": "2025-10",
       "draw": "both",
-      "issue": "58 first-prize records recovered for October 1 and October 3–31; full prize tiers not extracted.",
+      "issue": "60 first-prize records recovered for October 1 and October 3–31; October 2 remains unresolved for both requested draws.",
       "status": "partial_extraction_review",
-      "action": "Continue searching October daily PDFs for complete prize tiers"
+      "action": "Continue searching October 2 daily PDFs; extract remaining full tiers"
     },
     {
       "date": "2025-11",
@@ -133,6 +168,35 @@
       "issue": "62 first-prize records recovered for all dates; full prize tiers not extracted in this checkpoint.",
       "status": "partial_extraction_review",
       "action": "Search December daily PDFs and import all available prize tiers"
+    },
+    {
+      "date": "2025-06-30",
+      "draw": "1PM",
+      "issue": "The archive 1PM PDF link points to a 6PM result; alternate Dhankesari 1PM PDF/page recovered the 1PM result but 2nd and 5th tiers conflict.",
+      "status": "source_conflict_review",
+      "action": "Retain all candidates and seek an independent full 1PM PDF"
+    },
+    {
+      "date": "2025-06-30",
+      "draw": "8PM",
+      "issue": "Two 8PM PDFs agree on the full sheet; Dhankesari page rendering differs on 2nd and 5th prize tiers.",
+      "status": "source_conflict_review",
+      "action": "Retain PDF and page candidates; seek a third independent full sheet"
+    },
+    {
+      "date_range": "2025-01_to_12",
+      "draw": "1PM and 8PM",
+      "issue": "12 monthly archive pages were opened and each lists daily PDF links; individual binary PDFs were not downloaded in bulk. Full-tier extraction is currently imported for 9 draws only.",
+      "status": "partial_extraction_review",
+      "action": "Continue enumerating, opening, and extracting available daily PDFs across all months"
+    },
+    {
+      "date_range": "2025-01_to_12",
+      "draw": "1PM and 8PM",
+      "issue": "Direct PDF binary download attempts failed in runtime, so original PDF files and SHA-256 hashes were not saved/calculated.",
+      "status": "partial_source_access",
+      "action": "Retry binary acquisition through alternate source hosts or repository workflows when feasible"
     }
-  ]
+  ],
+  "last_updated": "2026-11-19"
 }
