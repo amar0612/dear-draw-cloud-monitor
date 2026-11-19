@@ -60,10 +60,8 @@
 <body class="pb-28">
   <!-- Sticky App Header -->
   <header class="sticky top-0 z-30 bg-[#080f18]/95 backdrop-blur-md border-b border-slate-800/90 px-4 py-3 flex items-center justify-between gap-2">
-    <div class="flex items-center gap-2.5 min-w-0">
-      <div class="shrink-0 w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-extrabold text-sm shadow-inner">
-        DD
-      </div>
+    <button id="dda-profile-trigger" type="button" aria-label="Open profile and settings" class="flex items-center gap-2.5 min-w-0 text-left rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400">
+      <div class="shrink-0 w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-extrabold text-sm shadow-inner">DD</div>
       <div class="min-w-0">
         <div class="flex items-center gap-2">
           <h1 class="font-bold text-base leading-tight text-white truncate">Dear Draw Analyzer</h1>
@@ -71,7 +69,7 @@
         </div>
         <p id="header-stats" class="text-[11px] text-slate-400 truncate">1 Draw • 131 Numbers Tracked • 0 Saved Tickets</p>
       </div>
-    </div>
+    </button>
     <button type="button" onclick="switchTab('scan')" class="shrink-0 bg-emerald-500 hover:bg-emerald-400 active:scale-95 transition text-slate-950 font-bold text-xs px-3 py-2 rounded-xl flex items-center gap-1 shadow-lg shadow-emerald-500/20">
       <span>+</span><span>Add Draw</span>
     </button>
@@ -489,7 +487,7 @@
   </main>
 
   <!-- Bottom 5-Tab Navigation Bar -->
-  <nav class="fixed bottom-0 inset-x-0 z-30 bg-[#080f18]/95 backdrop-blur-md border-t border-slate-800 grid grid-cols-5 py-2.5 px-1 text-[10px] sm:text-[11px] font-semibold">
+  <nav class="fixed bottom-0 inset-x-0 z-30 bg-[#080f18]/95 border-t border-slate-800 grid grid-cols-5 py-2.5 px-1 text-[10px] sm:text-[11px] font-semibold" style="padding-bottom:calc(0.625rem + env(safe-area-inset-bottom));">
     <button type="button" onclick="switchTab('draws')" id="nav-draws" class="nav-btn flex flex-col items-center gap-1 text-emerald-400">
       <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/></svg>
       <span>Draws</span>
@@ -656,6 +654,10 @@
     let draws = [];
     let currentTimeFilter = 'ALL';
     let latestPatternCache = null;
+    let drawRevision = 0;
+    let latestPatternCacheRevision = -1;
+    const DRAW_PAGE_SIZE = 8;
+    let visibleDrawCount = DRAW_PAGE_SIZE;
     let savedTableTickets = [];
     let savedStoreBatches = [];
     let currentTableFilter = 'ALL';
@@ -699,6 +701,10 @@
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(draws));
       } catch (e) {}
+      drawRevision++;
+      latestPatternCache = null;
+      latestPatternCacheRevision = -1;
+      visibleDrawCount = DRAW_PAGE_SIZE;
       updateHeaderStats();
     }
 
@@ -811,6 +817,7 @@
 
     // ==================== PATTERN ENGINE ====================
     function analyzePatterns() {
+      if (latestPatternCache && latestPatternCacheRevision === drawRevision) return latestPatternCache;
       const sorted = [...draws].sort((a, b) => {
         const keyA = a.date + (a.time === '1:00 PM' ? '1' : a.time === '6:00 PM' ? '2' : '3');
         const keyB = b.date + (b.time === '1:00 PM' ? '1' : b.time === '6:00 PM' ? '2' : '3');
@@ -947,6 +954,7 @@
       });
 
       latestPatternCache = { repeatEvents, nearbyEvents, highlightStatus, hitDetails, byTime, byDay };
+      latestPatternCacheRevision = drawRevision;
       return latestPatternCache;
     }
 
@@ -1095,7 +1103,8 @@ function renderDraws() {
         return;
       }
 
-      container.innerHTML = filtered.map(draw => {
+      const visible = filtered.slice(0, visibleDrawCount);
+      container.innerHTML = visible.map(draw => {
         const hl = highlightStatus[draw.id] || {};
         const p1Four = extract4Digit(draw.first);
         const p1Status = hl[p1Four];
@@ -1176,6 +1185,15 @@ function renderDraws() {
           </section>
         `;
       }).join('');
+
+      if (filtered.length > visible.length) {
+        const more = document.createElement('button');
+        more.type = 'button';
+        more.className = 'w-full glass-card py-3 text-sm font-bold text-emerald-300 border border-emerald-500/30 active:scale-[0.99]';
+        more.textContent = 'Load ' + Math.min(DRAW_PAGE_SIZE, filtered.length - visible.length) + ' more draws (' + visible.length + ' of ' + filtered.length + ')';
+        more.addEventListener('click', () => { visibleDrawCount += DRAW_PAGE_SIZE; renderDraws(); });
+        container.appendChild(more);
+      }
     }
 
     function renderPatterns() {
