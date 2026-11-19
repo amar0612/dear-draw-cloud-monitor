@@ -445,10 +445,10 @@
     <!-- Historical Prize CSV Import -->
     <div class="glass-card p-4 space-y-3 border border-emerald-500/30">
       <h2 class="text-sm font-bold text-white">Historical Prize Database Import</h2>
-      <p class="text-[11px] text-slate-400">Loads complete Nagaland 1PM and 8PM prize history only. Export a Full JSON Backup first. Replace mode supersedes all active draw history but preserves ticket tables and store batches. 6PM is excluded.</p>
+      <p class="text-[11px] text-slate-400">Select the master CSV together with any recovery supplement CSVs. Files are combined by date, draw, prize tier and position. Export a Full JSON Backup first. Replace mode supersedes active draw history but preserves ticket tables and store batches. 6PM is excluded.</p>
       <label class="block cursor-pointer bg-slate-900 border border-slate-700 rounded-xl p-3 text-center text-xs font-semibold text-emerald-300">
-        ↑ Select all_prize_numbers.csv
-        <input type="file" id="historical-csv-input" accept=".csv,text/csv" class="hidden" onchange="handleHistoricalCsv(event)" />
+        ↑ Select master CSV + recovery supplement CSVs
+        <input type="file" id="historical-csv-input" accept=".csv,text/csv" multiple class="hidden" onchange="handleHistoricalCsv(event)" />
       </label>
       <div id="historical-import-status" class="hidden rounded-xl bg-slate-900 border border-slate-700 p-3 text-xs text-slate-300 whitespace-pre-line"></div>
       <div id="historical-import-actions" class="hidden grid grid-cols-1 gap-2">
@@ -2885,29 +2885,48 @@ function renderDraws() {
     }
 
     function handleHistoricalCsv(e) {
-      const file = e.target.files && e.target.files[0];
-      if (!file) return;
+      const files = Array.from(e.target.files || []);
+      if (!files.length) return;
       const status = document.getElementById('historical-import-status');
       const actions = document.getElementById('historical-import-actions');
       status.classList.remove('hidden');
       actions.classList.add('hidden');
-      status.textContent = 'Reading and validating CSV...';
-      const reader = new FileReader();
-      reader.onload = ev => {
+      status.textContent = 'Reading and combining selected CSV files...';
+      Promise.all(files.map(file => new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = ev => resolve({ name: file.name, text: ev.target.result });
+        reader.onerror = () => reject(new Error('Could not read ' + file.name));
+        reader.readAsText(file);
+      }))).then(loaded => {
         try {
-          const result = buildHistoricalDrawGroups(ev.target.result);
-          historicalCsvDraws = result.complete;
-          if (!historicalCsvDraws.length) throw new Error('No complete 1PM/8PM draws found.');
+          const byKey = new Map();
+          const rejected = [];
+          let groupsSeen = 0;
+          loaded.forEach(file => {
+            const result = buildHistoricalDrawGroups(file.text);
+            groupsSeen += result.groups;
+            rejected.push(...result.invalid.map(x => file.name + ': ' + x));
+            result.complete.forEach(g => byKey.set(g.date + '|' + g.drawCode, g));
+          });
+          historicalCsvDraws = Array.from(byKey.values()).sort((a,b) => (a.date + a.drawCode).localeCompare(b.date + b.drawCode));
+          if (!historicalCsvDraws.length) throw new Error('No complete 1PM/8PM draws found in selected files.');
           const test = historicalCsvDraws[0];
-          status.textContent = `CSV validation successful.\nComplete Nagaland 1PM + 8PM draws: ${result.complete.length}\nRejected/incomplete groups: ${result.invalid.length}\nTest draw: ${test.date} · ${test.drawCode}\nTest counts: 1st 1 | Consolation 1 | 2nd 10 | 3rd 10 | 4th 10 | 5th 100\nSource references and supported count-check statuses accepted. Export a full JSON backup first, then use Replace active draw history to make this CSV the new baseline.\n\nRejected examples:\n${result.invalid.slice(0,10).join('\\n') || 'None'}`;
+          status.textContent = 'Combined CSV validation successful.\\nFiles loaded: ' + loaded.map(x => x.name).join(', ') +
+            '\\nComplete unique 1PM + 8PM draws: ' + historicalCsvDraws.length +
+            '\\nRejected/incomplete file groups: ' + rejected.length +
+            '\\nTest draw: ' + test.date + ' · ' + test.drawCode +
+            '\\nCounts per complete draw: 1st 1 | Consolation 1 | 2nd 10 | 3rd 10 | 4th 10 | 5th 100' +
+            '\\nDuplicate draw keys are combined once; later selected files take precedence. Export a Full JSON Backup first, then choose Replace active draw history.' +
+            '\\n\\nRejected examples:\\n' + (rejected.slice(0,10).join('\\n') || 'None');
           actions.classList.remove('hidden');
         } catch (err) {
           historicalCsvDraws = [];
           status.textContent = 'Import stopped: ' + (err.message || 'CSV validation failed');
         }
-      };
-      reader.onerror = () => { status.textContent = 'Could not read the selected CSV file.'; };
-      reader.readAsText(file);
+      }).catch(err => {
+        historicalCsvDraws = [];
+        status.textContent = 'Import stopped: ' + (err.message || 'Could not read selected CSV files');
+      });
     }
 
     function importHistoricalCsv(mode) {
