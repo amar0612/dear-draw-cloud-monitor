@@ -38,7 +38,7 @@
       "draw": "1PM",
       "tier": "1st",
       "status": "source_conflict_review",
-      "detail": "The lotterysambad.icu PDF linked under 1PM resolves to a sheet with 97L 70848, which independent date results identify as the 6PM result. The 1PM first prize 68C 85615 is corroborated by Goodreturns/KLL and the Dhankesari 1PM PDF/page. The mislabelled PDF candidate is retained in recovery_source_conflicts_2025-06-30.csv and excluded from 1PM import."
+      "detail": "The lotterysambad.icu PDF linked under the 1PM slot contains a 6PM sheet. It is excluded from the 1PM dataset; the 1PM first prize is corroborated by Goodreturns/KLL and the Dhankesari 1PM PDF/page."
     },
     {
       "date": "2025-06-30",
@@ -172,7 +172,7 @@
     {
       "date": "2025-06-30",
       "draw": "1PM",
-      "issue": "The archive 1PM PDF link points to a 6PM result; alternate Dhankesari 1PM PDF/page recovered the 1PM result but 2nd and 5th tiers conflict.",
+      "issue": "The archive 1PM PDF link is mislabelled and contains a 6PM sheet; it is excluded. Alternate Dhankesari 1PM PDF/page recovered the 1PM result but 2nd and 5th tiers conflict.",
       "status": "source_conflict_review",
       "action": "Retain all candidates and seek an independent full 1PM PDF"
     },
