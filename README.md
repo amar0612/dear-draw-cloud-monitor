@@ -24,3 +24,21 @@ The historical Nagaland Dear draw recovery window is **2024-06-01 through 2026-1
 - Source retrieval is not number verification. All copies remain pending number-by-number comparison; no source is automatically marked human-verified.
 
 The date window configures which candidate records are considered. It does not claim that every date in the window has been recovered or verified.
+
+## Automatic cloud-to-app synchronization
+
+The scheduled API workflow fetches Nagaland Dear 1PM and 8PM results, validates all 132 prize entries, and writes accepted records to Supabase. The app now also reads the authenticated user's cloud draw rows:
+
+- Fetches cloud rows after the app loads and the user is signed in.
+- Pages through the cloud table in batches of 1,000 rows.
+- Accepts only complete 1PM/8PM rows with the expected prize-tier counts and number formats.
+- Merges by draw date and slot; identical local rows are left alone.
+- Replaces a matching sample row with a validated cloud row.
+- Preserves a differing non-sample local row and reports the conflict rather than overwriting it.
+- Refreshes every five minutes and when the app becomes visible again.
+
+### Required one-time Supabase setup
+
+Apply `supabase/migrations/20261120_authenticated_draws_read.sql` in the Supabase SQL Editor for project `sxdrqithncjdrokwpkzm`. This grants authenticated users read access to Nagaland 1PM/8PM draw rows only. Until this migration is applied, the app's cloud read will fail with a permissions/RLS error; local history remains available.
+
+The GitHub Actions secrets `LOTTERY_SAMBAD_API_TOKEN` and `SUPABASE_SECRET_KEY` must also be configured for scheduled API fetching and cloud writes. Secret values must never be placed in browser code.
