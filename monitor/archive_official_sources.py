@@ -68,7 +68,8 @@ def _direct_registry_urls(row, draw_date, draw):
         return [base.replace("1pm", "1pm" if draw == "1PM" else "8pm")]
     if index == "22":
         names = [legacy, legacy.upper(), ("ML" if draw == "1PM" else "EL") + d.strftime("%d%m%y") + ".pdf"]
-        return [urljoin(base.rstrip("/") + "/", name) for name in names]
+        monthly_base = f"https://lotterysambadresult.in/wp-content/uploads/{d:%Y/%m}/"
+        return [urljoin(monthly_base, name) for name in names]
     # Annual archive roots are the best known starting points for year-specific calendars.
     if index in {"6", "7", "8", "9", "10", "11"}:
         return [base]
@@ -150,7 +151,7 @@ def _extract_links(page_bytes, page_url, draw_date, draw):
     except Exception:
         return []
     found = []
-    for match in re.finditer(r'<a\\b[^>]*href\\s*=\\s*["\']([^"\']+)["\'][^>]*>(.*?)</a>', page, re.I | re.S):
+    for match in re.finditer(r'<a\b[^>]*href\s*=\s*["\']([^"\']+)["\'][^>]*>(.*?)</a>', page, re.I | re.S):
         href, label = match.group(1), re.sub(r"<[^>]+>", " ", match.group(2))
         absolute = urljoin(page_url, html.unescape(href))
         if urlparse(absolute).scheme not in {"http", "https"}:
@@ -249,7 +250,8 @@ def archive_sources(csv_path, output_dir, fetcher=fetch_pdf, dry_run=False,
                             raise FileExistsError(f"Hash-named archive file unexpectedly differs: {destination}")
                     else:
                         destination.write_bytes(data)
-                    status = "mirror_copy_pending_official_comparison" if "official" not in source_type else "downloaded_pending_number_comparison"
+                    is_official = source_type.startswith(("registry_0_", "registry_1_", "registry_2_"))
+                    status = "downloaded_pending_number_comparison" if is_official else "mirror_copy_pending_official_comparison"
                     record = {
                         "date": draw_date, "draw": draw, "source_type": source_type,
                         "source_url": resolved_url, "discovery_url": landing_url,
