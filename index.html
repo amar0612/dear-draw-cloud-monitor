@@ -668,7 +668,7 @@
       window.__ddaCloudRowRejectReason = '';
       const reject = reason => { window.__ddaCloudRowRejectReason = reason; return null; };
       if (!row) return reject('missing row');
-      if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(String(row.draw_date || ''))) return reject('invalid draw_date');
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(String(row.draw_date || ''))) return reject('invalid draw_date');
       if (!['1PM', '8PM'].includes(row.draw_slot)) return reject('unexpected draw_slot');
 
       const prizes = row.prizes;
@@ -691,13 +691,13 @@
       const third = prizes['3rd'].map(String);
       const fourth = prizes['4th'].map(String);
       const fifth = prizes['5th'].map(String);
-      if (!/^\\d{2}[A-Z] \\d{5}$/.test(first)) return reject('1st prize format mismatch');
-      if (!/^\\d{5}$/.test(consolation)) return reject('Consolation format mismatch');
+      if (!/^\d{2}[A-Z] \d{5}$/.test(first)) return reject('1st prize format mismatch');
+      if (!/^\d{5}$/.test(consolation)) return reject('Consolation format mismatch');
       if (first.slice(-5) !== consolation) return reject('1st prize and consolation do not match');
-      if (!second.every(n => /^\\d{5}$/.test(n))) return reject('2nd prize number format mismatch');
-      if (!third.every(n => /^\\d{4}$/.test(n))) return reject('3rd prize number format mismatch');
-      if (!fourth.every(n => /^\\d{4}$/.test(n))) return reject('4th prize number format mismatch');
-      if (!fifth.every(n => /^\\d{4}$/.test(n))) return reject('5th prize number format mismatch');
+      if (!second.every(n => /^\d{5}$/.test(n))) return reject('2nd prize number format mismatch');
+      if (!third.every(n => /^\d{4}$/.test(n))) return reject('3rd prize number format mismatch');
+      if (!fourth.every(n => /^\d{4}$/.test(n))) return reject('4th prize number format mismatch');
+      if (!fifth.every(n => /^\d{4}$/.test(n))) return reject('5th prize number format mismatch');
 
       return normalizeDrawSchema({
         id: 'cloud_' + row.draw_date + '_' + row.draw_slot,
