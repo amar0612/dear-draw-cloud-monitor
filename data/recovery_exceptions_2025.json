@@ -69,7 +69,7 @@
       "detail": "Two 8PM PDFs and the lotterysambad.co daily result page agree on the 100-number 5th-tier list. The alternate Dhankesari page rendering is retained as a superseded candidate."
     }
   ],
-  "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Full-tier audit: 283 complete 132-entry sheets (37,356 prize rows), 441 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts (two resolved conflicts retained). All 12 monthly archive pages opened; 32 daily links tested, 26 parsed, six failed (Jan 26 and Oct 2 404; April 1 parse failures). Not every daily PDF link has been tested. 6PM excluded. Original PDF binaries were not preserved; no hashes claimed.",
+  "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Full-tier audit: 292 complete 132-entry sheets (38,544 prize rows), 432 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts (two resolved conflicts retained). All 12 monthly archive pages opened; 42 daily links tested, 35 parsed (31 new imports and four existing cross-checks), seven failed (Jan 26 and Oct 2 404; April 1 both PDFs and May 3 1PM parse failure). Not every daily PDF link has been tested. 6PM excluded. Original PDF binaries were not preserved; no hashes claimed.",
   "monthly_exceptions": [
     {
       "date": "2025-01-26",
@@ -203,6 +203,13 @@
       "issue": "Both direct PDF links are listed on the April 2025 lotterysambad.icu archive, but retrieval returned a PDF parse failure; first-prize chart entries remain imported, full tiers not extracted. URLs: https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwNDAxMtUrSEkDADG-BTI/1pm-01-04-2025.pdf and https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTcwNDAxMtUrSEkDADIgBTk/8pm-01-04-2025.pdf.",
       "status": "partial_extraction_review",
       "action": "Keep first-prize rows; retry these exact PDFs from alternate hosts or official gazette"
+    },
+    {
+      "date": "2025-05-03",
+      "draw": "1PM",
+      "issue": "The May 2025 lotterysambad.icu archive link failed PDF parsing on 2026-11-19. The first-prize chart entry remains imported as partial; no lower tiers inferred. URL: https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwNjA1MtUrSEkDADHXBTU/1pm-03-05-2025.pdf.",
+      "status": "partial_extraction_review",
+      "action": "Retry exact PDF from alternate archive or official gazette"
     }
   ],
   "last_updated": "2026-11-19",
