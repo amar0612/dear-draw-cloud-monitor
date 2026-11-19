@@ -77,8 +77,13 @@ jobs:
             fi
 
             if [ "$attempt" -lt "$MAX_ATTEMPTS" ]; then
-              echo "Result not published/available yet; retrying in 5 minutes."
-              sleep 300
+              if [ "$DRAW" = "8pm" ] && [ "$attempt" -lt 16 ]; then
+                echo "Result not published yet; fast polling: retrying in 1 minute (early window)."
+                sleep 60
+              else
+                echo "Result not published yet; standard polling: retrying in 5 minutes."
+                sleep 300
+              fi
             fi
           done
 
