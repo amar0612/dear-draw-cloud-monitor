@@ -69,7 +69,7 @@
       "detail": "Dhankesari page 5th-prize list differs from two matching 8PM PDFs; page version preserved separately."
     }
   ],
-  "note": "2025 first-prize CSVs audited on 2026-11-19: 724 rows (362 dates with both 1PM and 8PM); Jan 26, Aug 15 and Oct 2 remain unresolved for both draws. October CSV contains 60 rows (30 dates), correcting the prior manifest's stale 58-row count. 6PM excluded.",
+  "note": "2025 first-prize CSVs audited on 2026-11-19: 724 rows (362 dates with both 1PM and 8PM); Jan 26, Aug 15 and Oct 2 remain unresolved for both draws. October CSV contains 60 rows (30 dates), correcting the prior manifest's stale 58-row count. 6PM excluded. Additional full-tier extraction added 7 draws (924 entries) from March, May, July, August, September, October and November; total full-tier sheets now 16 (2,112 entries).",
   "monthly_exceptions": [
     {
       "date": "2025-01-26",
@@ -198,5 +198,17 @@
       "action": "Retry binary acquisition through alternate source hosts or repository workflows when feasible"
     }
   ],
-  "last_updated": "2026-11-19"
+  "last_updated": "2026-11-19",
+  "full_tier_extraction_2026_11_19": {
+    "draws_imported": 16,
+    "entries_imported": 2112,
+    "clean_full_sheet_draws": 14,
+    "source_conflict_draws": 2,
+    "files": [
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_b.csv",
+      "data/recovery_source_conflicts_2025-06-30.csv"
+    ],
+    "note": "All 16 sheets contain 132 extracted rows; June 30 1PM and 8PM have 2nd/5th tier source conflicts. Lower tiers on the 14 other sheets remain single-source pending review."
+  }
 }
