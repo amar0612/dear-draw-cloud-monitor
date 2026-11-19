@@ -1,4 +1,3 @@
-
 name: Validator Tests
 
 on:
@@ -23,31 +22,5 @@ jobs:
       - name: Preflight human-verified historical archive
         run: python monitor/validate_historical_csv.py data/human_verified_draws_2023-01.csv
 
-      - name: Try downloading the two official January source PDFs
-        continue-on-error: true
-        run: python monitor/archive_official_sources.py --csv data/human_verified_draws_2023-01.csv --output-dir official-source-archive
-
-      - name: Upload official source PDFs and acquisition manifest
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: nagaland-official-source-test
-          path: official-source-archive/
-          if-no-files-found: warn
-          retention-days: 30
-
-      - name: Discover sources for first 25 historical date/draw pairs
-        continue-on-error: true
-        run: python monitor/archive_official_sources.py --csv data/nagaland_master_prize_numbers.csv --output-dir historical-source-batch-000 --offset 0 --limit 25
-
-      - name: Upload first historical source batch
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: nagaland-source-batch-000
-          path: historical-source-batch-000/
-          if-no-files-found: warn
-          retention-days: 30
-
-      - name: Run validator tests
+      - name: Run validator and source-discovery unit tests
         run: python -m unittest -v monitor.test_validate_result monitor.test_human_verified_archive monitor.test_historical_csv_preflight monitor.test_archive_official_sources monitor.test_import_sambad_api
