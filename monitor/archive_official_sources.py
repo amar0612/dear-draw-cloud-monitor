@@ -137,8 +137,26 @@ def fetch_pdf(url, timeout=12):
     return data
 
 
+def _slot_is_compatible(value, draw):
+    """Reject explicitly labelled Sikkim 6PM and the other Nagaland slot."""
+    text = unquote(str(value)).lower().replace("%20", " ")
+    slots = set()
+    if re.search(r"(?<![0-9])6\\s?pm(?![a-z])|(?<![0-9])18:00(?![0-9])", text):
+        slots.add("6PM")
+    if re.search(r"(?<![0-9])1\\s?pm(?![a-z])|(?<![0-9])13:00(?![0-9])", text):
+        slots.add("1PM")
+    if re.search(r"(?<![0-9])8\\s?pm(?![a-z])|(?<![0-9])20:00(?![0-9])", text):
+        slots.add("8PM")
+    if "6PM" in slots:
+        return False
+    other = "8PM" if draw == "1PM" else "1PM"
+    return not (other in slots and draw not in slots)
+
+
 def _matching_link(href, label, draw_date, draw):
     joined = (unquote(href) + " " + html.unescape(label)).lower()
+    if not _slot_is_compatible(joined, draw):
+        return False
     d = date.fromisoformat(draw_date)
     tokens = _date_tokens(draw_date)
     compact = re.sub(r"[^0-9]", "", draw_date)
@@ -174,11 +192,12 @@ def _extract_links(page_bytes, page_url, draw_date, draw):
             continue
         parent_has_date = any(token in page_url.lower() for token in _date_tokens(draw_date))
         combined_link_text = (absolute + " " + label).lower()
-        wrong_slot = "8pm" if draw == "1PM" else "1pm"
-        date_page_pdf = parent_has_date and wrong_slot not in combined_link_text and (
+        date_page_pdf = parent_has_date and _slot_is_compatible(combined_link_text, draw) and (
             ".pdf" in absolute.lower() or "pdf" in label.lower() or draw.lower() in label.lower()
         )
-        if _matching_link(absolute, label, draw_date, draw) or date_page_pdf:
+        if _slot_is_compatible(combined_link_text, draw) and (
+            _matching_link(absolute, label, draw_date, draw) or date_page_pdf
+        ):
             found.append(absolute)
     return list(dict.fromkeys(found))
 
@@ -229,13 +248,17 @@ def archive_sources(csv_path, output_dir, fetcher=fetch_pdf, dry_run=False,
             identity = (draw_date, draw, landing_url)
             # Still re-fetch on reruns so new/changed source copies can be discovered.
             try:
+                print(f"[{draw_date} {draw}] CHECK {source_type} {landing_url}", flush=True)
                 payload = page_cache.get(landing_url)
                 if payload is None:
                     payload = fetcher(landing_url)
                     page_cache[landing_url] = payload
                 pdf_candidates = []
                 if isinstance(payload, (bytes, bytearray)) and payload.startswith(b"%PDF-"):
-                    pdf_candidates.append((landing_url, payload))
+                    if _slot_is_compatible(landing_url, draw):
+                        pdf_candidates.append((landing_url, payload))
+                    else:
+                        print(f"[{draw_date} {draw}] SKIP wrong-slot PDF {landing_url}", flush=True)
                 else:
                     # A landing/calendar page can expose date-specific result pages or PDFs.
                     links = _extract_links(payload, landing_url, draw_date, draw)
@@ -246,7 +269,10 @@ def archive_sources(csv_path, output_dir, fetcher=fetch_pdf, dry_run=False,
                                 child = fetcher(child_url)
                                 page_cache[child_url] = child
                             if isinstance(child, (bytes, bytearray)) and child.startswith(b"%PDF-"):
-                                pdf_candidates.append((child_url, child))
+                                if _slot_is_compatible(child_url, draw):
+                                    pdf_candidates.append((child_url, child))
+                                else:
+                                    print(f"[{draw_date} {draw}] SKIP wrong-slot PDF {child_url}", flush=True)
                             else:
                                 for pdf_url in _extract_links(child, child_url, draw_date, draw)[:30]:
                                     try:
@@ -255,7 +281,10 @@ def archive_sources(csv_path, output_dir, fetcher=fetch_pdf, dry_run=False,
                                             pdf_data = fetcher(pdf_url)
                                             page_cache[pdf_url] = pdf_data
                                         if isinstance(pdf_data, (bytes, bytearray)) and pdf_data.startswith(b"%PDF-"):
-                                            pdf_candidates.append((pdf_url, pdf_data))
+                                            if _slot_is_compatible(pdf_url, draw):
+                                                pdf_candidates.append((pdf_url, pdf_data))
+                                            else:
+                                                print(f"[{draw_date} {draw}] SKIP wrong-slot PDF {pdf_url}", flush=True)
                                     except Exception as nested_error:
                                         failures.append({"source_type": source_type, "url": pdf_url, "error": str(nested_error)})
                         except Exception as child_error:
@@ -284,7 +313,10 @@ def archive_sources(csv_path, output_dir, fetcher=fetch_pdf, dry_run=False,
                     rec_identity = (draw_date, draw, resolved_url)
                     known[rec_identity] = record
                     successful.append(record)
+                for resolved_url, data in pdf_candidates:
+                    print(f"[{draw_date} {draw}] PDF {len(data)} bytes {resolved_url}", flush=True)
             except Exception as error:
+                print(f"[{draw_date} {draw}] ERROR {source_type} {landing_url}: {error}", flush=True)
                 failures.append({"source_type": source_type, "url": landing_url, "error": str(error)})
 
         # Add a per-source failure row only where no source record already exists.
@@ -311,6 +343,7 @@ def archive_sources(csv_path, output_dir, fetcher=fetch_pdf, dry_run=False,
             "attempts": failures,
         }
         results.append({**summary, "copies": successful})
+        print(f"[{draw_date} {draw}] SUMMARY candidates={len(candidates)} PDFs={len(successful)} hashes={len(hashes)} status={summary['comparison_status']}", flush=True)
         known[(draw_date, draw, "__summary__")] = summary
 
     if not dry_run:
