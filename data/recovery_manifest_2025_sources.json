@@ -68,14 +68,14 @@
       "domain": "lotterysambad.co",
       "type": "daily and monthly result archive with full 1PM/8PM tier tables",
       "index_url": "https://lotterysambad.co/2025/",
-      "status": "January–October daily result pages used for discovery and PDF link navigation; 6PM results excluded from imports.",
+      "status": "January–October daily result pages used for discovery and PDF link navigation; 6PM results excluded from imports. 2025-04-18 1PM and 8PM full-result pages and linked PDFs were opened and extracted; 6PM content was excluded.",
       "retrieval_date": "2026-11-19"
     },
     {
       "domain": "o.vcdn.cc",
       "type": "daily PDF host linked from lotterysambad.co full-result pages",
       "index_url": "https://o.vcdn.cc/Dear/MN310125.PDF",
-      "status": "54 daily PDFs opened and text-extracted by 2026-11-19, covering February and March batches. Binary downloads were not preserved.",
+      "status": "54 daily PDFs opened and text-extracted by 2026-11-19, covering February and March batches. Binary downloads were not preserved. Additional 2025-04-18 PDFs extracted: MN180425.PDF (1PM) and EN180425.PDF (8PM); binary files not preserved.",
       "retrieval_date": "2026-11-19"
     },
     {
@@ -99,7 +99,7 @@
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
       "full_tier_recovery": "60 full sheets (7,920 entries) extracted for Jan 1–25 and Jan 27–31. Jan 26 both draws unresolved.",
-      "pdf_extraction": "partial; full-tier extraction continues",
+      "pdf_extraction": "partial with unresolved slots; 60 full 132-entry sheets (7920 entries), 0 first-prize-only slots, 2 unresolved draw slots.",
       "full_tier_draws": 60,
       "full_tier_entries": 7920,
       "partial_draws": 0,
@@ -119,7 +119,7 @@
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
       "full_tier_recovery": "All 56 draw sheets for Feb 1–28 (both 1PM and 8PM) extracted as 132-entry sheets. First prizes matched to yearly chart sources; consolation and 2nd–5th tiers remain single-source pending review. PDFs opened and text-extracted; binary files and SHA-256 hashes not preserved.",
-      "pdf_extraction": "complete 132-entry extraction for all 56 draw slots; lower tiers single-source pending review",
+      "pdf_extraction": "56 full 132-entry sheets (7392 entries), 0 first-prize-only slots, 0 unresolved draw slots.",
       "full_tier_draws": 56,
       "full_tier_entries": 7392,
       "partial_draws": 0,
@@ -139,7 +139,7 @@
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
       "full_tier_recovery": "26 full sheets (3,432 entries): Mar 1 1PM; Mar 5 8PM; Mar 11,12,13,14,16,17,18,19,27,28 and 31 both draws where extracted; Mar 21 1PM; Mar 22 1PM. Remaining 36 draw slots first-prize-only.",
-      "pdf_extraction": "partial; 26 full sheets (3,432 entries), 36 first-prize-only draw slots",
+      "pdf_extraction": "26 full 132-entry sheets (3432 entries), 36 first-prize-only slots, 0 unresolved draw slots.",
       "full_tier_draws": 26,
       "full_tier_entries": 3432,
       "partial_draws": 36,
@@ -158,16 +158,16 @@
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "10 full sheets (1,320 entries): Apr 4 1PM; Apr 5 both; Apr 14 8PM; Apr 15 1PM; Apr 21 8PM; Apr 24 1PM; Apr 28 1PM; Apr 30 both. Remaining 50 draw slots first-prize-only.",
-      "pdf_extraction": "partial; 10 full sheets (1,320 entries), 50 first-prize-only draw slots",
-      "full_tier_draws": 15,
-      "full_tier_entries": 1980,
-      "partial_draws": 50,
+      "full_tier_recovery": "17 full 132-entry sheets (2,244 entries), including Apr 18 both 1PM and 8PM extracted from MN180425.PDF and EN180425.PDF hosted at o.vcdn.cc. First-prize values (61D 93542 and 86H 49375) match the Goodreturns and KLLotteryResults 2025 charts. The remaining 43 known draw slots remain first-prize-only.",
+      "pdf_extraction": "17 full 132-entry sheets (2244 entries), 43 first-prize-only slots, 0 unresolved draw slots.",
+      "full_tier_draws": 17,
+      "full_tier_entries": 2244,
+      "partial_draws": 43,
       "unresolved_draws": 0,
       "full_tier_new_draws_2026_11_19_ac2": 2,
       "full_tier_expected_draw_slots": 60,
       "full_tier_unresolved_draw_slots": 0,
-      "partial_first_prize_only_slots": 45
+      "partial_first_prize_only_slots": 43
     },
     {
       "month": "may",
@@ -180,10 +180,10 @@
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
       "full_tier_recovery": "4 full sheets (528 entries): May 8 1PM, May 12 both, May 22 1PM. Remaining 58 draw slots first-prize-only.",
-      "pdf_extraction": "partial; 4 full sheets (528 entries), 58 first-prize-only draw slots",
+      "pdf_extraction": "19 full 132-entry sheets (2508 entries), 43 first-prize-only slots, 0 unresolved draw slots.",
       "full_tier_draws": 19,
       "full_tier_entries": 2508,
-      "partial_draws": 58,
+      "partial_draws": 43,
       "unresolved_draws": 0,
       "full_tier_new_draws_2026_11_19_ab": 2,
       "full_tier_new_draws_2026_11_19_ac2": 2,
@@ -201,11 +201,11 @@
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
       "full_tier_recovery": "6 full sheets (792 entries): Jun 6 both, Jun 19 both, Jun 30 both. Remaining 54 draw slots first-prize-only.",
-      "pdf_extraction": "partial; 6 full sheets (792 entries), 54 first-prize-only draw slots",
+      "pdf_extraction": "16 full 132-entry sheets (2112 entries), 44 first-prize-only slots, 0 unresolved draw slots.",
       "archive_url": "https://lotterysambad.icu/old-result/june-2025",
       "full_tier_draws": 16,
       "full_tier_entries": 2112,
-      "partial_draws": 54,
+      "partial_draws": 44,
       "unresolved_draws": 0,
       "full_tier_new_draws_2026_11_19_ab": 2,
       "full_tier_new_draws_2026_11_19_ac2": 2,
@@ -226,9 +226,9 @@
       "notes": "July 7 8PM, July 17 1PM and July 27 1PM daily PDFs located as examples; continue extracting full tiers",
       "full_tier_draws": 27,
       "full_tier_entries": 3564,
-      "partial_draws": 59,
+      "partial_draws": 35,
       "unresolved_draws": 0,
-      "pdf_extraction": "partial; 3 full sheets (396 entries), 59 first-prize-only draw slots",
+      "pdf_extraction": "27 full 132-entry sheets (3564 entries), 35 first-prize-only slots, 0 unresolved draw slots.",
       "full_tier_new_draws_2026_11_19_ab": 2,
       "full_tier_new_draws_2026_11_19_ac2": 2,
       "full_tier_expected_draw_slots": 62,
@@ -248,9 +248,9 @@
       "notes": "August 15 unresolved/blank in chart sources; no numbers invented",
       "full_tier_draws": 28,
       "full_tier_entries": 3696,
-      "partial_draws": 55,
+      "partial_draws": 32,
       "unresolved_draws": 2,
-      "pdf_extraction": "partial; 5 full sheets (660 entries), 55 first-prize-only draw slots, 2 unresolved",
+      "pdf_extraction": "partial with unresolved slots; 28 full 132-entry sheets (3696 entries), 32 first-prize-only slots, 2 unresolved draw slots.",
       "full_tier_new_draws_2026_11_19_ab": 2,
       "full_tier_new_draws_2026_11_19_ac2": 2,
       "full_tier_expected_draw_slots": 62,
@@ -269,9 +269,9 @@
       "full_tier_recovery": "5 full sheets (660 entries): Sep 3 1PM, Sep 6 1PM, Sep 28 8PM, Sep 30 both. Remaining 55 draw slots first-prize-only.",
       "full_tier_draws": 23,
       "full_tier_entries": 3036,
-      "partial_draws": 55,
+      "partial_draws": 37,
       "unresolved_draws": 0,
-      "pdf_extraction": "partial; 5 full sheets (660 entries), 55 first-prize-only draw slots",
+      "pdf_extraction": "23 full 132-entry sheets (3036 entries), 37 first-prize-only slots, 0 unresolved draw slots.",
       "full_tier_expected_draw_slots": 60,
       "full_tier_unresolved_draw_slots": 0,
       "partial_first_prize_only_slots": 37
@@ -289,9 +289,9 @@
       "notes": "October 2 unresolved; no inference of no draw",
       "full_tier_draws": 26,
       "full_tier_entries": 3432,
-      "partial_draws": 52,
+      "partial_draws": 34,
       "unresolved_draws": 2,
-      "pdf_extraction": "partial; 8 full sheets (1,056 entries), 52 first-prize-only draw slots, 2 unresolved",
+      "pdf_extraction": "partial with unresolved slots; 26 full 132-entry sheets (3432 entries), 34 first-prize-only slots, 2 unresolved draw slots.",
       "full_tier_expected_draw_slots": 62,
       "full_tier_unresolved_draw_slots": 2,
       "partial_first_prize_only_slots": 34
@@ -310,9 +310,9 @@
       "notes": "November 15 1PM official-style PDF indexed at lotterysambadresult.in",
       "full_tier_draws": 16,
       "full_tier_entries": 2112,
-      "partial_draws": 54,
+      "partial_draws": 44,
       "unresolved_draws": 0,
-      "pdf_extraction": "partial; 6 full sheets (792 entries), 54 first-prize-only draw slots",
+      "pdf_extraction": "16 full 132-entry sheets (2112 entries), 44 first-prize-only slots, 0 unresolved draw slots.",
       "full_tier_expected_draw_slots": 60,
       "full_tier_unresolved_draw_slots": 0,
       "partial_first_prize_only_slots": 44
@@ -332,7 +332,7 @@
       "full_tier_entries": 8184,
       "partial_draws": 0,
       "unresolved_draws": 0,
-      "pdf_extraction": "complete; all 62 draw slots, 8,184 entries; Dec 3 8PM sourced from alternate archive",
+      "pdf_extraction": "62 full 132-entry sheets (8184 entries), 0 first-prize-only slots, 0 unresolved draw slots.",
       "full_tier_expected_draw_slots": 62,
       "full_tier_unresolved_draw_slots": 0,
       "partial_first_prize_only_slots": 0
@@ -1317,6 +1317,20 @@
       "retrieval_date": "2026-11-19",
       "binary_pdf_preserved": false,
       "sha256_calculated": false
+    },
+    {
+      "date": "2025-04-18",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN180425.PDF",
+      "status": "opened_text_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-04-18",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN180425.PDF",
+      "status": "opened_text_extracted",
+      "retrieval_date": "2026-11-19"
     }
   ],
   "policy": "No fabricated entries. Full prize-tier extraction required for complete status. Retain partial first-prize candidates separately. Broken URLs do not prove no draw.",
@@ -1820,9 +1834,9 @@
   },
   "official_first_prize_crosscheck_file": "data/recovered_draws_2025_official_first_prize_crosschecks_2026-11-19.csv",
   "full_tier_extraction_2026_11_19": {
-    "draws_imported": 374,
-    "entries_imported": 49368,
-    "clean_full_sheet_draws": 374,
+    "draws_imported": 376,
+    "entries_imported": 49632,
+    "clean_full_sheet_draws": 376,
     "source_conflict_draws": 0,
     "files": [
       "data/recovered_draws_2025-01-01-1pm-full.csv",
@@ -1887,11 +1901,15 @@
       "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_w.csv",
       "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_x.csv",
       "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_y.csv",
-      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_z.csv"
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_z.csv",
+      "data/recovered_draws_2025-04-18-full.csv"
     ],
-    "note": "374 unique full-tier draw sheets contain 132 rows each (49,368 prize entries). Of 730 expected 1PM/8PM slots, 724 have first-prize records: 374 complete full-tier sheets and 350 first-prize-only partial slots; six slots remain unresolved (Jan 26, Aug 15, Oct 2; both draws). Zero unresolved source conflicts; two resolved conflicts retained. First-prize values are cross-source matched where charts are available; lower tiers on archive PDFs remain single-source pending review. All 12 monthly archive index pages were opened. One hundred and forty-two daily PDF links were tested: 129 parsed (113 new full sheets imported, 11 existing sheets re-opened from the same archive, five independent additional PDF cross-checks); 13 failed (Jan 26 and Oct 2 both 404; April 1 both PDFs and May 3, May 5, May 7, May 10, May 11 both, May 12 8PM PDFs failed parsing). Not every daily link has been tested. Original PDF binaries could not be preserved; no SHA-256 hashes are claimed.",
-    "partial_draws": 350,
-    "unresolved_draws": 6
+    "note": "376 unique full-tier draw sheets contain 132 rows each (49,632 prize entries). Of 730 expected 1PM/8PM slots, 724 have first-prize records: 376 complete full-tier sheets and 348 first-prize-only partial slots; six slots remain unresolved (Jan 26, Aug 15, Oct 2; both draws). Zero unresolved source conflicts; two resolved conflicts retained. First-prize values are cross-source matched where charts are available; lower tiers on archive PDFs remain single-source pending review. All 12 monthly archive index pages were opened. 142 daily PDF links from lotterysambad.icu were tested in the prior batch; additional 18 Apr 2025 1PM/8PM PDFs from o.vcdn.cc were opened and extracted in this run. Not every daily link has been tested. Original PDF binaries could not be preserved; no SHA-256 hashes are claimed.",
+    "partial_draws": 348,
+    "unresolved_draws": 6,
+    "new_draws_this_run": 2,
+    "new_entries_this_run": 264,
+    "retrieval_date": "2026-11-19"
   },
   "february_full_tier_recovery": {
     "draws_recovered": 56,
@@ -2177,7 +2195,7 @@
     "2025-10-11 1PM",
     "2025-10-11 8PM"
   ],
-  "full_tier_partial_draws": 350,
+  "full_tier_partial_draws": 348,
   "full_tier_unresolved_draws": 6,
   "full_tier_batch_2026_11_19_ac": {
     "file": "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_ac.csv",
@@ -2470,6 +2488,24 @@
       "consolation_and_lower_tiers": "single_source_pending_review"
     },
     "source_type": "lotterysambad.icu daily PDFs; first-prize values cross-checked against Goodreturns and KLLotteryResults yearly charts",
+    "retrieval_date": "2026-11-19",
+    "binary_pdf_preserved": false,
+    "sha256_calculated": false
+  },
+  "full_tier_batch_2026_11_19_aq": {
+    "file": "data/recovered_draws_2025-04-18-full.csv",
+    "draws": 2,
+    "entries": 264,
+    "expected_entries_per_draw": 132,
+    "draws_list": [
+      "2025-04-18 1PM",
+      "2025-04-18 8PM"
+    ],
+    "tier_status_summary": {
+      "first": "two_source_matched",
+      "consolation_and_lower_tiers": "single_source_pending_review"
+    },
+    "source_type": "lotterysambad.co daily full-result page and linked o.vcdn.cc PDFs; first-prize chart cross-check against Goodreturns and KLLotteryResults",
     "retrieval_date": "2026-11-19",
     "binary_pdf_preserved": false,
     "sha256_calculated": false
