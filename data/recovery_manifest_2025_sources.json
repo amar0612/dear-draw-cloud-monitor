@@ -7,7 +7,7 @@
       "domain": "lotterysambad.icu",
       "index_url": "https://lotterysambad.icu/old-result",
       "type": "daily PDF archive",
-      "status": "December 1–30 monthly archive PDFs opened and text-extracted for 1PM/8PM; Dec 3 8PM link failed and was replaced by an alternate source on lotterysambads.net. Dec 31 sheets already recovered. 6PM excluded."
+      "status": "Monthly archive pages January–December 2025 opened on 2026-11-19. Jan 26 1PM and 8PM links explicitly returned 404. Eight additional full-tier sheets extracted from May 1 (both), June 1 (both), July 1 (both), and August 2 (both). Other previously extracted PDFs and unresolved dates remain itemized in manifest/exceptions. 6PM excluded."
     },
     {
       "domain": "goodreturns.in",
@@ -168,10 +168,11 @@
       ],
       "full_tier_recovery": "4 full sheets (528 entries): May 8 1PM, May 12 both, May 22 1PM. Remaining 58 draw slots first-prize-only.",
       "pdf_extraction": "partial; 4 full sheets (528 entries), 58 first-prize-only draw slots",
-      "full_tier_draws": 4,
-      "full_tier_entries": 528,
+      "full_tier_draws": 6,
+      "full_tier_entries": 792,
       "partial_draws": 58,
-      "unresolved_draws": 0
+      "unresolved_draws": 0,
+      "full_tier_new_draws_2026_11_19_ab": 2
     },
     {
       "month": "june",
@@ -185,10 +186,11 @@
       "full_tier_recovery": "6 full sheets (792 entries): Jun 6 both, Jun 19 both, Jun 30 both. Remaining 54 draw slots first-prize-only.",
       "pdf_extraction": "partial; 6 full sheets (792 entries), 54 first-prize-only draw slots",
       "archive_url": "https://lotterysambad.icu/old-result/june-2025",
-      "full_tier_draws": 6,
-      "full_tier_entries": 792,
+      "full_tier_draws": 8,
+      "full_tier_entries": 1056,
       "partial_draws": 54,
-      "unresolved_draws": 0
+      "unresolved_draws": 0,
+      "full_tier_new_draws_2026_11_19_ab": 2
     },
     {
       "month": "july",
@@ -201,11 +203,12 @@
       ],
       "full_tier_recovery": "3 full sheets (396 entries): Jul 23 both and Jul 31 1PM. Remaining 59 draw slots first-prize-only.",
       "notes": "July 7 8PM, July 17 1PM and July 27 1PM daily PDFs located as examples; continue extracting full tiers",
-      "full_tier_draws": 3,
-      "full_tier_entries": 396,
+      "full_tier_draws": 5,
+      "full_tier_entries": 660,
       "partial_draws": 59,
       "unresolved_draws": 0,
-      "pdf_extraction": "partial; 3 full sheets (396 entries), 59 first-prize-only draw slots"
+      "pdf_extraction": "partial; 3 full sheets (396 entries), 59 first-prize-only draw slots",
+      "full_tier_new_draws_2026_11_19_ab": 2
     },
     {
       "month": "august",
@@ -218,11 +221,12 @@
       ],
       "full_tier_recovery": "5 full sheets (660 entries): Aug 1 8PM, Aug 9 1PM, Aug 16 8PM, Aug 21 1PM, Aug 23 1PM. Aug 15 both draws unresolved; remaining 55 known draw slots first-prize-only.",
       "notes": "August 15 unresolved/blank in chart sources; no numbers invented",
-      "full_tier_draws": 5,
-      "full_tier_entries": 660,
+      "full_tier_draws": 7,
+      "full_tier_entries": 924,
       "partial_draws": 55,
       "unresolved_draws": 2,
-      "pdf_extraction": "partial; 5 full sheets (660 entries), 55 first-prize-only draw slots, 2 unresolved"
+      "pdf_extraction": "partial; 5 full sheets (660 entries), 55 first-prize-only draw slots, 2 unresolved",
+      "full_tier_new_draws_2026_11_19_ab": 2
     },
     {
       "month": "september",
@@ -1479,9 +1483,9 @@
     "binary_pdf_preserved": false,
     "sha256_calculated": false
   },
-  "full_tier_total_draws": 88,
-  "full_tier_total_entries": 11616,
-  "full_tier_clean_tier_count_draws": 88,
+  "full_tier_total_draws": 259,
+  "full_tier_total_entries": 34188,
+  "full_tier_clean_tier_count_draws": 259,
   "full_tier_source_conflict_draws": 0,
   "full_tier_batch_2026_11_19_c": {
     "file": "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_c.csv",
@@ -1775,9 +1779,9 @@
   },
   "official_first_prize_crosscheck_file": "data/recovered_draws_2025_official_first_prize_crosschecks_2026-11-19.csv",
   "full_tier_extraction_2026_11_19": {
-    "draws_imported": 251,
-    "entries_imported": 33132,
-    "clean_full_sheet_draws": 251,
+    "draws_imported": 259,
+    "entries_imported": 34188,
+    "clean_full_sheet_draws": 259,
     "source_conflict_draws": 0,
     "files": [
       "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_d.csv",
@@ -1805,10 +1809,11 @@
       "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_y.csv",
       "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_z.csv",
       "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_aa.csv",
-      "data/recovered_draws_2025-12-03-8pm-full.csv"
+      "data/recovered_draws_2025-12-03-8pm-full.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_ab.csv"
     ],
-    "note": "251 unique full-tier draw sheets contain 132 rows each (33,132 prize entries). First-prize values are matched against yearly charts where available; lower tiers on newly extracted sheets remain single-source pending review. 473 known draw slots remain first-prize-only; six draw slots unresolved (Jan 26, Aug 15, Oct 2; both 1PM/8PM). No unresolved source conflicts. All 12 months have been searched and contain at least some full-tier recovery, but source discovery is not exhausted. PDF source URLs and retrieval date are retained per row. Original binary downloads failed; no SHA-256 hashes are claimed.",
-    "partial_draws": 473,
+    "note": "259 unique full-tier draw sheets contain 132 rows each (34,188 prize entries). First-prize values are cross-source matched to the yearly chart where listed; consolation and lower tiers on newly extracted sheets remain single-source pending review. 465 known draw slots remain first-prize-only; six draw slots unresolved (Jan 26, Aug 15, Oct 2; both 1PM/8PM). No unresolved source conflicts. All 12 months have been searched and have full-tier recovery, but daily source-link discovery/extraction is not exhausted. PDF source URLs and retrieval date are retained per row. Original binary downloads failed; no SHA-256 hashes are claimed.",
+    "partial_draws": 465,
     "unresolved_draws": 6
   },
   "february_full_tier_recovery": {
@@ -1826,5 +1831,103 @@
     "unresolved_draws": [],
     "coverage": "Mar 5 8PM, Mar 13 both draws, Mar 14 both draws, Mar 21 1PM; all other March draw slots have first-prize-only extraction.",
     "source": "o.vcdn.cc PDFs linked from lotterysambad.co and lotterysambadresult.in 2025-03-21 1PM PDF."
-  }
+  },
+  "full_tier_batch_2026_11_19_ab": {
+    "file": "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_ab.csv",
+    "draws": 8,
+    "entries": 1056,
+    "expected_entries_per_draw": 132,
+    "draws_list": [
+      "2025-05-01 1PM",
+      "2025-05-01 8PM",
+      "2025-06-01 1PM",
+      "2025-06-01 8PM",
+      "2025-07-01 1PM",
+      "2025-07-01 8PM",
+      "2025-08-02 1PM",
+      "2025-08-02 8PM"
+    ],
+    "tier_status_summary": {
+      "first": "cross_source_matched",
+      "consolation_and_lower_tiers": "single_source_pending_review"
+    },
+    "source_type": "lotterysambad.icu daily PDF archive; first-prize chart cross-check against KLLotteryResults 2025",
+    "retrieval_date": "2026-11-19",
+    "binary_pdf_preserved": false,
+    "sha256_calculated": false
+  },
+  "lotterysambad_icu_month_pages": [
+    {
+      "month": "january",
+      "url": "https://lotterysambad.icu/old-result/january-2025",
+      "retrieval_date": "2026-11-19",
+      "status": "monthly archive page opened; daily 1PM/8PM PDF links enumerated; not every daily PDF individually tested"
+    },
+    {
+      "month": "february",
+      "url": "https://lotterysambad.icu/old-result/february-2025",
+      "retrieval_date": "2026-11-19",
+      "status": "monthly archive page opened; daily 1PM/8PM PDF links enumerated; not every daily PDF individually tested"
+    },
+    {
+      "month": "march",
+      "url": "https://lotterysambad.icu/old-result/march-2025",
+      "retrieval_date": "2026-11-19",
+      "status": "monthly archive page opened; daily 1PM/8PM PDF links enumerated; not every daily PDF individually tested"
+    },
+    {
+      "month": "april",
+      "url": "https://lotterysambad.icu/old-result/april-2025",
+      "retrieval_date": "2026-11-19",
+      "status": "monthly archive page opened; daily 1PM/8PM PDF links enumerated; not every daily PDF individually tested"
+    },
+    {
+      "month": "may",
+      "url": "https://lotterysambad.icu/old-result/may-2025",
+      "retrieval_date": "2026-11-19",
+      "status": "monthly archive page opened; daily 1PM/8PM PDF links enumerated; not every daily PDF individually tested"
+    },
+    {
+      "month": "june",
+      "url": "https://lotterysambad.icu/old-result/june-2025",
+      "retrieval_date": "2026-11-19",
+      "status": "monthly archive page opened; daily 1PM/8PM PDF links enumerated; not every daily PDF individually tested"
+    },
+    {
+      "month": "july",
+      "url": "https://lotterysambad.icu/old-result/july-2025",
+      "retrieval_date": "2026-11-19",
+      "status": "monthly archive page opened; daily 1PM/8PM PDF links enumerated; not every daily PDF individually tested"
+    },
+    {
+      "month": "august",
+      "url": "https://lotterysambad.icu/old-result/august-2025",
+      "retrieval_date": "2026-11-19",
+      "status": "monthly archive page opened; daily 1PM/8PM PDF links enumerated; not every daily PDF individually tested"
+    },
+    {
+      "month": "september",
+      "url": "https://lotterysambad.icu/old-result/september-2025",
+      "retrieval_date": "2026-11-19",
+      "status": "monthly archive page opened; daily 1PM/8PM PDF links enumerated; not every daily PDF individually tested"
+    },
+    {
+      "month": "october",
+      "url": "https://lotterysambad.icu/old-result/october-2025",
+      "retrieval_date": "2026-11-19",
+      "status": "monthly archive page opened; daily 1PM/8PM PDF links enumerated; not every daily PDF individually tested"
+    },
+    {
+      "month": "november",
+      "url": "https://lotterysambad.icu/old-result/november-2025",
+      "retrieval_date": "2026-11-19",
+      "status": "monthly archive page opened; daily 1PM/8PM PDF links enumerated; not every daily PDF individually tested"
+    },
+    {
+      "month": "december",
+      "url": "https://lotterysambad.icu/old-result/december-2025",
+      "retrieval_date": "2026-11-19",
+      "status": "monthly archive page opened; daily 1PM/8PM PDF links enumerated; not every daily PDF individually tested"
+    }
+  ]
 }
