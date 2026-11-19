@@ -95,7 +95,7 @@
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "Full result PDFs independently located for 5 March 8PM, 14 March 8PM, and 21 March 1PM; not yet imported",
+      "full_tier_recovery": "2025-03-05 8PM full sheet extracted; other indexed March PDFs remain queued.",
       "pdf_extraction": "first-prize only; full-tier recovery continues"
     },
     {
@@ -121,7 +121,7 @@
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "22 May 2025 1PM full-result PDF located independently at nagalandstatelotterysambad.com and lotterysambadresult.in; remaining May full-tier PDFs not yet enumerated/imported",
+      "full_tier_recovery": "2025-05-22 1PM full sheet extracted from nagalandstatelotterysambad.com; remaining May PDFs remain queued.",
       "pdf_extraction": "first-prize only; 22 May 1PM full PDF available for extraction"
     },
     {
@@ -146,7 +146,7 @@
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "Daily PDFs found for some dates; full-tier extraction not completed in this checkpoint",
+      "full_tier_recovery": "2025-07-31 1PM full sheet extracted; selected additional July PDFs remain queued.",
       "notes": "July 7 8PM, July 17 1PM and July 27 1PM daily PDFs located as examples; continue extracting full tiers"
     },
     {
@@ -158,7 +158,7 @@
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://www.kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "Full-tier PDFs found for August 9 1PM, August 21 1PM, August 23 1PM; extraction remains pending",
+      "full_tier_recovery": "2025-08-09 1PM full sheet extracted; 2025-08-21 and 08-23 1PM PDFs also opened and queued for extraction.",
       "notes": "August 15 unresolved/blank in chart sources; no numbers invented"
     },
     {
@@ -170,7 +170,7 @@
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "No full-tier PDFs extracted in this checkpoint"
+      "full_tier_recovery": "2025-09-30 1PM full sheet extracted; 8PM PDF opened and queued for extraction."
     },
     {
       "month": "october",
@@ -181,7 +181,7 @@
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "Full-tier PDFs opened and extracted for 2025-10-31 1PM and 8PM in the 2026-11-19 batch.",
+      "full_tier_recovery": "2025-10-31 1PM full sheet extracted; 8PM PDF opened and queued for extraction.",
       "notes": "October 2 unresolved; no inference of no draw"
     },
     {
@@ -194,7 +194,7 @@
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "2025-11-15 1PM and 2025-11-30 both draws PDFs opened; full-tier extraction queued.",
+      "full_tier_recovery": "2025-11-15 1PM full sheet extracted; 2025-11-30 both draw PDFs opened and queued for extraction.",
       "notes": "November 15 1PM official-style PDF indexed at lotterysambadresult.in"
     },
     {
@@ -376,6 +376,98 @@
       "draw": "8PM",
       "url": "https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTc2NDQyMtUrSEkDADI4BTs/8pm-31-12-2025.pdf",
       "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-03-05",
+      "draw": "8PM",
+      "url": "https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTcwNTA2MtUrSEkDADI9BTw/8pm-05-03-2025.pdf",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-05-22",
+      "draw": "1PM",
+      "url": "https://nagalandstatelotterysambad.com/wp-content/uploads/2025/05/MD220525.pdf",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19",
+      "independent_duplicate": "https://lotterysambadresult.in/wp-content/uploads/2025/05/MD220525.pdf"
+    },
+    {
+      "date": "2025-07-31",
+      "draw": "1PM",
+      "url": "https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTc2NDA3MtUrSEkDADHxBTg/1pm-31-07-2025.pdf",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-08-09",
+      "draw": "1PM",
+      "url": "https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTewNLAwMtUrSEkDADIiBT4/1pm-09-08-2025.pdf",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-09-30",
+      "draw": "1PM",
+      "url": "https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTc2MLA0MtUrSEkDADH2BTk/1pm-30-09-2025.pdf",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-10-31",
+      "draw": "1PM",
+      "url": "https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTc2NDQwMtUrSEkDADHGBTI/1pm-31-10-2025.pdf",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-11-15",
+      "draw": "1PM",
+      "url": "https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTc2NTQ0MtUrSEkDADHfBTU/1pm-15-11-2025.pdf",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-08-21",
+      "draw": "1PM",
+      "url": "https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcyNLAwMtUrSEkDADHuBTg/1pm-21-08-2025.pdf",
+      "status": "opened_not_yet_imported",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-08-23",
+      "draw": "1PM",
+      "url": "https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcyNrAwMtUrSEkDADIABTo/1pm-23-08-2025.pdf",
+      "status": "opened_not_yet_imported",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-11-30",
+      "draw": "1PM",
+      "url": "https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTc2NDQwMtUrSEkDADHIBTI/1pm-30-11-2025.pdf",
+      "status": "opened_not_yet_imported",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-11-30",
+      "draw": "8PM",
+      "url": "https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTc2MDQ0MtUrSEkDADIoBTk/8pm-30-11-2025.pdf",
+      "status": "opened_not_yet_imported",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-10-31",
+      "draw": "8PM",
+      "url": "https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTcyNDQwMtUrSEkDADHGBTI/8pm-31-10-2025.pdf",
+      "status": "opened_not_yet_imported",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-09-30",
+      "draw": "8PM",
+      "url": "https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTc2MLA0MtUrSEkDADJYBUA/8pm-30-09-2025.pdf",
+      "status": "opened_not_yet_imported",
       "retrieval_date": "2026-11-19"
     }
   ],
@@ -560,5 +652,31 @@
     "success": false,
     "sha256_calculated": false,
     "reason": "Direct binary downloads from 7dear.in and lotterysambad.icu failed in the runtime; PDF text was extracted through web-accessible PDF indexing."
-  }
+  },
+  "full_tier_batch_2026_11_19_b": {
+    "file": "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_b.csv",
+    "draws": 7,
+    "entries": 924,
+    "expected_entries_per_draw": 132,
+    "draws_list": [
+      "2025-03-05 8PM",
+      "2025-05-22 1PM",
+      "2025-07-31 1PM",
+      "2025-08-09 1PM",
+      "2025-09-30 1PM",
+      "2025-10-31 1PM",
+      "2025-11-15 1PM"
+    ],
+    "tier_status_summary": {
+      "first": "cross_source_matched",
+      "consolation_and_lower_tiers": "single_source_pending_review"
+    },
+    "retrieval_date": "2026-11-19",
+    "binary_pdf_preserved": false,
+    "sha256_calculated": false
+  },
+  "full_tier_total_draws": 16,
+  "full_tier_total_entries": 2112,
+  "full_tier_clean_tier_count_draws": 14,
+  "full_tier_source_conflict_draws": 2
 }
