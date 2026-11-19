@@ -61,7 +61,7 @@
       "domain": "nagalandlotteries.com",
       "type": "official Government of Nagaland Directorate of State Lotteries gazette PDFs",
       "index_url": "https://www.nagalandlotteries.com/results.php",
-      "status": "11 official 2025 full sheets extracted from Government of Nagaland gazette PDFs; first-prize values cross-matched against Goodreturns and KLLotteryResults where available.",
+      "status": "13 official 2025 full sheets extracted from Government of Nagaland gazette PDFs; first-prize values cross-matched against Goodreturns and KLLotteryResults where available.",
       "retrieval_date": "2026-11-19"
     },
     {
@@ -266,15 +266,15 @@
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "26 full 132-entry sheets (3432 entries); 34 first-prize-only known draw slots; 0 unresolved draw slots. Newly recovered: Sep 25 both draws and Sep 26 1PM.",
-      "full_tier_draws": 26,
-      "full_tier_entries": 3432,
-      "partial_draws": 34,
+      "full_tier_recovery": "27 full 132-entry sheets (3564 entries); 33 first-prize-only known draw slots; 0 unresolved draw slots. Newly recovered: Sep 15 8PM, Sep 25 both draws and Sep 26 1PM.",
+      "full_tier_draws": 27,
+      "full_tier_entries": 3564,
+      "partial_draws": 33,
       "unresolved_draws": 0,
-      "pdf_extraction": "26 full sheets (3432 entries), 34 first-prize-only partial slots, 0 unresolved slots.",
+      "pdf_extraction": "27 full sheets (3564 entries), 33 first-prize-only partial slots, 0 unresolved slots.",
       "full_tier_expected_draw_slots": 60,
       "full_tier_unresolved_draw_slots": 0,
-      "partial_first_prize_only_slots": 34
+      "partial_first_prize_only_slots": 33
     },
     {
       "month": "october",
@@ -285,16 +285,16 @@
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "28 full 132-entry sheets (3696 entries); 32 first-prize-only known draw slots; 2 unresolved draw slots. Newly recovered: Oct 1 8PM and Oct 27 8PM.",
+      "full_tier_recovery": "29 full 132-entry sheets (3828 entries); 31 first-prize-only known draw slots; 2 unresolved draw slots. Newly recovered: Oct 1 8PM, Oct 15 1PM and Oct 27 8PM.",
       "notes": "October 2 unresolved; no inference of no draw",
-      "full_tier_draws": 28,
-      "full_tier_entries": 3696,
-      "partial_draws": 32,
+      "full_tier_draws": 29,
+      "full_tier_entries": 3828,
+      "partial_draws": 31,
       "unresolved_draws": 2,
-      "pdf_extraction": "28 full sheets (3696 entries), 32 first-prize-only partial slots, 2 unresolved slots.",
+      "pdf_extraction": "29 full sheets (3828 entries), 31 first-prize-only partial slots, 2 unresolved slots.",
       "full_tier_expected_draw_slots": 62,
       "full_tier_unresolved_draw_slots": 2,
-      "partial_first_prize_only_slots": 32
+      "partial_first_prize_only_slots": 31
     },
     {
       "month": "november",
@@ -1422,6 +1422,20 @@
       "url": "https://www.nagalandlotteries.com/old_results/MN071125.PDF",
       "status": "official_gazette_pdf_extracted",
       "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-09-15",
+      "draw": "8PM",
+      "url": "https://www.nagalandlotteries.com/old_results/EN150925.PDF",
+      "status": "official_gazette_pdf_screenshot_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-10-15",
+      "draw": "1PM",
+      "url": "https://www.nagalandlotteries.com/old_results/MN151025.PDF",
+      "status": "official_gazette_pdf_screenshot_extracted",
+      "retrieval_date": "2026-11-19"
     }
   ],
   "policy": "No fabricated entries. Full prize-tier extraction required for complete status. Retain partial first-prize candidates separately. Broken URLs do not prove no draw.",
@@ -1925,9 +1939,9 @@
   },
   "official_first_prize_crosscheck_file": "data/recovered_draws_2025_official_first_prize_crosschecks_2026-11-19.csv",
   "full_tier_extraction_2026_11_19": {
-    "draws_imported": 389,
-    "entries_imported": 51348,
-    "clean_full_sheet_draws": 389,
+    "draws_imported": 391,
+    "entries_imported": 51612,
+    "clean_full_sheet_draws": 391,
     "source_conflict_draws": 0,
     "files": [
       "data/recovered_draws_2025-01-01-1pm-full.csv",
@@ -2003,13 +2017,15 @@
       "data/recovered_draws_2025-10-01-8pm-full.csv",
       "data/recovered_draws_2025-10-27-8pm-full.csv",
       "data/recovered_draws_2025-09-26-1pm-full.csv",
-      "data/recovered_draws_2025-11-07-1pm-full.csv"
+      "data/recovered_draws_2025-11-07-1pm-full.csv",
+      "data/recovered_draws_2025-09-15-8pm-full.csv",
+      "data/recovered_draws_2025-10-15-1pm-full.csv"
     ],
-    "note": "389 unique full-tier draw sheets contain 132 rows each (51,348 prize entries). Of 730 expected 1PM/8PM slots, 724 have first-prize records: 389 complete full-tier sheets and 335 first-prize-only partial slots; six slots remain unresolved (Jan 26, Aug 15, Oct 2; both draws). Zero unresolved source conflicts; two resolved conflicts retained. First-prize values are cross-source matched where charts are available; lower tiers from single-source PDF or page extractions remain single_source_pending_review. All 12 monthly archive index pages were opened. 142 daily PDF links from lotterysambad.icu were tested in the earlier batch; 129 parsed and 13 failed. This run also opened and extracted additional full sheets: Apr 18 both; May 3 1PM; May 7 1PM; Jul 26 both; Aug 24 both; Sep 25 both; Sep 26 1PM; Oct 1 8PM; Oct 27 8PM; Nov 7 1PM; Nov 15 8PM. Not every daily link has been tested. Original PDF binaries could not be preserved; no SHA-256 hashes are claimed.",
-    "partial_draws": 335,
+    "note": "391 unique full-tier draw sheets contain 132 rows each (51,612 prize entries). Of 730 expected 1PM/8PM slots, 724 have first-prize records: 391 complete full-tier sheets and 333 first-prize-only partial slots; six slots remain unresolved (Jan 26, Aug 15, Oct 2; both draws). Zero unresolved source conflicts; two resolved conflicts retained. First-prize values are cross-source matched where charts are available; lower tiers from single-source PDF or page extractions remain single_source_pending_review. All 12 monthly archive index pages were opened. 142 daily PDF links from lotterysambad.icu were tested in the earlier batch; 129 parsed and 13 failed. This run added 17 full sheets (2,244 rows) across April, May, July, August, September, October and November, including four official Government of Nagaland PDFs and two additional official gazette PDFs read from page images. Not every daily link has been tested. Original PDF binaries could not be preserved; no SHA-256 hashes are claimed.",
+    "partial_draws": 333,
     "unresolved_draws": 6,
-    "new_draws_this_run": 15,
-    "new_entries_this_run": 1980,
+    "new_draws_this_run": 17,
+    "new_entries_this_run": 2244,
     "retrieval_date": "2026-11-19"
   },
   "february_full_tier_recovery": {
@@ -2296,7 +2312,7 @@
     "2025-10-11 1PM",
     "2025-10-11 8PM"
   ],
-  "full_tier_partial_draws": 335,
+  "full_tier_partial_draws": 333,
   "full_tier_unresolved_draws": 6,
   "full_tier_batch_2026_11_19_ac": {
     "file": "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_ac.csv",
@@ -2764,6 +2780,24 @@
       "consolation_and_lower_tiers": "single_source_pending_review"
     },
     "source_type": "Government of Nagaland official gazette PDF; first-prize chart cross-check",
+    "retrieval_date": "2026-11-19",
+    "binary_pdf_preserved": false,
+    "sha256_calculated": false
+  },
+  "full_tier_batch_2026_11_19_ba": {
+    "file": "data/recovered_draws_2025-09-15-8pm-full.csv;data/recovered_draws_2025-10-15-1pm-full.csv",
+    "draws": 2,
+    "entries": 264,
+    "expected_entries_per_draw": 132,
+    "draws_list": [
+      "2025-09-15 8PM",
+      "2025-10-15 1PM"
+    ],
+    "tier_status_summary": {
+      "first": "two_source_matched",
+      "consolation_and_lower_tiers": "single_source_pending_review"
+    },
+    "source_type": "Government of Nagaland official gazette PDFs; visually extracted from page images; first-prize chart cross-check",
     "retrieval_date": "2026-11-19",
     "binary_pdf_preserved": false,
     "sha256_calculated": false
