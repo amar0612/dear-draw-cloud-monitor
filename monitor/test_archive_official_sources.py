@@ -7,7 +7,7 @@ from pathlib import Path
 
 from monitor.archive_official_sources import (
     archive_sources, official_filename, read_draws, source_candidates,
-    _extract_links,
+    _extract_links, _slot_is_compatible,
 )
 
 
@@ -78,6 +78,40 @@ class TestOfficialSourceArchive(unittest.TestCase):
         two_slots = b'<a href="/download/one.pdf">1PM PDF</a><a href="/download/eight.pdf">8PM PDF</a>'
         only_eight = _extract_links(two_slots, "https://example.test/results/2023-01-10/", "2023-01-10", "8PM")
         self.assertEqual(only_eight, ["https://example.test/download/eight.pdf"])
+
+    def test_rejects_sikkim_6pm_links_for_both_nagaland_draws(self):
+        self.assertFalse(_slot_is_compatible(
+            "https://example.test/2026-06-24/6pm.pdf", "1PM"
+        ))
+        self.assertFalse(_slot_is_compatible(
+            "https://example.test/2026-06-24/6pm.pdf", "8PM"
+        ))
+        self.assertTrue(_slot_is_compatible(
+            "https://example.test/2026-06-24/1pm.pdf", "1PM"
+        ))
+        self.assertTrue(_slot_is_compatible(
+            "https://example.test/2026-06-24/8pm.pdf", "8PM"
+        ))
+        self.assertFalse(_slot_is_compatible(
+            "https://example.test/2026-06-24/1pm.pdf", "8PM"
+        ))
+
+    def test_date_page_does_not_admit_6pm_pdf_for_either_draw(self):
+        page = (
+            b'<a href="/2026-06-24/1pm.pdf">1PM</a>'
+            b'<a href="/2026-06-24/8pm.pdf">8PM</a>'
+            b'<a href="/2026-06-24/6pm.pdf">6PM</a>'
+        )
+        one = _extract_links(
+            page, "https://example.test/archive/2026-06-24/",
+            "2026-06-24", "1PM"
+        )
+        eight = _extract_links(
+            page, "https://example.test/archive/2026-06-24/",
+            "2026-06-24", "8PM"
+        )
+        self.assertEqual(one, ["https://example.test/2026-06-24/1pm.pdf"])
+        self.assertEqual(eight, ["https://example.test/2026-06-24/8pm.pdf"])
 
     def test_retains_multiple_source_copies_and_flags_hash_conflict(self):
         calls = []
