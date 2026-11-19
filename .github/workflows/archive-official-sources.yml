@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       csv_path:
-        description: Candidate CSV containing date and draw columns
+        description: Candidate master CSV with date and draw-time columns
         required: true
         default: data/nagaland_master_prize_numbers.csv
       start_date:
@@ -23,13 +23,23 @@ on:
         description: Maximum date/draw pairs to archive in this batch
         required: true
         default: "25"
+  push:
+    paths:
+      - .github/workflows/archive-official-sources.yml
+      - monitor/archive_official_sources.py
+      - data/nagaland_source_registry.csv
 
 permissions:
   contents: read
 
+concurrency:
+  group: nagaland-historical-source-archive
+  cancel-in-progress: false
+
 jobs:
   archive:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -39,21 +49,21 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Download Nagaland source PDFs and create SHA256 manifest
+      - name: Download all available source copies for the first batch
         run: |
           python monitor/archive_official_sources.py \
-            --csv "${{ inputs.csv_path }}" \
+            --csv "${{ inputs.csv_path || 'data/nagaland_master_prize_numbers.csv' }}" \
             --output-dir official-source-archive \
-            --start-date "${{ inputs.start_date }}" \
-            --end-date "${{ inputs.end_date }}" \\
-            --offset "${{ inputs.offset }}" \\
-            --limit "${{ inputs.limit }}"
+            --start-date "${{ inputs.start_date || '2024-06-01' }}" \
+            --end-date "${{ inputs.end_date || '2026-11-20' }}" \
+            --offset "${{ inputs.offset || '0' }}" \
+            --limit "${{ inputs.limit || '25' }}"
 
       - name: Upload source PDFs and manifest
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: nagaland-official-gazettes
+          name: nagaland-source-batch-${{ inputs.offset || '0' }}
           path: official-source-archive/
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 90
