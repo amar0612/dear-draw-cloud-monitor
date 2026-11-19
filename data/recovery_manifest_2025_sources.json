@@ -90,8 +90,10 @@
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "2025-01-01 1PM previously extracted; 2025-01-31 1PM extracted from 7dear.in and 2025-01-31 8PM PDF opened; 2025-01-22 both draws and other indexed daily PDFs remain queued for extraction.",
-      "pdf_extraction": "partial; full-tier extraction continues"
+      "full_tier_recovery": "Full-tier sheets extracted for every available date Jan 1–25 and Jan 27–31 (60 draw sheets); Jan 26 both draws remain unresolved after alternate archive search.",
+      "pdf_extraction": "partial; full-tier extraction continues",
+      "full_tier_draws": 60,
+      "full_tier_entries": 7920
     },
     {
       "month": "february",
@@ -652,6 +654,321 @@
       "url": "https://o.vcdn.cc/Dear/EN310125.PDF",
       "status": "full_tier_extracted",
       "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-01",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN010125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-02",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN020125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-02",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN020125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-03",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN030125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-03",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN030125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-04",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN040125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-04",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN040125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-05",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN050125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-05",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN050125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-06",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN060125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-06",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN060125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-07",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN070125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-07",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN070125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-08",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN080125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-09",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN090125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-09",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN090125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-10",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN100125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-11",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN110125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-12",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN120125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-12",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN120125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-13",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN130125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-13",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN130125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-14",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN140125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-14",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN140125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-15",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN150125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-15",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN150125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-16",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN160125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-16",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN160125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-17",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN170125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-17",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN170125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-18",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN180125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-18",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN180125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-19",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN190125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-19",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN190125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-20",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN200125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-20",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN200125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-21",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN210125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-23",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN230125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-23",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN230125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-24",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN240125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-24",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN240125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-25",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN250125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-25",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN250125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-27",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN270125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-01-27",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN270125.PDF",
+      "status": "full_tier_extracted",
+      "retrieval_date": "2026-11-19"
     }
   ],
   "policy": "No fabricated entries. Full prize-tier extraction required for complete status. Retain partial first-prize candidates separately. Broken URLs do not prove no draw.",
@@ -858,9 +1175,9 @@
     "binary_pdf_preserved": false,
     "sha256_calculated": false
   },
-  "full_tier_total_draws": 36,
-  "full_tier_total_entries": 4752,
-  "full_tier_clean_tier_count_draws": 36,
+  "full_tier_total_draws": 88,
+  "full_tier_total_entries": 11616,
+  "full_tier_clean_tier_count_draws": 88,
   "full_tier_source_conflict_draws": 0,
   "full_tier_batch_2026_11_19_c": {
     "file": "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_c.csv",
@@ -951,7 +1268,7 @@
     {
       "month": "january",
       "url": "https://lotterysambad.co/2025/january/",
-      "status": "page_accessible_and_opened",
+      "status": "30 date pages opened (Jan 1–25, 27–31); 60 requested 1PM/8PM PDFs extracted; Jan 26 absent",
       "retrieval_date": "2026-11-19",
       "scope": "1PM and 8PM used; 6PM ignored"
     },
@@ -1030,5 +1347,127 @@
       "status": "not_accessible_via_web_retrieval",
       "retrieval_date": "2026-11-19"
     }
-  ]
+  ],
+  "full_tier_batch_2026_11_19_g": {
+    "file": "data/recovered_draws_2025_full_tier_lotterysambad_co_january_01-02_2025.csv",
+    "draws": 3,
+    "entries": 396,
+    "expected_entries_per_draw": 132,
+    "source_type": "o.vcdn.cc daily official PDF linked from lotterysambad.co",
+    "retrieval_date": "2026-11-19",
+    "binary_pdf_preserved": false,
+    "sha256_calculated": false
+  },
+  "full_tier_batch_2026_11_19_h": {
+    "file": "data/recovered_draws_2025_full_tier_lotterysambad_co_january_03-05_2025.csv",
+    "draws": 6,
+    "entries": 792,
+    "expected_entries_per_draw": 132,
+    "source_type": "o.vcdn.cc daily official PDF linked from lotterysambad.co",
+    "retrieval_date": "2026-11-19",
+    "binary_pdf_preserved": false,
+    "sha256_calculated": false
+  },
+  "full_tier_batch_2026_11_19_i": {
+    "file": "data/recovered_draws_2025_full_tier_lotterysambad_co_january_06-08_2025.csv",
+    "draws": 6,
+    "entries": 792,
+    "expected_entries_per_draw": 132,
+    "source_type": "o.vcdn.cc daily official PDF linked from lotterysambad.co",
+    "retrieval_date": "2026-11-19",
+    "binary_pdf_preserved": false,
+    "sha256_calculated": false
+  },
+  "full_tier_batch_2026_11_19_j": {
+    "file": "data/recovered_draws_2025_full_tier_lotterysambad_co_january_09-11_2025.csv",
+    "draws": 6,
+    "entries": 792,
+    "expected_entries_per_draw": 132,
+    "source_type": "o.vcdn.cc daily official PDF linked from lotterysambad.co",
+    "retrieval_date": "2026-11-19",
+    "binary_pdf_preserved": false,
+    "sha256_calculated": false
+  },
+  "full_tier_batch_2026_11_19_k": {
+    "file": "data/recovered_draws_2025_full_tier_lotterysambad_co_january_12-14_2025.csv",
+    "draws": 6,
+    "entries": 792,
+    "expected_entries_per_draw": 132,
+    "source_type": "o.vcdn.cc daily official PDF linked from lotterysambad.co",
+    "retrieval_date": "2026-11-19",
+    "binary_pdf_preserved": false,
+    "sha256_calculated": false
+  },
+  "full_tier_batch_2026_11_19_l": {
+    "file": "data/recovered_draws_2025_full_tier_lotterysambad_co_january_15-17_2025.csv",
+    "draws": 6,
+    "entries": 792,
+    "expected_entries_per_draw": 132,
+    "source_type": "o.vcdn.cc daily official PDF linked from lotterysambad.co",
+    "retrieval_date": "2026-11-19",
+    "binary_pdf_preserved": false,
+    "sha256_calculated": false
+  },
+  "full_tier_batch_2026_11_19_m": {
+    "file": "data/recovered_draws_2025_full_tier_lotterysambad_co_january_18-20_2025.csv",
+    "draws": 6,
+    "entries": 792,
+    "expected_entries_per_draw": 132,
+    "source_type": "o.vcdn.cc daily official PDF linked from lotterysambad.co",
+    "retrieval_date": "2026-11-19",
+    "binary_pdf_preserved": false,
+    "sha256_calculated": false
+  },
+  "full_tier_batch_2026_11_19_n": {
+    "file": "data/recovered_draws_2025_full_tier_lotterysambad_co_january_21-23_2025.csv",
+    "draws": 6,
+    "entries": 792,
+    "expected_entries_per_draw": 132,
+    "source_type": "o.vcdn.cc daily official PDF linked from lotterysambad.co",
+    "retrieval_date": "2026-11-19",
+    "binary_pdf_preserved": false,
+    "sha256_calculated": false
+  },
+  "full_tier_batch_2026_11_19_o": {
+    "file": "data/recovered_draws_2025_full_tier_lotterysambad_co_january_24-27_2025.csv",
+    "draws": 6,
+    "entries": 792,
+    "expected_entries_per_draw": 132,
+    "source_type": "o.vcdn.cc daily official PDF linked from lotterysambad.co",
+    "retrieval_date": "2026-11-19",
+    "binary_pdf_preserved": false,
+    "sha256_calculated": false
+  },
+  "full_tier_batch_2026_11_19_p": {
+    "file": "data/recovered_draws_2025_full_tier_lotterysambad_co_january_28-30_2025.csv",
+    "draws": 6,
+    "entries": 792,
+    "expected_entries_per_draw": 132,
+    "source_type": "o.vcdn.cc daily official PDF linked from lotterysambad.co",
+    "retrieval_date": "2026-11-19",
+    "binary_pdf_preserved": false,
+    "sha256_calculated": false
+  },
+  "full_tier_batch_2026_11_19_q": {
+    "file": "data/recovered_draws_2025_full_tier_lotterysambad_co_2025-01-31_8pm.csv",
+    "draws": 1,
+    "entries": 132,
+    "expected_entries_per_draw": 132,
+    "source_type": "o.vcdn.cc daily official PDF linked from lotterysambad.co",
+    "retrieval_date": "2026-11-19",
+    "binary_pdf_preserved": false,
+    "sha256_calculated": false
+  },
+  "january_full_tier_recovery": {
+    "draws_recovered": 60,
+    "expected_slots": 62,
+    "entries": 7920,
+    "unresolved_draws": [
+      "2025-01-26 1PM",
+      "2025-01-26 8PM"
+    ],
+    "coverage": "All available 2025 January dates (1–25 and 27–31) have both 1PM and 8PM full-tier sheets; Jan 26 has no recoverable sheet in the searched sources.",
+    "source": "lotterysambad.co daily archive pages with o.vcdn.cc PDFs; Jan 31 1PM also cross-checked against 7dear.in; Jan 1 1PM cross-checked against Goodreturns full sheet."
+  },
+  "official_first_prize_crosscheck_file": "data/recovered_draws_2025_official_first_prize_crosschecks_2026-11-19.csv"
 }
