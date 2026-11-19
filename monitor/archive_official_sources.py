@@ -70,7 +70,7 @@ def fetch_pdf(url, timeout=10):
     return data
 
 
-def archive_sources(csv_path, output_dir, fetcher=fetch_pdf, dry_run=False, offset=0, limit=None):
+def archive_sources(csv_path, output_dir, fetcher=fetch_pdf, dry_run=False, offset=0, limit=None, start_date=None, end_date=None):
     output_dir = Path(output_dir)
     manifest_path = output_dir / "manifest.json"
     manifest = []
@@ -80,6 +80,16 @@ def archive_sources(csv_path, output_dir, fetcher=fetch_pdf, dry_run=False, offs
     results = []
 
     draws = read_draws(csv_path)
+    if start_date:
+        date.fromisoformat(start_date)
+    if end_date:
+        date.fromisoformat(end_date)
+    if start_date and end_date and start_date > end_date:
+        raise ValueError("start-date must be on or before end-date")
+    if start_date:
+        draws = [item for item in draws if item[0] >= start_date]
+    if end_date:
+        draws = [item for item in draws if item[0] <= end_date]
     if offset < 0 or (limit is not None and limit < 1):
         raise ValueError("offset must be >= 0 and limit must be >= 1")
     draws = draws[offset:offset + limit if limit is not None else None]
@@ -153,11 +163,14 @@ def main():
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--offset", type=int, default=0, help="Skip this many sorted date/draw pairs")
     parser.add_argument("--limit", type=int, default=25, help="Maximum date/draw pairs per batch")
+    parser.add_argument("--start-date", help="Include draws on/after YYYY-MM-DD")
+    parser.add_argument("--end-date", help="Include draws on/before YYYY-MM-DD")
     args = parser.parse_args()
     try:
         results = archive_sources(
             args.csv, args.output_dir, dry_run=args.dry_run,
-            offset=args.offset, limit=args.limit
+            offset=args.offset, limit=args.limit,
+            start_date=args.start_date, end_date=args.end_date
         )
     except Exception as error:
         sys.exit(f"SOURCE ARCHIVE FAILED: {error}")
