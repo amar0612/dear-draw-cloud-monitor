@@ -164,7 +164,11 @@ def _extract_links(page_bytes, page_url, draw_date, draw):
         absolute = urljoin(page_url, html.unescape(href))
         if urlparse(absolute).scheme not in {"http", "https"}:
             continue
-        if _matching_link(absolute, label, draw_date, draw):
+        parent_has_date = any(token in page_url.lower() for token in _date_tokens(draw_date))
+        date_page_pdf = parent_has_date and (
+            ".pdf" in absolute.lower() or draw.lower() in label.lower()
+        )
+        if _matching_link(absolute, label, draw_date, draw) or date_page_pdf:
             found.append(absolute)
     return list(dict.fromkeys(found))
 
