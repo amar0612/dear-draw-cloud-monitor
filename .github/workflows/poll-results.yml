@@ -15,6 +15,10 @@ on:
         options:
           - 1pm
           - 8pm
+      date:
+        description: "Target draw date (YYYY-MM-DD); leave blank for today's IST date"
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -41,12 +45,23 @@ jobs:
         shell: bash
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "draw=${{ inputs.draw }}" >> "$GITHUB_OUTPUT"
+            DRAW="${{ inputs.draw }}"
+            if [ -n "${{ inputs.date }}" ]; then
+              DRAW_DATE="${{ inputs.date }}"
+            else
+              DRAW_DATE="$(TZ=Asia/Kolkata date +%F)"
+            fi
           elif [ "${{ github.event.schedule }}" = "40 7 * * *" ]; then
-            echo "draw=1pm" >> "$GITHUB_OUTPUT"
+            DRAW="1pm"
+            DRAW_DATE="$(date -u +%F)"
           else
-            echo "draw=8pm" >> "$GITHUB_OUTPUT"
+            DRAW="8pm"
+            DRAW_DATE="$(date -u +%F)"
           fi
+          python -c 'import datetime,sys; datetime.date.fromisoformat(sys.argv[1])' "$DRAW_DATE"
+          echo "draw=$DRAW" >> "$GITHUB_OUTPUT"
+          echo "date=$DRAW_DATE" >> "$GITHUB_OUTPUT"
+          echo "Selected draw date: $DRAW_DATE (UTC schedule date for cron; IST date for manual runs)"
 
       - name: Verify required secrets
         shell: bash
@@ -70,6 +85,7 @@ jobs:
             echo "API fetch attempt $attempt/$MAX_ATTEMPTS for $DRAW"
             if python monitor/import_sambad_api.py \
               --draw "$DRAW" \
+              --date "${{ steps.draw.outputs.date }}" \
               --output-dir api-results; then
               echo "Result fetched and structurally validated."
               echo "available=true" >> "$GITHUB_OUTPUT"
@@ -88,7 +104,7 @@ jobs:
           done
 
           if [ "$DRAW" = "8pm" ]; then
-            DRAW_DATE="$(TZ=Asia/Kolkata date +%Y-%m-%d)"
+            DRAW_DATE="${{ steps.draw.outputs.date }}"
             printf '{"date":"%s","draw":"8PM","status":"PENDING_NOT_PUBLISHED","attempts":%s}\n' \
               "$DRAW_DATE" "$MAX_ATTEMPTS" > "api-results/${DRAW_DATE}_8PM_PENDING.json"
             echo "available=false" >> "$GITHUB_OUTPUT"
@@ -102,7 +118,7 @@ jobs:
       - name: Sync validated result to Supabase
         if: steps.fetch.outputs.available == 'true'
         run: |
-          FILE="api-results/$(TZ=Asia/Kolkata date +%Y-%m-%d)_${{ steps.draw.outputs.draw == '1pm' && '1PM' || '8PM' }}.json"
+          FILE="api-results/${{ steps.draw.outputs.date }}_${{ steps.draw.outputs.draw == '1pm' && '1PM' || '8PM' }}.json"
           python monitor/sync_result_to_supabase.py --file "$FILE"
 
       - name: Archive fetched result
