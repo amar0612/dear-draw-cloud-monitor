@@ -56,6 +56,13 @@
       "index_url": "https://lotterynagalandresult.com/old-result/",
       "type": "date-based first-prize archive",
       "status": "2025-06-30 1PM 68C 85615 corroborated; page also shows 6PM 97L 70848 and 8PM 57J 07239"
+    },
+    {
+      "domain": "nagalandlotteries.com",
+      "type": "official Government of Nagaland Directorate of State Lotteries gazette PDFs",
+      "index_url": "https://www.nagalandlotteries.com/results.php",
+      "status": "7 official 2025 full sheets extracted; 1st prizes cross-matched against Goodreturns and KLLotteryResults charts",
+      "retrieval_date": "2026-11-19"
     }
   ],
   "months": [
@@ -511,6 +518,69 @@
       "url": "https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTc2NDQwMtUrSEkDADIoBTk/8pm-30-11-2025.pdf",
       "status": "full_tier_extracted",
       "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-10-10",
+      "draw": "8PM",
+      "url": "https://www.nagalandlotteries.com/old_results/EN101025.PDF",
+      "status": "official_full_tier_extracted",
+      "first_prize": "66K 99629",
+      "first_prize_status": "cross_source_matched",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-10-03",
+      "draw": "8PM",
+      "url": "https://www.nagalandlotteries.com/old_results/EN031025.PDF",
+      "status": "official_full_tier_extracted",
+      "first_prize": "41K 14998",
+      "first_prize_status": "cross_source_matched",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-09-03",
+      "draw": "1PM",
+      "url": "https://www.nagalandlotteries.com/old_results/MN030925.PDF",
+      "status": "official_full_tier_extracted",
+      "first_prize": "71J 22651",
+      "first_prize_status": "cross_source_matched",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-10-17",
+      "draw": "1PM",
+      "url": "https://www.nagalandlotteries.com/old_results/MN171025.PDF",
+      "status": "official_full_tier_extracted",
+      "first_prize": "34K 71569",
+      "first_prize_status": "cross_source_matched",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-09-28",
+      "draw": "8PM",
+      "url": "https://www.nagalandlotteries.com/old_results/EN280925.PDF",
+      "status": "official_full_tier_extracted",
+      "first_prize": "38G 66838",
+      "first_prize_status": "cross_source_matched",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-10-19",
+      "draw": "1PM",
+      "url": "https://www.nagalandlotteries.com/old_results/MN191025.PDF",
+      "status": "official_full_tier_extracted",
+      "first_prize": "87C 22236",
+      "first_prize_status": "cross_source_matched",
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-11-13",
+      "draw": "8PM",
+      "url": "https://www.nagalandlotteries.com/old_results/EN131125.PDF",
+      "status": "official_full_tier_extracted",
+      "first_prize": "65J 77402",
+      "first_prize_status": "cross_source_matched",
+      "retrieval_date": "2026-11-19"
     }
   ],
   "policy": "No fabricated entries. Full prize-tier extraction required for complete status. Retain partial first-prize candidates separately. Broken URLs do not prove no draw.",
@@ -717,9 +787,9 @@
     "binary_pdf_preserved": false,
     "sha256_calculated": false
   },
-  "full_tier_total_draws": 22,
-  "full_tier_total_entries": 2904,
-  "full_tier_clean_tier_count_draws": 20,
+  "full_tier_total_draws": 29,
+  "full_tier_total_entries": 3828,
+  "full_tier_clean_tier_count_draws": 27,
   "full_tier_source_conflict_draws": 2,
   "full_tier_batch_2026_11_19_c": {
     "file": "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_c.csv",
@@ -741,5 +811,29 @@
     "retrieval_date": "2026-11-19",
     "binary_pdf_preserved": false,
     "sha256_calculated": false
-  }
+  },
+  "full_tier_batch_2026_11_19_d": {
+    "file": "data/recovered_draws_2025_full_tier_official_gazette_batch_2026-11-19.csv",
+    "draws": 7,
+    "entries": 924,
+    "expected_entries_per_draw": 132,
+    "draws_list": [
+      "2025-09-03 1PM",
+      "2025-09-28 8PM",
+      "2025-10-03 8PM",
+      "2025-10-10 8PM",
+      "2025-10-17 1PM",
+      "2025-10-19 1PM",
+      "2025-11-13 8PM"
+    ],
+    "tier_status_summary": {
+      "first": "cross_source_matched",
+      "consolation_and_lower_tiers": "single_source_pending_review"
+    },
+    "source_type": "official Government of Nagaland gazette PDFs",
+    "retrieval_date": "2026-11-19",
+    "binary_pdf_preserved": false,
+    "sha256_calculated": false
+  },
+  "official_gazette_crosscheck_file": "data/recovered_draws_2025_official_first_prize_crosschecks_2026-11-19.csv"
 }
