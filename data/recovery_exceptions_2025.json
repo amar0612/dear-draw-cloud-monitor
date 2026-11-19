@@ -69,7 +69,7 @@
       "detail": "Two 8PM PDFs and the lotterysambad.co daily result page agree on the 100-number 5th-tier list. The alternate Dhankesari page rendering is retained as a superseded candidate."
     }
   ],
-  "note": "2025 first-prize CSVs contain 724 rows (362 draw slots), with six unresolved slots on Jan 26, Aug 15 and Oct 2 (both draws). Full-tier audit: 259 complete 132-entry sheets (34,188 prize rows), 465 partial first-prize-only slots, 6 unresolved slots, 0 unresolved source conflicts. December is fully covered at 62/62 full sheets; January and February are fully recovered except Jan 26. 6PM excluded. PDF binary download attempts failed; no hashes claimed.",
+  "note": "2025 first-prize CSVs contain 724 rows (362 draw slots), with six unresolved slots on Jan 26, Aug 15 and Oct 2 (both draws). Full-tier audit: 269 complete 132-entry sheets (35,508 prize rows), 455 partial first-prize-only slots, 6 unresolved slots, 0 unresolved source conflicts. December is fully covered at 62/62 full sheets; January and February are fully recovered except Jan 26. 6PM excluded. PDF binary download attempts failed; no hashes claimed.",
   "monthly_exceptions": [
     {
       "date": "2025-01-26",
