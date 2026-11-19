@@ -95,6 +95,24 @@ class TestOfficialSourceArchive(unittest.TestCase):
         with self.assertRaises(ValueError):
             archive_sources(self.csv_path, self.root / "invalid", dry_run=True, limit=0)
 
+
+    def test_date_window_filters_candidates_before_offset_and_limit(self):
+        results = archive_sources(
+            self.csv_path, self.root / "window", dry_run=True,
+            start_date="2023-01-15", end_date="2023-01-31",
+            offset=0, limit=1
+        )
+        self.assertEqual(len(results), 1)
+        self.assertEqual(results[0]["date"], "2023-01-31")
+        self.assertEqual(results[0]["draw"], "1PM")
+
+    def test_rejects_reversed_date_window(self):
+        with self.assertRaises(ValueError):
+            archive_sources(
+                self.csv_path, self.root / "reversed", dry_run=True,
+                start_date="2023-02-01", end_date="2023-01-01"
+            )
+
     def test_dry_run_does_not_write_files(self):
         out = self.root / "dry"
         results = archive_sources(self.csv_path, out, dry_run=True)
