@@ -165,8 +165,10 @@ def _extract_links(page_bytes, page_url, draw_date, draw):
         if urlparse(absolute).scheme not in {"http", "https"}:
             continue
         parent_has_date = any(token in page_url.lower() for token in _date_tokens(draw_date))
-        date_page_pdf = parent_has_date and (
-            ".pdf" in absolute.lower() or draw.lower() in label.lower()
+        combined_link_text = (absolute + " " + label).lower()
+        wrong_slot = "8pm" if draw == "1PM" else "1pm"
+        date_page_pdf = parent_has_date and wrong_slot not in combined_link_text and (
+            ".pdf" in absolute.lower() or "pdf" in label.lower() or draw.lower() in label.lower()
         )
         if _matching_link(absolute, label, draw_date, draw) or date_page_pdf:
             found.append(absolute)
