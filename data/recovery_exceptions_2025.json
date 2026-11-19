@@ -69,7 +69,7 @@
       "detail": "Two 8PM PDFs and the lotterysambad.co daily result page agree on the 100-number 5th-tier list. The alternate Dhankesari page rendering is retained as a superseded candidate."
     }
   ],
-  "note": "2025 first-prize CSVs contain 724 rows (362 dates with both 1PM and 8PM); Jan 26, Aug 15 and Oct 2 remain unresolved for both draws. 6PM excluded. Full-tier audit across repository CSVs: 147 unique draw sheets ×132 entries = 19,404 prize rows; 577 known draw slots remain first-prize-only; 6 unresolved draw slots; 0 unresolved tier conflicts. February 1–28 now complete at 56 full sheets (7,392 rows). Additional March full sheets: Mar 5 8PM, Mar 13 both, Mar 14 both, Mar 21 1PM. PDF binaries not preserved and SHA-256 hashes not calculated.",
+  "note": "2025 first-prize CSVs contain 724 rows (362 draw slots), with six unresolved slots on Jan 26, Aug 15 and Oct 2 (both draws). Full-tier audit: 251 complete 132-entry sheets (33,132 rows), 473 partial first-prize-only slots, 6 unresolved slots, 0 unresolved conflicts. December is now fully covered at 62/62 full sheets. 6PM excluded. PDF binary download attempts failed; no hashes claimed.",
   "monthly_exceptions": [
     {
       "date": "2025-01-26",
@@ -186,23 +186,23 @@
     {
       "date_range": "2025-01_to_12",
       "draw": "1PM and 8PM",
-      "issue": "Across the 2025 dataset, 147 unique draw sheets have full 132-entry extraction (19,404 entries); 577 known draw slots remain first-prize-only; 6 draw slots remain unresolved (Jan 26, Aug 15, Oct 2, both 1PM/8PM). No unresolved tier conflicts remain.",
+      "issue": "Current 2025 audit: 251 unique full-tier draw sheets (33,132 prize rows); 473 known draw slots remain first-prize-only; 6 draw slots unresolved (Jan 26, Aug 15, Oct 2, both 1PM/8PM); 0 unresolved conflicts. All twelve months searched; further source discovery remains in progress.",
       "status": "partial_extraction_review",
-      "action": "Continue daily/monthly PDF discovery and full-tier extraction for all remaining known draw slots."
+      "action": "Continue archive/domain discovery and full-tier extraction for the 473 remaining known draw slots."
     },
     {
       "date_range": "2025-01_to_12",
       "draw": "1PM and 8PM",
-      "issue": "Across the 2025 dataset, 147 unique draw sheets have full 132-entry extraction (19,404 entries); 577 known draw slots remain first-prize-only; 6 draw slots remain unresolved (Jan 26, Aug 15, Oct 2, both 1PM/8PM). No unresolved tier conflicts remain.",
+      "issue": "Current 2025 audit: 251 unique full-tier draw sheets (33,132 prize rows); 473 known draw slots remain first-prize-only; 6 draw slots unresolved (Jan 26, Aug 15, Oct 2, both 1PM/8PM); 0 unresolved conflicts. All twelve months searched; further source discovery remains in progress.",
       "status": "partial_extraction_review",
-      "action": "Continue daily/monthly PDF discovery and full-tier extraction for all remaining known draw slots."
+      "action": "Continue archive/domain discovery and full-tier extraction for the 473 remaining known draw slots."
     }
   ],
   "last_updated": "2026-11-19",
   "full_tier_extraction_2026_11_19": {
-    "draws_imported": 147,
-    "entries_imported": 19404,
-    "partial_draws": 577,
+    "draws_imported": 251,
+    "entries_imported": 33132,
+    "partial_draws": 473,
     "unresolved_draws": 6,
     "source_conflict_draws": 0,
     "new_files": [
@@ -210,7 +210,28 @@
       "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_e.csv",
       "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_f.csv",
       "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_g.csv",
-      "data/recovered_draws_2025-03-21-1pm-full.csv"
+      "data/recovered_draws_2025-03-21-1pm-full.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_h.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_i.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_j.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_k.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_l.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_m.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_n.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_o.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_p.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_q.csv",
+      "data/recovered_draws_2025-09-06-1pm-full.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_s.csv",
+      "data/recovered_draws_2025-11-17-1pm-full.csv",
+      "data/recovered_draws_2025-11-10-1pm-full.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_v.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_w.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_x.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_y.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_z.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_aa.csv",
+      "data/recovered_draws_2025-12-03-8pm-full.csv"
     ],
     "retrieval_date": "2026-11-19"
   },
@@ -224,5 +245,12 @@
     ],
     "coverage": "All available 2025 January dates (1–25 and 27–31) have both 1PM and 8PM full-tier sheets; Jan 26 has no recoverable sheet in the searched sources.",
     "source": "lotterysambad.co daily archive pages with o.vcdn.cc PDFs; Jan 31 1PM also cross-checked against 7dear.in; Jan 1 1PM cross-checked against Goodreturns full sheet."
+  },
+  "pdf_binary_preservation": {
+    "binary_pdfs_saved": 0,
+    "sha256_hashes_calculated": 0,
+    "attempted_downloads": 2,
+    "status": "not_preserved",
+    "detail": "Direct download attempts for sample lotterysambad.icu and o.vcdn.cc PDFs failed; source URLs remain in CSV rows and manifest."
   }
 }
