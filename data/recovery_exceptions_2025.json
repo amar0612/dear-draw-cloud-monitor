@@ -69,12 +69,12 @@
       "detail": "Two 8PM PDFs and the lotterysambad.co daily result page agree on the 100-number 5th-tier list. The alternate Dhankesari page rendering is retained as a superseded candidate."
     }
   ],
-  "note": "2025 first-prize CSVs contain 724 rows (362 draw slots), with six unresolved slots on Jan 26, Aug 15 and Oct 2 (both draws). Full-tier audit: 251 complete 132-entry sheets (33,132 rows), 473 partial first-prize-only slots, 6 unresolved slots, 0 unresolved conflicts. December is now fully covered at 62/62 full sheets. 6PM excluded. PDF binary download attempts failed; no hashes claimed.",
+  "note": "2025 first-prize CSVs contain 724 rows (362 draw slots), with six unresolved slots on Jan 26, Aug 15 and Oct 2 (both draws). Full-tier audit: 259 complete 132-entry sheets (34,188 prize rows), 465 partial first-prize-only slots, 6 unresolved slots, 0 unresolved source conflicts. December is fully covered at 62/62 full sheets; January and February are fully recovered except Jan 26. 6PM excluded. PDF binary download attempts failed; no hashes claimed.",
   "monthly_exceptions": [
     {
       "date": "2025-01-26",
       "draw": "1PM and 8PM",
-      "issue": "Both 1PM and 8PM remain unresolved. Goodreturns and KLLotteryResults charts have no numbers; lotterysambad.icu archive links are unavailable; lotterysambad.co January page has no Jan 26 date page; LotteryResultToday page says result coming soon and provides no winning numbers; no official MN260125/EN260125 PDF surfaced in indexed searches. This is not treated as proof of no draw.",
+      "issue": "Both 1PM and 8PM remain unresolved. Goodreturns and KLLotteryResults charts have no numbers; lotterysambad.icu archive links are unavailable; lotterysambad.co January page has no Jan 26 date page; LotteryResultToday page says result coming soon and provides no winning numbers; no official MN260125/EN260125 PDF surfaced in indexed searches. This is not treated as proof of no draw. On 2026-11-19 the lotterysambad.icu January archive exposed direct Jan 26 1PM and 8PM links, but both returned HTTP 404: https://lotterysambad.icu/files/download//1pm-26-01-2025.pdf and https://lotterysambad.icu/files/download//8pm-26-01-2025.pdf.",
       "status": "unresolved_missing_chart_entry",
       "action": "Keep unresolved; continue searching alternate official and archive sources without inferring a no-draw."
     },
@@ -196,6 +196,13 @@
       "issue": "Current 2025 audit: 251 unique full-tier draw sheets (33,132 prize rows); 473 known draw slots remain first-prize-only; 6 draw slots unresolved (Jan 26, Aug 15, Oct 2, both 1PM/8PM); 0 unresolved conflicts. All twelve months searched; further source discovery remains in progress.",
       "status": "partial_extraction_review",
       "action": "Continue archive/domain discovery and full-tier extraction for the 473 remaining known draw slots."
+    },
+    {
+      "date": "2025-04-01",
+      "draw": "1PM and 8PM",
+      "issue": "Both direct PDF links are listed on the April 2025 lotterysambad.icu archive, but retrieval returned a PDF parse failure; first-prize chart entries remain imported, full tiers not extracted. URLs: https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwNDAxMtUrSEkDADG-BTI/1pm-01-04-2025.pdf and https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTcwNDAxMtUrSEkDADIgBTk/8pm-01-04-2025.pdf.",
+      "status": "partial_extraction_review",
+      "action": "Keep first-prize rows; retry these exact PDFs from alternate hosts or official gazette"
     }
   ],
   "last_updated": "2026-11-19",
