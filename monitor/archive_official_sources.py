@@ -141,11 +141,11 @@ def _slot_is_compatible(value, draw):
     """Reject explicitly labelled Sikkim 6PM and the other Nagaland slot."""
     text = unquote(str(value)).lower().replace("%20", " ")
     slots = set()
-    if re.search(r"(?<![0-9])6\\s?pm(?![a-z])|(?<![0-9])18:00(?![0-9])", text):
+    if re.search(r"(?<![0-9])6\s?pm(?![a-z])|(?<![0-9])18:00(?![0-9])", text):
         slots.add("6PM")
-    if re.search(r"(?<![0-9])1\\s?pm(?![a-z])|(?<![0-9])13:00(?![0-9])", text):
+    if re.search(r"(?<![0-9])1\s?pm(?![a-z])|(?<![0-9])13:00(?![0-9])", text):
         slots.add("1PM")
-    if re.search(r"(?<![0-9])8\\s?pm(?![a-z])|(?<![0-9])20:00(?![0-9])", text):
+    if re.search(r"(?<![0-9])8\s?pm(?![a-z])|(?<![0-9])20:00(?![0-9])", text):
         slots.add("8PM")
     if "6PM" in slots:
         return False
