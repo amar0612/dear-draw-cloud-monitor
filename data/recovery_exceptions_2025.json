@@ -1,0 +1,263 @@
+{
+  "year": 2025,
+  "scope": "Nagaland 1PM and 8PM only",
+  "exceptions": [
+    {
+      "date": "2025-01-26",
+      "draws": [
+        "1PM",
+        "8PM"
+      ],
+      "status": "unresolved_missing_result",
+      "detail": "Date absent from Goodreturns January 2025 result chart and shown struck through in one old-result listing. This is not treated as proof that no draw occurred.",
+      "sources": [
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://nagalandstatelotterysambad.com/lottery-sambad-old-result/"
+      ]
+    },
+    {
+      "date_range": "2025-01-01_to_2025-01-31",
+      "draws": [
+        "1PM",
+        "8PM"
+      ],
+      "status": "partial_extraction_review",
+      "detail": "60 first-prize records recovered and cross-checked by five-digit value across two chart domains. Full prize tiers remain unextracted for all January draws except PDF sources identified for 2025-01-22; no full-tier claim made."
+    },
+    {
+      "date_range": "2025-02-01_to_2025-02-28",
+      "draws": [
+        "1PM",
+        "8PM"
+      ],
+      "status": "partial_extraction_review",
+      "detail": "56 first-prize records recovered and cross-checked by five-digit value across two chart domains. Full prize tiers remain unextracted."
+    },
+    {
+      "date": "2025-06-30",
+      "draw": "1PM",
+      "tier": "1st",
+      "status": "source_conflict_review",
+      "detail": "The lotterysambad.icu PDF linked under the 1PM slot contains a 6PM sheet. It is excluded from the 1PM dataset; the 1PM first prize is corroborated by Goodreturns/KLL and the Dhankesari 1PM PDF/page."
+    },
+    {
+      "date": "2025-06-30",
+      "draw": "1PM",
+      "tier": "2nd",
+      "status": "two_source_matched",
+      "detail": "Dhankesari PDF and lotterysambad.co daily result page agree on the 10-number 2nd-tier list. An alternate Dhankesari page rendering differs and is retained in the conflict-candidate file as a superseded candidate."
+    },
+    {
+      "date": "2025-06-30",
+      "draw": "1PM",
+      "tier": "5th",
+      "status": "two_source_matched",
+      "detail": "Dhankesari PDF and lotterysambad.co daily result page agree on the 100-number 5th-tier list. An alternate Dhankesari page rendering differs and is retained as a superseded candidate."
+    },
+    {
+      "date": "2025-06-30",
+      "draw": "8PM",
+      "tier": "2nd",
+      "status": "cross_source_matched",
+      "detail": "Two 8PM PDFs and the lotterysambad.co daily result page agree on the 10-number 2nd-tier list. The alternate Dhankesari page rendering is retained as a superseded candidate."
+    },
+    {
+      "date": "2025-06-30",
+      "draw": "8PM",
+      "tier": "5th",
+      "status": "cross_source_matched",
+      "detail": "Two 8PM PDFs and the lotterysambad.co daily result page agree on the 100-number 5th-tier list. The alternate Dhankesari page rendering is retained as a superseded candidate."
+    }
+  ],
+  "note": "2025 first-prize CSVs contain 724 rows (362 draw slots), with six unresolved slots on Jan 26, Aug 15 and Oct 2 (both draws). Full-tier audit: 269 complete 132-entry sheets (35,508 prize rows), 455 partial first-prize-only slots, 6 unresolved slots, 0 unresolved source conflicts. December is fully covered at 62/62 full sheets; January and February are fully recovered except Jan 26. 6PM excluded. PDF binary download attempts failed; no hashes claimed.",
+  "monthly_exceptions": [
+    {
+      "date": "2025-01-26",
+      "draw": "1PM and 8PM",
+      "issue": "Both 1PM and 8PM remain unresolved. Goodreturns and KLLotteryResults charts have no numbers; lotterysambad.icu archive links are unavailable; lotterysambad.co January page has no Jan 26 date page; LotteryResultToday page says result coming soon and provides no winning numbers; no official MN260125/EN260125 PDF surfaced in indexed searches. This is not treated as proof of no draw. On 2026-11-19 the lotterysambad.icu January archive exposed direct Jan 26 1PM and 8PM links, but both returned HTTP 404: https://lotterysambad.icu/files/download//1pm-26-01-2025.pdf and https://lotterysambad.icu/files/download//8pm-26-01-2025.pdf.",
+      "status": "unresolved_missing_chart_entry",
+      "action": "Keep unresolved; continue searching alternate official and archive sources without inferring a no-draw."
+    },
+    {
+      "date": "2025-01",
+      "draw": "both",
+      "issue": "Monthly archive URL indexed but not accessible during this retrieval; daily PDF links not comprehensively enumerated.",
+      "status": "partial_source_access",
+      "action": "Use alternate independent PDF domains and retain discovered full-result links"
+    },
+    {
+      "date": "2025-03",
+      "draw": "both",
+      "issue": "Six full sheets extracted (Mar 5 8PM, Mar 13 both, Mar 14 both, Mar 21 1PM); the remaining 56 March draw slots still have first-prize-only records. Lower tiers on extracted sheets are single-source pending review.",
+      "status": "partial_extraction_review",
+      "action": "Continue extracting remaining indexed March daily PDFs and alternate sources."
+    },
+    {
+      "date": "2025-04",
+      "draw": "both",
+      "issue": "First-prize chart entries imported for all 30 dates; five full-result source files/pages identified but prize tiers not yet extracted into CSV.",
+      "status": "partial_extraction_review",
+      "action": "Retain first-prize records and continue full-tier extraction separately"
+    },
+    {
+      "date": "2025-05",
+      "draw": "both",
+      "issue": "First-prize rows imported for all 31 dates; only 22 May 1PM full-result PDF independently located in this pass; other full prize tiers not yet extracted.",
+      "status": "partial_extraction_review",
+      "action": "Retain first-prize rows and extract 22 May full sheet before continuing alternate PDF search"
+    },
+    {
+      "date": "2025-06",
+      "draw": "both",
+      "issue": "All 30 dates have first-prize records, but full prize tiers were not extracted in this checkpoint.",
+      "status": "partial_extraction_review",
+      "action": "Continue searching June daily/monthly PDFs for full prize tiers"
+    },
+    {
+      "date": "2025-07",
+      "draw": "both",
+      "issue": "All 31 dates have first-prize records. Full prize tiers not yet extracted; individual daily result PDFs found for selected dates.",
+      "status": "partial_extraction_review",
+      "action": "Continue retrieving and extracting July daily PDFs; preserve full prize tiers when available"
+    },
+    {
+      "date": "2025-08-15",
+      "draw": "1PM and 8PM",
+      "issue": "KLL yearly chart displays ***** for August 15 across draw columns; Goodreturns monthly table omits August 15. This is unresolved and is not proof that no draw occurred.",
+      "status": "unresolved_source_gap",
+      "action": "Search alternate archives and daily PDFs for August 15 before classifying"
+    },
+    {
+      "date": "2025-08",
+      "draw": "both",
+      "issue": "60 first-prize records recovered for the other 30 dates; full prize tiers not extracted. Full-result PDFs located for selected dates.",
+      "status": "partial_extraction_review",
+      "action": "Continue daily PDF extraction for full tiers"
+    },
+    {
+      "date": "2025-09",
+      "draw": "both",
+      "issue": "60 first-prize records recovered from two yearly chart sources; full prize tiers not extracted.",
+      "status": "partial_extraction_review",
+      "action": "Continue searching September daily PDFs for complete prize tiers"
+    },
+    {
+      "date": "2025-10-02",
+      "draw": "1PM and 8PM",
+      "issue": "October 2 appears as ***** in KLL chart and is omitted from Goodreturns monthly chart; unresolved, not proof of no draw.",
+      "status": "unresolved_source_gap",
+      "action": "Search alternate archives and daily PDFs for October 2"
+    },
+    {
+      "date": "2025-10",
+      "draw": "both",
+      "issue": "60 first-prize records recovered for October 1 and October 3–31; October 2 remains unresolved for both requested draws.",
+      "status": "partial_extraction_review",
+      "action": "Continue searching October 2 daily PDFs; extract remaining full tiers"
+    },
+    {
+      "date": "2025-11",
+      "draw": "both",
+      "issue": "60 first-prize records recovered from Goodreturns and KLLotteryResults yearly charts; full prize tiers not imported. A full-result PDF for November 15 1PM is indexed.",
+      "status": "partial_extraction_review",
+      "action": "Extract full tiers from November 15 PDF and search remaining November dates"
+    },
+    {
+      "date": "2025-12",
+      "draw": "both",
+      "issue": "62 first-prize records recovered for all dates; full prize tiers not extracted in this checkpoint.",
+      "status": "partial_extraction_review",
+      "action": "Search December daily PDFs and import all available prize tiers"
+    },
+    {
+      "date": "2025-06-30",
+      "draw": "1PM",
+      "issue": "The lotterysambad.icu 1PM PDF link is mislabelled and contains a 6PM sheet, so it is excluded. Correct 1PM result is confirmed by the Dhankesari PDF and lotterysambad.co daily page; 2nd/5th tier alternate Dhankesari page rendering is preserved as superseded candidate.",
+      "status": "partial_extraction_review",
+      "action": "Retain all candidates and seek an independent full 1PM PDF"
+    },
+    {
+      "date": "2025-06-30",
+      "draw": "8PM",
+      "issue": "Two 8PM PDFs agree on the full sheet; Dhankesari page rendering differs on 2nd and 5th prize tiers.",
+      "status": "source_conflict_review",
+      "action": "Retain PDF and page candidates; seek a third independent full sheet"
+    },
+    {
+      "date_range": "2025-01_to_12",
+      "draw": "1PM and 8PM",
+      "issue": "Current 2025 audit: 251 unique full-tier draw sheets (33,132 prize rows); 473 known draw slots remain first-prize-only; 6 draw slots unresolved (Jan 26, Aug 15, Oct 2, both 1PM/8PM); 0 unresolved conflicts. All twelve months searched; further source discovery remains in progress.",
+      "status": "partial_extraction_review",
+      "action": "Continue archive/domain discovery and full-tier extraction for the 473 remaining known draw slots."
+    },
+    {
+      "date_range": "2025-01_to_12",
+      "draw": "1PM and 8PM",
+      "issue": "Current 2025 audit: 251 unique full-tier draw sheets (33,132 prize rows); 473 known draw slots remain first-prize-only; 6 draw slots unresolved (Jan 26, Aug 15, Oct 2, both 1PM/8PM); 0 unresolved conflicts. All twelve months searched; further source discovery remains in progress.",
+      "status": "partial_extraction_review",
+      "action": "Continue archive/domain discovery and full-tier extraction for the 473 remaining known draw slots."
+    },
+    {
+      "date": "2025-04-01",
+      "draw": "1PM and 8PM",
+      "issue": "Both direct PDF links are listed on the April 2025 lotterysambad.icu archive, but retrieval returned a PDF parse failure; first-prize chart entries remain imported, full tiers not extracted. URLs: https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwNDAxMtUrSEkDADG-BTI/1pm-01-04-2025.pdf and https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTcwNDAxMtUrSEkDADIgBTk/8pm-01-04-2025.pdf.",
+      "status": "partial_extraction_review",
+      "action": "Keep first-prize rows; retry these exact PDFs from alternate hosts or official gazette"
+    }
+  ],
+  "last_updated": "2026-11-19",
+  "full_tier_extraction_2026_11_19": {
+    "draws_imported": 251,
+    "entries_imported": 33132,
+    "partial_draws": 473,
+    "unresolved_draws": 6,
+    "source_conflict_draws": 0,
+    "new_files": [
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_d.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_e.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_f.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_g.csv",
+      "data/recovered_draws_2025-03-21-1pm-full.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_h.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_i.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_j.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_k.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_l.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_m.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_n.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_o.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_p.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_q.csv",
+      "data/recovered_draws_2025-09-06-1pm-full.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_s.csv",
+      "data/recovered_draws_2025-11-17-1pm-full.csv",
+      "data/recovered_draws_2025-11-10-1pm-full.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_v.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_w.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_x.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_y.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_z.csv",
+      "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_aa.csv",
+      "data/recovered_draws_2025-12-03-8pm-full.csv"
+    ],
+    "retrieval_date": "2026-11-19"
+  },
+  "january_full_tier_recovery": {
+    "draws_recovered": 60,
+    "expected_slots": 62,
+    "entries": 7920,
+    "unresolved_draws": [
+      "2025-01-26 1PM",
+      "2025-01-26 8PM"
+    ],
+    "coverage": "All available 2025 January dates (1–25 and 27–31) have both 1PM and 8PM full-tier sheets; Jan 26 has no recoverable sheet in the searched sources.",
+    "source": "lotterysambad.co daily archive pages with o.vcdn.cc PDFs; Jan 31 1PM also cross-checked against 7dear.in; Jan 1 1PM cross-checked against Goodreturns full sheet."
+  },
+  "pdf_binary_preservation": {
+    "binary_pdfs_saved": 0,
+    "sha256_hashes_calculated": 0,
+    "attempted_downloads": 2,
+    "status": "not_preserved",
+    "detail": "Direct download attempts for sample lotterysambad.icu and o.vcdn.cc PDFs failed; source URLs remain in CSV rows and manifest."
+  }
+}
