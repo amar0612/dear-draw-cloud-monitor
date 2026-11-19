@@ -1,47 +1,107 @@
 #!/usr/bin/env python3
-"""Download Nagaland result PDFs and preserve source provenance.
+"""Discover and archive all applicable Nagaland 1PM/8PM source copies.
 
-Third-party mirror PDFs are never labelled as official government gazettes and
-no downloaded file is automatically marked human_verified.
+Registry landing pages are treated as discovery leads, not proof of coverage.
+No downloaded file is automatically marked human_verified.
 """
 import argparse
 import csv
 import hashlib
+import html
 import json
+import re
 import sys
 import urllib.request
 from datetime import date
 from pathlib import Path
+from urllib.parse import unquote, urljoin, urlparse
 
 BASE_URL = "https://www.nagalandlotteries.com/old_results/"
 MIRROR_BASE = "https://lotterysambadresult.in/wp-content/uploads/"
 USER_AGENT = "DearDrawAnalyzer/1.0 (historical result source archive)"
 REQUIRED = {"date", "draw"}
+DEFAULT_REGISTRY = Path(__file__).resolve().parents[1] / "data" / "nagaland_source_registry.csv"
+EXCLUDED_REGISTRY_INDICES = {"23", "24"}
+NON_PDF_REGISTRY_INDICES = {"3", "21"}
+DATE_FORMATS = ("%d%m%y", "%d%m%Y", "%Y-%m-%d", "%d-%m-%Y", "%d_%m_%Y")
 
 
 def official_filename(draw_date, draw):
     date_obj = date.fromisoformat(draw_date)
     if draw not in {"1PM", "8PM"}:
         raise ValueError("Only Nagaland 1PM and 8PM are supported")
-    # Legacy mirror filenames observed in January 2023: MD for 1 PM, ED for 8 PM.
     prefix = "MD" if draw == "1PM" else "ED"
     return f"{prefix}{date_obj:%d%m%y}.pdf"
 
 
-def source_candidates(draw_date, draw):
-    date_obj = date.fromisoformat(draw_date)
+def _registry_rows(registry_path=DEFAULT_REGISTRY):
+    with Path(registry_path).open(newline="", encoding="utf-8-sig") as handle:
+        return list(csv.DictReader(handle))
+
+
+def _slug(value):
+    return re.sub(r"[^a-z0-9]+", "_", value.lower()).strip("_")[:48] or "source"
+
+
+def _date_tokens(draw_date):
+    d = date.fromisoformat(draw_date)
+    return {
+        d.strftime("%d%m%y").lower(), d.strftime("%d%m%Y").lower(),
+        d.strftime("%Y-%m-%d").lower(), d.strftime("%d-%m-%Y").lower(),
+        d.strftime("%d_%m_%Y").lower(), d.strftime("%d-%m-%y").lower(),
+        d.strftime("%d %B %Y").lower(), d.strftime("%B %d, %Y").lower(),
+        d.strftime("%d %b %Y").lower(),
+    }
+
+
+def _direct_registry_urls(row, draw_date, draw):
+    d = date.fromisoformat(draw_date)
+    index = row["index"]
+    base = row["url_or_pattern"]
     legacy = official_filename(draw_date, draw)
-    current_prefix = "MN" if draw == "1PM" else "EN"
-    current_name = f"{current_prefix}{date_obj:%d%m%y}.PDF"
-    legacy_upper = legacy[:-4] + ".PDF"
-    return [
-        ("official_nagaland_gazette", BASE_URL + current_name),
-        ("official_nagaland_gazette_legacy_name", BASE_URL + legacy_upper),
-        ("third_party_mirror_copy", MIRROR_BASE + f"{date_obj:%Y/%m}/" + legacy),
-        ("third_party_mirror_copy", MIRROR_BASE + f"{date_obj:%Y/%m}/" + ("ML" if draw == "1PM" else "EL") + f"{date_obj:%d%m%y}.pdf"),
-        # Date-specific PDF route confirmed on lotterysambadfax.com result pages.
-        ("independent_archive_pdf", f"https://www.lotterysambadfax.com/dl/{date_obj:%Y-%m-%d}/" + ("1pm" if draw == "1PM" else "8pm") + ".pdf"),
-    ]
+    current = ("MN" if draw == "1PM" else "EN") + d.strftime("%d%m%y") + ".PDF"
+    if index == "1":
+        return [base.replace("MNDDMMYY.PDF", current)]
+    if index == "2":
+        return [base.replace("ENDDMMYY.PDF", current)]
+    if index == "13":
+        return [base.replace("1pm", "1pm" if draw == "1PM" else "8pm")]
+    if index == "22":
+        names = [legacy, legacy.upper(), ("ML" if draw == "1PM" else "EL") + d.strftime("%d%m%y") + ".pdf"]
+        return [urljoin(base.rstrip("/") + "/", name) for name in names]
+    # Annual archive roots are the best known starting points for year-specific calendars.
+    if index in {"6", "7", "8", "9", "10", "11"}:
+        return [base]
+    return [base]
+
+
+def source_candidates(draw_date, draw, registry_path=DEFAULT_REGISTRY):
+    """Return every registry-backed lead applicable to this draw.
+
+    Excluded schedule-mismatch sources and non-result documentation/reference
+    pages remain in the CSV registry but are not treated as full-result sources.
+    """
+    date.fromisoformat(draw_date)
+    if draw not in {"1PM", "8PM"}:
+        raise ValueError("Only Nagaland 1PM and 8PM are supported")
+    candidates = []
+    for row in _registry_rows(registry_path):
+        index = row["index"]
+        if index in EXCLUDED_REGISTRY_INDICES or index in NON_PDF_REGISTRY_INDICES:
+            continue
+        if draw not in row.get("draw_scope", ""):
+            continue
+        for url in _direct_registry_urls(row, draw_date, draw):
+            candidates.append((f"registry_{index}_{_slug(row['source_name'])}", url))
+    # Keep explicitly observed mirror filename variants as independent leads.
+    d = date.fromisoformat(draw_date)
+    for name in (official_filename(draw_date, draw),
+                 ("ML" if draw == "1PM" else "EL") + d.strftime("%d%m%y") + ".pdf"):
+        candidates.append(("legacy_wordpress_mirror", MIRROR_BASE + f"{d:%Y/%m}/" + name))
+    # De-duplicate without changing registry priority.
+    seen = set()
+    return [(kind, url) for kind, url in candidates
+            if not (url in seen or seen.add(url))]
 
 
 def read_draws(csv_path):
@@ -61,24 +121,61 @@ def read_draws(csv_path):
     return sorted(grouped)
 
 
-def fetch_pdf(url, timeout=10):
+def fetch_pdf(url, timeout=12):
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     with urllib.request.urlopen(request, timeout=timeout) as response:
         data = response.read()
-    if not data.startswith(b"%PDF-"):
-        raise ValueError("Source URL did not return a PDF")
     return data
 
 
-def archive_sources(csv_path, output_dir, fetcher=fetch_pdf, dry_run=False, offset=0, limit=None, start_date=None, end_date=None):
+def _matching_link(href, label, draw_date, draw):
+    joined = (unquote(href) + " " + html.unescape(label)).lower()
+    tokens = _date_tokens(draw_date)
+    compact = re.sub(r"[^0-9]", "", draw_date)
+    date_match = any(token in joined for token in tokens) or compact in re.sub(r"[^0-9]", "", joined)
+    if not date_match:
+        return False
+    # Explicit wrong-slot labels are rejected. If the link has no slot label,
+    # it can still be a date page whose child page contains the draw-specific PDF.
+    wrong = "8pm" if draw == "1PM" else "1pm"
+    right = draw.lower()
+    if wrong in joined and right not in joined:
+        return False
+    return True
+
+
+def _extract_links(page_bytes, page_url, draw_date, draw):
+    try:
+        page = page_bytes.decode("utf-8", errors="ignore")
+    except Exception:
+        return []
+    found = []
+    for match in re.finditer(r'<a\\b[^>]*href\\s*=\\s*["\']([^"\']+)["\'][^>]*>(.*?)</a>', page, re.I | re.S):
+        href, label = match.group(1), re.sub(r"<[^>]+>", " ", match.group(2))
+        absolute = urljoin(page_url, html.unescape(href))
+        if urlparse(absolute).scheme not in {"http", "https"}:
+            continue
+        if _matching_link(absolute, label, draw_date, draw):
+            found.append(absolute)
+    return list(dict.fromkeys(found))
+
+
+def _safe_filename(draw_date, draw, source_type, digest):
+    return f"{date.fromisoformat(draw_date):%Y%m%d}_{draw}_{_slug(source_type)}_{digest[:12]}.pdf"
+
+
+def archive_sources(csv_path, output_dir, fetcher=fetch_pdf, dry_run=False,
+                    offset=0, limit=None, start_date=None, end_date=None,
+                    registry_path=DEFAULT_REGISTRY):
     output_dir = Path(output_dir)
     manifest_path = output_dir / "manifest.json"
-    manifest = []
-    if manifest_path.exists():
-        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    known = {(item["date"], item["draw"]): item for item in manifest}
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8")) if manifest_path.exists() else []
+    # Preserve legacy manifest rows while making new records unique per source URL.
+    known = {}
+    for item in manifest:
+        identity = (item.get("date"), item.get("draw"), item.get("source_url", item.get("source_type")))
+        known[identity] = item
     results = []
-
     draws = read_draws(csv_path)
     if start_date:
         date.fromisoformat(start_date)
@@ -93,92 +190,135 @@ def archive_sources(csv_path, output_dir, fetcher=fetch_pdf, dry_run=False, offs
     if offset < 0 or (limit is not None and limit < 1):
         raise ValueError("offset must be >= 0 and limit must be >= 1")
     draws = draws[offset:offset + limit if limit is not None else None]
+
+    page_cache = {}
     for draw_date, draw in draws:
-        filename = official_filename(draw_date, draw)
-        candidates = source_candidates(draw_date, draw)
-        key = (draw_date, draw)
+        candidates = source_candidates(draw_date, draw, registry_path)
         if dry_run:
-            results.append({
-                "date": draw_date, "draw": draw,
-                "candidate_sources": [{"source_type": kind, "url": url} for kind, url in candidates],
-                "status": "dry_run_not_downloaded",
-            })
+            results.append({"date": draw_date, "draw": draw,
+                            "candidate_sources": [{"source_type": k, "url": u} for k, u in candidates],
+                            "status": "dry_run_not_downloaded"})
             continue
 
+        successful = []
         failures = []
-        for source_type, url in candidates:
+        for source_type, landing_url in candidates:
+            identity = (draw_date, draw, landing_url)
+            # Still re-fetch on reruns so new/changed source copies can be discovered.
             try:
-                data = fetcher(url)
-                if not isinstance(data, (bytes, bytearray)) or not data.startswith(b"%PDF-"):
-                    raise ValueError("Source URL did not return a valid PDF")
-                digest = hashlib.sha256(data).hexdigest()
-                relative = Path(draw_date[:4]) / filename
-                destination = output_dir / relative
-                destination.parent.mkdir(parents=True, exist_ok=True)
-                if destination.exists():
-                    old_digest = hashlib.sha256(destination.read_bytes()).hexdigest()
-                    if old_digest != digest:
-                        raise FileExistsError(f"Existing source differs; refusing overwrite: {destination}")
+                payload = page_cache.get(landing_url)
+                if payload is None:
+                    payload = fetcher(landing_url)
+                    page_cache[landing_url] = payload
+                pdf_candidates = []
+                if isinstance(payload, (bytes, bytearray)) and payload.startswith(b"%PDF-"):
+                    pdf_candidates.append((landing_url, payload))
                 else:
-                    destination.write_bytes(data)
+                    # A landing/calendar page can expose date-specific result pages or PDFs.
+                    links = _extract_links(payload, landing_url, draw_date, draw)
+                    for child_url in links[:30]:
+                        try:
+                            child = page_cache.get(child_url)
+                            if child is None:
+                                child = fetcher(child_url)
+                                page_cache[child_url] = child
+                            if isinstance(child, (bytes, bytearray)) and child.startswith(b"%PDF-"):
+                                pdf_candidates.append((child_url, child))
+                            else:
+                                for pdf_url in _extract_links(child, child_url, draw_date, draw)[:30]:
+                                    try:
+                                        pdf_data = page_cache.get(pdf_url)
+                                        if pdf_data is None:
+                                            pdf_data = fetcher(pdf_url)
+                                            page_cache[pdf_url] = pdf_data
+                                        if isinstance(pdf_data, (bytes, bytearray)) and pdf_data.startswith(b"%PDF-"):
+                                            pdf_candidates.append((pdf_url, pdf_data))
+                                    except Exception as nested_error:
+                                        failures.append({"source_type": source_type, "url": pdf_url, "error": str(nested_error)})
+                        except Exception as child_error:
+                            failures.append({"source_type": source_type, "url": child_url, "error": str(child_error)})
 
-                status = (
-                    "mirror_copy_pending_official_comparison"
-                    if source_type == "third_party_mirror_copy"
-                    else "downloaded_pending_number_comparison"
-                )
-                record = {
-                    "date": draw_date, "draw": draw,
-                    "source_type": source_type, "source_url": url,
-                    "source_file": str(relative).replace("\\", "/"),
-                    "sha256": digest, "bytes": len(data),
-                    "verification_status": status,
-                }
-                known[key] = record
-                results.append(record)
-                break
+                for resolved_url, data in pdf_candidates:
+                    digest = hashlib.sha256(data).hexdigest()
+                    relative = Path("copies") / date.fromisoformat(draw_date).strftime("%Y") / _safe_filename(draw_date, draw, source_type, digest)
+                    destination = output_dir / relative
+                    destination.parent.mkdir(parents=True, exist_ok=True)
+                    if destination.exists():
+                        old_digest = hashlib.sha256(destination.read_bytes()).hexdigest()
+                        if old_digest != digest:
+                            raise FileExistsError(f"Hash-named archive file unexpectedly differs: {destination}")
+                    else:
+                        destination.write_bytes(data)
+                    status = "mirror_copy_pending_official_comparison" if "official" not in source_type else "downloaded_pending_number_comparison"
+                    record = {
+                        "date": draw_date, "draw": draw, "source_type": source_type,
+                        "source_url": resolved_url, "discovery_url": landing_url,
+                        "source_file": str(relative).replace("\\", "/"),
+                        "sha256": digest, "bytes": len(data),
+                        "verification_status": status,
+                    }
+                    rec_identity = (draw_date, draw, resolved_url)
+                    known[rec_identity] = record
+                    successful.append(record)
             except Exception as error:
-                failures.append({"source_type": source_type, "url": url, "error": str(error)})
-        else:
-            failure = {
-                "date": draw_date, "draw": draw,
-                "source_type": "source_candidates_exhausted",
-                "verification_status": "source_unavailable_or_error",
-                "attempts": failures,
-            }
-            known[key] = failure
-            results.append(failure)
+                failures.append({"source_type": source_type, "url": landing_url, "error": str(error)})
+
+        # Add a per-source failure row only where no source record already exists.
+        for source_type, url in candidates:
+            if not any(r.get("discovery_url") == url or r.get("source_url") == url for r in successful):
+                if not any(f["url"] == url for f in failures):
+                    failures.append({"source_type": source_type, "url": url, "error": "No matching PDF link found"})
+        hashes = {}
+        for record in successful:
+            hashes.setdefault(record["sha256"], []).append(record)
+        conflict = len(hashes) > 1
+        for record in successful:
+            record["content_group"] = record["sha256"][:12]
+            record["content_match_count"] = len(hashes[record["sha256"]])
+            record["source_comparison_status"] = "source_content_conflict" if conflict else "same_content_or_single_copy"
+            known[(draw_date, draw, record["source_url"])] = record
+        summary = {
+            "date": draw_date, "draw": draw,
+            "source_candidates_checked": len(candidates),
+            "successful_pdf_copies": len(successful),
+            "distinct_sha256": len(hashes),
+            "comparison_status": "source_content_conflict" if conflict else ("identical_copies" if successful and max(map(len, hashes.values())) > 1 else ("single_copy_only" if successful else "no_pdf_found")),
+            "verification_status": "pending_number_comparison" if successful else "source_unavailable_or_error",
+            "attempts": failures,
+        }
+        results.append({**summary, "copies": successful})
+        known[(draw_date, draw, "__summary__")] = summary
 
     if not dry_run:
         output_dir.mkdir(parents=True, exist_ok=True)
-        manifest = sorted(known.values(), key=lambda x: (x["date"], x["draw"]))
-        manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+        manifest = sorted(known.values(), key=lambda x: (x.get("date", ""), x.get("draw", ""), x.get("source_url", x.get("source_type", ""))))
+        manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return results
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--csv", required=True, help="Candidate results CSV")
+    parser.add_argument("--registry", default=str(DEFAULT_REGISTRY), help="25-entry source registry CSV")
     parser.add_argument("--output-dir", default="sources/historical")
     parser.add_argument("--dry-run", action="store_true")
-    parser.add_argument("--offset", type=int, default=0, help="Skip this many sorted date/draw pairs")
-    parser.add_argument("--limit", type=int, default=25, help="Maximum date/draw pairs per batch")
+    parser.add_argument("--offset", type=int, default=0)
+    parser.add_argument("--limit", type=int, default=25)
     parser.add_argument("--start-date", help="Include draws on/after YYYY-MM-DD")
     parser.add_argument("--end-date", help="Include draws on/before YYYY-MM-DD")
     args = parser.parse_args()
     try:
-        results = archive_sources(
-            args.csv, args.output_dir, dry_run=args.dry_run,
-            offset=args.offset, limit=args.limit,
-            start_date=args.start_date, end_date=args.end_date
-        )
+        results = archive_sources(args.csv, args.output_dir, dry_run=args.dry_run,
+                                  offset=args.offset, limit=args.limit,
+                                  start_date=args.start_date, end_date=args.end_date,
+                                  registry_path=args.registry)
     except Exception as error:
         sys.exit(f"SOURCE ARCHIVE FAILED: {error}")
     for item in results:
         print(json.dumps(item, ensure_ascii=False))
     if any(item.get("verification_status") == "source_unavailable_or_error" for item in results):
         raise SystemExit(1)
-    print("Downloaded sources remain pending number-by-number comparison; mirror copies are not official government files.")
+    print("All applicable registry leads were attempted. Copies are retained by source and SHA-256; no copy is human-verified automatically.")
 
 
 if __name__ == "__main__":
