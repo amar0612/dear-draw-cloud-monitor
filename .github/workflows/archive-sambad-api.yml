@@ -44,15 +44,19 @@ jobs:
         id: selection
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "draw=${{ inputs.draw }}" >> "$GITHUB_OUTPUT"
-            echo "date=${{ inputs.date }}" >> "$GITHUB_OUTPUT"
+            DRAW="${{ inputs.draw }}"
+            DRAW_DATE="${{ inputs.date }}"
           elif [ "${{ github.event.schedule }}" = "45 7 * * *" ]; then
-            echo "draw=1pm" >> "$GITHUB_OUTPUT"
-            echo "date=$(TZ=Asia/Kolkata date +%F)" >> "$GITHUB_OUTPUT"
+            DRAW="1pm"
+            DRAW_DATE="$(date -u +%F)"
           else
-            echo "draw=8pm" >> "$GITHUB_OUTPUT"
-            echo "date=$(TZ=Asia/Kolkata date +%F)" >> "$GITHUB_OUTPUT"
+            DRAW="8pm"
+            DRAW_DATE="$(date -u +%F)"
           fi
+          python -c 'import datetime,sys; datetime.date.fromisoformat(sys.argv[1])' "$DRAW_DATE"
+          echo "draw=$DRAW" >> "$GITHUB_OUTPUT"
+          echo "date=$DRAW_DATE" >> "$GITHUB_OUTPUT"
+          echo "Selected draw date: $DRAW_DATE"
 
       - name: Import and validate result
         working-directory: monitor
