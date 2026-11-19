@@ -69,7 +69,7 @@
       "detail": "Two 8PM PDFs and the lotterysambad.co daily result page agree on the 100-number 5th-tier list. The alternate Dhankesari page rendering is retained as a superseded candidate."
     }
   ],
-  "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Full-tier audit: 376 unique complete 132-entry sheets (49,632 prize rows), 348 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts (two resolved conflicts retained as competing candidates). All 12 monthly archive index pages were opened. 142 daily 1PM/8PM PDF links from lotterysambad.icu were tested in the prior batch; 129 parsed and 13 failed. Additional Apr 18 1PM and 8PM full PDFs from o.vcdn.cc were opened and extracted in this run. Not every daily link has been tested. Original PDF binaries were not preserved and no SHA-256 hashes are claimed. 6PM is excluded entirely.",
+  "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Full-tier audit: 389 unique complete 132-entry sheets (51,348 prize rows), 335 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts (two resolved conflicts retained as competing candidates). All 12 monthly archive index pages were opened. 142 daily 1PM/8PM PDF links from lotterysambad.icu were tested in the earlier batch; 129 parsed and 13 failed. This run added 15 full sheets (1,980 rows) across April, May, July, August, September, October and November using lotterysambad.co/o.vcdn.cc and official Government of Nagaland gazette PDFs. Not every daily link has been tested. Original PDF binaries were not preserved and no SHA-256 hashes are claimed. 6PM is excluded entirely.",
   "monthly_exceptions": [
     {
       "date": "2025-01-26",
@@ -151,16 +151,16 @@
     {
       "date": "2025-10",
       "draw": "both",
-      "issue": "60 first-prize records recovered for October 1 and October 3–31; October 2 remains unresolved for both requested draws.",
+      "issue": "October 2 both draws remain unresolved. 28 full 132-entry sheets (3,696 entries) now imported; 32 known draw slots remain first-prize-only.",
       "status": "partial_extraction_review",
-      "action": "Continue searching October 2 daily PDFs; extract remaining full tiers"
+      "action": "Continue searching remaining October daily PDFs and alternate sources for the 32 partial draw slots; do not infer no-draw from Oct 2 source failures."
     },
     {
       "date": "2025-11",
       "draw": "both",
-      "issue": "60 first-prize records recovered from Goodreturns and KLLotteryResults yearly charts; full prize tiers not imported. A full-result PDF for November 15 1PM is indexed.",
+      "issue": "18 full 132-entry sheets (2,376 entries) now imported, including Nov 7 1PM and Nov 15 8PM. 42 known draw slots remain first-prize-only.",
       "status": "partial_extraction_review",
-      "action": "Extract full tiers from November 15 PDF and search remaining November dates"
+      "action": "Continue searching remaining November daily PDFs and alternate sources."
     },
     {
       "date": "2025-12",
@@ -248,6 +248,46 @@
         "https://lotterysambad.co/2025/april/18/",
         "https://o.vcdn.cc/Dear/MN180425.PDF",
         "https://o.vcdn.cc/Dear/EN180425.PDF"
+      ],
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-10-01",
+      "draw": "8PM",
+      "issue": "Official Government of Nagaland gazette PDF extracted; first prize 42E 95725 matches both yearly charts. Full 132-entry sheet imported; lower tiers single-source pending review.",
+      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
+      "sources": [
+        "https://www.nagalandlotteries.com/old_results/EN011025.PDF"
+      ],
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-10-27",
+      "draw": "8PM",
+      "issue": "Official Government of Nagaland gazette PDF extracted; first prize 99E 35226 matches both yearly charts. Full 132-entry sheet imported; lower tiers single-source pending review.",
+      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
+      "sources": [
+        "https://www.nagalandlotteries.com/old_results/EN271025.PDF"
+      ],
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-09-26",
+      "draw": "1PM",
+      "issue": "Official Government of Nagaland gazette PDF extracted; first prize 53A 27333 matches both yearly charts. Full 132-entry sheet imported; lower tiers single-source pending review.",
+      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
+      "sources": [
+        "https://www.nagalandlotteries.com/old_results/MN260925.PDF"
+      ],
+      "retrieval_date": "2026-11-19"
+    },
+    {
+      "date": "2025-11-07",
+      "draw": "1PM",
+      "issue": "Official Government of Nagaland gazette PDF extracted; first prize 39J 05257 matches both yearly charts. Full 132-entry sheet imported; lower tiers single-source pending review.",
+      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
+      "sources": [
+        "https://www.nagalandlotteries.com/old_results/MN071125.PDF"
       ],
       "retrieval_date": "2026-11-19"
     }
