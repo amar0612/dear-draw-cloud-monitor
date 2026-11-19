@@ -69,7 +69,7 @@
       "detail": "Two 8PM PDFs and the lotterysambad.co daily result page agree on the 100-number 5th-tier list. The alternate Dhankesari page rendering is retained as a superseded candidate."
     }
   ],
-  "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Full-tier audit: 366 complete 132-entry sheets (48,312 prize rows), 358 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts (two resolved conflicts retained). All 12 monthly archive pages opened; 132 daily links tested, 120 parsed (105 new imports, 11 same-archive reopens, four independent additional PDF cross-checks), 12 failed (Jan 26 and Oct 2 404; April 1 both PDFs and May 3/May 5/May 7/May 10/May 11 1PM/8PM parse failures). Not every daily PDF link has been tested. 6PM excluded. Original PDF binaries were not preserved; no hashes claimed.",
+  "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Full-tier audit: 376 unique complete 132-entry sheets (49,632 prize rows), 348 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts (two resolved conflicts retained as competing candidates). All 12 monthly archive index pages were opened. 142 daily 1PM/8PM PDF links from lotterysambad.icu were tested in the prior batch; 129 parsed and 13 failed. Additional Apr 18 1PM and 8PM full PDFs from o.vcdn.cc were opened and extracted in this run. Not every daily link has been tested. Original PDF binaries were not preserved and no SHA-256 hashes are claimed. 6PM is excluded entirely.",
   "monthly_exceptions": [
     {
       "date": "2025-01-26",
@@ -95,9 +95,9 @@
     {
       "date": "2025-04",
       "draw": "both",
-      "issue": "First-prize chart entries imported for all 30 dates; five full-result source files/pages identified but prize tiers not yet extracted into CSV.",
+      "issue": "All 30 dates have first-prize records. Seventeen 132-entry full-tier sheets (2,244 entries) are now imported, including April 18 1PM and 8PM from MN180425.PDF and EN180425.PDF. Forty-three known draw slots remain first-prize-only.",
       "status": "partial_extraction_review",
-      "action": "Retain first-prize records and continue full-tier extraction separately"
+      "action": "Continue searching remaining April daily PDFs and alternate sources for the 43 partial draw slots."
     },
     {
       "date": "2025-05",
@@ -238,6 +238,18 @@
       "issue": "Both May 11 2025 lotterysambad.icu daily PDFs failed parsing on 2026-11-19. The first-prize chart records remain imported as partial; no lower tiers inferred. URLs: https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTc0NDA1MtUrSEkDADHPBTQ/1pm-11-05-2025.pdf and https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTc0NDA1MtUrSEkDADIxBTs/8pm-11-05-2025.pdf.",
       "status": "partial_extraction_review",
       "action": "Retry exact PDFs from alternate archive or official gazette"
+    },
+    {
+      "date": "2025-04-18",
+      "draw": "1PM and 8PM",
+      "issue": "Both full 132-entry sheets were extracted from o.vcdn.cc PDFs linked from the lotterysambad.co daily page. First-prize values match Goodreturns and KLLotteryResults. Original PDF binaries and SHA-256 hashes were not preserved.",
+      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
+      "sources": [
+        "https://lotterysambad.co/2025/april/18/",
+        "https://o.vcdn.cc/Dear/MN180425.PDF",
+        "https://o.vcdn.cc/Dear/EN180425.PDF"
+      ],
+      "retrieval_date": "2026-11-19"
     }
   ],
   "last_updated": "2026-11-19",
