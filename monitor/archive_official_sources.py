@@ -134,7 +134,14 @@ def _matching_link(href, label, draw_date, draw):
     tokens = _date_tokens(draw_date)
     compact = re.sub(r"[^0-9]", "", draw_date)
     date_match = any(token in joined for token in tokens) or compact in re.sub(r"[^0-9]", "", joined)
-    if not date_match:
+    # Also traverse month archive links (e.g. /2024/06/) to reach date pages.
+    month_names = {d.strftime("%B").lower(), d.strftime("%b").lower()}
+    month_tokens = {d.strftime("%m"), str(d.month)}
+    month_match = str(d.year) in joined and (
+        any(name in joined for name in month_names)
+        or any(re.search(rf"/{re.escape(token)}/", joined) for token in month_tokens)
+    )
+    if not date_match and not month_match:
         return False
     # Explicit wrong-slot labels are rejected. If the link has no slot label,
     # it can still be a date page whose child page contains the draw-specific PDF.
