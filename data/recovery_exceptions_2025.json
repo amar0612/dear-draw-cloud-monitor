@@ -69,7 +69,7 @@
       "detail": "Two 8PM PDFs and the lotterysambad.co daily result page agree on the 100-number 5th-tier list. The alternate Dhankesari page rendering is retained as a superseded candidate."
     }
   ],
-  "note": "2025 first-prize CSVs contain 724 rows (362 draw slots), with six unresolved slots on Jan 26, Aug 15 and Oct 2 (both draws). Full-tier audit: 269 complete 132-entry sheets (35,508 prize rows), 455 partial first-prize-only slots, 6 unresolved slots, 0 unresolved source conflicts. December is fully covered at 62/62 full sheets; January and February are fully recovered except Jan 26. 6PM excluded. PDF binary download attempts failed; no hashes claimed.",
+  "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Full-tier audit: 283 complete 132-entry sheets (37,356 prize rows), 441 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts (two resolved conflicts retained). All 12 monthly archive pages opened; 32 daily links tested, 26 parsed, six failed (Jan 26 and Oct 2 404; April 1 parse failures). Not every daily PDF link has been tested. 6PM excluded. Original PDF binaries were not preserved; no hashes claimed.",
   "monthly_exceptions": [
     {
       "date": "2025-01-26",
@@ -144,7 +144,7 @@
     {
       "date": "2025-10-02",
       "draw": "1PM and 8PM",
-      "issue": "October 2 appears as ***** in KLL chart and is omitted from Goodreturns monthly chart; unresolved, not proof of no draw.",
+      "issue": "October 2 appears as ***** in KLL chart and is omitted from Goodreturns monthly chart; unresolved, not proof of no draw. The October 2025 lotterysambad.icu archive links for both draws returned HTTP 404 on 2026-11-19: https://lotterysambad.icu/files/download//1pm-02-10-2025.pdf and https://lotterysambad.icu/files/download//8pm-02-10-2025.pdf.",
       "status": "unresolved_source_gap",
       "action": "Search alternate archives and daily PDFs for October 2"
     },
