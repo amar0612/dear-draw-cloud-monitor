@@ -4156,6 +4156,170 @@
     "discrepancy_sheets": 35,
     "status": "provisional_pending_full_cross_file_deduplication",
     "retrieval_date": "2026-11-20",
-    "note": "March is fully covered for 1PM/8PM (62/62); April now has 41 full sheets and 19 partial slots. April 1 and April 6–13 recovered from alternate archive PDFs. Fifty-two new sheets added in this run; seven March PDF checks corroborated existing imports and were not duplicated. The 443/281/6 aggregate remains provisional; month summary sum exceeds it by 35 sheets."
-  }
+    "note": "March is complete for 1PM/8PM (62/62). April has 41 full sheets and 19 partial slots; 18 of those pending PDF links have been located and are recorded in pending_extractions, with one remaining slot not yet located. The 443/281/6 aggregate remains provisional; month summary sum exceeds it by 35 sheets."
+  },
+  "pending_extractions": [
+    {
+      "date": "2025-04-14",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN140425.PDF",
+      "archive_page": "https://lotterysambad.co/2025/april/14/",
+      "retrieval_date": "2026-11-20",
+      "status": "source_discovered_pending_extraction",
+      "note": "PDF link opened from daily archive; full 132-entry extraction not yet committed."
+    },
+    {
+      "date": "2025-04-20",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN200425.PDF",
+      "archive_page": "https://lotterysambad.co/2025/april/20/",
+      "retrieval_date": "2026-11-20",
+      "status": "source_discovered_pending_extraction",
+      "note": "PDF link opened from daily archive; full 132-entry extraction not yet committed."
+    },
+    {
+      "date": "2025-04-20",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN200425.PDF",
+      "archive_page": "https://lotterysambad.co/2025/april/20/",
+      "retrieval_date": "2026-11-20",
+      "status": "source_discovered_pending_extraction",
+      "note": "PDF link opened from daily archive; full 132-entry extraction not yet committed."
+    },
+    {
+      "date": "2025-04-21",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN210425.PDF",
+      "archive_page": "https://lotterysambad.co/2025/april/21/",
+      "retrieval_date": "2026-11-20",
+      "status": "source_discovered_pending_extraction",
+      "note": "PDF link opened from daily archive; full 132-entry extraction not yet committed."
+    },
+    {
+      "date": "2025-04-22",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN220425.PDF",
+      "archive_page": "https://lotterysambad.co/2025/april/22/",
+      "retrieval_date": "2026-11-20",
+      "status": "source_discovered_pending_extraction",
+      "note": "PDF link opened from daily archive; full 132-entry extraction not yet committed."
+    },
+    {
+      "date": "2025-04-22",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN220425.PDF",
+      "archive_page": "https://lotterysambad.co/2025/april/22/",
+      "retrieval_date": "2026-11-20",
+      "status": "source_discovered_pending_extraction",
+      "note": "PDF link opened from daily archive; full 132-entry extraction not yet committed."
+    },
+    {
+      "date": "2025-04-23",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN230425.PDF",
+      "archive_page": "https://lotterysambad.co/2025/april/23/",
+      "retrieval_date": "2026-11-20",
+      "status": "source_discovered_pending_extraction",
+      "note": "PDF link opened from daily archive; full 132-entry extraction not yet committed."
+    },
+    {
+      "date": "2025-04-23",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN230425.PDF",
+      "archive_page": "https://lotterysambad.co/2025/april/23/",
+      "retrieval_date": "2026-11-20",
+      "status": "source_discovered_pending_extraction",
+      "note": "PDF link opened from daily archive; full 132-entry extraction not yet committed."
+    },
+    {
+      "date": "2025-04-24",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN240425.PDF",
+      "archive_page": "https://lotterysambad.co/2025/april/24/",
+      "retrieval_date": "2026-11-20",
+      "status": "source_discovered_pending_extraction",
+      "note": "PDF link opened from daily archive; full 132-entry extraction not yet committed."
+    },
+    {
+      "date": "2025-04-25",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN250425.PDF",
+      "archive_page": "https://lotterysambad.co/2025/april/25/",
+      "retrieval_date": "2026-11-20",
+      "status": "source_discovered_pending_extraction",
+      "note": "PDF link opened from daily archive; full 132-entry extraction not yet committed."
+    },
+    {
+      "date": "2025-04-25",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN250425.PDF",
+      "archive_page": "https://lotterysambad.co/2025/april/25/",
+      "retrieval_date": "2026-11-20",
+      "status": "source_discovered_pending_extraction",
+      "note": "PDF link opened from daily archive; full 132-entry extraction not yet committed."
+    },
+    {
+      "date": "2025-04-26",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN260425.PDF",
+      "archive_page": "https://lotterysambad.co/2025/april/26/",
+      "retrieval_date": "2026-11-20",
+      "status": "source_discovered_pending_extraction",
+      "note": "PDF link opened from daily archive; full 132-entry extraction not yet committed."
+    },
+    {
+      "date": "2025-04-26",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN260425.PDF",
+      "archive_page": "https://lotterysambad.co/2025/april/26/",
+      "retrieval_date": "2026-11-20",
+      "status": "source_discovered_pending_extraction",
+      "note": "PDF link opened from daily archive; full 132-entry extraction not yet committed."
+    },
+    {
+      "date": "2025-04-27",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN270425.PDF",
+      "archive_page": "https://lotterysambad.co/2025/april/27/",
+      "retrieval_date": "2026-11-20",
+      "status": "source_discovered_pending_extraction",
+      "note": "PDF link opened from daily archive; full 132-entry extraction not yet committed."
+    },
+    {
+      "date": "2025-04-27",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN270425.PDF",
+      "archive_page": "https://lotterysambad.co/2025/april/27/",
+      "retrieval_date": "2026-11-20",
+      "status": "source_discovered_pending_extraction",
+      "note": "PDF link opened from daily archive; full 132-entry extraction not yet committed."
+    },
+    {
+      "date": "2025-04-28",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN280425.PDF",
+      "archive_page": "https://lotterysambad.co/2025/april/28/",
+      "retrieval_date": "2026-11-20",
+      "status": "source_discovered_pending_extraction",
+      "note": "PDF link opened from daily archive; full 132-entry extraction not yet committed."
+    },
+    {
+      "date": "2025-04-29",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN290425.PDF",
+      "archive_page": "https://lotterysambad.co/2025/april/29/",
+      "retrieval_date": "2026-11-20",
+      "status": "source_discovered_pending_extraction",
+      "note": "PDF link opened from daily archive; full 132-entry extraction not yet committed."
+    },
+    {
+      "date": "2025-04-29",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN290425.PDF",
+      "archive_page": "https://lotterysambad.co/2025/april/29/",
+      "retrieval_date": "2026-11-20",
+      "status": "source_discovered_pending_extraction",
+      "note": "PDF link opened from daily archive; full 132-entry extraction not yet committed."
+    }
+  ]
 }
