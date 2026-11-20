@@ -27,6 +27,7 @@ TIER_ORDER = {"1st": 0, "Consolation": 1, "2nd": 2, "3rd": 3, "4th": 4, "5th": 5
 def read_batch(path: Path, grouped: dict) -> tuple[int, int]:
     skipped_6pm = 0
     rows_read = 0
+    local_groups: dict[tuple[str, str], list[dict]] = defaultdict(list)
     with path.open("r", encoding="utf-8-sig", newline="") as f:
         reader = csv.DictReader(f)
         required = {"date", "draw", "prize_tier", "position", "winning_number"}
@@ -50,7 +51,9 @@ def read_batch(path: Path, grouped: dict) -> tuple[int, int]:
                 "verification_status": (raw.get("verification_status") or "recovered_2025_batch").strip(),
                 "_batch": path.name,
             }
-            grouped[(row["date"], slot)].append(row)
+            local_groups[(row["date"], slot)].append(row)
+    for key, rows in local_groups.items():
+        grouped[key].append(rows)
     return rows_read, skipped_6pm
 
 
