@@ -1,0 +1,26 @@
+{
+  "year": 2026,
+  "quarter": "Q3",
+  "exceptions": [
+    {
+      "date": "2026-07",
+      "issue": "62 first-prize records imported; full tiers pending",
+      "status": "partial_extraction_review"
+    },
+    {
+      "date": "2026-08-15",
+      "issue": "Absent from consulted monthly charts; unresolved, not no-draw",
+      "status": "unresolved_source_gap"
+    },
+    {
+      "date": "2026-08",
+      "issue": "60 first-prize records imported for remaining 30 dates; full tiers pending",
+      "status": "partial_extraction_review"
+    },
+    {
+      "date": "2026-09",
+      "issue": "60 first-prize records imported; full tiers pending",
+      "status": "partial_extraction_review"
+    }
+  ]
+}
