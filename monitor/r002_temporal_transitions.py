@@ -16,14 +16,14 @@ SLOTS=("1PM","8PM")
 def extract(draw, field, width, expected):
     v=draw.get(field)
     if field=="first":
-        vals=[re.sub(r"^\\s*\\d{2}[A-Za-z]\\s+","",str(v or ""))]
+        vals=[re.sub(r"^\s*\d{2}[A-Za-z]\s+","",str(v or ""))]
     elif isinstance(v,list): vals=v
-    else: vals=re.findall(r"(?<!\\d)\\d{%d}(?!\\d)"%width,str(v or ""))
+    else: vals=re.findall(r"(?<!\d)\d{%d}(?!\d)"%width,str(v or ""))
     out=[]
     for x in vals:
         s=str(x).strip()
-        if field=="first": s=re.sub(r"^\\s*\\d{2}[A-Za-z]\\s+","",s)
-        if re.fullmatch(r"\\d{%d}"%width,s): out.append(s)
+        if field=="first": s=re.sub(r"^\s*\d{2}[A-Za-z]\s+","",s)
+        if re.fullmatch(r"\d{%d}"%width,s): out.append(s)
     return out if len(out)==expected else None
 
 def mi_from_pairs(pairs):
@@ -80,7 +80,7 @@ def main():
         t=str(d.get("time","")).upper().replace(" ","")
         slot="1PM" if t in ("1:00PM","1PM","13:00") else "8PM" if t in ("8:00PM","8PM","20:00") else None
         date=str(d.get("date",""))
-        if not slot or not re.fullmatch(r"\\d{4}-\\d{2}-\\d{2}",date): continue
+        if not slot or not re.fullmatch(r"\d{4}-\d{2}-\d{2}",date): continue
         counts[slot]+=1
         byslot[slot][date]=d
     out=Path(args.outdir); out.mkdir(parents=True,exist_ok=True)
