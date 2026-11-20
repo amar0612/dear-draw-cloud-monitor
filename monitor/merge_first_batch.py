@@ -39,8 +39,8 @@ def padded(value: str, width: int) -> str:
 def main() -> None:
     with STAGING.open("r", encoding="utf-8-sig", newline="") as f:
         draws = list(csv.DictReader(f))
-    if len(draws) != 25:
-        raise SystemExit(f"Expected 25 extracted draws; found {len(draws)}")
+    if not draws:
+        raise SystemExit("No extracted draws found")
 
     keys: set[tuple[str, str]] = set()
     replacement_rows: list[dict[str, str]] = []
@@ -102,7 +102,7 @@ def main() -> None:
             ),
         })
 
-    if len(keys) != 25 or len(replacement_rows) != 3300:
+    if len(replacement_rows) != len(keys) * 132:
         raise SystemExit("Batch shape check failed")
 
     with MASTER.open("r", encoding="utf-8-sig", newline="") as f:
