@@ -80,6 +80,12 @@ def main() -> None:
         if len(rows) != 132:
             raise SystemExit(f"{date} {slot}: expected 132 rows, got {len(rows)}")
 
+        draw_status = (
+            "MERGED - TWO PUBLISHED MIRRORS AGREE ON FULL TIERS; "
+            "OFFICIAL GAZETTE CROSS-CHECK PENDING"
+            if draw["extraction_status"] == "two_mirror_full_tier_match"
+            else STATUS
+        )
         replacement_rows.extend({
             "date": date,
             "draw": slot,
@@ -87,7 +93,7 @@ def main() -> None:
             "position": str(position),
             "winning_number": number,
             "source_pdf": source_pdf,
-            "verification_status": STATUS,
+            "verification_status": draw_status,
         } for tier, position, number in rows)
 
         provenance_rows.append({
@@ -97,8 +103,11 @@ def main() -> None:
             "source_sha256": source_hash,
             "extraction_status": draw["extraction_status"],
             "verification_note": (
-                "Full-tier mirror PDF comparison passed; "
-                "official lower-tier review remains pending"
+                "Two published result pages agree on all prize tiers; "
+                "official Gazette cross-check pending"
+                if draw["extraction_status"] == "two_mirror_full_tier_match"
+                else "Full-tier mirror PDF comparison passed; "
+                     "official lower-tier review remains pending"
             ),
         })
 
