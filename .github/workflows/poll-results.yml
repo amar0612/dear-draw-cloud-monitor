@@ -1,10 +1,11 @@
 name: Nagaland Lottery Daily Result Fetch and Cloud Sync
 
 on:
-  # GitHub cron uses UTC: 07:40 = 13:10 IST; 14:40 = 20:10 IST.
+  # GitHub cron uses UTC: 07:47 = 13:17 IST; 14:47 = 20:17 IST.
+  # Offset away from the top of the hour to reduce schedule congestion.
   schedule:
-    - cron: "40 7 * * *"
-    - cron: "40 14 * * *"
+    - cron: "47 7 * * *"
+    - cron: "47 14 * * *"
 
   workflow_dispatch:
     inputs:
@@ -51,17 +52,17 @@ jobs:
             else
               DRAW_DATE="$(TZ=Asia/Kolkata date +%F)"
             fi
-          elif [ "${{ github.event.schedule }}" = "40 7 * * *" ]; then
+          elif [ "${{ github.event.schedule }}" = "47 7 * * *" ]; then
             DRAW="1pm"
-            DRAW_DATE="$(date -u +%F)"
+            DRAW_DATE="$(TZ=Asia/Kolkata date +%F)"
           else
             DRAW="8pm"
-            DRAW_DATE="$(date -u +%F)"
+            DRAW_DATE="$(TZ=Asia/Kolkata date +%F)"
           fi
           python -c 'import datetime,sys; datetime.date.fromisoformat(sys.argv[1])' "$DRAW_DATE"
           echo "draw=$DRAW" >> "$GITHUB_OUTPUT"
           echo "date=$DRAW_DATE" >> "$GITHUB_OUTPUT"
-          echo "Selected draw date: $DRAW_DATE (UTC schedule date for cron; IST date for manual runs)"
+          echo "Selected draw date: $DRAW_DATE (IST)"
 
       - name: Verify required secrets
         shell: bash
