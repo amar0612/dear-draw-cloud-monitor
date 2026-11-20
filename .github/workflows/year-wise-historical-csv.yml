@@ -1,0 +1,78 @@
+name: Build year-wise Nagaland CSVs (June 2024 to current)
+
+on:
+  push:
+    paths:
+      - .github/workflows/year-wise-historical-csv.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nagaland-yearwise-csv-build
+  cancel-in-progress: false
+
+jobs:
+  recover-yearly:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install PDF text extraction utility
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+
+      - name: Recover June-December 2024
+        run: |
+          python monitor/archive_official_sources.py \
+            --csv data/nagaland_master_prize_numbers.csv \
+            --output-dir yearly-archive/2024 \
+            --start-date 2024-06-01 --end-date 2024-12-31 \
+            --offset 0 --limit 1000
+          python monitor/parse_lottery_sambad_pdfs.py \
+            --input-dir yearly-archive/2024 \
+            --output yearly-csv/nagaland_2024_jun-dec_full_tier.csv
+
+      - name: Recover January-December 2025
+        run: |
+          python monitor/archive_official_sources.py \
+            --csv data/nagaland_master_prize_numbers.csv \
+            --output-dir yearly-archive/2025 \
+            --start-date 2025-01-01 --end-date 2025-12-31 \
+            --offset 0 --limit 1000
+          python monitor/parse_lottery_sambad_pdfs.py \
+            --input-dir yearly-archive/2025 \
+            --output yearly-csv/nagaland_2025_full_tier.csv
+
+      - name: Recover January-November 2026
+        run: |
+          python monitor/archive_official_sources.py \
+            --csv data/nagaland_master_prize_numbers.csv \
+            --output-dir yearly-archive/2026 \
+            --start-date 2026-01-01 --end-date 2026-11-20 \
+            --offset 0 --limit 1000
+          python monitor/parse_lottery_sambad_pdfs.py \
+            --input-dir yearly-archive/2026 \
+            --output yearly-csv/nagaland_2026_jan-nov20_full_tier.csv
+
+      - name: Upload year-wise CSVs and source manifests
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nagaland-yearwise-csvs-jun2024-to-2026-11-20
+          path: |
+            yearly-csv/
+            yearly-archive/2024/manifest.json
+            yearly-archive/2025/manifest.json
+            yearly-archive/2026/manifest.json
+          if-no-files-found: warn
+          retention-days: 90
