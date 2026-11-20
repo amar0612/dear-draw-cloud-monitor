@@ -656,9 +656,159 @@
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
       "retrieval_date": "2026-11-20"
+    },
+    {
+      "date": "2025-04-09",
+      "draws": [
+        "1PM"
+      ],
+      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
+      "detail": "132-entry full sheet extracted from the direct o.vcdn.cc PDF linked by lotterysambad.co. First-prize series-prefixed value matches the Goodreturns and KLL yearly charts; lower tiers remain single-source pending review. Original PDF binary could not be downloaded, so no SHA-256 is recorded.",
+      "sources": [
+        "https://lotterysambad.co/2025/april/9/",
+        "https://o.vcdn.cc/Dear/MN090425.PDF",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-20"
+    },
+    {
+      "date": "2025-04-09",
+      "draws": [
+        "8PM"
+      ],
+      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
+      "detail": "132-entry full sheet extracted from the direct o.vcdn.cc PDF linked by lotterysambad.co. First-prize series-prefixed value matches the Goodreturns and KLL yearly charts; lower tiers remain single-source pending review. Original PDF binary could not be downloaded, so no SHA-256 is recorded.",
+      "sources": [
+        "https://lotterysambad.co/2025/april/9/",
+        "https://o.vcdn.cc/Dear/EN090425.PDF",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-20"
+    },
+    {
+      "date": "2025-04-10",
+      "draws": [
+        "1PM"
+      ],
+      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
+      "detail": "132-entry full sheet extracted from the direct o.vcdn.cc PDF linked by lotterysambad.co. First-prize series-prefixed value matches the Goodreturns and KLL yearly charts; lower tiers remain single-source pending review. Original PDF binary could not be downloaded, so no SHA-256 is recorded.",
+      "sources": [
+        "https://lotterysambad.co/2025/april/10/",
+        "https://o.vcdn.cc/Dear/MN100425.PDF",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-20"
+    },
+    {
+      "date": "2025-04-10",
+      "draws": [
+        "8PM"
+      ],
+      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
+      "detail": "132-entry full sheet extracted from the direct o.vcdn.cc PDF linked by lotterysambad.co. First-prize series-prefixed value matches the Goodreturns and KLL yearly charts; lower tiers remain single-source pending review. Original PDF binary could not be downloaded, so no SHA-256 is recorded.",
+      "sources": [
+        "https://lotterysambad.co/2025/april/10/",
+        "https://o.vcdn.cc/Dear/EN100425.PDF",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-20"
+    },
+    {
+      "date": "2025-04-11",
+      "draws": [
+        "1PM"
+      ],
+      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
+      "detail": "132-entry full sheet extracted from the direct o.vcdn.cc PDF linked by lotterysambad.co. First-prize series-prefixed value matches the Goodreturns and KLL yearly charts; lower tiers remain single-source pending review. Original PDF binary could not be downloaded, so no SHA-256 is recorded.",
+      "sources": [
+        "https://lotterysambad.co/2025/april/11/",
+        "https://o.vcdn.cc/Dear/MN110425.PDF",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-20"
+    },
+    {
+      "date": "2025-04-11",
+      "draws": [
+        "8PM"
+      ],
+      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
+      "detail": "132-entry full sheet extracted from the direct o.vcdn.cc PDF linked by lotterysambad.co. First-prize series-prefixed value matches the Goodreturns and KLL yearly charts; lower tiers remain single-source pending review. Original PDF binary could not be downloaded, so no SHA-256 is recorded.",
+      "sources": [
+        "https://lotterysambad.co/2025/april/11/",
+        "https://o.vcdn.cc/Dear/EN110425.PDF",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-20"
+    },
+    {
+      "date": "2025-04-12",
+      "draws": [
+        "1PM"
+      ],
+      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
+      "detail": "132-entry full sheet extracted from the direct o.vcdn.cc PDF linked by lotterysambad.co. First-prize series-prefixed value matches the Goodreturns and KLL yearly charts; lower tiers remain single-source pending review. Original PDF binary could not be downloaded, so no SHA-256 is recorded.",
+      "sources": [
+        "https://lotterysambad.co/2025/april/12/",
+        "https://o.vcdn.cc/Dear/MN120425.PDF",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-20"
+    },
+    {
+      "date": "2025-04-12",
+      "draws": [
+        "8PM"
+      ],
+      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
+      "detail": "132-entry full sheet extracted from the direct o.vcdn.cc PDF linked by lotterysambad.co. First-prize series-prefixed value matches the Goodreturns and KLL yearly charts; lower tiers remain single-source pending review. Original PDF binary could not be downloaded, so no SHA-256 is recorded.",
+      "sources": [
+        "https://lotterysambad.co/2025/april/12/",
+        "https://o.vcdn.cc/Dear/EN120425.PDF",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-20"
+    },
+    {
+      "date": "2025-04-13",
+      "draws": [
+        "1PM"
+      ],
+      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
+      "detail": "132-entry full sheet extracted from the direct o.vcdn.cc PDF linked by lotterysambad.co. First-prize series-prefixed value matches the Goodreturns and KLL yearly charts; lower tiers remain single-source pending review. Original PDF binary could not be downloaded, so no SHA-256 is recorded.",
+      "sources": [
+        "https://lotterysambad.co/2025/april/13/",
+        "https://o.vcdn.cc/Dear/MN130425.PDF",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-20"
+    },
+    {
+      "date": "2025-04-13",
+      "draws": [
+        "8PM"
+      ],
+      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
+      "detail": "132-entry full sheet extracted from the direct o.vcdn.cc PDF linked by lotterysambad.co. First-prize series-prefixed value matches the Goodreturns and KLL yearly charts; lower tiers remain single-source pending review. Original PDF binary could not be downloaded, so no SHA-256 is recorded.",
+      "sources": [
+        "https://lotterysambad.co/2025/april/13/",
+        "https://o.vcdn.cc/Dear/EN130425.PDF",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-20"
     }
   ],
-  "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Prior audited full-tier baseline: 391 unique complete 132-entry sheets (51,612 rows), 333 first-prize-only partial slots, six unresolved. This run adds forty-two genuinely new complete sheets (34 March sheets, April 1 both draws, and April 6–8 both draws), bringing the audited total to 433 complete sheets (57,156 rows), 291 partial slots, six unresolved, and zero unresolved source conflicts. Seven other March sheets were independently checked against existing imported full sheets and not duplicated. The per-month manifest currently sums to 468 full sheets, 35 higher than the deduplicated audit; this discrepancy is explicitly unresolved and the aggregate remains provisional pending a complete cross-file deduplication pass. All 12 monthly archive index pages were opened; not every daily PDF link has been tested. PDF binaries for these forty-nine source checks could not be preserved, so no SHA-256 hashes are claimed. 6PM is excluded entirely.",
+  "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Prior audited full-tier baseline: 391 unique complete 132-entry sheets (51,612 rows), 333 first-prize-only partial slots, six unresolved. This run adds fifty-two genuinely new complete sheets (34 March sheets, April 1 both draws, April 6–13 both draws), bringing the audited total to 443 complete sheets (58,476 rows), 281 partial slots, six unresolved, and zero unresolved source conflicts. Seven other March sheets were independently checked against existing imported full sheets and not duplicated. The per-month manifest currently sums to 478 full sheets, 35 higher than the deduplicated audit; this discrepancy is explicitly unresolved and the aggregate remains provisional pending a complete cross-file deduplication pass. All 12 monthly archive index pages were opened; not every daily PDF link has been tested. PDF binaries for these fifty-nine source checks could not be preserved, so no SHA-256 hashes are claimed. 6PM is excluded entirely.",
   "monthly_exceptions": [
     {
       "date": "2025-01-26",
@@ -974,6 +1124,13 @@
       "date_range": "2025-01_to_12",
       "draw": "1PM and 8PM",
       "issue": "Post-April 6–8 checkpoint: 433 unique complete 132-entry sheets (57,156 rows), 291 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts. Forty-two new sheets were imported in this run (34 March, two April 1, six April 6–8); seven other March PDF checks matched existing sheets and were not duplicated. Monthly manifest totals sum to 468 complete sheets, a 35-sheet discrepancy; do not treat the monthly sum as final until a full cross-file deduplication pass is complete.",
+      "status": "audit_reconciled_provisional",
+      "action": "Continue recovery for remaining partial slots across other months and reconcile the 35-sheet monthly-manifest discrepancy before final aggregate certification."
+    },
+    {
+      "date_range": "2025-01_to_12",
+      "draw": "1PM and 8PM",
+      "issue": "Post-April 9–13 checkpoint: 443 unique complete 132-entry sheets (58,476 rows), 281 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts. Fifty-two new sheets were imported in this run (34 March, two April 1, six April 6–8, ten April 9–13); seven other March PDF checks matched existing sheets and were not duplicated. Monthly manifest totals sum to 478 complete sheets, a 35-sheet discrepancy; do not treat the monthly sum as final until a full cross-file deduplication pass is complete.",
       "status": "audit_reconciled_provisional",
       "action": "Continue recovery for remaining partial slots across other months and reconcile the 35-sheet monthly-manifest discrepancy before final aggregate certification."
     }
