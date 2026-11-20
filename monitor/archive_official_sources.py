@@ -380,9 +380,12 @@ def main():
         sys.exit(f"SOURCE ARCHIVE FAILED: {error}")
     for item in results:
         print(json.dumps(item, ensure_ascii=False))
-    if any(item.get("verification_status") == "source_unavailable_or_error" for item in results):
-        raise SystemExit(1)
-    print("All applicable registry leads were attempted. Copies are retained by source and SHA-256; no copy is human-verified automatically.")
+    missing = [item for item in results
+               if item.get("verification_status") == "source_unavailable_or_error"]
+    print(f"Batch finished: {len(results) - len(missing)} date/draw pairs had at least one PDF; "
+          f"{len(missing)} remain missing after all applicable sources were tried.")
+    print("Missing pairs are recorded in the manifest for targeted fallback recovery. "
+          "Copies are retained by source and SHA-256; no copy is human-verified automatically.")
 
 
 if __name__ == "__main__":
