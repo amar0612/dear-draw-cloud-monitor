@@ -65,7 +65,10 @@ def bh_adjust(pvalues):
 def permutation_test(left, right, reps, rng, mode):
     """Rows are whole draws; columns are prize-position winners."""
     obs, matrix = mutual_information(left, right)
-    n = left.shape[0]
+    # For lag-1, reconstruct the complete sequence from overlapping
+    # left=t and right=t+1 matrices so every draw participates in the null.
+    sequence = np.concatenate((left[:1, :], right), axis=0) if mode == "lag1" else None
+    n = sequence.shape[0] if mode == "lag1" else left.shape[0]
     if n < 30 or left.size == 0:
         return obs, 1.0, matrix, "insufficient_pairs"
     exceed = 0
@@ -73,7 +76,8 @@ def permutation_test(left, right, reps, rng, mode):
     for _ in range(reps):
         perm = rng.permutation(idx)
         if mode == "lag1":
-            a, b = left[perm[:-1], :], left[perm[1:], :]
+            shuffled = sequence[perm, :]
+            a, b = shuffled[:-1, :], shuffled[1:, :]
         else:
             a, b = left, right[perm, :]
         null_mi, _ = mutual_information(a, b)
