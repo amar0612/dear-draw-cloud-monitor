@@ -83,11 +83,18 @@ async function fetchAndNormalize(draw, date, token) {
   if (errors.length) throw new Error("validation failed: " + errors.join("; "));
   return record;
 }
+function stable(value) {
+  if (Array.isArray(value)) return value.map(stable);
+  if (value && typeof value === "object") {
+    return Object.fromEntries(Object.keys(value).sort().map(k => [k, stable(value[k])]));
+  }
+  return value;
+}
 function comparable(row) {
-  return JSON.stringify({
+  return JSON.stringify(stable({
     draw_date: row.draw_date, draw_slot: row.draw_slot, prizes: row.prizes,
     source: row.source, verification_status: row.verification_status
-  });
+  }));
 }
 async function syncSupabase(record, key) {
   const slot = record.draw;
