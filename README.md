@@ -42,3 +42,28 @@ The scheduled API workflow fetches Nagaland Dear 1PM and 8PM results, validates 
 Apply `supabase/migrations/20261120_authenticated_draws_read.sql` in the Supabase SQL Editor for project `sxdrqithncjdrokwpkzm`. This grants authenticated users read access to Nagaland 1PM/8PM draw rows only. Until this migration is applied, the app's cloud read will fail with a permissions/RLS error; local history remains available.
 
 The GitHub Actions secrets `LOTTERY_SAMBAD_API_TOKEN` and `SUPABASE_SECRET_KEY` must also be configured for scheduled API fetching and cloud writes. Secret values must never be placed in browser code.
+
+
+## Cloudflare independent live poller
+
+An independent Cloudflare Worker is provided under `cloudflare-worker/`.
+
+- Runs a Cron Trigger every minute (UTC schedule; draw windows are interpreted in Asia/Kolkata).
+- Calls the Sambad API only during 12:55–13:35 IST for 1PM and 19:55–22:05 IST for 8PM.
+- Validates the date, lottery, slot, prize formats, and all 132 entries before writing.
+- Inserts into Supabase using the same date/slot uniqueness key; it never overwrites a conflicting existing row.
+- Keeps polling on later minutes if the API has not published yet. No incomplete data is written.
+
+### Deploy
+
+1. In Cloudflare Dashboard, open **Workers & Pages** and create a Worker named `dear-draw-cloud-poller`.
+2. Connect this GitHub repository, or deploy from a local checkout with Wrangler using `cloudflare-worker/wrangler.toml`.
+3. Add these two encrypted Worker secrets (use the same values as the existing GitHub Actions secrets; do not commit or paste them into chat):
+   - `SAMBAD_API_TOKEN` = value of GitHub secret `LOTTERY_SAMBAD_API_TOKEN`
+   - `SUPABASE_SECRET_KEY` = value of GitHub secret `SUPABASE_SECRET_KEY`
+4. Deploy the Worker and confirm its Cron Trigger shows `* * * * *`.
+5. Open **Workers & Pages → dear-draw-cloud-poller → Logs** to inspect polling messages.
+
+For Wrangler deployment from the repository root: `npx wrangler deploy --config cloudflare-worker/wrangler.toml`.
+
+Cloudflare Cron Trigger changes can take several minutes (up to 15 minutes) to propagate. A scheduled invocation can also be delayed or missed, so GitHub Actions remains enabled as a backup. See the [Cloudflare Cron Trigger documentation](https://developers.cloudflare.com/workers/configuration/cron-triggers/) and [Worker secrets documentation](https://developers.cloudflare.com/workers/configuration/secrets/).
