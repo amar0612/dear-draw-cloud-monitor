@@ -1,5 +1,5 @@
 name = "dear-draw-cloud-poller"
-main = "cloudflare-worker/src/index.js"
+main = "src/index.js"
 compatibility_date = "2026-11-20"
 
 [triggers]
