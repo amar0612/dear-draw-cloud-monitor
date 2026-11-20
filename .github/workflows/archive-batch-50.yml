@@ -1,0 +1,43 @@
+name: Archive next 25 Nagaland source pairs (offset 50)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/archive-batch-50.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nagaland-historical-source-archive
+  cancel-in-progress: false
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download next 25 source pairs
+        run: |
+          python monitor/archive_official_sources.py \
+            --csv data/nagaland_master_prize_numbers.csv \
+            --output-dir official-source-archive \
+            --start-date 2024-06-01 \
+            --end-date 2026-11-20 \
+            --offset 50 \
+            --limit 25
+      - name: Upload source PDFs and manifest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nagaland-source-batch-50
+          path: official-source-archive/
+          if-no-files-found: warn
+          retention-days: 90
