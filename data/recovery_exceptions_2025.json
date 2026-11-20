@@ -74,8 +74,8 @@
         "1PM",
         "8PM"
       ],
-      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
-      "detail": "Both 132-entry full sheets extracted from the direct o.vcdn.cc PDFs linked by lotterysambad.co. First-prize five-digit values match the Goodreturns and KLLotteryResults yearly charts; lower tiers remain single-source pending review. Original PDF binary download failed, so no SHA-256 is recorded.",
+      "status": "cross_source_matched_existing_full_sheet",
+      "detail": "The o.vcdn.cc 1PM and 8PM PDFs were parsed and their complete tier number sets match the already-imported 132-entry sheets in the earlier PDF batch. No duplicate rows were retained; existing imported records remain authoritative for the dataset. Original PDF binaries could not be downloaded in this run, so no SHA-256 is recorded.",
       "sources": [
         "https://lotterysambad.co/2025/march/11/",
         "https://o.vcdn.cc/Dear/MN110325.PDF",
@@ -91,8 +91,8 @@
         "1PM",
         "8PM"
       ],
-      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
-      "detail": "Both 132-entry full sheets extracted from the direct o.vcdn.cc PDFs linked by lotterysambad.co. First-prize five-digit values match the Goodreturns and KLLotteryResults yearly charts; lower tiers remain single-source pending review. Original PDF binary download failed, so no SHA-256 is recorded.",
+      "status": "cross_source_matched_existing_full_sheet",
+      "detail": "The o.vcdn.cc 1PM and 8PM PDFs were parsed and their complete tier number sets match the already-imported 132-entry sheets in the earlier PDF batch. No duplicate rows were retained; existing imported records remain authoritative for the dataset. Original PDF binaries could not be downloaded in this run, so no SHA-256 is recorded.",
       "sources": [
         "https://lotterysambad.co/2025/march/12/",
         "https://o.vcdn.cc/Dear/MN120325.PDF",
@@ -108,8 +108,8 @@
         "1PM",
         "8PM"
       ],
-      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
-      "detail": "Both 132-entry full sheets extracted from the direct o.vcdn.cc PDFs linked by lotterysambad.co. First-prize five-digit values match the Goodreturns and KLLotteryResults yearly charts; lower tiers remain single-source pending review. Original PDF binary download was unavailable, so no SHA-256 is recorded.",
+      "status": "cross_source_matched_existing_full_sheet",
+      "detail": "The o.vcdn.cc 1PM and 8PM PDFs were parsed and their complete tier number sets match the already-imported 132-entry sheets in the earlier PDF batch. No duplicate rows were retained; existing imported records remain authoritative for the dataset. Original PDF binaries could not be downloaded in this run, so no SHA-256 is recorded.",
       "sources": [
         "https://lotterysambad.co/2025/march/18/",
         "https://o.vcdn.cc/Dear/MN180325.PDF",
@@ -126,7 +126,7 @@
         "8PM"
       ],
       "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
-      "detail": "Both 132-entry full sheets extracted from direct o.vcdn.cc PDFs linked by lotterysambad.co. First-prize five-digit values match Goodreturns and KLL yearly charts; lower tiers remain single-source pending review. PDF binary download was unavailable, so no SHA-256 is recorded.",
+      "detail": "Both 132-entry sheets for March 20 1PM and 8PM are newly imported from the o.vcdn.cc PDFs linked by lotterysambad.co. First-prize five-digit values match Goodreturns and KLL yearly charts; lower tiers remain single-source pending review.",
       "sources": [
         "https://lotterysambad.co/2025/march/20/",
         "https://o.vcdn.cc/Dear/MN200325.PDF",
@@ -139,11 +139,10 @@
     {
       "date": "2025-03-22",
       "draws": [
-        "1PM",
         "8PM"
       ],
       "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
-      "detail": "Both 132-entry full sheets extracted from direct o.vcdn.cc PDFs linked by lotterysambad.co. First-prize five-digit values match Goodreturns and KLL yearly charts; lower tiers remain single-source pending review. PDF binary download was unavailable, so no SHA-256 is recorded.",
+      "detail": "The 8PM 132-entry sheet is newly imported from the o.vcdn.cc PDF linked by lotterysambad.co. The 1PM PDF was also parsed but exactly matches an already-imported full sheet, so it was not re-imported. First-prize values match Goodreturns and KLL yearly charts; lower tiers for the new 8PM sheet remain single-source pending review.",
       "sources": [
         "https://lotterysambad.co/2025/march/22/",
         "https://o.vcdn.cc/Dear/MN220325.PDF",
@@ -152,9 +151,20 @@
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
       "retrieval_date": "2026-11-20"
+    },
+    {
+      "date": "2025-03-22",
+      "draw": "1PM",
+      "status": "cross_source_matched_existing_full_sheet",
+      "detail": "The o.vcdn.cc MN220325.PDF tier sets match the existing imported March 22 1PM 132-entry sheet exactly; no duplicate rows retained.",
+      "sources": [
+        "https://lotterysambad.co/2025/march/22/",
+        "https://o.vcdn.cc/Dear/MN220325.PDF"
+      ],
+      "retrieval_date": "2026-11-20"
     }
   ],
-  "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Reconciled full-tier audit: 437 unique complete 132-entry sheets (57,684 prize rows), 287 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts (two resolved conflicts retained as competing candidates). All 12 monthly archive index pages were opened. This run added ten March full sheets (March 11, 12, 18, 20 and 22, both 1PM and 8PM) from o.vcdn.cc PDFs linked by lotterysambad.co; first-prize values match two yearly chart sources, while lower tiers remain single-source pending review. Earlier audit notes of 391/333 and 251/473 are historical checkpoints and are superseded. Daily PDF binaries for these ten additions could not be preserved; no SHA-256 hashes are claimed. 6PM is excluded entirely.",
+  "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Prior audited full-tier baseline: 391 unique complete 132-entry sheets (51,612 rows), 333 first-prize-only partial slots, six unresolved. This run adds three genuinely new complete sheets (Mar 20 1PM and 8PM; Mar 22 8PM), bringing the audited total to 394 complete sheets (52,008 rows), 330 partial slots, six unresolved, and zero unresolved source conflicts. Seven other March sheets (Mar 11, 12, 18 both draws and Mar 22 1PM) were independently checked against existing imported full sheets and not duplicated. The per-month manifest currently sums to 427 full sheets, 33 higher than the deduplicated audit; this discrepancy is explicitly unresolved and the aggregate remains provisional pending a complete cross-file deduplication pass. All 12 monthly archive index pages were opened; not every daily PDF link has been tested. PDF binaries for these ten source checks could not be preserved, so no SHA-256 hashes are claimed. 6PM is excluded entirely.",
   "monthly_exceptions": [
     {
       "date": "2025-01-26",
@@ -416,6 +426,13 @@
       "issue": "Reconciled audit after the March 20 and 22 import: 437 unique complete 132-entry sheets (57,684 rows), 287 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts. This supersedes earlier 391/333 and 251/473 checkpoint totals retained above.",
       "status": "audit_reconciled",
       "action": "Continue testing remaining daily PDFs and alternate archives for the 287 partial slots; preserve the six unresolved slots without inferring no-draw."
+    },
+    {
+      "date_range": "2025-01_to_12",
+      "draw": "1PM and 8PM",
+      "issue": "Post-deduplication checkpoint: 394 unique complete 132-entry sheets (52,008 rows), 330 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts. Seven March PDF checks matched existing sheets and were not re-imported. Monthly manifest totals sum to 427 complete sheets, a 33-sheet discrepancy; do not treat monthly sum as final until a full cross-file deduplication pass is complete.",
+      "status": "audit_reconciled_provisional",
+      "action": "Continue source recovery and reconcile the 33-sheet monthly-manifest discrepancy before final aggregate certification."
     }
   ],
   "last_updated": "2026-11-19",
