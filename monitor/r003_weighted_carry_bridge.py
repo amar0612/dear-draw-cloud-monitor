@@ -172,7 +172,7 @@ def main():
     def write(name,data):
         if not data:return
         with (out/name).open("w",newline="",encoding="utf-8") as f:
-            w=csv.DictWriter(f,fieldnames=list(data[0]));w.writeheader();w.writerows(data)
+            w=csv.DictWriter(f,fieldnames=list(dict.fromkeys(k for row in data for k in row)));w.writeheader();w.writerows(data)
     write("r003_weighted_carry_bridge_tests.csv",rows)
     write("r003_data_quality.csv",quality)
     summary={
