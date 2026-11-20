@@ -1,0 +1,24 @@
+{
+  "year": 2023,
+  "quarter": "Q2",
+  "exceptions": [
+    {
+      "date": "2023-04-26",
+      "draw": "1PM and 8PM",
+      "issue": "TodaySoch chart lists 79323 for both draws; repeated value requires independent confirmation.",
+      "status": "source_anomaly_review"
+    },
+    {
+      "date": "2023-04_to_06",
+      "draw": "1PM and 8PM",
+      "issue": "All 182 entries are transcribed from one chart source only; no independent second-source match yet.",
+      "status": "single_source_pending_review"
+    },
+    {
+      "date": "2023-04_to_06",
+      "draw": "both",
+      "issue": "Only first-prize numbers recovered; full prize tiers not extracted.",
+      "status": "partial_extraction_review"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "year": 2023,
+  "quarter": "Q2",
+  "scope": "Nagaland 1PM and 8PM only; 6PM excluded",
+  "source": {
+    "name": "TodaySoch",
+    "url": "https://www.todaysoch.com/2023/10/dear-lottery-result-chart.html",
+    "retrieved": "2026-11-18",
+    "status": "Monthly chart values transcribed; independent corroboration pending"
+  },
+  "months": [
+    {
+      "month": "April",
+      "dates": 30,
+      "records": 60,
+      "status": "single_source_pending_review"
+    },
+    {
+      "month": "May",
+      "dates": 31,
+      "records": 62,
+      "status": "single_source_pending_review"
+    },
+    {
+      "month": "June",
+      "dates": 30,
+      "records": 60,
+      "status": "single_source_pending_review"
+    }
+  ],
+  "total_first_prize_records": 182,
+  "full_prize_tiers": "not extracted",
+  "notes": [
+    "All dates in April, May and June have 1PM and 8PM entries in the consulted chart.",
+    "Values are retained exactly as displayed, including leading zeros.",
+    "April 26 chart shows the same 79323 for both 1PM and 8PM; flag for independent verification.",
+    "No 6PM data imported.",
+    "These are first-prize chart entries only, not full draw results."
+  ]
+}
