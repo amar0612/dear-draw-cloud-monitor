@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "data/recovered_2025_full_tier_batch_*.csv"
+      - "data/recovered_draws_2025_full_tier_pdf_batch_*.csv"
       - "data/recovered_draws_2025-12-03-8pm-full.csv"
       - "monitor/merge_2025_full_tier_batches.py"
       - ".github/workflows/merge-2025-full-tier.yml"
