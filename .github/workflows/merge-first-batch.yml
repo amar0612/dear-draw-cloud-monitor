@@ -1,0 +1,42 @@
+name: Merge first recovered Nagaland batch
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/nagaland_2026_first_batch_extracted.csv"
+      - "monitor/merge_first_batch.py"
+      - ".github/workflows/merge-first-batch.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: merge-first-nagaland-batch
+  cancel-in-progress: false
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Merge extracted prize numbers into master
+        run: python monitor/merge_first_batch.py
+
+      - name: Commit merged master and provenance
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/nagaland_master_prize_numbers.csv data/nagaland_2026_first_batch_provenance.csv
+          git commit -m "Merge first recovered 2026 Nagaland batch"
+          git push origin HEAD:main
