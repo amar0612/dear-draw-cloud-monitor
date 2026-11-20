@@ -67,3 +67,8 @@ An independent Cloudflare Worker is provided under `cloudflare-worker/`.
 For Wrangler deployment from the repository root: `npx wrangler deploy --config cloudflare-worker/wrangler.toml`.
 
 Cloudflare Cron Trigger changes can take several minutes (up to 15 minutes) to propagate. A scheduled invocation can also be delayed or missed, so GitHub Actions remains enabled as a backup. See the [Cloudflare Cron Trigger documentation](https://developers.cloudflare.com/workers/configuration/cron-triggers/) and [Worker secrets documentation](https://developers.cloudflare.com/workers/configuration/secrets/).
+
+
+## R002.4 prospective validation data source
+
+R002.4 now exports its analysis input directly from the live Supabase `draws` table at workflow runtime using the GitHub Actions secret `SUPABASE_SECRET_KEY`. The exporter pages through the table and includes only Nagaland Dear `1PM` and `8PM` rows, mapping the stored prize arrays into the preregistered R002.4 input schema. The frozen cutoff remains **2026-11-20 inclusive**; only paired dates after that cutoff count toward the minimum 60-date prospective evaluation. The historical backup is not substituted if the future sample is too small. The workflow intentionally stops until the minimum paired future sample is reached.
