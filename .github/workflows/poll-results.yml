@@ -1,11 +1,11 @@
 name: Nagaland Lottery Daily Result Fetch and Cloud Sync
 
 on:
-  # GitHub cron uses UTC: 07:47 = 13:17 IST; 14:47 = 20:17 IST.
-  # Offset away from the top of the hour to reduce schedule congestion.
+  # GitHub cron uses UTC: 07:35 = 13:05 IST; 14:35 = 20:05 IST.
+  # Start before the expected publication time; poll quickly for the new result.
   schedule:
-    - cron: "47 7 * * *"
-    - cron: "47 14 * * *"
+    - cron: "35 7 * * *"
+    - cron: "35 14 * * *"
 
   workflow_dispatch:
     inputs:
@@ -52,7 +52,7 @@ jobs:
             else
               DRAW_DATE="$(TZ=Asia/Kolkata date +%F)"
             fi
-          elif [ "${{ github.event.schedule }}" = "47 7 * * *" ]; then
+          elif [ "${{ github.event.schedule }}" = "35 7 * * *" ]; then
             DRAW="1pm"
             DRAW_DATE="$(TZ=Asia/Kolkata date +%F)"
           else
@@ -79,7 +79,7 @@ jobs:
           if [ "$DRAW" = "8pm" ]; then
             MAX_ATTEMPTS=37
           else
-            MAX_ATTEMPTS=12
+            MAX_ATTEMPTS=30
           fi
 
           for attempt in $(seq 1 "$MAX_ATTEMPTS"); do
@@ -94,11 +94,14 @@ jobs:
             fi
 
             if [ "$attempt" -lt "$MAX_ATTEMPTS" ]; then
-              if [ "$DRAW" = "8pm" ] && [ "$attempt" -lt 16 ]; then
-                echo "Result not published yet; fast polling: retrying in 1 minute (early window)."
+              if [ "$DRAW" = "1pm" ]; then
+                echo "1PM result not published yet; retrying in 30 seconds."
+                sleep 30
+              elif [ "$attempt" -lt 16 ]; then
+                echo "8PM result not published yet; fast polling: retrying in 1 minute."
                 sleep 60
               else
-                echo "Result not published yet; standard polling: retrying in 5 minutes."
+                echo "8PM result not published yet; standard polling: retrying in 5 minutes."
                 sleep 300
               fi
             fi
@@ -109,7 +112,7 @@ jobs:
             printf '{"date":"%s","draw":"8PM","status":"PENDING_NOT_PUBLISHED","attempts":%s}\n' \
               "$DRAW_DATE" "$MAX_ATTEMPTS" > "api-results/${DRAW_DATE}_8PM_PENDING.json"
             echo "available=false" >> "$GITHUB_OUTPUT"
-            echo "PENDING: 8PM result was not published after 37 attempts (about 3 hours). No incomplete data was uploaded."
+            echo "PENDING: 8PM result was not published after 37 attempts. No incomplete data was uploaded."
             exit 0
           fi
 
