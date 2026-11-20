@@ -6,6 +6,7 @@ on:
     paths:
       - ".github/workflows/archive-batch-50.yml"
       - "monitor/archive_official_sources.py"
+      - "monitor/parse_lottery_sambad_pdfs.py"
       - "data/nagaland_source_registry.csv"
 
 permissions:
