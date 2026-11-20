@@ -1,0 +1,44 @@
+name: Merge recovered 2025 full-tier draws
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/recovered_2025_full_tier_batch_*.csv"
+      - "data/recovered_draws_2025-12-03-8pm-full.csv"
+      - "monitor/merge_2025_full_tier_batches.py"
+      - ".github/workflows/merge-2025-full-tier.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: merge-first-nagaland-batch
+  cancel-in-progress: false
+
+jobs:
+  merge-2025:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Merge recovered 2025 1PM and 8PM draws
+        run: python monitor/merge_2025_full_tier_batches.py
+      - name: Commit updated master
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/nagaland_master_prize_numbers.csv
+          if git diff --cached --quiet; then
+            echo "Master already contains all recovered 2025 full-tier rows."
+          else
+            git commit -m "Merge recovered 2025 Nagaland full-tier draws"
+            git push origin HEAD:main
+          fi
