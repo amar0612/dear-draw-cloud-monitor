@@ -1,0 +1,25 @@
+{
+  "year": 2023,
+  "quarter": "Q4",
+  "exceptions": [
+    {
+      "date": "2023-10-02",
+      "draw": "1PM and 8PM",
+      "issue": "Yearly chart displays ***** for both first-prize values.",
+      "status": "unresolved_source_gap",
+      "action": "Search daily PDFs and alternate archives"
+    },
+    {
+      "date": "2023-10_to_12",
+      "draw": "both",
+      "issue": "Only first-prize values imported in this quarterly checkpoint. Full prize tiers remain outstanding except separate December 2–3 pilot artifacts.",
+      "status": "partial_extraction_review"
+    },
+    {
+      "date": "2023-10_and_12",
+      "draw": "both",
+      "issue": "Single-source yearly-chart entries; independent corroboration pending.",
+      "status": "single_source_pending_review"
+    }
+  ]
+}
