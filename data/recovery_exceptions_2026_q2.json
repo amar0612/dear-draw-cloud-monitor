@@ -1,0 +1,24 @@
+{
+  "year": 2026,
+  "quarter": "Q2",
+  "exceptions": [
+    {
+      "date": "2026-04",
+      "draw": "both",
+      "issue": "60 first-prize records imported; full prize tiers not extracted.",
+      "status": "partial_extraction_review"
+    },
+    {
+      "date": "2026-05",
+      "draw": "both",
+      "issue": "62 first-prize records imported; full prize tiers not extracted.",
+      "status": "partial_extraction_review"
+    },
+    {
+      "date": "2026-06",
+      "draw": "both",
+      "issue": "60 first-prize records imported; full prize tiers not extracted.",
+      "status": "partial_extraction_review"
+    }
+  ]
+}
