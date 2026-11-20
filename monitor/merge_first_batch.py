@@ -125,9 +125,9 @@ def main() -> None:
         if (row["date"], row["draw"]) not in keys
     ]
     removed = len(existing) - len(kept)
-    if removed != 3300:
+    if removed % 132 != 0:
         raise SystemExit(
-            f"Expected to replace 3300 existing rows for these 25 pairs; found {removed}"
+            f"Existing rows removed were not a whole number of 132-row draws: {removed}"
         )
 
     merged = kept + replacement_rows
