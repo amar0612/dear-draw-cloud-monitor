@@ -27,6 +27,9 @@ def extract(draw, field, width, expected):
     return out if len(out)==expected else None
 
 def mi_from_pairs(pairs):
+    # Accept lists, generators, and zip iterators; materialize once because
+    # the statistic needs the sample size and then traverses the pairs.
+    pairs=list(pairs)
     if not pairs: return 0.0, [[0]*10 for _ in range(10)]
     m=[[0]*10 for _ in range(10)]
     for a,b in pairs: m[a][b]+=1
