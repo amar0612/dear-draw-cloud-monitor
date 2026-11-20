@@ -1,0 +1,43 @@
+name: R002.3 Cross-Slot Validation and Holdout
+on:
+  workflow_dispatch:
+    inputs:
+      permutations:
+        description: "Permutation replicates per test"
+        required: true
+        default: "10000"
+      holdout_fraction:
+        description: "Latest chronological holdout fraction"
+        required: true
+        default: "0.30"
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install numerical dependency
+        run: python -m pip install --upgrade pip numpy
+      - name: Verify full backup
+        run: test -s analysis-input/dear_lottery_full_backup_2026-11-20.json
+      - name: Run R002.3
+        env:
+          PERMUTATIONS: ${{ inputs.permutations }}
+          HOLDOUT_FRACTION: ${{ inputs.holdout_fraction }}
+        run: |
+          python monitor/r0023_cross_slot_validation.py \
+            --input analysis-input/dear_lottery_full_backup_2026-11-20.json \
+            --outdir r0023-output \
+            --permutations "$PERMUTATIONS" \
+            --holdout-fraction "$HOLDOUT_FRACTION"
+      - name: Upload R002.3 research report
+        uses: actions/upload-artifact@v4
+        with:
+          name: R0023-cross-slot-validation-holdout
+          path: r0023-output/
+          if-no-files-found: error
