@@ -1,0 +1,28 @@
+name: R002 Temporal Dependence and Transitions
+on:
+  workflow_dispatch:
+    inputs:
+      permutations:
+        description: "Permutation replicates for transition null tests"
+        required: true
+        default: "1000"
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Verify full backup exists
+        run: test -s analysis-input/dear_lottery_full_backup_2026-11-20.json
+      - name: Run R002
+        run: |
+          python monitor/r002_temporal_transitions.py \
+            --input analysis-input/dear_lottery_full_backup_2026-11-20.json \
+            --outdir r002-output \
+            --permutations "${{ inputs.permutations }}"
+      - name: Upload R002 research report
+        uses: actions/upload-artifact@v4
+        with:
+          name: R002-temporal-transitions
+          path: r002-output/
+          if-no-files-found: error
