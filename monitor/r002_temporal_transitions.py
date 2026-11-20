@@ -133,6 +133,15 @@ def main():
         for i in range(10):
           for j in range(10):
             matrices.append({"analysis":label,"slot":leftslot+"->"+rightslot,"tier":tier,"from_digit":i,"to_digit":j,"count":mat[i][j]})
+    # Benjamini-Hochberg correction across all R002 transition tests.
+    ordered=sorted(enumerate(rows),key=lambda z:z[1]["permutation_p_value"])
+    m=len(ordered); running=1.0; adjusted=[1.0]*m
+    for rank in range(m,0,-1):
+      idx,row=ordered[rank-1]
+      running=min(running,row["permutation_p_value"]*m/rank)
+      adjusted[idx]=min(1.0,running)
+    for i,row in enumerate(rows):
+      row["p_value_bh_all_tests"]=round(adjusted[i],8)
     fields=list(rows[0])
     with (out/"r002_transition_tests.csv").open("w",newline="",encoding="utf-8") as f:
       w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(rows)
