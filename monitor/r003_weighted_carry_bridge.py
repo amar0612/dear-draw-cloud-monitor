@@ -22,16 +22,16 @@ TIERS={
 def parse_numbers(draw,field,width,expected):
     value=draw.get(field)
     if field=="first":
-        values=[re.sub(r"^\\s*\\d{2}[A-Za-z]\\s+","",str(value or ""))]
+        values=[re.sub(r"^\s*\d{2}[A-Za-z]\s+","",str(value or ""))]
     elif isinstance(value,list):
         values=value
     else:
-        values=re.findall(r"(?<!\\d)\\d{%d}(?!\\d)"%width,str(value or ""))
+        values=re.findall(r"(?<!\d)\d{%d}(?!\d)"%width,str(value or ""))
     out=[]
     for item in values:
         s=str(item).strip()
-        if field=="first": s=re.sub(r"^\\s*\\d{2}[A-Za-z]\\s+","",s)
-        if re.fullmatch(r"\\d{%d}"%width,s): out.append(s)
+        if field=="first": s=re.sub(r"^\s*\d{2}[A-Za-z]\s+","",s)
+        if re.fullmatch(r"\d{%d}"%width,s): out.append(s)
     return out if len(out)==expected else None
 
 def slot_of(d):
@@ -105,7 +105,7 @@ def main():
     for d in payload.get("draws",[]):
         if d.get("isSample"):continue
         slot=slot_of(d); date=str(d.get("date",""))
-        if slot and re.fullmatch(r"\\d{4}-\\d{2}-\\d{2}",date):
+        if slot and re.fullmatch(r"\d{4}-\d{2}-\d{2}",date):
             records[slot][date]=d
 
     vectors={s:{} for s in SLOTS}; quality=[]
