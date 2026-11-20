@@ -1,0 +1,40 @@
+name: R002.4 Prospective Validation
+on:
+  workflow_dispatch:
+    inputs:
+      permutations:
+        description: "Permutation replicates per frozen hypothesis"
+        required: true
+        default: "50000"
+      minimum_paired_dates:
+        description: "Minimum genuinely post-cutoff paired dates"
+        required: true
+        default: "60"
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install numerical dependency
+        run: python -m pip install --upgrade pip numpy
+      - name: Verify current full backup
+        run: test -s analysis-input/dear_lottery_full_backup_2026-11-20.json
+      - name: Run prospective validation
+        run: |
+          python monitor/r0024_prospective_validation.py \
+            --input analysis-input/dear_lottery_full_backup_2026-11-20.json \
+            --outdir r0024-output \
+            --permutations "${{ inputs.permutations }}" \
+            --minimum-paired-dates "${{ inputs.minimum_paired_dates }}"
+      - name: Upload R002.4 report
+        uses: actions/upload-artifact@v4
+        with:
+          name: R0024-prospective-validation
+          path: r0024-output/
+          if-no-files-found: error
