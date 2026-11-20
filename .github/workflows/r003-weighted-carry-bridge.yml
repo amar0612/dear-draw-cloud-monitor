@@ -1,0 +1,33 @@
+name: R003 Weighted Carry Bridge Theory
+on:
+  workflow_dispatch:
+    inputs:
+      permutations:
+        description: "Circular-shift permutations per test"
+        required: true
+        default: "10000"
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install numerical dependency
+        run: python -m pip install --upgrade pip numpy
+      - name: Verify historical backup
+        run: test -s analysis-input/dear_lottery_full_backup_2026-11-20.json
+      - name: Run R003
+        run: |
+          python monitor/r003_weighted_carry_bridge.py \
+            --input analysis-input/dear_lottery_full_backup_2026-11-20.json \
+            --outdir r003-output \
+            --permutations "${{ inputs.permutations }}"
+      - name: Upload R003 report
+        uses: actions/upload-artifact@v4
+        with:
+          name: R003-weighted-carry-bridge
+          path: r003-output/
+          if-no-files-found: error
