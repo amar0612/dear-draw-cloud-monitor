@@ -549,9 +549,26 @@
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
       "retrieval_date": "2026-11-20"
+    },
+    {
+      "date": "2025-04-01",
+      "draws": [
+        "1PM",
+        "8PM"
+      ],
+      "status": "full_sheet_imported_from_alternate_archive_lower_tiers_single_source_pending_review",
+      "detail": "The prior lotterysambad.icu daily PDF attempts failed for both draws, but both complete 132-entry sheets were recovered from o.vcdn.cc PDFs linked by the lotterysambad.co April 1 daily archive. First-prize series-prefixed values match Goodreturns and KLL yearly charts; lower tiers remain single-source pending review. Original PDF binaries could not be downloaded, so no SHA-256 is recorded.",
+      "sources": [
+        "https://lotterysambad.co/2025/april/1/",
+        "https://o.vcdn.cc/Dear/MN010425.PDF",
+        "https://o.vcdn.cc/Dear/EN010425.PDF",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-20"
     }
   ],
-  "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Prior audited full-tier baseline: 391 unique complete 132-entry sheets (51,612 rows), 333 first-prize-only partial slots, six unresolved. This run adds thirty-four genuinely new complete sheets in March (Mar 1 8PM; Mar 2–4 both draws; Mar 5 1PM; Mar 6–10 both draws; Mar 20 both draws; Mar 21 8PM; Mar 22 8PM; Mar 23–26 both draws; Mar 29–30 both draws), bringing the audited total to 425 complete sheets (56,100 rows), 299 partial slots, six unresolved, and zero unresolved source conflicts. Seven other March sheets (Mar 11, 12, 18 both draws and Mar 22 1PM) were independently checked against existing imported full sheets and not duplicated. The per-month manifest currently sums to 458 full sheets, 33 higher than the deduplicated audit; this discrepancy is explicitly unresolved and the aggregate remains provisional pending a complete cross-file deduplication pass. All 12 monthly archive index pages were opened; not every daily PDF link has been tested. PDF binaries for these forty-one source checks could not be preserved, so no SHA-256 hashes are claimed. 6PM is excluded entirely.",
+  "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Prior audited full-tier baseline: 391 unique complete 132-entry sheets (51,612 rows), 333 first-prize-only partial slots, six unresolved. This run adds thirty-six genuinely new complete sheets (34 March sheets and April 1 both draws), bringing the audited total to 427 complete sheets (56,364 rows), 297 partial slots, six unresolved, and zero unresolved source conflicts. Seven other March sheets were independently checked against existing imported full sheets and not duplicated. The per-month manifest currently sums to 460 full sheets, 33 higher than the deduplicated audit; this discrepancy is explicitly unresolved and the aggregate remains provisional pending a complete cross-file deduplication pass. All 12 monthly archive index pages were opened; not every daily PDF link has been tested. PDF binaries for these forty-three source checks could not be preserved, so no SHA-256 hashes are claimed. 6PM is excluded entirely.",
   "monthly_exceptions": [
     {
       "date": "2025-01-26",
@@ -846,6 +863,13 @@
       "date_range": "2025-01_to_12",
       "draw": "1PM and 8PM",
       "issue": "Post-March completion checkpoint: 425 unique complete 132-entry sheets (56,100 rows), 299 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts. Thirty-four new March sheets were imported; seven additional March PDFs matched existing sheets and were not duplicated. Monthly manifest totals sum to 458 complete sheets, a 33-sheet discrepancy; do not treat monthly sum as final until a full cross-file deduplication pass is complete.",
+      "status": "audit_reconciled_provisional",
+      "action": "Continue recovery for remaining partial slots across other months and reconcile the 33-sheet monthly-manifest discrepancy before final aggregate certification."
+    },
+    {
+      "date_range": "2025-01_to_12",
+      "draw": "1PM and 8PM",
+      "issue": "Post-April 1 checkpoint: 427 unique complete 132-entry sheets (56,364 rows), 297 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts. Thirty-six new sheets were imported in this run (34 March, two April 1); seven other March PDF checks matched existing sheets and were not duplicated. Monthly manifest totals sum to 460 complete sheets, a 33-sheet discrepancy; do not treat monthly sum as final until a full cross-file deduplication pass is complete.",
       "status": "audit_reconciled_provisional",
       "action": "Continue recovery for remaining partial slots across other months and reconcile the 33-sheet monthly-manifest discrepancy before final aggregate certification."
     }
