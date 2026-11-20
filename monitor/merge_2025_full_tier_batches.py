@@ -15,7 +15,16 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 MASTER = DATA / "nagaland_master_prize_numbers.csv"
 BATCHES = sorted(DATA.glob("recovered_2025_full_tier_batch_*.csv"))
+PDF_BATCHES = sorted(DATA.glob("recovered_draws_2025_full_tier_pdf_batch_*.csv"))
 EXTRA = DATA / "recovered_draws_2025-12-03-8pm-full.csv"
+TIER_NAMES = {
+    "1st": "1st", "first": "1st", "1st prize": "1st",
+    "consolation": "Consolation",
+    "2nd": "2nd", "second": "2nd", "2nd prize": "2nd",
+    "3rd": "3rd", "third": "3rd", "3rd prize": "3rd",
+    "4th": "4th", "fourth": "4th", "4th prize": "4th",
+    "5th": "5th", "fifth": "5th", "5th prize": "5th",
+}
 MASTER_FIELDS = [
     "date", "draw", "prize_tier", "position",
     "winning_number", "source_pdf", "verification_status",
@@ -44,10 +53,15 @@ def read_batch(path: Path, grouped: dict) -> tuple[int, int]:
             row = {
                 "date": raw["date"].strip(),
                 "draw": slot,
-                "prize_tier": raw["prize_tier"].strip(),
+                "prize_tier": TIER_NAMES.get(raw["prize_tier"].strip().lower(), raw["prize_tier"].strip()),
                 "position": raw["position"].strip(),
                 "winning_number": raw["winning_number"].strip(),
-                "source_pdf": (raw.get("source_reference") or raw.get("source_pdf") or path.name).strip(),
+                "source_pdf": " | ".join(
+                    value.strip() for value in [
+                        raw.get("source_reference") or raw.get("source_url") or raw.get("source_pdf") or path.name,
+                        raw.get("additional_source_url") or "",
+                    ] if value and value.strip()
+                ),
                 "verification_status": (raw.get("verification_status") or "recovered_2025_batch").strip(),
                 "_batch": path.name,
             }
@@ -79,7 +93,7 @@ def normalize(rows: list[dict], key: tuple[str, str]) -> tuple[list[dict] | None
 
 
 def main() -> None:
-    files = list(BATCHES)
+    files = list(BATCHES) + list(PDF_BATCHES)
     if EXTRA.exists():
         files.append(EXTRA)
     if not files:
