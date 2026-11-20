@@ -1,0 +1,415 @@
+{
+  "month": "2023-12",
+  "scope": "Nagaland 1PM and 8PM only",
+  "exceptions": [
+    {
+      "date": "2023-12-05",
+      "draw": "1PM",
+      "source": "lotterysambad.icu",
+      "status": "broken_archive_link_404",
+      "action": "Retain as unresolved source exception; seek alternate archive"
+    },
+    {
+      "date": "2023-12-05",
+      "draw": "8PM",
+      "source": "lotterysambad.icu",
+      "status": "broken_archive_link_404",
+      "action": "Retain as unresolved source exception; seek alternate archive"
+    },
+    {
+      "date": "2023-12-06",
+      "draw": "1PM",
+      "source": "lotterysambad.icu",
+      "status": "broken_archive_link_404",
+      "action": "Retain as unresolved; search alternate archives; no placeholder result"
+    },
+    {
+      "date": "2023-12-06",
+      "draw": "8PM",
+      "source": "lotterysambad.icu",
+      "status": "broken_archive_link_404",
+      "action": "Retain as unresolved; search alternate archives; no placeholder result"
+    },
+    {
+      "date": "2023-12-07",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-07",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-08",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-08",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-09",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-09",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-10",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-10",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-11",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-11",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-12",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-12",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-13",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-13",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-14",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-14",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-15",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-15",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-16",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-16",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-17",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-17",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-18",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-18",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-19",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-19",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-20",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-20",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-21",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-21",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-22",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-22",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-23",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-23",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-24",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-24",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-25",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-25",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-26",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-26",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-27",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-27",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-28",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-28",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-29",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-29",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-30",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-30",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-31",
+      "draw": "1PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    },
+    {
+      "date": "2023-12-31",
+      "draw": "8PM",
+      "source": "todaysoch.com chart; full-sheet archives still being sought",
+      "status": "first_prize_only_partial_extraction",
+      "action": "Retain five-digit chart candidate; obtain full PDF with series and all prize tiers before complete import"
+    }
+  ],
+  "note": "A broken link is not evidence that a draw did not occur. Do not create placeholder winning numbers.",
+  "alternate_source_checks": [
+    {
+      "date": "2023-12-05",
+      "draw": "1PM",
+      "source": "lotterysambadresult.in",
+      "url": "https://lotterysambadresult.in/wp-content/uploads/2023/12/MD051223.pdf",
+      "status": "not_accessible_in_current_retrieval"
+    },
+    {
+      "date": "2023-12-05",
+      "draw": "8PM",
+      "source": "lotterysambadresult.in",
+      "url": "https://lotterysambadresult.in/wp-content/uploads/2023/12/ED051223.pdf",
+      "status": "not_accessible_in_current_retrieval"
+    },
+    {
+      "date": "2023-12-06",
+      "draw": "1PM",
+      "source": "lotterysambadresult.in",
+      "url": "https://lotterysambadresult.in/wp-content/uploads/2023/12/MD061223.pdf",
+      "status": "not_accessible_in_current_retrieval"
+    },
+    {
+      "date": "2023-12-06",
+      "draw": "8PM",
+      "source": "lotterysambadresult.in",
+      "url": "https://lotterysambadresult.in/wp-content/uploads/2023/12/ED061223.pdf",
+      "status": "not_accessible_in_current_retrieval"
+    }
+  ]
+}

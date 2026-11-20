@@ -1,0 +1,21 @@
+{
+  "batch": "2025-11-first-prize-cross-match",
+  "retrieved_at": "2026-11-18",
+  "sources": [
+    {
+      "domain": "kllotteryresults.in",
+      "url": "https://kllotteryresults.in/dear-lottery-chart/2025",
+      "scope": "2025 yearly first-prize matrix, November columns"
+    },
+    {
+      "domain": "keralastatelottery.in",
+      "url": "https://www.keralastatelottery.in/dearlotterychart/",
+      "scope": "November 2025 date-wise monthly chart"
+    }
+  ],
+  "records": 60,
+  "draws": 60,
+  "status": "partial_extraction_review",
+  "tier_status": "two_source_matched",
+  "note": "All 30 November dates match between both sources for 1PM and 8PM. First prize only; full tier lists not in these chart sources. 6PM excluded."
+}

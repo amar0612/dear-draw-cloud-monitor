@@ -1,0 +1,43 @@
+{
+  "batch": "2023-12-04",
+  "created_at": "2026-11-18",
+  "policy": "Inclusive recovery; 1PM/8PM only; no silent discard.",
+  "records": [
+    {
+      "date": "2023-12-04",
+      "draw": "1PM",
+      "entries": 132,
+      "source_domain": "lotterysambad.icu",
+      "source_pdf": "https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwMTQyMtYrSEkDADHJBTI/1pm-04-12-2023.pdf",
+      "status": "single_source_pending_review",
+      "first_prize_status": "two_source_matched",
+      "first_prize_chart_match": true,
+      "overall_status": "single_source_pending_review",
+      "retrieved_at": "2026-11-18",
+      "source_link_status": "opened_pdf_successfully",
+      "notes": "PDF opened and prize tiers extracted from archive page. Single archive source so retained with review flag."
+    },
+    {
+      "date": "2023-12-04",
+      "draw": "8PM",
+      "entries": 132,
+      "source_domain": "lotterysambad.icu",
+      "source_pdf": "https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTcwMTQyMtYrSEkDADIrBTk/8pm-04-12-2023.pdf",
+      "status": "single_source_pending_review",
+      "first_prize_status": "two_source_matched",
+      "first_prize_chart_match": true,
+      "overall_status": "single_source_pending_review",
+      "retrieved_at": "2026-11-18",
+      "source_link_status": "opened_pdf_successfully",
+      "notes": "PDF opened and prize tiers extracted from archive page. Single archive source so retained with review flag."
+    }
+  ],
+  "sources": [
+    {
+      "domain": "kllotteryresults.in",
+      "url": "https://www.kllotteryresults.in/dear-lottery-chart/2023",
+      "retrieved_at": "2026-11-18",
+      "scope": "Yearly first-prize chart cross-check"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "batch": "2023-12-pilot",
+  "created_at": "2026-11-18",
+  "policy": "Include single-source data with review flag; preserve provenance; no 6PM.",
+  "records": [
+    {
+      "date": "2023-12-01",
+      "draw": "1PM",
+      "entries": 132,
+      "source_domain": "lotterysambad.icu",
+      "source_pdf": "https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwNDQyMtYrSEkDADGuBS8/1pm-01-12-2023.pdf",
+      "independent_first_prize_chart": "https://www.todaysoch.com/2023/10/dear-lottery-result-chart.html",
+      "first_prize_chart_match": true,
+      "status": "single_source_pending_review",
+      "notes": "Full tier list extracted from PDF text. First prize independently matches yearly/monthly chart. PDF is from an independent archive; no official Gazette check performed.",
+      "first_prize_status": "two_source_matched",
+      "overall_status": "single_source_pending_review"
+    },
+    {
+      "date": "2023-12-01",
+      "draw": "8PM",
+      "entries": 132,
+      "source_domain": "lotterysambad.icu",
+      "source_pdf": "https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTcwNDQyMtYrSEkDADIQBTY/8pm-01-12-2023.pdf",
+      "independent_first_prize_chart": "https://www.todaysoch.com/2023/10/dear-lottery-result-chart.html",
+      "first_prize_chart_match": true,
+      "status": "single_source_pending_review",
+      "notes": "Full tier list extracted from PDF text. First prize independently matches yearly/monthly chart. PDF is from an independent archive; no official Gazette check performed.",
+      "first_prize_status": "two_source_matched",
+      "overall_status": "single_source_pending_review"
+    }
+  ],
+  "sources": [
+    {
+      "domain": "kllotteryresults.in",
+      "url": "https://www.kllotteryresults.in/dear-lottery-chart/2023",
+      "retrieved_at": "2026-11-18",
+      "scope": "Yearly first-prize chart cross-check"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "updated_at": "2026-11-18",
+  "scope": "Nagaland 1PM and 8PM only; 6PM excluded",
+  "unresolved": [
+    {
+      "date": "2023-12-05",
+      "draw": "1PM",
+      "source_domain": "lotterysambad.icu",
+      "issue": "Monthly archive full-prize PDF link returned broken/404; first-prize number recovered from yearly chart",
+      "status": "partial_extraction_review",
+      "action": "Keep first-prize row; continue searching alternate source for series and lower prize tiers",
+      "partial_source_domain": "kllotteryresults.in",
+      "partial_source_url": "https://www.kllotteryresults.in/dear-lottery-chart/2023"
+    },
+    {
+      "date": "2023-12-05",
+      "draw": "8PM",
+      "source_domain": "lotterysambad.icu",
+      "issue": "Monthly archive full-prize PDF link returned broken/404; first-prize number recovered from yearly chart",
+      "status": "partial_extraction_review",
+      "action": "Keep first-prize row; continue searching alternate source for series and lower prize tiers",
+      "partial_source_domain": "kllotteryresults.in",
+      "partial_source_url": "https://www.kllotteryresults.in/dear-lottery-chart/2023"
+    },
+    {
+      "date": "2024-01-26",
+      "draw": "1PM",
+      "source_domain": "kllotteryresults.in",
+      "issue": "No first-prize value exposed in 2024 yearly chart",
+      "status": "source_gap_pending_alternate_source",
+      "action": "Search date-specific pages and monthly PDF archives; do not infer no draw"
+    },
+    {
+      "date": "2024-01-26",
+      "draw": "8PM",
+      "source_domain": "kllotteryresults.in",
+      "issue": "No first-prize value exposed in 2024 yearly chart",
+      "status": "source_gap_pending_alternate_source",
+      "action": "Search date-specific pages and monthly PDF archives; do not infer no draw"
+    },
+    {
+      "date": "2024-08-15",
+      "draw": "1PM",
+      "source_domain": "kllotteryresults.in",
+      "issue": "No first-prize value exposed in 2024 yearly chart",
+      "status": "source_gap_pending_alternate_source",
+      "action": "Search date-specific pages and monthly PDF archives; do not infer no draw"
+    },
+    {
+      "date": "2024-08-15",
+      "draw": "8PM",
+      "source_domain": "kllotteryresults.in",
+      "issue": "No first-prize value exposed in 2024 yearly chart",
+      "status": "source_gap_pending_alternate_source",
+      "action": "Search date-specific pages and monthly PDF archives; do not infer no draw"
+    },
+    {
+      "date": "2024-10-02",
+      "draw": "1PM",
+      "source_domain": "kllotteryresults.in",
+      "issue": "No first-prize value exposed in 2024 yearly chart",
+      "status": "source_gap_pending_alternate_source",
+      "action": "Search date-specific pages and monthly PDF archives; do not infer no draw"
+    },
+    {
+      "date": "2024-10-02",
+      "draw": "8PM",
+      "source_domain": "kllotteryresults.in",
+      "issue": "No first-prize value exposed in 2024 yearly chart",
+      "status": "source_gap_pending_alternate_source",
+      "action": "Search date-specific pages and monthly PDF archives; do not infer no draw"
+    },
+    {
+      "date": "2025-10-02",
+      "draw": "1PM",
+      "issue": "Both chart sources show no result marker for this date",
+      "status": "source_gap_pending_alternate_source",
+      "note": "No number imported; not treated as proof that draw did not occur.",
+      "source_domains": [
+        "kllotteryresults.in",
+        "keralastatelottery.in"
+      ],
+      "source_urls": [
+        "https://kllotteryresults.in/dear-lottery-chart/2025",
+        "https://www.keralastatelottery.in/dearlotterychart/"
+      ],
+      "action": "Seek date-specific PDF or alternate archive; do not infer no draw"
+    },
+    {
+      "date": "2025-10-02",
+      "draw": "8PM",
+      "issue": "Both chart sources show no result marker for this date",
+      "status": "source_gap_pending_alternate_source",
+      "note": "No number imported; not treated as proof that draw did not occur.",
+      "source_domains": [
+        "kllotteryresults.in",
+        "keralastatelottery.in"
+      ],
+      "source_urls": [
+        "https://kllotteryresults.in/dear-lottery-chart/2025",
+        "https://www.keralastatelottery.in/dearlotterychart/"
+      ],
+      "action": "Seek date-specific PDF or alternate archive; do not infer no draw"
+    }
+  ],
+  "note": "Exceptions are unresolved source coverage gaps, not evidence that the draws did not occur. Keep searching alternate archives and preserve any partial results found."
+}
