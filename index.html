@@ -3066,16 +3066,30 @@ dateSelect.value = targetDate || '';
         // Replace only draw history. Ticket-table data and store batches remain untouched.
         draws = records;
       } else {
-        const existingByKey = new Map(draws.map(d => [d.date + '|' + (d.time === '8:00 PM' ? '8PM' : d.time === '6:00 PM' ? '6PM' : '1PM'), d]));
-        records.forEach(record => existingByKey.set(record.date + '|' + (record.time === '8:00 PM' ? '8PM' : '1PM'), record));
-        draws = Array.from(existingByKey.values());
+        // Append mode is strictly idempotent: preserve every existing draw and add only unseen date+draw keys.
+        const drawKey = d => d.date + '|' + (d.time === '8:00 PM' ? '8PM' : d.time === '6:00 PM' ? '6PM' : '1PM');
+        const existingKeys = new Set(draws.map(drawKey));
+        let added = 0;
+        let skipped = 0;
+        records.forEach(record => {
+          const key = drawKey(record);
+          if (existingKeys.has(key)) {
+            skipped++;
+            return;
+          }
+          draws.push(record);
+          existingKeys.add(key);
+          added++;
+        });
+        window.__ddaLastHistoricalImport = { added, skipped };
       }
       draws.sort((a,b) => (b.date + b.time).localeCompare(a.date + a.time));
       saveDrawsToStorage();
       renderDraws(); renderPatterns(); renderTicketTableResults(); renderStoreAnalyticsAndBatches();
       const status = document.getElementById('historical-import-status');
-      status.textContent += `\n\n${mode === 'test' ? 'TEST IMPORT' : mode === 'replace' ? 'ACTIVE HISTORY REPLACED' : 'FULL IMPORT'} COMPLETE\nImported draws: ${records.length}\nCurrent app draws: ${draws.length}\nTicket tables and store batches were preserved.`;
-      showToast(mode === 'test' ? 'Test draw imported' : mode === 'replace' ? `Active history replaced with ${records.length} draws` : `Imported ${records.length} historical draws`);
+      const importStats = window.__ddaLastHistoricalImport || { added: records.length, skipped: 0 };
+      status.textContent += `\n\n${mode === 'test' ? 'TEST IMPORT' : mode === 'replace' ? 'ACTIVE HISTORY REPLACED' : 'MERGE IMPORT'} COMPLETE\n${mode === 'replace' ? 'Replaced with' : 'New draws added'}: ${mode === 'replace' ? records.length : importStats.added}\nAlready present and skipped: ${mode === 'replace' ? 0 : importStats.skipped}\nCurrent app draws: ${draws.length}\nTicket tables and store batches were preserved.`;
+      showToast(mode === 'test' ? 'Test draw imported' : mode === 'replace' ? `Active history replaced with ${records.length} draws` : `Added ${importStats.added}; skipped ${importStats.skipped} existing draws`);
     }
 
     function exportBackupJSON() {
