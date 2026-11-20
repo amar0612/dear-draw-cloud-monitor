@@ -1,0 +1,64 @@
+{
+  "year": 2023,
+  "quarter": "Q3",
+  "scope": "Nagaland 1PM and 8PM only; 6PM excluded",
+  "source": {
+    "name": "KLLotteryResults 2023 yearly chart",
+    "url": "https://www.kllotteryresults.in/dear-lottery-chart/2023",
+    "retrieved": "2026-11-18",
+    "status": "single-source chart transcription; independent corroboration pending"
+  },
+  "months": [
+    {
+      "month": "July",
+      "dates": 31,
+      "records": 60,
+      "unresolved_dates": [
+        "2023-07-19"
+      ],
+      "status": "partial_first_prize_recovery"
+    },
+    {
+      "month": "August",
+      "dates": 31,
+      "records": 60,
+      "unresolved_dates": [
+        "2023-08-15"
+      ],
+      "status": "partial_first_prize_recovery"
+    },
+    {
+      "month": "September",
+      "dates": 30,
+      "records": 60,
+      "unresolved_dates": [],
+      "status": "first_prize_recovered"
+    }
+  ],
+  "total_first_prize_records": 180,
+  "unresolved_draw_dates": [
+    {
+      "date": "2023-07-19",
+      "draws": [
+        "1PM",
+        "8PM"
+      ],
+      "reason": "Chart shows ***** for July 19"
+    },
+    {
+      "date": "2023-08-15",
+      "draws": [
+        "1PM",
+        "8PM"
+      ],
+      "reason": "Chart shows ***** for August 15"
+    }
+  ],
+  "verification": "All imported records are single-source pending review. Values preserved as five-digit strings including leading zeros.",
+  "full_prize_tiers": "not extracted",
+  "notes": [
+    "The source chart lists first-prize values only.",
+    "No 6PM entries imported.",
+    "No claim that blank chart cells mean no draw occurred."
+  ]
+}
