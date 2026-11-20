@@ -31,10 +31,27 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y poppler-utils
 
+      - name: Generate independent date calendar
+        run: |
+          python - <<'PY'
+          import csv
+          from datetime import date, timedelta
+          start, end = date(2024, 6, 1), date(2026, 11, 20)
+          with open("yearly_candidates.csv", "w", newline="", encoding="utf-8") as f:
+              w = csv.writer(f)
+              w.writerow(["date", "draw"])
+              d = start
+              while d <= end:
+                  w.writerow([d.isoformat(), "1PM"])
+                  w.writerow([d.isoformat(), "8PM"])
+                  d += timedelta(days=1)
+          print("Generated independent calendar for every date and both Nagaland draw slots.")
+          PY
+
       - name: Recover June-December 2024
         run: |
           python monitor/archive_official_sources.py \
-            --csv data/nagaland_master_prize_numbers.csv \
+            --csv yearly_candidates.csv \
             --output-dir yearly-archive/2024 \
             --start-date 2024-06-01 --end-date 2024-12-31 \
             --offset 0 --limit 1000
@@ -45,7 +62,7 @@ jobs:
       - name: Recover January-December 2025
         run: |
           python monitor/archive_official_sources.py \
-            --csv data/nagaland_master_prize_numbers.csv \
+            --csv yearly_candidates.csv \
             --output-dir yearly-archive/2025 \
             --start-date 2025-01-01 --end-date 2025-12-31 \
             --offset 0 --limit 1000
@@ -56,7 +73,7 @@ jobs:
       - name: Recover January-November 2026
         run: |
           python monitor/archive_official_sources.py \
-            --csv data/nagaland_master_prize_numbers.csv \
+            --csv yearly_candidates.csv \
             --output-dir yearly-archive/2026 \
             --start-date 2026-01-01 --end-date 2026-11-20 \
             --offset 0 --limit 1000
