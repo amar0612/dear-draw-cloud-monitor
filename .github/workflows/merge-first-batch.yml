@@ -38,5 +38,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/nagaland_master_prize_numbers.csv data/nagaland_2026_first_batch_provenance.csv
-          git commit -m "Merge first recovered 2026 Nagaland batch"
-          git push origin HEAD:main
+          if git diff --cached --quiet; then
+            echo "No merge changes to commit; master is already current."
+          else
+            git commit -m "Merge first recovered 2026 Nagaland batch"
+            git push origin HEAD:main
+          fi
