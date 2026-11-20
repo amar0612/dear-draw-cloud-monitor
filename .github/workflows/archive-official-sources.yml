@@ -56,14 +56,14 @@ jobs:
             --output-dir official-source-archive \
             --start-date "${{ inputs.start_date || '2024-06-01' }}" \
             --end-date "${{ inputs.end_date || '2026-11-20' }}" \
-            --offset "${{ inputs.offset || '0' }}" \
+            --offset "${{ inputs.offset || '25' }}" \
             --limit "${{ inputs.limit || '25' }}"
 
       - name: Upload source PDFs and manifest
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: nagaland-source-batch-${{ inputs.offset || '0' }}
+          name: nagaland-source-batch-${{ inputs.offset || '25' }}
           path: official-source-archive/
           if-no-files-found: warn
           retention-days: 90
