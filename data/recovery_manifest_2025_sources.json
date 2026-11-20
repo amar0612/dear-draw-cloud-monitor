@@ -68,14 +68,14 @@
       "domain": "lotterysambad.co",
       "type": "daily and monthly result archive with full 1PM/8PM tier tables",
       "index_url": "https://lotterysambad.co/2025/",
-      "status": "January–October daily result pages used for discovery and PDF link navigation; 6PM results excluded from imports. 2025-04-18 1PM and 8PM full-result pages and linked PDFs were opened and extracted; 6PM content was excluded. Additional full 2025 pages opened/extracted: May 3, May 7, July 26, August 24, September 25 and November 15; only 1PM/8PM tables imported, 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 11 and March 12, 1PM and 8PM only; 6PM excluded. Additional full result page and linked PDFs opened/extracted on 2026-11-20: March 18, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 20 and March 22, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 23 and March 24, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 25 and March 26, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 29 and March 30, 1PM and 8PM; 6PM excluded. March 2025 daily archive pages 1–31 were searched; all remaining 1PM/8PM full sheets recovered from linked PDFs on 2026-11-20; 6PM excluded. April 1, 2025 daily page and linked 1PM/8PM PDFs recovered on 2026-11-20 after earlier PDF failures.",
+      "status": "January–October daily result pages used for discovery and PDF link navigation; 6PM results excluded from imports. 2025-04-18 1PM and 8PM full-result pages and linked PDFs were opened and extracted; 6PM content was excluded. Additional full 2025 pages opened/extracted: May 3, May 7, July 26, August 24, September 25 and November 15; only 1PM/8PM tables imported, 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 11 and March 12, 1PM and 8PM only; 6PM excluded. Additional full result page and linked PDFs opened/extracted on 2026-11-20: March 18, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 20 and March 22, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 23 and March 24, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 25 and March 26, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 29 and March 30, 1PM and 8PM; 6PM excluded. March 2025 daily archive pages 1–31 were searched; all remaining 1PM/8PM full sheets recovered from linked PDFs on 2026-11-20; 6PM excluded. April 1, 2025 daily page and linked 1PM/8PM PDFs recovered on 2026-11-20 after earlier PDF failures. April 6–8 daily pages and linked 1PM/8PM PDFs recovered on 2026-11-20; 6PM excluded.",
       "retrieval_date": "2026-11-20"
     },
     {
       "domain": "o.vcdn.cc",
       "type": "daily PDF host linked from lotterysambad.co full-result pages",
       "index_url": "https://o.vcdn.cc/Dear/MN310125.PDF",
-      "status": "54 daily PDFs opened and text-extracted by 2026-11-19, covering February and March batches. Binary downloads were not preserved. Additional 2025-04-18 PDFs extracted: MN180425.PDF (1PM) and EN180425.PDF (8PM); binary files not preserved. Additional daily PDFs extracted: MN030525.PDF (May 3 1PM), MN070525.PDF (May 7 1PM), MN260725.PDF and EN260725.PDF (July 26 1PM/8PM); binary files not preserved. Additional PDFs parsed 2026-11-20: MN110325.PDF, EN110325.PDF, MN120325.PDF and EN120325.PDF. Binary download attempt failed; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN180325.PDF and EN180325.PDF. Binary download attempt was unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN200325.PDF, EN200325.PDF, MN220325.PDF and EN220325.PDF. Binary downloads were unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN230325.PDF, EN230325.PDF, MN240325.PDF and EN240325.PDF. Binary downloads were unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN250325.PDF, EN250325.PDF, MN260325.PDF and EN260325.PDF. Binary downloads were unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN290325.PDF, EN290325.PDF, MN300325.PDF and EN300325.PDF. Binary downloads were unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20 for all previously missing March 1PM/8PM slots; original binaries could not be downloaded and no SHA-256 values are recorded. April 1 PDFs parsed 2026-11-20: MN010425.PDF and EN010425.PDF. Binary downloads were unavailable; no SHA-256 values recorded.",
+      "status": "54 daily PDFs opened and text-extracted by 2026-11-19, covering February and March batches. Binary downloads were not preserved. Additional 2025-04-18 PDFs extracted: MN180425.PDF (1PM) and EN180425.PDF (8PM); binary files not preserved. Additional daily PDFs extracted: MN030525.PDF (May 3 1PM), MN070525.PDF (May 7 1PM), MN260725.PDF and EN260725.PDF (July 26 1PM/8PM); binary files not preserved. Additional PDFs parsed 2026-11-20: MN110325.PDF, EN110325.PDF, MN120325.PDF and EN120325.PDF. Binary download attempt failed; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN180325.PDF and EN180325.PDF. Binary download attempt was unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN200325.PDF, EN200325.PDF, MN220325.PDF and EN220325.PDF. Binary downloads were unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN230325.PDF, EN230325.PDF, MN240325.PDF and EN240325.PDF. Binary downloads were unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN250325.PDF, EN250325.PDF, MN260325.PDF and EN260325.PDF. Binary downloads were unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN290325.PDF, EN290325.PDF, MN300325.PDF and EN300325.PDF. Binary downloads were unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20 for all previously missing March 1PM/8PM slots; original binaries could not be downloaded and no SHA-256 values are recorded. April 1 PDFs parsed 2026-11-20: MN010425.PDF and EN010425.PDF. Binary downloads were unavailable; no SHA-256 values recorded. April 6–8 PDFs parsed 2026-11-20: MN060425.PDF, EN060425.PDF, MN070425.PDF, EN070425.PDF, MN080425.PDF and EN080425.PDF. Binary downloads were unavailable; no SHA-256 values recorded.",
       "retrieval_date": "2026-11-20"
     },
     {
@@ -158,16 +158,16 @@
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "25 unique full 132-entry sheets (3300 entries); 35 first-prize-only known draw slots; 0 unresolved draw slots. April 1 both draws recovered from o.vcdn.cc PDFs linked by lotterysambad.co; existing batch and individual full sheets cover Apr 2–5, 14–19, 21, 24, 28 and 30.",
-      "pdf_extraction": "25 unique full sheets (3300 entries), 35 partial slots, 0 unresolved. April 1 added two new sheets; earlier batch files and daily CSVs cross-checked for duplicate coverage.",
-      "full_tier_draws": 25,
-      "full_tier_entries": 3300,
-      "partial_draws": 35,
+      "full_tier_recovery": "31 unique full 132-entry sheets (4092 entries); 29 first-prize-only known draw slots; 0 unresolved draw slots. April 1, 6, 7 and 8 both draws recovered from o.vcdn.cc PDFs linked by lotterysambad.co; existing full sheets also cover Apr 2–5, 14–19, 21, 24, 28 and 30.",
+      "pdf_extraction": "31 full sheets (4092 entries), 29 partial slots, 0 unresolved; eight additional full sheets extracted 2026-11-20 (April 1 and April 6–8).",
+      "full_tier_draws": 31,
+      "full_tier_entries": 4092,
+      "partial_draws": 29,
       "unresolved_draws": 0,
       "full_tier_new_draws_2026_11_19_ac2": 2,
       "full_tier_expected_draw_slots": 60,
       "full_tier_unresolved_draw_slots": 0,
-      "partial_first_prize_only_slots": 35
+      "partial_first_prize_only_slots": 29
     },
     {
       "month": "may",
@@ -3968,18 +3968,84 @@
       "binary_preserved": false,
       "sha256": null,
       "verification_status": "first_prize_two_source_matched_lower_tiers_single_source_pending_review"
+    },
+    {
+      "date": "2025-04-06",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN060425.PDF",
+      "archive_page": "https://lotterysambad.co/2025/april/6/",
+      "retrieval_date": "2026-11-20",
+      "extraction_status": "parsed_from_web_pdf_text",
+      "binary_preserved": false,
+      "sha256": null,
+      "verification_status": "first_prize_two_source_matched_lower_tiers_single_source_pending_review"
+    },
+    {
+      "date": "2025-04-06",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN060425.PDF",
+      "archive_page": "https://lotterysambad.co/2025/april/6/",
+      "retrieval_date": "2026-11-20",
+      "extraction_status": "parsed_from_web_pdf_text",
+      "binary_preserved": false,
+      "sha256": null,
+      "verification_status": "first_prize_two_source_matched_lower_tiers_single_source_pending_review"
+    },
+    {
+      "date": "2025-04-07",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN070425.PDF",
+      "archive_page": "https://lotterysambad.co/2025/april/7/",
+      "retrieval_date": "2026-11-20",
+      "extraction_status": "parsed_from_web_pdf_text",
+      "binary_preserved": false,
+      "sha256": null,
+      "verification_status": "first_prize_two_source_matched_lower_tiers_single_source_pending_review"
+    },
+    {
+      "date": "2025-04-07",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN070425.PDF",
+      "archive_page": "https://lotterysambad.co/2025/april/7/",
+      "retrieval_date": "2026-11-20",
+      "extraction_status": "parsed_from_web_pdf_text",
+      "binary_preserved": false,
+      "sha256": null,
+      "verification_status": "first_prize_two_source_matched_lower_tiers_single_source_pending_review"
+    },
+    {
+      "date": "2025-04-08",
+      "draw": "1PM",
+      "url": "https://o.vcdn.cc/Dear/MN080425.PDF",
+      "archive_page": "https://lotterysambad.co/2025/april/8/",
+      "retrieval_date": "2026-11-20",
+      "extraction_status": "parsed_from_web_pdf_text",
+      "binary_preserved": false,
+      "sha256": null,
+      "verification_status": "first_prize_two_source_matched_lower_tiers_single_source_pending_review"
+    },
+    {
+      "date": "2025-04-08",
+      "draw": "8PM",
+      "url": "https://o.vcdn.cc/Dear/EN080425.PDF",
+      "archive_page": "https://lotterysambad.co/2025/april/8/",
+      "retrieval_date": "2026-11-20",
+      "extraction_status": "parsed_from_web_pdf_text",
+      "binary_preserved": false,
+      "sha256": null,
+      "verification_status": "first_prize_two_source_matched_lower_tiers_single_source_pending_review"
     }
   ],
   "audit_reconciliation": {
-    "deduplicated_full_sheet_count": 427,
-    "deduplicated_full_sheet_entries": 56364,
-    "first_prize_only_partial_slots": 297,
+    "deduplicated_full_sheet_count": 433,
+    "deduplicated_full_sheet_entries": 57156,
+    "first_prize_only_partial_slots": 291,
     "unresolved_draw_slots": 6,
     "unresolved_source_conflicts": 0,
-    "monthly_manifest_full_sheet_sum": 462,
+    "monthly_manifest_full_sheet_sum": 468,
     "discrepancy_sheets": 35,
     "status": "provisional_pending_full_cross_file_deduplication",
     "retrieval_date": "2026-11-20",
-    "note": "March is fully covered for 1PM/8PM (62/62); April now has 25 full sheets and 35 partial slots. April 1 both draws recovered from alternate archive PDFs. The 427/297/6 aggregate remains provisional; month summary sum exceeds it by 35 sheets."
+    "note": "March is fully covered for 1PM/8PM (62/62); April now has 31 full sheets and 29 partial slots. April 1 and April 6–8 recovered from alternate archive PDFs. Forty-two new sheets added in this run; seven March PDF checks corroborated existing imports and were not duplicated. The 433/291/6 aggregate remains provisional; month summary sum exceeds it by 35 sheets."
   }
 }
