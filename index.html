@@ -2936,7 +2936,7 @@ dateSelect.value = targetDate || '';
       const headers = rows[0].map(h => h.trim().toLowerCase());
       const required = ['date','draw','prize_tier','position','winning_number','verification_status'];
       const missing = required.filter(h => !headers.includes(h));
-      const sourceColumn = headers.includes('source_pdf') ? 'source_pdf' : headers.includes('source_file') ? 'source_file' : null;
+      const sourceColumn = ['source_pdf','source_file','source_reference'].find(h => headers.includes(h)) || null;
       if (missing.length || !sourceColumn) throw new Error('Missing required columns: ' + [...missing, ...(sourceColumn ? [] : ['source_pdf/source_file'])].join(', '));
       const ix = Object.fromEntries(required.map(h => [h, headers.indexOf(h)]));
       ix.sourceRef = headers.indexOf(sourceColumn);
