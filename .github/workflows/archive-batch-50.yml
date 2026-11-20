@@ -1,10 +1,12 @@
-name: Archive next 25 Nagaland source pairs (offset 50)
+name: ICU-first archive with fallback (batch offset 50)
 
 on:
   push:
     branches: [main]
     paths:
       - ".github/workflows/archive-batch-50.yml"
+      - "monitor/archive_official_sources.py"
+      - "data/nagaland_source_registry.csv"
 
 permissions:
   contents: read
