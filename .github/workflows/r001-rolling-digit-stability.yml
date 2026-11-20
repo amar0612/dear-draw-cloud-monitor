@@ -1,0 +1,32 @@
+name: R001 Rolling Digit Stability
+on:
+  workflow_dispatch:
+    inputs:
+      bootstrap:
+        description: "Draw-cluster bootstrap replicates"
+        required: true
+        default: "1000"
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Verify backup exists
+        run: |
+          test -f analysis-input/dear_lottery_full_backup_2026-11-20.json || {
+            echo "::error::Upload the app's full JSON backup to analysis-input/dear_lottery_full_backup_2026-11-20.json, then rerun this workflow."
+            exit 1
+          }
+      - name: Run R001 rolling-window analysis
+        run: |
+          python monitor/r001_rolling_digit_stability.py \
+            --input analysis-input/dear_lottery_full_backup_2026-11-20.json \
+            --outdir r001-output \
+            --bootstrap "${{ inputs.bootstrap }}"
+      - name: Upload reproducible report
+        uses: actions/upload-artifact@v4
+        with:
+          name: R001-rolling-digit-stability
+          path: r001-output/
+          if-no-files-found: error
