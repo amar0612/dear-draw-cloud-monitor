@@ -1,0 +1,37 @@
+{
+  "year": 2026,
+  "quarter": "Q4",
+  "exceptions": [
+    {
+      "date": "2026-10-02",
+      "draw": "1PM and 8PM",
+      "issue": "Date absent from Goodreturns monthly chart, Lotterysambadfax chart and surfaced archive index; unresolved, not proof of no draw.",
+      "status": "unresolved_source_gap",
+      "action": "Search daily PDFs/alternate sources"
+    },
+    {
+      "date": "2026-10",
+      "draw": "both",
+      "issue": "60 first-prize entries imported for October 1 and 3-31; full prize tiers not extracted.",
+      "status": "partial_extraction_review"
+    },
+    {
+      "date": "2026-11-18",
+      "draw": "1PM and 8PM",
+      "issue": "Results not yet published at retrieval time (Goodreturns page showed upcoming draws).",
+      "status": "pending_publication"
+    },
+    {
+      "date": "2026-11-19_to_30",
+      "draw": "both",
+      "issue": "Future dates as of retrieval; no results yet.",
+      "status": "pending_publication"
+    },
+    {
+      "date": "2026-12",
+      "draw": "both",
+      "issue": "December 2026 is future as of retrieval.",
+      "status": "pending_publication"
+    }
+  ]
+}
