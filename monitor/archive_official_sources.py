@@ -100,7 +100,9 @@ def source_candidates(draw_date, draw, registry_path=DEFAULT_REGISTRY):
     for name in (official_filename(draw_date, draw),
                  ("ML" if draw == "1PM" else "EL") + d.strftime("%d%m%y") + ".pdf"):
         candidates.append(("legacy_wordpress_mirror", MIRROR_BASE + f"{d:%Y/%m}/" + name))
-    # De-duplicate without changing registry priority.
+    # ICU is the sole primary archive. All other sites are fallback candidates,
+    # attempted only when ICU has no matching PDF for this exact date/draw.
+    candidates.sort(key=lambda item: (0 if item[0].startswith("registry_15_") else 1))
     seen = set()
     return [(kind, url) for kind, url in candidates
             if not (url in seen or seen.add(url))]
@@ -315,6 +317,11 @@ def archive_sources(csv_path, output_dir, fetcher=fetch_pdf, dry_run=False,
                     successful.append(record)
                 for resolved_url, data in pdf_candidates:
                     print(f"[{draw_date} {draw}] PDF {len(data)} bytes {resolved_url}", flush=True)
+                # Stop at the first source that supplies a date- and draw-matched PDF.
+                # Remaining registry sites are strictly fallback sources.
+                if successful:
+                    print(f"[{draw_date} {draw}] PRIMARY/FALLBACK HIT; skipping remaining sources", flush=True)
+                    break
             except Exception as error:
                 print(f"[{draw_date} {draw}] ERROR {source_type} {landing_url}: {error}", flush=True)
                 failures.append({"source_type": source_type, "url": landing_url, "error": str(error)})
