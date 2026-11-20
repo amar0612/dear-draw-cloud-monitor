@@ -1,0 +1,94 @@
+name: Retry Nagaland 2026 full-tier CSV
+
+on:
+  push:
+    paths:
+      - .github/workflows/retry-2026-csv.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nagaland-2026-csv-retry
+  cancel-in-progress: false
+
+jobs:
+  recover-2026:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install PDF text extraction utility
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+
+      - name: Generate 2026 date calendar
+        run: |
+          python - <<'PY'
+          import csv
+          from datetime import date, timedelta
+          start, end = date(2026, 1, 1), date(2026, 11, 20)
+          with open("candidates_2026.csv", "w", newline="", encoding="utf-8") as f:
+              w = csv.writer(f)
+              w.writerow(["date", "draw"])
+              d = start
+              while d <= end:
+                  w.writerow([d.isoformat(), "1PM"])
+                  w.writerow([d.isoformat(), "8PM"])
+                  d += timedelta(days=1)
+          print("Generated 2026 calendar for Nagaland 1PM and 8PM only.")
+          PY
+
+      - name: Recover 2026 source PDFs
+        run: |
+          python monitor/archive_official_sources.py \
+            --csv candidates_2026.csv \
+            --output-dir yearly-archive/2026 \
+            --start-date 2026-01-01 --end-date 2026-11-20 \
+            --offset 0 --limit 1000
+
+      - name: Parse 2026 full-tier CSV
+        continue-on-error: true
+        run: |
+          python monitor/parse_lottery_sambad_pdfs.py \
+            --input-dir yearly-archive/2026 \
+            --output yearly-csv/nagaland_2026_jan-nov20_full_tier.csv
+
+      - name: Record PDF text diagnostics
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          root = Path("yearly-archive/2026")
+          files = sorted(root.glob("copies/**/*.pdf"))
+          print("ARCHIVED_PDF_FILES", len(files))
+          for pdf in files[:12]:
+              p = subprocess.run(["pdftotext", "-layout", str(pdf), "-"], capture_output=True, text=True)
+              lines = [x.strip() for x in p.stdout.splitlines() if x.strip()]
+              print("PDF_DIAGNOSTIC", pdf.name, "returncode", p.returncode, "sample", " | ".join(lines[:8])[:1200])
+          manifest = json.loads((root / "manifest.json").read_text()) if (root / "manifest.json").exists() else []
+          summaries = [x for x in manifest if x.get("attempts") is not None]
+          print("MANIFEST_SUMMARY_RECORDS", len(summaries))
+          print("MANIFEST_PDF_RECORDS", sum(bool(x.get("source_file")) for x in manifest))
+          PY
+
+      - name: Upload 2026 CSV, manifests and source PDFs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nagaland-2026-retry-csv-and-source-pdfs
+          path: |
+            yearly-csv/
+            yearly-archive/2026/
+          if-no-files-found: warn
+          retention-days: 90
