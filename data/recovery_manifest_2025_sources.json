@@ -158,16 +158,16 @@
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "23 unique full 132-entry sheets (3036 entries); 37 first-prize-only known draw slots; 0 unresolved draw slots. April 1 both draws recovered from o.vcdn.cc PDFs linked by lotterysambad.co after prior lotterysambad.icu PDF attempts failed.",
-      "pdf_extraction": "23 full sheets (3036 entries), 37 partial slots, 0 unresolved; two additional full sheets extracted 2026-11-20.",
-      "full_tier_draws": 23,
-      "full_tier_entries": 3036,
-      "partial_draws": 37,
+      "full_tier_recovery": "25 unique full 132-entry sheets (3300 entries); 35 first-prize-only known draw slots; 0 unresolved draw slots. April 1 both draws recovered from o.vcdn.cc PDFs linked by lotterysambad.co; existing batch and individual full sheets cover Apr 2–5, 14–19, 21, 24, 28 and 30.",
+      "pdf_extraction": "25 unique full sheets (3300 entries), 35 partial slots, 0 unresolved. April 1 added two new sheets; earlier batch files and daily CSVs cross-checked for duplicate coverage.",
+      "full_tier_draws": 25,
+      "full_tier_entries": 3300,
+      "partial_draws": 35,
       "unresolved_draws": 0,
       "full_tier_new_draws_2026_11_19_ac2": 2,
       "full_tier_expected_draw_slots": 60,
       "full_tier_unresolved_draw_slots": 0,
-      "partial_first_prize_only_slots": 37
+      "partial_first_prize_only_slots": 35
     },
     {
       "month": "may",
@@ -3976,10 +3976,10 @@
     "first_prize_only_partial_slots": 297,
     "unresolved_draw_slots": 6,
     "unresolved_source_conflicts": 0,
-    "monthly_manifest_full_sheet_sum": 460,
-    "discrepancy_sheets": 33,
+    "monthly_manifest_full_sheet_sum": 462,
+    "discrepancy_sheets": 35,
     "status": "provisional_pending_full_cross_file_deduplication",
     "retrieval_date": "2026-11-20",
-    "note": "March is now fully covered for 1PM and 8PM (62/62); April 1 both draws recovered from alternate archive PDFs. Thirty-six new sheets added; seven March PDFs corroborated existing imports and were not duplicated. Earlier 391/333 audited baseline plus 36 new sheets = 427/297."
+    "note": "March is fully covered for 1PM/8PM (62/62); April now has 25 full sheets and 35 partial slots. April 1 both draws recovered from alternate archive PDFs. The 427/297/6 aggregate remains provisional; month summary sum exceeds it by 35 sheets."
   }
 }
