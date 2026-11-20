@@ -1,0 +1,40 @@
+name: R002.2 Robustness and Data-Order Audit
+on:
+  workflow_dispatch:
+    inputs:
+      permutations:
+        description: "Permutation replicates per robustness test"
+        required: true
+        default: "10000"
+      block_sizes:
+        description: "Whole-draw block sizes, comma separated"
+        required: true
+        default: "5,10,20"
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install numerical dependency
+        run: python -m pip install --upgrade pip numpy
+      - name: Verify full backup
+        run: test -s analysis-input/dear_lottery_full_backup_2026-11-20.json
+      - name: Run R002.2
+        run: |
+          python monitor/r0022_robustness_audit.py \
+            --input analysis-input/dear_lottery_full_backup_2026-11-20.json \
+            --outdir r0022-output \
+            --permutations "${{ inputs.permutations }}" \
+            --block-sizes "${{ inputs.block_sizes }}"
+      - name: Upload R002.2 research report
+        uses: actions/upload-artifact@v4
+        with:
+          name: R0022-robustness-data-order-audit
+          path: r0022-output/
+          if-no-files-found: error
