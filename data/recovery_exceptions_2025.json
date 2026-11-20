@@ -101,9 +101,26 @@
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
       "retrieval_date": "2026-11-20"
+    },
+    {
+      "date": "2025-03-18",
+      "draws": [
+        "1PM",
+        "8PM"
+      ],
+      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
+      "detail": "Both 132-entry full sheets extracted from the direct o.vcdn.cc PDFs linked by lotterysambad.co. First-prize five-digit values match the Goodreturns and KLLotteryResults yearly charts; lower tiers remain single-source pending review. Original PDF binary download was unavailable, so no SHA-256 is recorded.",
+      "sources": [
+        "https://lotterysambad.co/2025/march/18/",
+        "https://o.vcdn.cc/Dear/MN180325.PDF",
+        "https://o.vcdn.cc/Dear/EN180325.PDF",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-20"
     }
   ],
-  "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Reconciled full-tier audit: 431 unique complete 132-entry sheets (56,892 prize rows), 293 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts (two resolved conflicts retained as competing candidates). All 12 monthly archive index pages were opened. This run added four March full sheets (March 11 and 12, both 1PM and 8PM) from o.vcdn.cc PDFs linked by lotterysambad.co; first-prize values match two yearly chart sources, while lower tiers remain single-source pending review. The prior audit notes of 391/333 and 251/473 are historical checkpoints and are superseded by this reconciled total. Daily PDF binaries for the four additions could not be preserved in this run; no SHA-256 hashes are claimed. 6PM is excluded entirely.",
+  "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Reconciled full-tier audit: 433 unique complete 132-entry sheets (57,156 prize rows), 291 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts (two resolved conflicts retained as competing candidates). All 12 monthly archive index pages were opened. This run added six March full sheets (March 11, 12 and 18, both 1PM and 8PM) from o.vcdn.cc PDFs linked by lotterysambad.co; first-prize values match two yearly chart sources, while lower tiers remain single-source pending review. The prior audit notes of 391/333 and 251/473 are historical checkpoints and are superseded by this reconciled total. Daily PDF binaries for these six additions could not be preserved in this run; no SHA-256 hashes are claimed. 6PM is excluded entirely.",
   "monthly_exceptions": [
     {
       "date": "2025-01-26",
@@ -351,6 +368,13 @@
       "issue": "Reconciled audit after the March 11–12 import: 431 unique complete 132-entry sheets (56,892 rows), 293 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts. This supersedes earlier 391/333 and 251/473 checkpoint totals retained above.",
       "status": "audit_reconciled",
       "action": "Continue testing remaining daily PDFs and alternate archives for the 293 partial slots; preserve the six unresolved slots without inferring no-draw."
+    },
+    {
+      "date_range": "2025-01_to_12",
+      "draw": "1PM and 8PM",
+      "issue": "Reconciled audit after the March 18 import: 433 unique complete 132-entry sheets (57,156 rows), 291 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts. This supersedes earlier 391/333 and 251/473 checkpoint totals retained above.",
+      "status": "audit_reconciled",
+      "action": "Continue testing remaining daily PDFs and alternate archives for the 291 partial slots; preserve the six unresolved slots without inferring no-draw."
     }
   ],
   "last_updated": "2026-11-19",
