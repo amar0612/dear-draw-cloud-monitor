@@ -1,4 +1,4 @@
-const CACHE_NAME = "dear-draw-shell-v7";
+const CACHE_NAME = "dear-draw-shell-v8";
 const SHELL = [
   "./",
   "./index.html",
