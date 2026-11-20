@@ -2968,7 +2968,7 @@ dateSelect.value = targetDate || '';
         g.rowCount++;
         const dateObj = new Date(date + 'T00:00:00Z');
         if (Number.isNaN(dateObj.getTime()) || dateObj.toISOString().slice(0,10) !== date) g.errors.push('invalid date');
-        if (!(verification === 'human_verified' || verification === 'count check passed - verify source')) g.errors.push('unsupported verification status: ' + verification);
+        if (!['human_verified', 'count check passed - verify source', 'single_archive_pdf_full_tier_extracted'].includes(verification)) g.errors.push('unsupported verification status: ' + verification);
         if (!sourceFile) g.errors.push('missing source reference');
         if (!(tier in expected)) { g.errors.push('unknown prize tier: ' + tier); continue; }
         if (!Number.isInteger(position) || position < 1 || position > expected[tier]) { g.errors.push('invalid position for ' + tier); continue; }
