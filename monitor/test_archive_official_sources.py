@@ -113,7 +113,7 @@ class TestOfficialSourceArchive(unittest.TestCase):
         self.assertEqual(one, ["https://example.test/2026-06-24/1pm.pdf"])
         self.assertEqual(eight, ["https://example.test/2026-06-24/8pm.pdf"])
 
-    def test_retains_multiple_source_copies_and_flags_hash_conflict(self):
+    def test_uses_icu_first_and_stops_after_first_available_fallback(self):
         calls = []
         def fake_fetch(url):
             calls.append(url)
@@ -130,25 +130,26 @@ class TestOfficialSourceArchive(unittest.TestCase):
         out = self.root / "archive"
         results = archive_sources(self.csv_path, out, fetcher=fake_fetch)
         self.assertEqual(len(results), 2)
-        self.assertGreaterEqual(len(calls), 36)
+        self.assertLess(len(calls), 36)
+        self.assertIn("https://lotterysambad.icu/old-result", calls)
         eight = next(x for x in results if x["draw"] == "8PM")
         one = next(x for x in results if x["draw"] == "1PM")
-        self.assertEqual(eight["successful_pdf_copies"], 2)
-        self.assertEqual(eight["distinct_sha256"], 2)
-        self.assertEqual(eight["comparison_status"], "source_content_conflict")
-        self.assertEqual(one["successful_pdf_copies"], 2)
+        self.assertEqual(eight["successful_pdf_copies"], 1)
+        self.assertEqual(eight["distinct_sha256"], 1)
+        self.assertEqual(eight["comparison_status"], "single_copy_only")
+        self.assertEqual(one["successful_pdf_copies"], 1)
         self.assertEqual(one["distinct_sha256"], 1)
-        self.assertEqual(one["comparison_status"], "identical_copies")
+        self.assertEqual(one["comparison_status"], "single_copy_only")
 
         manifest = json.loads((out / "manifest.json").read_text())
         source_rows = [x for x in manifest if x.get("source_url")]
-        self.assertEqual(len(source_rows), 4)
+        self.assertEqual(len(source_rows), 2)
         for item in source_rows:
             data = (out / item["source_file"]).read_bytes()
             self.assertEqual(item["sha256"], hashlib.sha256(data).hexdigest())
             self.assertTrue(data.startswith(b"%PDF-"))
             self.assertNotEqual(item["verification_status"], "human_verified")
-        self.assertTrue(any(x.get("comparison_status") == "source_content_conflict" for x in manifest))
+        self.assertFalse(any(x.get("comparison_status") == "source_content_conflict" for x in manifest))
 
     def test_source_failure_does_not_prevent_later_sources(self):
         reached = []
