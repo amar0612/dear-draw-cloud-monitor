@@ -280,7 +280,8 @@
     "data/recovered_draws_2025-06-18_20_21_22_23_official_pdfs.csv",
     "data/recovered_draws_2025-06-24_25_26_28_29_official_pdfs.csv",
     "data/recovered_draws_2025-07-13_14_18_20_21_22_official_pdfs.csv",
-    "data/recovered_draws_2025-07-24_to_31_official_pdfs.csv"
+    "data/recovered_draws_2025-07-24_to_31_official_pdfs.csv",
+    "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
   ],
   "groups": {
     "2025-01-01 1PM": {
@@ -2712,7 +2713,7 @@
       "conflict": false,
       "signature_basis": "tier_number_multiset",
       "order_variant": true,
-      "ordering_note": "The two source files contain identical sets of numbers in every prize tier; 2nd\u20135th tier row ordering differs. This is not a number conflict. Both source files are retained and the draw is counted once.",
+      "ordering_note": "The two source files contain identical sets of numbers in every prize tier; 2nd–5th tier row ordering differs. This is not a number conflict. Both source files are retained and the draw is counted once.",
       "legacy_ordered_signatures": [
         {
           "signature": "636c8398",
@@ -13533,7 +13534,9 @@
     "new_cross_source_matched_draws": 75,
     "new_single_source_pending_review_draws": 2,
     "misdated_source_links_resolved": 1,
-    "note": "6PM excluded. New group signatures use sha256-prefix-v1; legacy signatures are retained unchanged."
+    "note": "6PM excluded. All 138 listed source CSV files are included in the final 724-sheet audit; the final 77-sheet August–October batch is included. New group signatures use sha256-prefix-v1; legacy signatures are retained unchanged.",
+    "processed_source_files": 138,
+    "all_source_files_processed": true
   },
   "last_chunk": {
     "processed": 1,
@@ -13552,5 +13555,13 @@
       "set_signature": "d70b9d1f",
       "resolution": "same_sheet_not_conflict"
     }
-  ]
+  ],
+  "final_recovery_batch": {
+    "file": "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv",
+    "draw_slots": 77,
+    "complete_rows": 10164,
+    "cross_source_matched_draws": 75,
+    "single_source_pending_review_draws": 2,
+    "retrieval_date": "2026-11-21"
+  }
 }
