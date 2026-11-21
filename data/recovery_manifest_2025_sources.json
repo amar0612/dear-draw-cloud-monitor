@@ -68,14 +68,14 @@
       "domain": "lotterysambad.co",
       "type": "daily and monthly result archive with full 1PM/8PM tier tables",
       "index_url": "https://lotterysambad.co/2025/",
-      "status": "January–October daily result pages used for discovery and PDF link navigation; 6PM results excluded from imports. 2025-04-18 1PM and 8PM full-result pages and linked PDFs were opened and extracted; 6PM content was excluded. Additional full 2025 pages opened/extracted: May 3, May 7, July 26, August 24, September 25 and November 15; only 1PM/8PM tables imported, 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 11 and March 12, 1PM and 8PM only; 6PM excluded. Additional full result page and linked PDFs opened/extracted on 2026-11-20: March 18, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 20 and March 22, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 23 and March 24, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 25 and March 26, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 29 and March 30, 1PM and 8PM; 6PM excluded. March 2025 daily archive pages 1–31 were searched; all remaining 1PM/8PM full sheets recovered from linked PDFs on 2026-11-20; 6PM excluded. April 1, 2025 daily page and linked 1PM/8PM PDFs recovered on 2026-11-20 after earlier PDF failures. April 6–8 daily pages and linked 1PM/8PM PDFs recovered on 2026-11-20; 6PM excluded. April 9–13 daily pages and linked 1PM/8PM PDFs recovered on 2026-11-20; 6PM excluded. April 14 and April 20–29 daily pages opened 2026-11-21; 18 linked 1PM/8PM PDFs opened and their PDF text layers reviewed; first-prize series/number matched Goodreturns and five-digit suffixes matched KLL yearly chart. Full 132-entry structured imports remain pending; 6PM excluded. The 18 April 14 and April 20–29 1PM/8PM PDF text extractions were imported as 132-row sheets on 2026-11-21; 6PM excluded. Lower tiers remain single-source pending review. May 3 and June 27 daily pages and their 1PM/8PM PDFs were opened on 2026-11-21; May 3 8PM and June 27 both draws imported, while May 3 1PM was a corroborating duplicate only. 6PM excluded. Four August 21–23 1PM/8PM archive HTML sheets were imported on 2026-11-21; first prizes cross-source matched. No direct PDF links were exposed on these pages, so no PDF binaries or hashes. On 2026-11-21, November 10, 19, 25 and 27 daily pages were opened for cross-checking: six complete 1PM/8PM sheets match dearlottery.com.co tier-by-tier; Nov 25 8PM lists 101 fifth-tier entries on both sites, so its candidate is flagged rather than certified. 6PM excluded. Nov 14 and Nov 17 full daily pages were additionally opened and cross-matched against dearlottery.com.co for the 1PM/8PM sheets imported in this batch; 6PM excluded. Independent November daily pages for Nov 20, 21, 23, 26 and 28 are available as tier-by-tier cross-check targets; first-prize values match. The lower-tier values in this batch remain single_source_pending_review until full list comparison. Six additional November full sheets imported on 2026-11-21 (Nov 11 both, Nov 21 8PM, Nov 23 8PM, Nov 29 both). First prizes match Goodreturns and KLL charts; lower tiers remain single_source_pending_review. 6PM omitted. Nov 25 8PM verified against dearlottery.com.co: exactly 100 fifth-tier values ending 9838; erroneous extra 9980 was a transcription artifact, not a source result. May 5, 10, 11, 13, 14 and 18 daily pages opened; ten 1PM/8PM Official PDF links were followed and extracted. All 6PM sheets excluded. First-prize values cross-matched to Goodreturns and KLL. May 20–24 daily pages and all ten 1PM/8PM official PDF links were opened; May 22 1PM duplicate sheet cross-matched to a separate PDF mirror. 6PM excluded.",
+      "status": "January–October daily result pages used for discovery and PDF link navigation; 6PM results excluded from imports. 2025-04-18 1PM and 8PM full-result pages and linked PDFs were opened and extracted; 6PM content was excluded. Additional full 2025 pages opened/extracted: May 3, May 7, July 26, August 24, September 25 and November 15; only 1PM/8PM tables imported, 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 11 and March 12, 1PM and 8PM only; 6PM excluded. Additional full result page and linked PDFs opened/extracted on 2026-11-20: March 18, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 20 and March 22, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 23 and March 24, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 25 and March 26, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 29 and March 30, 1PM and 8PM; 6PM excluded. March 2025 daily archive pages 1–31 were searched; all remaining 1PM/8PM full sheets recovered from linked PDFs on 2026-11-20; 6PM excluded. April 1, 2025 daily page and linked 1PM/8PM PDFs recovered on 2026-11-20 after earlier PDF failures. April 6–8 daily pages and linked 1PM/8PM PDFs recovered on 2026-11-20; 6PM excluded. April 9–13 daily pages and linked 1PM/8PM PDFs recovered on 2026-11-20; 6PM excluded. April 14 and April 20–29 daily pages opened 2026-11-21; 18 linked 1PM/8PM PDFs opened and their PDF text layers reviewed; first-prize series/number matched Goodreturns and five-digit suffixes matched KLL yearly chart. Full 132-entry structured imports remain pending; 6PM excluded. The 18 April 14 and April 20–29 1PM/8PM PDF text extractions were imported as 132-row sheets on 2026-11-21; 6PM excluded. Lower tiers remain single-source pending review. May 3 and June 27 daily pages and their 1PM/8PM PDFs were opened on 2026-11-21; May 3 8PM and June 27 both draws imported, while May 3 1PM was a corroborating duplicate only. 6PM excluded. Four August 21–23 1PM/8PM archive HTML sheets were imported on 2026-11-21; first prizes cross-source matched. No direct PDF links were exposed on these pages, so no PDF binaries or hashes. On 2026-11-21, November 10, 19, 25 and 27 daily pages were opened for cross-checking: six complete 1PM/8PM sheets match dearlottery.com.co tier-by-tier; Nov 25 8PM lists 101 fifth-tier entries on both sites, so its candidate is flagged rather than certified. 6PM excluded. Nov 14 and Nov 17 full daily pages were additionally opened and cross-matched against dearlottery.com.co for the 1PM/8PM sheets imported in this batch; 6PM excluded. Independent November daily pages for Nov 20, 21, 23, 26 and 28 are available as tier-by-tier cross-check targets; first-prize values match. The lower-tier values in this batch remain single_source_pending_review until full list comparison. Six additional November full sheets imported on 2026-11-21 (Nov 11 both, Nov 21 8PM, Nov 23 8PM, Nov 29 both). First prizes match Goodreturns and KLL charts; lower tiers remain single_source_pending_review. 6PM omitted. Nov 25 8PM verified against dearlottery.com.co: exactly 100 fifth-tier values ending 9838; erroneous extra 9980 was a transcription artifact, not a source result. May 5, 10, 11, 13, 14 and 18 daily pages opened; ten 1PM/8PM Official PDF links were followed and extracted. All 6PM sheets excluded. First-prize values cross-matched to Goodreturns and KLL. May 20–24 daily pages and all ten 1PM/8PM official PDF links were opened; May 22 1PM duplicate sheet cross-matched to a separate PDF mirror. 6PM excluded. May 25–26 daily pages opened and four 1PM/8PM official PDF links followed; 6PM excluded.",
       "retrieval_date": "2026-11-20"
     },
     {
       "domain": "o.vcdn.cc",
       "type": "daily PDF host linked from lotterysambad.co full-result pages",
       "index_url": "https://o.vcdn.cc/Dear/MN310125.PDF",
-      "status": "54 daily PDFs opened and text-extracted by 2026-11-19, covering February and March batches. Binary downloads were not preserved. Additional 2025-04-18 PDFs extracted: MN180425.PDF (1PM) and EN180425.PDF (8PM); binary files not preserved. Additional daily PDFs extracted: MN030525.PDF (May 3 1PM), MN070525.PDF (May 7 1PM), MN260725.PDF and EN260725.PDF (July 26 1PM/8PM); binary files not preserved. Additional PDFs parsed 2026-11-20: MN110325.PDF, EN110325.PDF, MN120325.PDF and EN120325.PDF. Binary download attempt failed; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN180325.PDF and EN180325.PDF. Binary download attempt was unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN200325.PDF, EN200325.PDF, MN220325.PDF and EN220325.PDF. Binary downloads were unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN230325.PDF, EN230325.PDF, MN240325.PDF and EN240325.PDF. Binary downloads were unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN250325.PDF, EN250325.PDF, MN260325.PDF and EN260325.PDF. Binary downloads were unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN290325.PDF, EN290325.PDF, MN300325.PDF and EN300325.PDF. Binary downloads were unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20 for all previously missing March 1PM/8PM slots; original binaries could not be downloaded and no SHA-256 values are recorded. April 1 PDFs parsed 2026-11-20: MN010425.PDF and EN010425.PDF. Binary downloads were unavailable; no SHA-256 values recorded. April 6–8 PDFs parsed 2026-11-20: MN060425.PDF, EN060425.PDF, MN070425.PDF, EN070425.PDF, MN080425.PDF and EN080425.PDF. Binary downloads were unavailable; no SHA-256 values recorded. April 9–13 PDFs parsed 2026-11-20: MN090425.PDF, EN090425.PDF, MN100425.PDF, EN100425.PDF, MN110425.PDF, EN110425.PDF, MN120425.PDF, EN120425.PDF, MN130425.PDF and EN130425.PDF. Binary downloads were unavailable; no SHA-256 values recorded. On 2026-11-21, 18 April 2025 PDFs (MN140425, MN200425, EN200425, MN210425, MN220425, EN220425, MN230425, EN230425, EN240425, MN250425, EN250425, MN260425, EN260425, MN270425, EN270425, EN280425, MN290425, EN290425) were opened and text-layer parsed for first-prize cross-checks; full-tier CSV imports remain pending. Binary downloads unavailable; SHA-256 values not recorded. The 18 April 2025 PDF text layers were imported as 132-row sheets on 2026-11-21; original binaries could not be downloaded and SHA-256 hashes remain unavailable. May 3 8PM and June 27 1PM/8PM PDF text layers imported as 132-row sheets on 2026-11-21; May 3 1PM PDF corroborated existing import. Original binaries not preserved; no SHA-256. Ten additional May 2025 one-page official PDFs opened and text-extracted on 2026-11-21: MN050525, MN100525, MN110525, EN110525, MN130525, EN130525, MN140525, EN140525, MN180525, EN180525. Direct URLs preserved in the CSV. Binary download failed; no SHA-256. Ten additional May 20–24 PDFs opened and text-extracted on 2026-11-21 (MN/EN200525 through MN/EN240525). May 22 1PM exactly matches the previously imported nagalandstatelotterysambad.com PDF. Direct URLs retained; binary downloads remain unavailable, so no SHA-256.",
+      "status": "54 daily PDFs opened and text-extracted by 2026-11-19, covering February and March batches. Binary downloads were not preserved. Additional 2025-04-18 PDFs extracted: MN180425.PDF (1PM) and EN180425.PDF (8PM); binary files not preserved. Additional daily PDFs extracted: MN030525.PDF (May 3 1PM), MN070525.PDF (May 7 1PM), MN260725.PDF and EN260725.PDF (July 26 1PM/8PM); binary files not preserved. Additional PDFs parsed 2026-11-20: MN110325.PDF, EN110325.PDF, MN120325.PDF and EN120325.PDF. Binary download attempt failed; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN180325.PDF and EN180325.PDF. Binary download attempt was unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN200325.PDF, EN200325.PDF, MN220325.PDF and EN220325.PDF. Binary downloads were unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN230325.PDF, EN230325.PDF, MN240325.PDF and EN240325.PDF. Binary downloads were unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN250325.PDF, EN250325.PDF, MN260325.PDF and EN260325.PDF. Binary downloads were unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN290325.PDF, EN290325.PDF, MN300325.PDF and EN300325.PDF. Binary downloads were unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20 for all previously missing March 1PM/8PM slots; original binaries could not be downloaded and no SHA-256 values are recorded. April 1 PDFs parsed 2026-11-20: MN010425.PDF and EN010425.PDF. Binary downloads were unavailable; no SHA-256 values recorded. April 6–8 PDFs parsed 2026-11-20: MN060425.PDF, EN060425.PDF, MN070425.PDF, EN070425.PDF, MN080425.PDF and EN080425.PDF. Binary downloads were unavailable; no SHA-256 values recorded. April 9–13 PDFs parsed 2026-11-20: MN090425.PDF, EN090425.PDF, MN100425.PDF, EN100425.PDF, MN110425.PDF, EN110425.PDF, MN120425.PDF, EN120425.PDF, MN130425.PDF and EN130425.PDF. Binary downloads were unavailable; no SHA-256 values recorded. On 2026-11-21, 18 April 2025 PDFs (MN140425, MN200425, EN200425, MN210425, MN220425, EN220425, MN230425, EN230425, EN240425, MN250425, EN250425, MN260425, EN260425, MN270425, EN270425, EN280425, MN290425, EN290425) were opened and text-layer parsed for first-prize cross-checks; full-tier CSV imports remain pending. Binary downloads unavailable; SHA-256 values not recorded. The 18 April 2025 PDF text layers were imported as 132-row sheets on 2026-11-21; original binaries could not be downloaded and SHA-256 hashes remain unavailable. May 3 8PM and June 27 1PM/8PM PDF text layers imported as 132-row sheets on 2026-11-21; May 3 1PM PDF corroborated existing import. Original binaries not preserved; no SHA-256. Ten additional May 2025 one-page official PDFs opened and text-extracted on 2026-11-21: MN050525, MN100525, MN110525, EN110525, MN130525, EN130525, MN140525, EN140525, MN180525, EN180525. Direct URLs preserved in the CSV. Binary download failed; no SHA-256. Ten additional May 20–24 PDFs opened and text-extracted on 2026-11-21 (MN/EN200525 through MN/EN240525). May 22 1PM exactly matches the previously imported nagalandstatelotterysambad.com PDF. Direct URLs retained; binary downloads remain unavailable, so no SHA-256. Four additional May 25–26 official PDFs opened and text-extracted on 2026-11-21 (MN/EN250525, MN/EN260525). Direct URLs retained; binaries not preserved, no SHA-256.",
       "retrieval_date": "2026-11-20"
     },
     {
@@ -205,9 +205,9 @@
       ],
       "full_tier_recovery": "29 unique full 132-entry sheets (3828 entries); 33 first-prize-only partial slots; 0 unresolved slots. Counts reconciled against the 120-file cross-file audit.",
       "pdf_extraction": "29 complete sheets (3828 entries), 33 partial slots, 0 unresolved slots; counts are unique date/draw groups, not raw file rows.",
-      "full_tier_draws": 48,
-      "full_tier_entries": 6336,
-      "partial_draws": 14,
+      "full_tier_draws": 52,
+      "full_tier_entries": 6864,
+      "partial_draws": 10,
       "unresolved_draws": 0,
       "full_tier_new_draws_2026_11_19_ab": 2,
       "full_tier_new_draws_2026_11_19_ac2": 2,
@@ -215,7 +215,7 @@
       "full_tier_unresolved_draw_slots": 0,
       "partial_first_prize_only_slots": 33,
       "full_tier_new_draws_2026_11_21": 1,
-      "notes": "May 3 8PM full sheet imported from PDF text on 2026-11-21; May 3 1PM PDF agrees with the existing 132-row sheet. Lower tiers remain single-source pending review. Cross-file audit 2026-11-21 confirms 29 unique complete sheets, 33 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once. Ten additional full 132-entry sheets imported on 2026-11-21 from linked official Lottery Sambad Gazette PDFs: May 5 1PM, May 10 1PM, May 11 both, May 13 both, May 14 both, May 18 both. First-prize values match Goodreturns and KLL; each PDF has exactly 100 fifth-prize entries. 23 May slots remain first-prize-only. Direct PDF URLs retained; binaries and SHA-256 hashes not available. Nine new full sheets imported from official PDFs for May 20–24; May 22 1PM was already present and matched exactly against an independent PDF source. Four May slots remain first-prize-only. Reconciled month count: 48 unique complete sheets (6,336 rows) and 14 first-prize-only slots. The May 22 1PM PDF is an exact duplicate of a previously imported full sheet, so it is retained as a second source but counted once.",
+      "notes": "May 3 8PM full sheet imported from PDF text on 2026-11-21; May 3 1PM PDF agrees with the existing 132-row sheet. Lower tiers remain single-source pending review. Cross-file audit 2026-11-21 confirms 29 unique complete sheets, 33 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once. Ten additional full 132-entry sheets imported on 2026-11-21 from linked official Lottery Sambad Gazette PDFs: May 5 1PM, May 10 1PM, May 11 both, May 13 both, May 14 both, May 18 both. First-prize values match Goodreturns and KLL; each PDF has exactly 100 fifth-prize entries. 23 May slots remain first-prize-only. Direct PDF URLs retained; binaries and SHA-256 hashes not available. Nine new full sheets imported from official PDFs for May 20–24; May 22 1PM was already present and matched exactly against an independent PDF source. Four May slots remain first-prize-only. Reconciled month count: 48 unique complete sheets (6,336 rows) and 14 first-prize-only slots. The May 22 1PM PDF is an exact duplicate of a previously imported full sheet, so it is retained as a second source but counted once. Four additional complete sheets imported from official PDFs for May 25 and 26 (both 1PM/8PM draws). Ten May slots remain first-prize-only.",
       "no_draw_confirmed_slots": 0
     },
     {
@@ -1999,9 +1999,9 @@
     "binary_pdf_preserved": false,
     "sha256_calculated": false
   },
-  "full_tier_total_draws": 572,
-  "full_tier_total_entries": 75504,
-  "full_tier_clean_tier_count_draws": 572,
+  "full_tier_total_draws": 576,
+  "full_tier_total_entries": 76032,
+  "full_tier_clean_tier_count_draws": 576,
   "full_tier_source_conflict_draws": 0,
   "full_tier_batch_2026_11_19_c": {
     "file": "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_c.csv",
@@ -2722,7 +2722,7 @@
     "2025-11-16 1PM",
     "2025-11-16 8PM"
   ],
-  "full_tier_partial_draws": 152,
+  "full_tier_partial_draws": 148,
   "full_tier_unresolved_draws": 0,
   "full_tier_batch_2026_11_19_ac": {
     "file": "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_ac.csv",
@@ -4734,24 +4734,24 @@
     }
   ],
   "audit_reconciliation": {
-    "source_files_audited": 129,
-    "deduplicated_full_sheet_count": 572,
-    "deduplicated_full_sheet_entries": 75504,
-    "first_prize_only_partial_slots": 152,
+    "source_files_audited": 130,
+    "deduplicated_full_sheet_count": 576,
+    "deduplicated_full_sheet_entries": 76032,
+    "first_prize_only_partial_slots": 148,
     "partial_or_malformed_groups": 0,
     "unresolved_draw_slots": 0,
     "unresolved_source_conflicts": 0,
     "resolved_source_conflict_draws": 2,
     "no_draw_confirmed_slots": 6,
     "expected_draw_slots": 730,
-    "monthly_manifest_full_sheet_sum": 572,
-    "monthly_manifest_partial_sum": 152,
+    "monthly_manifest_full_sheet_sum": 576,
+    "monthly_manifest_partial_sum": 148,
     "discrepancy_sheets": 0,
     "duplicate_identical_or_order_equivalent_copies": 12,
     "ordering_variants_resolved": 1,
     "status": "reconciled_with_holiday_exclusions_2026-11-21",
     "retrieval_date": "2026-11-21",
-    "note": "129 2025 full-tier CSV files audited. 572 unique 1PM/8PM draw groups have exactly 132 entries (75,504 rows). 152 slots remain first-prize-only; six scheduled slots are confirmed no-draw national holidays (Jan 26, Aug 15, Oct 2; both draws); zero unresolved slots and zero unresolved number conflicts. Two June 30 source conflicts are resolved and retained as alternate candidates. Twelve duplicate/order-equivalent source copies retained and counted once. May 22 1PM matched exactly across o.vcdn.cc and nagalandstatelotterysambad.com. Twenty May sheets in the two latest batches were extracted from linked official one-page PDFs; direct URLs retained but binaries and SHA-256 hashes unavailable. 6PM excluded."
+    "note": "130 2025 full-tier CSV files audited. 576 unique 1PM/8PM draw groups have exactly 132 entries (76,032 rows). 148 slots remain first-prize-only; six scheduled slots are confirmed no-draw national holidays (Jan 26, Aug 15, Oct 2; both draws); zero unresolved slots and zero unresolved number conflicts. Two June 30 source conflicts are resolved and retained as alternate candidates. Twelve duplicate/order-equivalent source copies retained and counted once. May 22 1PM matched exactly across o.vcdn.cc and nagalandstatelotterysambad.com. Twenty-four May PDF source sheets across three batches include 23 unique draws; direct URLs retained but binaries and SHA-256 hashes unavailable. 6PM excluded."
   },
   "pending_extractions": [],
   "april_2025_pdf_text_checks_2026_11_21": [
@@ -5933,11 +5933,19 @@
     ],
     "additional_rows_2": 1320,
     "total_draws": 30,
-    "total_rows": 2640,
+    "total_rows": 3168,
     "duplicate_match_draws": [
       "2025-05-22 1PM"
     ],
-    "total_source_sheets": 20,
-    "unique_draws": 19
+    "total_source_sheets": 24,
+    "unique_draws": 23,
+    "additional_file_3": "data/recovered_draws_2025-05-25_26_official_pdfs.csv",
+    "additional_draws_3": [
+      "2025-05-25 1PM",
+      "2025-05-25 8PM",
+      "2025-05-26 1PM",
+      "2025-05-26 8PM"
+    ],
+    "additional_rows_3": 528
   }
 }
