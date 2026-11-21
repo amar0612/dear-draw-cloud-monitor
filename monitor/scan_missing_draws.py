@@ -49,6 +49,7 @@ def main():
     p.add_argument("--master", default="data/nagaland_master_prize_numbers.csv")
     p.add_argument("--start-date", default="2021-01-01")
     p.add_argument("--end-date", default=None)
+    p.add_argument("--calendar", default="data/nagaland_expected_draw_calendar.csv")
     p.add_argument("--batch-size", type=int, default=25)
     p.add_argument("--cursor", type=int, default=1)
     p.add_argument("--output-dir", default="scanner-output")
@@ -73,14 +74,28 @@ def main():
                 continue
             if start <= d <= end:
                 groups[(d.isoformat(), draw)].append(row)
-    missing = []
-    d = start
-    while d <= end:
-        for draw in ("1PM", "8PM"):
-            key = (d.isoformat(), draw)
-            if not complete(groups.get(key, [])):
-                missing.append(key)
-        d = date.fromordinal(d.toordinal() + 1)
+    calendar_path = Path(a.calendar)
+    if not calendar_path.exists():
+        raise SystemExit(f"Expected-draw calendar not found: {calendar_path}; refusing to assume daily draws.")
+    expected = set()
+    with calendar_path.open(newline="", encoding="utf-8-sig") as f:
+        cal = csv.DictReader(f)
+        if not {"date", "draw"}.issubset(cal.fieldnames or []):
+            raise SystemExit("Calendar CSV must contain date,draw columns")
+        for row in cal:
+            ds = (row.get("date") or "").strip()
+            draw = (row.get("draw") or "").strip().upper()
+            if draw not in {"1PM", "8PM"}:
+                continue
+            try:
+                day = date.fromisoformat(ds)
+            except ValueError:
+                continue
+            if start <= day <= end:
+                expected.add((ds, draw))
+    if not expected:
+        raise SystemExit("Expected-draw calendar contains no pairs in requested range; scanner will not guess.")
+    missing = [key for key in sorted(expected) if not complete(groups.get(key, []))]
 
     out = Path(a.output_dir)
     out.mkdir(parents=True, exist_ok=True)
