@@ -185,7 +185,17 @@
     "data/recovered_draws_2025-11-12_to_13_full.csv",
     "data/recovered_draws_2025-11-15-8pm-full.csv",
     "data/recovered_draws_2025-11-16-full.csv",
-    "data/recovered_draws_2025-11-17-1pm-full.csv"
+    "data/recovered_draws_2025-11-17-1pm-full.csv",
+    "data/recovered_draws_2025-11-18-full.csv",
+    "data/recovered_draws_2025-11-22_and_24_full.csv",
+    "data/recovered_draws_2025-12-03-8pm-full.csv",
+    "data/recovered_draws_2025_full_tier_lotterysambad_co_2025-01-31_8pm.csv",
+    "data/recovered_draws_2025_full_tier_lotterysambad_co_february_10-12_2025.csv",
+    "data/recovered_draws_2025_full_tier_lotterysambad_co_february_13-15_2025.csv",
+    "data/recovered_draws_2025_full_tier_lotterysambad_co_february_16-18_2025.csv",
+    "data/recovered_draws_2025_full_tier_lotterysambad_co_february_19-21_2025.csv",
+    "data/recovered_draws_2025_full_tier_lotterysambad_co_february_22-24_2025.csv",
+    "data/recovered_draws_2025_full_tier_lotterysambad_co_february_25-27_2025.csv"
   ],
   "groups": {
     "2025-01-01 1PM": {
@@ -2873,12 +2883,760 @@
       ],
       "duplicate_copies": 0,
       "conflict": false
+    },
+    "2025-11-18 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "9d1e947a",
+      "files": [
+        "data/recovered_draws_2025-11-18-full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-11-18 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "382e11e7",
+      "files": [
+        "data/recovered_draws_2025-11-18-full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-11-22 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "beb774fd",
+      "files": [
+        "data/recovered_draws_2025-11-22_and_24_full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-11-22 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "5557d0d6",
+      "files": [
+        "data/recovered_draws_2025-11-22_and_24_full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-11-24 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "b922fd96",
+      "files": [
+        "data/recovered_draws_2025-11-22_and_24_full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-11-24 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "a6e9c222",
+      "files": [
+        "data/recovered_draws_2025-11-22_and_24_full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-12-03 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "aca9749c",
+      "files": [
+        "data/recovered_draws_2025-12-03-8pm-full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-01-31 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "b6c00c04",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_2025-01-31_8pm.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-12 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "61061ead",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_10-12_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-12 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "e35b61a5",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_10-12_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-11 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "51923307",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_10-12_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-11 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "5511bfcb",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_10-12_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-10 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "7db53d2d",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_10-12_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-10 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "52e3a4f3",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_10-12_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-13 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "57278444",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_13-15_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-13 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "260ab0fd",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_13-15_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-14 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "24089d7f",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_13-15_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-14 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "eb1f197a",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_13-15_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-15 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "0a055594",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_13-15_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-15 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "38c7fcd7",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_13-15_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-18 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "631e9f41",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_16-18_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-18 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "b6503f11",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_16-18_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-17 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "68415308",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_16-18_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-17 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "a05fcd67",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_16-18_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-16 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "ec186f69",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_16-18_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-16 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "6fbe213c",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_16-18_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-21 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "1a3b0ca0",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_19-21_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-21 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "cf18589b",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_19-21_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-20 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "e769172a",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_19-21_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-20 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "af16d9fd",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_19-21_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-19 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "7e476d78",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_19-21_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-19 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "f95aa114",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_19-21_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-24 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "2dbb67c7",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_22-24_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-24 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "3b1d4642",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_22-24_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-23 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "e41a8f0d",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_22-24_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-23 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "8c7f48f9",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_22-24_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-22 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "51c749a6",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_22-24_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-22 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "2e520282",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_22-24_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-27 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "4b65d31a",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_25-27_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-27 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "4e6c0602",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_25-27_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-26 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "98930c1a",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_25-27_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-26 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "0b58478d",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_25-27_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-25 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "45f001e3",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_25-27_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-02-25 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "2549414b",
+      "files": [
+        "data/recovered_draws_2025_full_tier_lotterysambad_co_february_25-27_2025.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
     }
   },
   "summary": null,
   "last_chunk": {
     "processed": 10,
-    "groups_seen": 15,
+    "groups_seen": 44,
     "ignored_6pm_rows": 0
   }
 }
