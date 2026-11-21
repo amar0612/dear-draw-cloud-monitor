@@ -1513,14 +1513,17 @@
     {
       "date": "2025-11-25",
       "draw": "8PM",
-      "status": "partial_extraction_review",
+      "status": "resolved_transcription_error",
       "first_prize": "76G 63223",
       "source_urls": [
         "https://dearlottery.com.co/25-11-2025/8pm",
         "https://lotterysambad.co/2025/november/25/"
       ],
       "retrieval_date": "2026-11-21",
-      "detail": "Full 1st–4th tiers and 101 fifth-tier entries preserved from two archive domains. Both pages show 101 fifth-tier numbers although the published tier is 100. No value dropped or guessed; kept as 133-row source candidate and excluded from complete-sheet totals. No direct PDF binary or SHA-256 available."
+      "detail": "Resolved by comparing both source pages. Each source lists exactly 100 fifth-prize values ending 9838. The extra 9980 was introduced during transcription, not present in either source. Corrected 132-entry file imported; original candidate preserved as superseded. No source conflict remains.",
+      "resolution_date": "2026-11-21",
+      "corrected_file": "data/recovered_draws_2025-11-25_8pm_crosssource_full_corrected.csv",
+      "superseded_candidate_file": "data/recovered_draws_2025-11-25_8pm_101_fifth_source_candidate.csv"
     },
     {
       "date": "2025-11-27",
