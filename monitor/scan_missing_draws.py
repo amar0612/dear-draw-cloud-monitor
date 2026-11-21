@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Find incomplete Nagaland 1PM/8PM draws in the master CSV and rotate recovery batches."""
 from __future__ import annotations
-import argparse, csv, json, os
+import argparse, csv, json, os, re
 from collections import Counter, defaultdict
 from datetime import date, datetime
 from pathlib import Path
@@ -9,6 +9,14 @@ from zoneinfo import ZoneInfo
 
 EXPECTED = {"1st": 1, "Consolation": 1, "2nd": 10, "3rd": 10, "4th": 10, "5th": 100}
 TIERS = set(EXPECTED)
+PATTERNS = {
+    "1st": re.compile(r"^[0-9]{2}[A-Z] [0-9]{5}$"),
+    "Consolation": re.compile(r"^[0-9]{5}$"),
+    "2nd": re.compile(r"^[0-9]{5}$"),
+    "3rd": re.compile(r"^[0-9]{4}$"),
+    "4th": re.compile(r"^[0-9]{4}$"),
+    "5th": re.compile(r"^[0-9]{4}$"),
+}
 
 def complete(rows):
     if len(rows) != 132:
@@ -23,13 +31,18 @@ def complete(rows):
             return False
         if tier not in TIERS or pos in positions[tier] or not (1 <= pos <= EXPECTED[tier]):
             return False
-        if not (row.get("winning_number") or "").strip():
+        number = (row.get("winning_number") or "").strip()
+        if not PATTERNS[tier].fullmatch(number):
             return False
         counts[tier] += 1
         positions[tier].add(pos)
-    return counts == Counter(EXPECTED) and all(
+    if counts != Counter(EXPECTED) or not all(
         positions[t] == set(range(1, EXPECTED[t] + 1)) for t in EXPECTED
-    )
+    ):
+        return False
+    first = next((r.get("winning_number", "").strip() for r in rows if r.get("prize_tier") == "1st"), "")
+    consolation = next((r.get("winning_number", "").strip() for r in rows if r.get("prize_tier") == "Consolation"), "")
+    return bool(first and consolation and first[-5:] == consolation)
 
 def main():
     p = argparse.ArgumentParser()
