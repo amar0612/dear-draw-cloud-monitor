@@ -266,7 +266,10 @@ def main():
         extracted_first = canonical_tiers["1st"][0]
         distinct_domains = {urlparse(item[1]).netloc for item in parsed_candidates}
         mismatch = extracted_first != expected_first
-        source_conflict = any(item[4] != canonical_tiers for item in parsed_candidates[1:])
+        source_conflict = any(
+            any(set(item[4].get(tier, [])) != set(canonical_tiers.get(tier, [])) for tier in EXPECTED)
+            for item in parsed_candidates[1:]
+        )
         is_conflict = mismatch or source_conflict
         extra_urls = [item[1] for item in parsed_candidates[1:]] + [GOODRETURNS, KLL]
         if is_conflict:
@@ -367,9 +370,7 @@ def main():
     for key, info in new_complete.items():
         groups[key] = info
     audit["groups"] = groups
-    source_files = audit.get("source_files", [])
-    if output_path not in source_files:
-        source_files.append(output_path)
+    source_files = sorted(set(audit.get("source_files", [])) | {output_path})
     audit["source_files"] = source_files
     audit["source_file_count"] = len(source_files)
     audit["generated_on"] = TODAY
@@ -407,7 +408,7 @@ def main():
         "new_complete_entries": len(new_complete) * 132, "partial_rows": len(partial_rows),
         "conflict_rows": len(conflict_rows), "source_manifest": str(archive_manifest_path),
         "retrieval_date": TODAY, "source_domains": sorted({x.get("source_domain") for x in records if x.get("source_domain")}),
-        "pdf_binaries_saved": sum(len(x.get("sources", [])) for x in records),
+        "pdf_binaries_saved": sum(1 for x in records for src in x.get("sources", []) if src.get("source_file")),
         "sha256_preserved": True
     }
     manifest["audit_reconciliation"] = {
@@ -415,7 +416,7 @@ def main():
         "deduplicated_full_sheet_count": complete_count,
         "deduplicated_full_sheet_entries": complete_count * 132,
         "first_prize_only_partial_slots": partial_count,
-        "partial_or_malformed_groups": len(partial_rows) // 132 if partial_rows else 0,
+        "partial_or_malformed_groups": sum(1 for x in records if x.get("status") == "partial_extraction_review"),
         "unresolved_draw_slots": 0,
         "unresolved_source_conflicts": len(conflict_keys),
         "resolved_source_conflict_draws": manifest.get("full_tier_resolved_conflict_draws", 2),
@@ -455,6 +456,10 @@ def main():
         "detail": f"Checked {len(targets)} previously partial draw slots; imported {len(new_complete)} complete 132-entry sheets, retained {len(partial_rows)} partial rows and {len(conflict_rows)} conflict rows. {len(unresolved)} slots remain without a clean full-sheet import. Source URLs and SHA-256 hashes are in {archive_manifest_path}.",
         "retrieval_date": TODAY
     })
+    exceptions.setdefault("monthly_exceptions", []).extend([
+        {"date": f"2025-{mm}", "draw": "both", "issue": f"Latest 2026-11-21 archive-PDF recovery pass: {sum(1 for k in new_complete if k.startswith(f\"2025-{mm}-\"))} complete full sheets; remaining first-prize-only slots are retained with explicit review statuses.", "status": "full_tier_recovered" if not any(x.get("date", "").startswith(f"2025-{mm}-") for x in unresolved) else "partial_extraction_review", "action": "Use the newest recovery manifest and PDF SHA-256 source ledger; retain all earlier exception history."}
+        for mm in ("08", "09", "10")
+    ])
     exceptions["lotterysambad_icu_remaining_pdf_recovery_2026_11_21"] = {
         "months": ["August 2025", "September 2025", "October 2025"],
         "target_slots": len(targets), "complete_sheets_imported": len(new_complete),
