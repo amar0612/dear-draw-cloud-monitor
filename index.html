@@ -818,6 +818,7 @@
           draws = merged;
           saveDrawsToStorage();
           renderDraws();
+          renderPredictions(); // Keep next-draw candidates in sync with cloud-imported results.
         }
 
         const reasonText = Object.entries(invalidReasons).map(([reason, count]) => count + '× ' + reason).join('; ');
