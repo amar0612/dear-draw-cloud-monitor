@@ -1076,6 +1076,51 @@
       "retrieval_date": "2026-11-21",
       "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
       "imported_rows": 132
+    },
+    {
+      "date": "2025-05-03",
+      "draw": "8PM",
+      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
+      "detail": "Complete 132-entry sheet imported from the opened PDF text layer on 2026-11-21. First-prize series and five-digit number match Goodreturns; five-digit suffix matches KLL yearly chart. Lower tiers remain single-source pending review. Original PDF binary and SHA-256 were not preserved. 6PM excluded.",
+      "sources": [
+        "https://www.lotterysambad.co/2025/may/3/",
+        "https://o.vcdn.cc/Dear/EN030525.PDF",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-05-03_8pm_and_2025-06-27_full.csv",
+      "imported_rows": 132
+    },
+    {
+      "date": "2025-06-27",
+      "draw": "1PM",
+      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
+      "detail": "Complete 132-entry sheet imported from the opened PDF text layer on 2026-11-21. First-prize series and five-digit number match Goodreturns; five-digit suffix matches KLL yearly chart. Lower tiers remain single-source pending review. Original PDF binary and SHA-256 were not preserved. 6PM excluded.",
+      "sources": [
+        "https://www.lotterysambad.co/2025/june/27/",
+        "https://o.vcdn.cc/Dear/MN270625.PDF",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-05-03_8pm_and_2025-06-27_full.csv",
+      "imported_rows": 132
+    },
+    {
+      "date": "2025-06-27",
+      "draw": "8PM",
+      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
+      "detail": "Complete 132-entry sheet imported from the opened PDF text layer on 2026-11-21. First-prize series and five-digit number match Goodreturns; five-digit suffix matches KLL yearly chart. Lower tiers remain single-source pending review. Original PDF binary and SHA-256 were not preserved. 6PM excluded.",
+      "sources": [
+        "https://www.lotterysambad.co/2025/june/27/",
+        "https://o.vcdn.cc/Dear/EN270625.PDF",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-05-03_8pm_and_2025-06-27_full.csv",
+      "imported_rows": 132
     }
   ],
   "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Prior audited full-tier baseline: 391 unique complete 132-entry sheets (51,612 rows), 333 first-prize-only partial slots, six unresolved. This run adds fifty-two genuinely new complete sheets (34 March sheets, April 1 both draws, April 6–13 both draws), bringing the audited total to 443 complete sheets (58,476 rows), 281 partial slots, six unresolved, and zero unresolved source conflicts. Seven other March sheets were independently checked against existing imported full sheets and not duplicated. The per-month manifest currently sums to 478 full sheets, 35 higher than the deduplicated audit; this discrepancy is explicitly unresolved and the aggregate remains provisional pending a complete cross-file deduplication pass. All 12 monthly archive index pages were opened; not every daily PDF link has been tested. PDF binaries for these fifty-nine source checks could not be preserved, so no SHA-256 hashes are claimed. 6PM is excluded entirely.",
@@ -1111,16 +1156,16 @@
     {
       "date": "2025-05",
       "draw": "both",
-      "issue": "First-prize rows imported for all 31 dates; only 22 May 1PM full-result PDF independently located in this pass; other full prize tiers not yet extracted.",
+      "issue": "May 3 8PM was newly imported as a full 132-entry sheet on 2026-11-21; May 3 1PM PDF corroborated the existing full sheet and was not re-imported. Current month summary: 26 full sheets (3,432 entries), 36 first-prize-only partial slots, 0 unresolved. Lower tiers on the new 8PM sheet remain single-source pending review; original PDF binary and SHA-256 were not preserved.",
       "status": "partial_extraction_review",
-      "action": "Retain first-prize rows and extract 22 May full sheet before continuing alternate PDF search"
+      "action": "Continue extracting remaining May first-prize-only slots from independent daily/monthly PDF sources."
     },
     {
       "date": "2025-06",
       "draw": "both",
-      "issue": "All 30 dates have first-prize records, but full prize tiers were not extracted in this checkpoint.",
+      "issue": "June 27 1PM and 8PM were newly imported as full 132-entry sheets on 2026-11-21. Current month summary: 22 full sheets (2,904 entries), 38 first-prize-only partial slots, 0 unresolved. Lower tiers on both new sheets remain single-source pending review; original PDF binaries and SHA-256 were not preserved.",
       "status": "partial_extraction_review",
-      "action": "Continue searching June daily/monthly PDFs for full prize tiers"
+      "action": "Continue extracting remaining June first-prize-only slots from independent daily/monthly PDF sources."
     },
     {
       "date": "2025-07",
@@ -1683,6 +1728,58 @@
       "binary_preserved": false,
       "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
       "imported_rows": 132
+    },
+    {
+      "date": "2025-05-03",
+      "draw": "1PM",
+      "first_prize": "55C 28021",
+      "pdf_url": "https://o.vcdn.cc/Dear/MN030525.PDF",
+      "archive_page": "https://www.lotterysambad.co/2025/may/3/",
+      "status": "cross_source_verified_existing_sheet_not_reimported",
+      "retrieval_date": "2026-11-21",
+      "import_file": null,
+      "imported_rows": 0,
+      "binary_preserved": false,
+      "sha256": null
+    },
+    {
+      "date": "2025-05-03",
+      "draw": "8PM",
+      "first_prize": "34A 45071",
+      "pdf_url": "https://o.vcdn.cc/Dear/EN030525.PDF",
+      "archive_page": "https://www.lotterysambad.co/2025/may/3/",
+      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-05-03_8pm_and_2025-06-27_full.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null
+    },
+    {
+      "date": "2025-06-27",
+      "draw": "1PM",
+      "first_prize": "74A 52193",
+      "pdf_url": "https://o.vcdn.cc/Dear/MN270625.PDF",
+      "archive_page": "https://www.lotterysambad.co/2025/june/27/",
+      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-05-03_8pm_and_2025-06-27_full.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null
+    },
+    {
+      "date": "2025-06-27",
+      "draw": "8PM",
+      "first_prize": "34D 55228",
+      "pdf_url": "https://o.vcdn.cc/Dear/EN270625.PDF",
+      "archive_page": "https://www.lotterysambad.co/2025/june/27/",
+      "status": "full_sheet_imported_lower_tiers_single_source_pending_review",
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-05-03_8pm_and_2025-06-27_full.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null
     }
   ]
 }
