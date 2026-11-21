@@ -2,7 +2,7 @@
   "generated_on": "2026-11-21",
   "branch": "recovery/2025-full-year",
   "method": "Group all 2025 full-tier CSV rows by date/draw; compare normalized tier-position-number signatures across files. 32-bit FNV-1a signatures are only for duplicate comparison, not cryptographic integrity. SHA-256 for source PDFs remains separate and unavailable where binaries were not saved.",
-  "source_file_count": 126,
+  "source_file_count": 127,
   "source_files": [
     "data/recovered_draws_2025-01-01-1pm-full.csv",
     "data/recovered_draws_2025-03-01-10-21-full.csv",
@@ -129,7 +129,8 @@
     "data/recovered_draws_2025-11-25_8pm_101_fifth_source_candidate.csv",
     "data/recovered_draws_2025-11-14_and_17_full.csv",
     "data/recovered_draws_2025-11-20_21_23_26_28_full.csv",
-    "data/recovered_draws_2025-11-11_21_23_29_full.csv"
+    "data/recovered_draws_2025-11-11_21_23_29_full.csv",
+    "data/recovered_draws_2025-11-25_8pm_crosssource_full_corrected.csv"
   ],
   "processed_files": [
     "data/recovered_draws_2025-01-01-1pm-full.csv",
@@ -257,7 +258,8 @@
     "data/recovered_draws_2025-11-25_8pm_101_fifth_source_candidate.csv",
     "data/recovered_draws_2025-11-14_and_17_full.csv",
     "data/recovered_draws_2025-11-20_21_23_26_28_full.csv",
-    "data/recovered_draws_2025-11-11_21_23_29_full.csv"
+    "data/recovered_draws_2025-11-11_21_23_29_full.csv",
+    "data/recovered_draws_2025-11-25_8pm_crosssource_full_corrected.csv"
   ],
   "groups": {
     "2025-01-01 1PM": {
@@ -9401,23 +9403,26 @@
       "conflict": false
     },
     "2025-11-25 8PM": {
-      "row_count": 133,
+      "row_count": 132,
       "tier_counts": {
         "1st": 1,
         "consolation": 1,
         "2nd": 10,
         "3rd": 10,
         "4th": 10,
-        "5th": 101
+        "5th": 100
       },
-      "signature": "22cfb61c",
+      "signature": "16480fbf",
       "signature_basis": "tier_position_number_fnv1a",
       "files": [
+        "data/recovered_draws_2025-11-25_8pm_crosssource_full_corrected.csv"
+      ],
+      "superseded_files": [
         "data/recovered_draws_2025-11-25_8pm_101_fifth_source_candidate.csv"
       ],
       "duplicate_copies": 0,
       "conflict": false,
-      "anomaly": "5th prize contains 101 entries; expected 100. Retained as source candidate, not certified complete."
+      "resolution_note": "The prior 133-row candidate included 9980 as an extra 5th-prize entry. Both source pages show exactly 100 fifth-tier values ending 9838; 9980 was a transcription artifact and is retained only in the superseded candidate file."
     },
     "2025-11-14 1PM": {
       "row_count": 132,
@@ -9727,21 +9732,23 @@
     }
   },
   "summary": {
-    "processed_files": 126,
-    "total_files": 126,
+    "processed_files": 127,
+    "total_files": 127,
     "unique_draw_groups": 553,
-    "complete_132_entry_groups": 552,
-    "partial_or_malformed_groups": 1,
+    "complete_132_entry_groups": 553,
+    "partial_or_malformed_groups": 0,
     "conflicted_groups": 0,
     "duplicate_identical_copies": 11,
     "draws_with_multiple_source_files": 11,
     "ignored_6pm_rows_total": null,
-    "method_note": "Full-tier CSV rows are grouped by date/draw for 1PM and 8PM only. Completeness requires 132 rows with 1 first, 1 consolation, 10 second, 10 third, 10 fourth and 100 fifth entries. Tier labels are case-normalized. Duplicate sheets are compared by the set of winning numbers within each tier, not row order. FNV-1a 32-bit signatures are for duplicate comparison only, not cryptographic integrity. 6PM is excluded from the audit groups. Additional 2026-11-21 cross-source batch: six complete November 1PM/8PM sheets matched tier-by-tier between dearlottery.com.co and lotterysambad.co; the 2025-11-25 8PM candidate contains 101 fifth-tier entries (expected 100), so it is preserved separately and classified malformed/partial rather than certified. 6PM remains excluded. Additional 2026-11-21 batch: Nov 14 1PM/8PM and Nov 17 8PM imported as complete 132-entry sheets. All tiers match between dearlottery.com.co and lotterysambad.co; first prizes also match Goodreturns and KLL. Additional 2026-11-21 batch: eight November full sheets imported from dearlottery.com.co. First prizes are cross-source matched to Lotterysambad, Goodreturns and KLL; lower tiers are retained with single_source_pending_review until a tier-by-tier comparison is completed. Additional 2026-11-21 batch: six November sheets (Nov 11 both, Nov 21 8PM, Nov 23 8PM, Nov 29 both) imported from Lotterysambad daily pages. First prizes cross-source matched to Goodreturns/KLL; lower tiers remain single_source_pending_review."
+    "method_note": "Full-tier CSV rows are grouped by date/draw for 1PM and 8PM only. Completeness requires 132 rows with 1 first, 1 consolation, 10 second, 10 third, 10 fourth and 100 fifth entries. Tier labels are case-normalized. Duplicate sheets are compared by the set of winning numbers within each tier, not row order. FNV-1a 32-bit signatures are for duplicate comparison only, not cryptographic integrity. 6PM is excluded from the audit groups. Additional 2026-11-21 cross-source batch: six complete November 1PM/8PM sheets matched tier-by-tier between dearlottery.com.co and lotterysambad.co; the 2025-11-25 8PM candidate contains 101 fifth-tier entries (expected 100), so it is preserved separately and classified malformed/partial rather than certified. 6PM remains excluded. Additional 2026-11-21 batch: Nov 14 1PM/8PM and Nov 17 8PM imported as complete 132-entry sheets. All tiers match between dearlottery.com.co and lotterysambad.co; first prizes also match Goodreturns and KLL. Additional 2026-11-21 batch: eight November full sheets imported from dearlottery.com.co. First prizes are cross-source matched to Lotterysambad, Goodreturns and KLL; lower tiers are retained with single_source_pending_review until a tier-by-tier comparison is completed. Additional 2026-11-21 batch: six November sheets (Nov 11 both, Nov 21 8PM, Nov 23 8PM, Nov 29 both) imported from Lotterysambad daily pages. First prizes cross-source matched to Goodreturns/KLL; lower tiers remain single_source_pending_review. Resolved 2025-11-25 8PM anomaly on 2026-11-21: both dearlottery.com.co and lotterysambad.co show exactly 100 fifth-prize values, ending 9838. The extra 9980 was a transcription artifact in the initial candidate; a corrected 132-row file was added and the original candidate retained as superseded."
   },
   "last_chunk": {
     "processed": 1,
-    "groups_added": 6,
-    "file": "data/recovered_draws_2025-11-11_21_23_29_full.csv"
+    "groups_added": 0,
+    "groups_promoted": 1,
+    "file": "data/recovered_draws_2025-11-25_8pm_crosssource_full_corrected.csv",
+    "superseded_file": "data/recovered_draws_2025-11-25_8pm_101_fifth_source_candidate.csv"
   },
   "ordering_variants": [
     {
