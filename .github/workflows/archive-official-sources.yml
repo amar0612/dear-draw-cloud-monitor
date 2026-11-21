@@ -1,6 +1,8 @@
 name: Automated 2023 R2 Historical Recovery
 
 on:
+  schedule:
+    - cron: "*/15 * * * *"
   workflow_dispatch:
     inputs:
       batch_size:
@@ -8,9 +10,9 @@ on:
         required: true
         default: "25"
       max_batches:
-        description: 0 runs until the full campaign completes; set a positive number for a test
+        description: Batches to process in this run; scheduled runs process one batch and resume automatically
         required: true
-        default: "0"
+        default: "1"
 
 permissions:
   contents: read
@@ -47,7 +49,7 @@ jobs:
           python run_r2_recovery_campaign.py \
             --csv ../data/recovery_candidates_2023.csv \
             --batch-size "${{ inputs.batch_size || '25' }}" \
-            --max-batches "${{ inputs.max_batches || '0' }}"
+            --max-batches "${{ inputs.max_batches || '1' }}"
 
       - name: Upload final ZIP as a convenient GitHub download
         if: success()
