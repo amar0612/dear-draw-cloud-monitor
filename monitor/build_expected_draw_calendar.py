@@ -24,9 +24,9 @@ SOURCES = [
     ("lottery_sambad_icu", "https://lotterysambad.icu/old-result", "mirror"),
 ]
 DATE_PATTERNS = [
-    re.compile(r"(?<!\\d)(20\\d{2})[-_/](0?[1-9]|1[0-2])[-_/]([0-3]?\\d)(?!\\d)"),
-    re.compile(r"(?<!\\d)([0-3]?\\d)[-_/](0?[1-9]|1[0-2])[-_/](20\\d{2})(?!\\d)"),
-    re.compile(r"(?<!\\d)([0-3]?\\d)(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*[-_ ]?(20\\d{2})(?!\\d)", re.I),
+    re.compile(r"(?<!\d)(20\d{2})[-_/](0?[1-9]|1[0-2])[-_/]([0-3]?\d)(?!\d)"),
+    re.compile(r"(?<!\d)([0-3]?\d)[-_/](0?[1-9]|1[0-2])[-_/](20\d{2})(?!\d)"),
+    re.compile(r"(?<!\d)([0-3]?\d)(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*[-_ ]?(20\d{2})(?!\d)", re.I),
 ]
 MONTHS = {m.lower(): i for i, m in enumerate(("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"),1)}
 
