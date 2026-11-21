@@ -227,7 +227,7 @@ def archive_sources(csv_path, output_dir, fetcher=fetch_pdf, dry_run=False,
     # Preserve legacy manifest rows while making new records unique per source URL.
     known = {}
     for item in manifest:
-        identity = (item.get("date"), item.get("draw"), item.get("source_url", item.get("source_type")))
+        identity = (item.get("date"), item.get("draw"), item.get("source_url", item.get("source_type", "__summary__")))
         known[identity] = item
     results = []
     draws = read_draws(csv_path)
