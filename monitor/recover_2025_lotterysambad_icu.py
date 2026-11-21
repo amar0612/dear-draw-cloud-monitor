@@ -207,7 +207,7 @@ def main():
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     exceptions = json.loads(exceptions_path.read_text(encoding="utf-8"))
     groups = audit.get("groups", {})
-    targets = sorted(key for key in first_prizes if key not in groups)
+    targets = sorted(key for key in first_prizes if f"{key[0]} {key[1]}" not in groups)
     if any(key[0][5:7] not in MONTHS for key in targets):
         raise SystemExit("Unexpected missing month outside Aug/Sep/Oct; stop for audit")
     link_map = archive_links()
