@@ -8,6 +8,7 @@ complete 132-entry sheets whose first prize agrees with both yearly charts.
 Conflicts and partial extractions are retained separately; no 6PM URL is used.
 """
 import csv
+import calendar
 import hashlib
 import io
 import json
@@ -256,6 +257,7 @@ def main():
         record = {"date": draw_date, "draw": draw, "retrieval_date": TODAY, "sources": attempts}
         records.append(record)
         if not parsed_candidates:
+            record["status"] = "partial_extraction_review"
             unresolved.append({"date": draw_date, "draw": draw, "status": "partial_extraction_review",
                                "source_urls": urls})
             continue
@@ -407,7 +409,7 @@ def main():
         "source_file": output_path, "new_complete_sheets": len(new_complete),
         "new_complete_entries": len(new_complete) * 132, "partial_rows": len(partial_rows),
         "conflict_rows": len(conflict_rows), "source_manifest": str(archive_manifest_path),
-        "retrieval_date": TODAY, "source_domains": sorted({x.get("source_domain") for x in records if x.get("source_domain")}),
+        "retrieval_date": TODAY, "source_domains": sorted({src.get("source_domain") for x in records for src in x.get("sources", []) if src.get("source_file") and src.get("source_domain")}),
         "pdf_binaries_saved": sum(1 for x in records for src in x.get("sources", []) if src.get("source_file")),
         "sha256_preserved": True
     }
@@ -428,25 +430,49 @@ def main():
         "note": "Counts are unique date/draw groups; no 6PM records. Original PDFs and SHA-256 hashes are preserved under sources/2025/lotterysambad_icu_recovery."
     }
 
+    holiday_counts = Counter()
+    holiday_path = Path("data/recovery_holiday_no_draws_2025.csv")
+    if holiday_path.exists():
+        with holiday_path.open(newline="", encoding="utf-8-sig") as handle:
+            for row in csv.DictReader(handle):
+                if row.get("draw") in {"1PM", "8PM"} and row.get("status") == "no_draw_confirmed_holiday":
+                    holiday_counts[row["date"][:7]] += 1
+    monthly_full_sum = 0
+    monthly_partial_sum = 0
     for month in manifest.get("months", []):
         mm = next((k for k, v in MONTHS.items() if v == month.get("month")), None)
+        if not mm:
+            mm = next((k for k, v in {v: k for k, v in MONTHS.items()}.items() if v == str(month.get("month", "")).lower()), None)
+        if not mm:
+            mm = next((f"{i:02d}" for i in range(1, 13) if calendar.month_name[i].lower() == str(month.get("month", "")).lower()), None)
         if not mm:
             continue
         month_groups = [k for k in groups if k.startswith(f"2025-{mm}-")]
         month_first = [k for k in expected_keys if k[0].startswith(f"2025-{mm}-")]
         month_conflicts = [k for k in conflict_keys if k[0].startswith(f"2025-{mm}-")]
-        month_partial = len(month_first) - len(month_groups) - len(month_conflicts)
+        month_partial = max(0, len(month_first) - len(month_groups) - len(month_conflicts))
+        month_unresolved = max(0, calendar.monthrange(2025, int(mm))[1] * 2 - holiday_counts[f"2025-{mm}"] - len(month_groups) - month_partial - len(month_conflicts))
+        month["first_prize_records"] = len(month_first)
+        month["first_prize_coverage"] = f"{len(month_first)} recorded 1PM/8PM first prizes; {holiday_counts[f'2025-{mm}']} holiday no-draw slots excluded."
         month["full_tier_draws"] = len(month_groups)
         month["full_tier_entries"] = len(month_groups) * 132
-        month["partial_draws"] = max(0, month_partial)
-        month["unresolved_draws"] = 0
+        month["partial_draws"] = month_partial
+        month["unresolved_draws"] = month_unresolved
         month["full_tier_expected_draw_slots"] = len(month_first)
-        month["full_tier_unresolved_draw_slots"] = 0
-        month["partial_first_prize_only_slots"] = max(0, month_partial)
-        month["status"] = "full_tier_recovered" if month_partial == 0 and not month_conflicts else "partial_extraction_review"
-        month["pdf_extraction"] = f"{len(month_groups)} complete sheets ({len(month_groups)*132} entries), {max(0,month_partial)} first-prize-only partial slots, 0 unresolved slots."
-        if mm in {"08", "09", "10"}:
-            month["notes"] = (month.get("notes", "") + " Additional dated archive PDFs checked on 2026-11-21; original PDFs and SHA-256 hashes saved where download succeeded. First prizes cross-checked to Goodreturns and KLL yearly charts; lower tiers are marked cross-source matched only where two distinct full-sheet sources agreed, otherwise single_source_pending_review.").strip()
+        month["full_tier_unresolved_draw_slots"] = month_unresolved
+        month["partial_first_prize_only_slots"] = month_partial
+        month["no_draw_confirmed_slots"] = holiday_counts[f"2025-{mm}"]
+        month["status"] = "full_tier_recovered" if month_partial == 0 and not month_conflicts and month_unresolved == 0 else "partial_extraction_review"
+        month["full_tier_recovery"] = f"{len(month_groups)} unique full 132-entry sheets ({len(month_groups)*132} entries); {month_partial} first-prize-only partial slots; {len(month_conflicts)} conflicted slots; {month_unresolved} unresolved slots; {holiday_counts[f'2025-{mm}']} confirmed holiday no-draw slots."
+        month["pdf_extraction"] = month["full_tier_recovery"]
+        old_notes = month.get("notes", "")
+        month["historical_notes"] = (month.get("historical_notes", []) + ([old_notes] if old_notes and old_notes not in month.get("historical_notes", []) else []))
+        month["notes"] = f"Latest cross-file audit on {TODAY}: {len(month_groups)} complete sheets, {month_partial} partial, {len(month_conflicts)} conflicted, {month_unresolved} unresolved; {holiday_counts[f'2025-{mm}']} confirmed no-draw holiday slots. Duplicate source copies are retained but counted once. 6PM excluded."
+        monthly_full_sum += len(month_groups)
+        monthly_partial_sum += month_partial
+    manifest["audit_reconciliation"]["monthly_manifest_full_sheet_sum"] = monthly_full_sum
+    manifest["audit_reconciliation"]["monthly_manifest_partial_sum"] = monthly_partial_sum
+    manifest["audit_reconciliation"]["discrepancy_sheets"] = (monthly_full_sum - complete_count) + (monthly_partial_sum - partial_count)
     manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
 
     exceptions["last_updated"] = TODAY
@@ -456,10 +482,17 @@ def main():
         "detail": f"Checked {len(targets)} previously partial draw slots; imported {len(new_complete)} complete 132-entry sheets, retained {len(partial_rows)} partial rows and {len(conflict_rows)} conflict rows. {len(unresolved)} slots remain without a clean full-sheet import. Source URLs and SHA-256 hashes are in {archive_manifest_path}.",
         "retrieval_date": TODAY
     })
-    exceptions.setdefault("monthly_exceptions", []).extend([
-        {"date": f"2025-{mm}", "draw": "both", "issue": f"Latest 2026-11-21 archive-PDF recovery pass: {sum(1 for k in new_complete if k.startswith(f\"2025-{mm}-\"))} complete full sheets; remaining first-prize-only slots are retained with explicit review statuses.", "status": "full_tier_recovered" if not any(x.get("date", "").startswith(f"2025-{mm}-") for x in unresolved) else "partial_extraction_review", "action": "Use the newest recovery manifest and PDF SHA-256 source ledger; retain all earlier exception history."}
-        for mm in ("08", "09", "10")
-    ])
+    monthly_updates = []
+    for mm in ("08", "09", "10"):
+        count = sum(1 for k in new_complete if k.startswith("2025-" + mm + "-"))
+        review = sum(1 for x in unresolved if x.get("date", "").startswith("2025-" + mm + "-"))
+        monthly_updates.append({
+            "date": "2025-" + mm, "draw": "both",
+            "issue": "Latest 2026-11-21 archive-PDF recovery pass: " + str(count) + " complete full sheets; " + str(review) + " slots remain in review.",
+            "status": "full_tier_recovered" if review == 0 else "partial_extraction_review",
+            "action": "Use the newest recovery manifest and PDF SHA-256 source ledger; retain all earlier exception history."
+        })
+    exceptions.setdefault("monthly_exceptions", []).extend(monthly_updates)
     exceptions["lotterysambad_icu_remaining_pdf_recovery_2026_11_21"] = {
         "months": ["August 2025", "September 2025", "October 2025"],
         "target_slots": len(targets), "complete_sheets_imported": len(new_complete),
