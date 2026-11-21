@@ -2712,6 +2712,174 @@
       ],
       "retrieval_date": "2026-11-21",
       "detail": "Complete 132-entry sheet extracted from linked one-page Lottery Sambad official Gazette PDF. First prize matches Goodreturns and KLL yearly charts. Direct PDF URL retained; binary download failed, so no SHA-256. 6PM excluded."
+    },
+    {
+      "date": "2025-07-13",
+      "draw": "1PM",
+      "status": "official_pdf_extracted",
+      "first_prize": "87L 35858",
+      "source_url": "https://o.vcdn.cc/Dear/MN130725.PDF",
+      "additional_source_urls": [
+        "https://lotterysambad.co/2025/july/13/",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-21",
+      "detail": "Complete 132-entry sheet extracted from linked one-page Lottery Sambad official Gazette PDF. First prize matches Goodreturns and KLL yearly charts. Direct PDF URL retained; binary download failed, so no SHA-256. 6PM excluded."
+    },
+    {
+      "date": "2025-07-13",
+      "draw": "8PM",
+      "status": "official_pdf_extracted",
+      "first_prize": "80K 71320",
+      "source_url": "https://o.vcdn.cc/Dear/EN130725.PDF",
+      "additional_source_urls": [
+        "https://lotterysambad.co/2025/july/13/",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-21",
+      "detail": "Complete 132-entry sheet extracted from linked one-page Lottery Sambad official Gazette PDF. First prize matches Goodreturns and KLL yearly charts. Direct PDF URL retained; binary download failed, so no SHA-256. 6PM excluded."
+    },
+    {
+      "date": "2025-07-14",
+      "draw": "1PM",
+      "status": "official_pdf_extracted",
+      "first_prize": "85B 04984",
+      "source_url": "https://o.vcdn.cc/Dear/MN140725.PDF",
+      "additional_source_urls": [
+        "https://lotterysambad.co/2025/july/14/",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-21",
+      "detail": "Complete 132-entry sheet extracted from linked one-page Lottery Sambad official Gazette PDF. First prize matches Goodreturns and KLL yearly charts. Direct PDF URL retained; binary download failed, so no SHA-256. 6PM excluded."
+    },
+    {
+      "date": "2025-07-14",
+      "draw": "8PM",
+      "status": "official_pdf_extracted",
+      "first_prize": "81C 32035",
+      "source_url": "https://o.vcdn.cc/Dear/EN140725.PDF",
+      "additional_source_urls": [
+        "https://lotterysambad.co/2025/july/14/",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-21",
+      "detail": "Complete 132-entry sheet extracted from linked one-page Lottery Sambad official Gazette PDF. First prize matches Goodreturns and KLL yearly charts. Direct PDF URL retained; binary download failed, so no SHA-256. 6PM excluded."
+    },
+    {
+      "date": "2025-07-18",
+      "draw": "1PM",
+      "status": "official_pdf_extracted",
+      "first_prize": "89D 17804",
+      "source_url": "https://o.vcdn.cc/Dear/MN180725.PDF",
+      "additional_source_urls": [
+        "https://lotterysambad.co/2025/july/18/",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-21",
+      "detail": "Complete 132-entry sheet extracted from linked one-page Lottery Sambad official Gazette PDF. First prize matches Goodreturns and KLL yearly charts. Direct PDF URL retained; binary download failed, so no SHA-256. 6PM excluded."
+    },
+    {
+      "date": "2025-07-18",
+      "draw": "8PM",
+      "status": "official_pdf_extracted",
+      "first_prize": "87G 05990",
+      "source_url": "https://o.vcdn.cc/Dear/EN180725.PDF",
+      "additional_source_urls": [
+        "https://lotterysambad.co/2025/july/18/",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-21",
+      "detail": "Complete 132-entry sheet extracted from linked one-page Lottery Sambad official Gazette PDF. First prize matches Goodreturns and KLL yearly charts. Direct PDF URL retained; binary download failed, so no SHA-256. 6PM excluded."
+    },
+    {
+      "date": "2025-07-20",
+      "draw": "1PM",
+      "status": "official_pdf_extracted",
+      "first_prize": "56H 54564",
+      "source_url": "https://o.vcdn.cc/Dear/MN200725.PDF",
+      "additional_source_urls": [
+        "https://lotterysambad.co/2025/july/20/",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-21",
+      "detail": "Complete 132-entry sheet extracted from linked one-page Lottery Sambad official Gazette PDF. First prize matches Goodreturns and KLL yearly charts. Direct PDF URL retained; binary download failed, so no SHA-256. 6PM excluded."
+    },
+    {
+      "date": "2025-07-20",
+      "draw": "8PM",
+      "status": "official_pdf_extracted",
+      "first_prize": "72A 93906",
+      "source_url": "https://o.vcdn.cc/Dear/EN200725.PDF",
+      "additional_source_urls": [
+        "https://lotterysambad.co/2025/july/20/",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-21",
+      "detail": "Complete 132-entry sheet extracted from linked one-page Lottery Sambad official Gazette PDF. First prize matches Goodreturns and KLL yearly charts. Direct PDF URL retained; binary download failed, so no SHA-256. 6PM excluded."
+    },
+    {
+      "date": "2025-07-21",
+      "draw": "1PM",
+      "status": "official_pdf_extracted",
+      "first_prize": "88E 50357",
+      "source_url": "https://o.vcdn.cc/Dear/MN210725.PDF",
+      "additional_source_urls": [
+        "https://lotterysambad.co/2025/july/21/",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-21",
+      "detail": "Complete 132-entry sheet extracted from linked one-page Lottery Sambad official Gazette PDF. First prize matches Goodreturns and KLL yearly charts. Direct PDF URL retained; binary download failed, so no SHA-256. 6PM excluded."
+    },
+    {
+      "date": "2025-07-21",
+      "draw": "8PM",
+      "status": "official_pdf_extracted",
+      "first_prize": "42D 59955",
+      "source_url": "https://o.vcdn.cc/Dear/EN210725.PDF",
+      "additional_source_urls": [
+        "https://lotterysambad.co/2025/july/21/",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-21",
+      "detail": "Complete 132-entry sheet extracted from linked one-page Lottery Sambad official Gazette PDF. First prize matches Goodreturns and KLL yearly charts. Direct PDF URL retained; binary download failed, so no SHA-256. 6PM excluded."
+    },
+    {
+      "date": "2025-07-22",
+      "draw": "1PM",
+      "status": "official_pdf_extracted",
+      "first_prize": "72J 87082",
+      "source_url": "https://o.vcdn.cc/Dear/MN220725.PDF",
+      "additional_source_urls": [
+        "https://lotterysambad.co/2025/july/22/",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-21",
+      "detail": "Complete 132-entry sheet extracted from linked one-page Lottery Sambad official Gazette PDF. First prize matches Goodreturns and KLL yearly charts. Direct PDF URL retained; binary download failed, so no SHA-256. 6PM excluded."
+    },
+    {
+      "date": "2025-07-22",
+      "draw": "8PM",
+      "status": "official_pdf_extracted",
+      "first_prize": "35C 61025",
+      "source_url": "https://o.vcdn.cc/Dear/EN220725.PDF",
+      "additional_source_urls": [
+        "https://lotterysambad.co/2025/july/22/",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-21",
+      "detail": "Complete 132-entry sheet extracted from linked one-page Lottery Sambad official Gazette PDF. First prize matches Goodreturns and KLL yearly charts. Direct PDF URL retained; binary download failed, so no SHA-256. 6PM excluded."
     }
   ],
   "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Prior audited full-tier baseline: 391 unique complete 132-entry sheets (51,612 rows), 333 first-prize-only partial slots, six unresolved. This run adds fifty-two genuinely new complete sheets (34 March sheets, April 1 both draws, April 6–13 both draws), bringing the audited total to 443 complete sheets (58,476 rows), 281 partial slots, six unresolved, and zero unresolved source conflicts. Seven other March sheets were independently checked against existing imported full sheets and not duplicated. The per-month manifest currently sums to 478 full sheets, 35 higher than the deduplicated audit; this discrepancy is explicitly unresolved and the aggregate remains provisional pending a complete cross-file deduplication pass. All 12 monthly archive index pages were opened; not every daily PDF link has been tested. PDF binaries for these fifty-nine source checks could not be preserved, so no SHA-256 hashes are claimed. 6PM is excluded entirely.",
