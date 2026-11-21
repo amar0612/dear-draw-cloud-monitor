@@ -3,9 +3,9 @@ main = "src/index.js"
 compatibility_date = "2026-11-21"
 
 [triggers]
-crons = ["7,22,37,52 * * * *"]
+# Offset from the existing GitHub Actions schedule to avoid simultaneous dispatch races.
+crons = ["12,27,42,57 * * * *"]
 
 [vars]
-# Keep paused until the Cloudflare worker is deployed and a manual dispatch test succeeds.
-# Enable only after the GitHub Actions schedule is disabled.
+# Keep paused until the dispatcher is tested and the legacy GitHub schedule is disabled.
 HISTORICAL_CRON_ENABLED = "false"
