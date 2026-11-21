@@ -1,6 +1,6 @@
 const OWNER = "amar0612";
 const REPO = "dear-draw-cloud-monitor";
-const WORKFLOW = "archive-official-sources.yml";
+const WORKFLOW = "scan-and-recover-missing-draws.yml";
 const API = "https://api.github.com";
 
 function response(body, status = 200) {
@@ -57,7 +57,7 @@ async function dispatch(env, source) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         ref: "main",
-        inputs: { batch_size: "25", max_batches: "1" }
+        inputs: { batch_size: "25", start_date: "2021-01-01" }
       })
     }
   );
@@ -88,7 +88,7 @@ export default {
         worker: "dear-draw-historical-dispatcher",
         status: "online",
         scheduler: env.HISTORICAL_CRON_ENABLED === "true" ? "enabled" : "paused",
-        schedule_utc: "12,27,42,57 * * * *",
+        schedule_utc: "*/10 * * * *",
         batch_size: 25,
         max_batches_per_run: 1,
         checkpoint_store: "Cloudflare R2 via existing GitHub recovery controller",
