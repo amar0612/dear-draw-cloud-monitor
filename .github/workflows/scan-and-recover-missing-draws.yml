@@ -37,14 +37,15 @@ jobs:
           python monitor/build_expected_draw_calendar.py \
             --start-date "${{ inputs.start_date || '2021-01-01' }}" \
             --end-date "$(TZ=Asia/Kolkata date +%F)" \
-            --output data/nagaland_expected_draw_calendar.csv \
+            --output scanner-output/nagaland_expected_draw_calendar.csv \
             --report scanner-output/calendar-report.json
       - name: Scan master CSV against confirmed calendar pairs
         id: scan
         run: |
+          cp scanner-output/nagaland_expected_draw_calendar.csv data/nagaland_expected_draw_calendar.csv
           python monitor/scan_missing_draws.py \
             --master data/nagaland_master_prize_numbers.csv \
-            --calendar data/nagaland_expected_draw_calendar.csv \
+            --calendar scanner-output/nagaland_expected_draw_calendar.csv \
             --start-date "${{ inputs.start_date || '2021-01-01' }}" \
             --batch-size "${{ inputs.batch_size || '25' }}" \
             --cursor "${{ github.run_number }}" \
@@ -103,7 +104,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/nagaland_master_prize_numbers.csv
+          git add data/nagaland_master_prize_numbers.csv data/nagaland_expected_draw_calendar.csv
           if git diff --cached --quiet; then
             echo "No validated master-data changes this cycle."
           else
