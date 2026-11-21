@@ -1545,6 +1545,42 @@
       ],
       "retrieval_date": "2026-11-21",
       "detail": "Complete 132-entry 1PM/8PM sheet imported. All prize tiers match between dearlottery.com.co and lotterysambad.co; first prize also matches Goodreturns and KLL yearly charts. No direct PDF binary or SHA-256 available. 6PM excluded."
+    },
+    {
+      "date": "2025-11-14",
+      "draw": "1PM",
+      "status": "two_source_matched_full_sheet",
+      "first_prize": "56H 89116",
+      "source_urls": [
+        "https://dearlottery.com.co/14-11-2025/1pm",
+        "https://lotterysambad.co/2025/november/14/"
+      ],
+      "retrieval_date": "2026-11-21",
+      "detail": "Complete 132-entry sheet imported. All prize tiers match between dearlottery.com.co and lotterysambad.co; first prize also matches Goodreturns and KLL yearly charts. No direct PDF binary or SHA-256 available. 6PM excluded."
+    },
+    {
+      "date": "2025-11-14",
+      "draw": "8PM",
+      "status": "two_source_matched_full_sheet",
+      "first_prize": "91L 62500",
+      "source_urls": [
+        "https://dearlottery.com.co/14-11-2025/8pm",
+        "https://lotterysambad.co/2025/november/14/"
+      ],
+      "retrieval_date": "2026-11-21",
+      "detail": "Complete 132-entry sheet imported. All prize tiers match between dearlottery.com.co and lotterysambad.co; first prize also matches Goodreturns and KLL yearly charts. No direct PDF binary or SHA-256 available. 6PM excluded."
+    },
+    {
+      "date": "2025-11-17",
+      "draw": "8PM",
+      "status": "two_source_matched_full_sheet",
+      "first_prize": "49L 17493",
+      "source_urls": [
+        "https://dearlottery.com.co/17-11-2025/8pm",
+        "https://lotterysambad.co/2025/november/17/"
+      ],
+      "retrieval_date": "2026-11-21",
+      "detail": "Complete 132-entry sheet imported. All prize tiers match between dearlottery.com.co and lotterysambad.co; first prize also matches Goodreturns and KLL yearly charts. No direct PDF binary or SHA-256 available. 6PM excluded."
     }
   ],
   "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Prior audited full-tier baseline: 391 unique complete 132-entry sheets (51,612 rows), 333 first-prize-only partial slots, six unresolved. This run adds fifty-two genuinely new complete sheets (34 March sheets, April 1 both draws, April 6–13 both draws), bringing the audited total to 443 complete sheets (58,476 rows), 281 partial slots, six unresolved, and zero unresolved source conflicts. Seven other March sheets were independently checked against existing imported full sheets and not duplicated. The per-month manifest currently sums to 478 full sheets, 35 higher than the deduplicated audit; this discrepancy is explicitly unresolved and the aggregate remains provisional pending a complete cross-file deduplication pass. All 12 monthly archive index pages were opened; not every daily PDF link has been tested. PDF binaries for these fifty-nine source checks could not be preserved, so no SHA-256 hashes are claimed. 6PM is excluded entirely.",
