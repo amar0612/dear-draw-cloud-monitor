@@ -1,39 +1,28 @@
-name: Archive Official Nagaland Gazettes
+name: Automated 2023 R2 Historical Recovery
 
 on:
   workflow_dispatch:
     inputs:
-      csv_path:
-        description: Dedicated date/draw recovery candidate CSV (do not use master results CSV)
-        required: true
-        default: data/recovery_candidates_2023.csv
-      start_date:
-        description: First date to include (YYYY-MM-DD)
-        required: true
-        default: "2023-01-01"
-      end_date:
-        description: Last date to include (YYYY-MM-DD)
-        required: true
-        default: "2023-12-31"
-      offset:
-        description: Number of filtered date/draw pairs to skip
-        required: true
-        default: "0"
-      limit:
-        description: Maximum date/draw pairs to archive in this batch
+      batch_size:
+        description: Date/draw pairs per batch
         required: true
         default: "25"
+      max_batches:
+        description: 0 runs until the full campaign completes; set a positive number for a test
+        required: true
+        default: "0"
+
 permissions:
   contents: read
 
 concurrency:
-  group: nagaland-historical-source-archive
+  group: nagaland-2023-r2-recovery
   cancel-in-progress: false
 
 jobs:
-  archive:
+  recover:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 360
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -43,21 +32,28 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Download available source copies for the selected batch
-        run: |
-          python monitor/archive_official_sources.py \
-            --csv "${{ inputs.csv_path || 'data/recovery_candidates_2023.csv' }}" \
-            --output-dir official-source-archive \
-            --start-date "${{ inputs.start_date || '2023-01-01' }}" \
-            --end-date "${{ inputs.end_date || '2023-12-31' }}" \
-            --offset "${{ inputs.offset || '0' }}" \
-            --limit "${{ inputs.limit || '25' }}"
+      - name: Install R2 client
+        run: python -m pip install --upgrade boto3
 
-      - name: Upload source PDFs and manifest
-        if: always()
+      - name: Run or resume complete 2023 campaign
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+        run: |
+          cd monitor
+          python run_r2_recovery_campaign.py \
+            --csv ../data/recovery_candidates_2023.csv \
+            --batch-size "${{ inputs.batch_size || '25' }}" \
+            --max-batches "${{ inputs.max_batches || '0' }}"
+
+      - name: Upload final ZIP as a convenient GitHub download
+        if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: nagaland-source-batch-${{ inputs.offset || '0' }}
-          path: official-source-archive/
+          name: nagaland-2023-r2-recovery-final
+          path: monitor/official-source-archive/final/nagaland_2023_recovery.zip
           if-no-files-found: warn
-          retention-days: 90
+          retention-days: 30
