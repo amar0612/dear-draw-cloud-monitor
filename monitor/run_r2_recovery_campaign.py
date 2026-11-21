@@ -18,7 +18,7 @@ CHECKPOINT_KEY = PREFIX + "checkpoints/campaign.json"
 
 
 def r2_client():
-    required = ["R2_ENDPOINT", "R2_ACCESS_KEY_ID", "R2_SECRET_ACCESS_KEY"]
+    required = ["R2_ACCOUNT_ID", "R2_ENDPOINT", "R2_ACCESS_KEY_ID", "R2_SECRET_ACCESS_KEY"]
     missing = [name for name in required if not os.environ.get(name)]
     if missing:
         raise RuntimeError("Missing GitHub secrets: " + ", ".join(missing))
@@ -146,6 +146,40 @@ def main():
         if args.max_batches and batch_count >= args.max_batches:
             print("Stopped at requested max-batches; rerun workflow to resume from R2 checkpoint.", flush=True)
             return
+
+    # Retry unresolved date/draw pairs twice, keeping every attempt in the manifest.
+    manifest_path = OUT / "manifest.json"
+    for retry_round in (1, 2):
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8")) if manifest_path.exists() else []
+        missing_pairs = sorted({
+            (item.get("date"), item.get("draw"))
+            for item in manifest
+            if "source_candidates_checked" in item
+            and item.get("verification_status") == "source_unavailable_or_error"
+        })
+        if not missing_pairs:
+            break
+        retry_csv = OUT / f"retry_candidates_round_{retry_round}.csv"
+        with retry_csv.open("w", encoding="utf-8", newline="") as handle:
+            handle.write("date,draw\n")
+            for draw_date, draw in missing_pairs:
+                handle.write(f"{draw_date},{draw}\n")
+        print(f"=== RETRY ROUND {retry_round}: {len(missing_pairs)} unresolved pairs ===", flush=True)
+        time.sleep(15)
+        retry_results = archive_sources(
+            retry_csv, OUT, offset=0, limit=None,
+            start_date="2023-01-01", end_date="2023-12-31"
+        )
+        retry_missing = sum(1 for item in retry_results
+                            if item.get("verification_status") == "source_unavailable_or_error")
+        state.setdefault("retry_rounds", []).append({
+            "round": retry_round, "attempted": len(retry_results),
+            "still_missing": retry_missing,
+            "completed_at_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+        })
+        upload_tree(client, bucket)
+        save_checkpoint(client, bucket, state)
+        print(f"Retry round {retry_round} saved to R2; still missing={retry_missing}", flush=True)
 
     final_zip = make_final_zip()
     upload_tree(client, bucket)
