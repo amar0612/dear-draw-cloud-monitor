@@ -1,0 +1,114 @@
+name: 10-minute Nagaland Missing Data Scanner and Recovery
+
+on:
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: Missing date/draw pairs to recover per cycle
+        required: true
+        default: "25"
+      start_date:
+        description: First historical date to scan
+        required: true
+        default: "2021-01-01"
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: nagaland-10m-gap-recovery
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    outputs:
+      has_missing: ${{ steps.scan.outputs.has_missing }}
+      missing_total: ${{ steps.scan.outputs.missing_total }}
+      batch_count: ${{ steps.scan.outputs.batch_count }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Scan master CSV for incomplete date/draw pairs
+        id: scan
+        run: |
+          python monitor/scan_missing_draws.py \
+            --master data/nagaland_master_prize_numbers.csv \
+            --start-date "${{ inputs.start_date || '2021-01-01' }}" \
+            --batch-size "${{ inputs.batch_size || '25' }}" \
+            --cursor "${{ github.run_number }}" \
+            --output-dir scanner-output
+      - uses: actions/upload-artifact@v4
+        with:
+          name: missing-draw-scan-${{ github.run_id }}
+          path: scanner-output/
+          retention-days: 7
+
+  deployer:
+    needs: scan
+    if: needs.scan.outputs.has_missing == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install PDF and OCR tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils tesseract-ocr
+      - uses: actions/download-artifact@v4
+        with:
+          name: missing-draw-scan-${{ github.run_id }}
+          path: scanner-output
+      - name: Search registered sources and fetch source PDFs
+        run: |
+          python monitor/archive_official_sources.py \
+            --csv scanner-output/missing_batch.csv \
+            --output-dir recovery-run/sources \
+            --offset 0 --limit "${{ inputs.batch_size || '25' }}"
+      - name: Extract complete 132-number draws
+        continue-on-error: true
+        run: |
+          python monitor/parse_lottery_sambad_pdfs.py \
+            --input-dir recovery-run/sources \
+            --output recovery-run/recovered_full_tier.csv
+      - name: Merge only complete, validated draws
+        if: always()
+        run: |
+          if [ -f recovery-run/recovered_full_tier.csv ]; then
+            python monitor/merge_recovered_full_tier.py \
+              --input recovery-run/recovered_full_tier.csv \
+              --master data/nagaland_master_prize_numbers.csv
+          else
+            echo "No parser output; master CSV remains unchanged."
+          fi
+      - name: Commit master CSV updates
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/nagaland_master_prize_numbers.csv
+          if git diff --cached --quiet; then
+            echo "No validated master-data changes this cycle."
+          else
+            git commit -m "Recover missing Nagaland 1PM and 8PM draw data"
+            git push origin HEAD:main
+          fi
+      - name: Preserve scan, source and extraction audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nagaland-recovery-audit-${{ github.run_id }}
+          path: |
+            scanner-output/
+            recovery-run/
+          if-no-files-found: warn
+          retention-days: 30
