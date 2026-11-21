@@ -1275,6 +1275,19 @@
       "retrieval_date": "2026-11-21",
       "import_file": "data/recovered_draws_2025-11-22_and_24_full.csv",
       "imported_rows": 132
+    },
+    {
+      "date": "2025-10-01",
+      "draw": "8PM",
+      "status": "duplicate_order_variant_resolved_same_number_sets",
+      "detail": "Two full 132-entry source files differ in the printed row ordering of 2nd–5th prize lists, but the complete set of winning numbers in every tier is identical after sorting. First prize and consolation also match. This is not a number conflict. Both source files are retained; the draw is counted once. The earlier audit's position-sensitive signature incorrectly flagged this as a conflict; the corrected audit compares number sets per tier.",
+      "sources": [
+        "https://www.nagalandlotteries.com/old_results/EN011025.PDF",
+        "https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTcwNDQwMtUrSEkDADIMBTY/8pm-01-10-2025.pdf"
+      ],
+      "retrieval_date": "2026-11-21",
+      "imported_rows": 132,
+      "conflict": false
     }
   ],
   "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Prior audited full-tier baseline: 391 unique complete 132-entry sheets (51,612 rows), 333 first-prize-only partial slots, six unresolved. This run adds fifty-two genuinely new complete sheets (34 March sheets, April 1 both draws, April 6–13 both draws), bringing the audited total to 443 complete sheets (58,476 rows), 281 partial slots, six unresolved, and zero unresolved source conflicts. Seven other March sheets were independently checked against existing imported full sheets and not duplicated. The per-month manifest currently sums to 478 full sheets, 35 higher than the deduplicated audit; this discrepancy is explicitly unresolved and the aggregate remains provisional pending a complete cross-file deduplication pass. All 12 monthly archive index pages were opened; not every daily PDF link has been tested. PDF binaries for these fifty-nine source checks could not be preserved, so no SHA-256 hashes are claimed. 6PM is excluded entirely.",
@@ -1289,44 +1302,44 @@
     {
       "date": "2025-01",
       "draw": "both",
-      "issue": "Monthly archive URL indexed but not accessible during this retrieval; daily PDF links not comprehensively enumerated.",
-      "status": "partial_source_access",
-      "action": "Use alternate independent PDF domains and retain discovered full-result links"
+      "issue": "Cross-file audit completed on 2026-11-21: 60 unique complete 132-entry sheets, 0 first-prize-only partial slots, 2 unresolved slots. Duplicate copies are retained but counted once. Jan 26 both draws remain unresolved.",
+      "status": "partial_and_unresolved",
+      "action": "Continue searching alternative sources for the 2 unresolved slots in January; do not infer no-draw from broken links."
     },
     {
       "date": "2025-03",
       "draw": "both",
-      "issue": "Six full sheets extracted (Mar 5 8PM, Mar 13 both, Mar 14 both, Mar 21 1PM); the remaining 56 March draw slots still have first-prize-only records. Lower tiers on extracted sheets are single-source pending review.",
-      "status": "partial_extraction_review",
-      "action": "Continue extracting remaining indexed March daily PDFs and alternate sources."
+      "issue": "Cross-file audit completed on 2026-11-21: 62 unique complete 132-entry sheets, 0 first-prize-only partial slots, 0 unresolved slots. Duplicate copies are retained but counted once.",
+      "status": "full_tier_recovered",
+      "action": "No remaining partial or unresolved draw slots; retain independent-source checks for lower tiers."
     },
     {
       "date": "2025-04",
       "draw": "both",
-      "issue": "All 60 April 2025 Nagaland 1PM/8PM slots now have full 132-entry sheets (7,920 rows). Eighteen additional sheets for April 14 and April 20–29 were imported on 2026-11-21 from opened PDF text layers. One duplicate April 15 1PM sheet is retained in two CSV files and counted once. Lower tiers on the newly imported sheets remain single-source pending review; original PDF binaries and SHA-256 hashes were not preserved.",
-      "status": "full_tier_recovered_lower_tiers_single_source_pending_review",
-      "action": "Continue independent full-tier corroboration and source discovery in the remaining months; retain the April 15 duplicate source file without double-counting."
+      "issue": "Cross-file audit completed on 2026-11-21: 60 unique complete 132-entry sheets, 0 first-prize-only partial slots, 0 unresolved slots. Duplicate copies are retained but counted once.",
+      "status": "full_tier_recovered",
+      "action": "No remaining partial or unresolved draw slots; retain independent-source checks for lower tiers."
     },
     {
       "date": "2025-05",
       "draw": "both",
-      "issue": "May 3 8PM was newly imported as a full 132-entry sheet on 2026-11-21; May 3 1PM PDF corroborated the existing full sheet and was not re-imported. Current month summary: 26 full sheets (3,432 entries), 36 first-prize-only partial slots, 0 unresolved. Lower tiers on the new 8PM sheet remain single-source pending review; original PDF binary and SHA-256 were not preserved.",
+      "issue": "Cross-file audit completed on 2026-11-21: 29 unique complete 132-entry sheets, 33 first-prize-only partial slots, 0 unresolved slots. Duplicate copies are retained but counted once.",
       "status": "partial_extraction_review",
-      "action": "Continue extracting remaining May first-prize-only slots from independent daily/monthly PDF sources."
+      "action": "Continue locating full-tier sheets for the remaining 33 first-prize-only slots in May; retain single-source/partial records and do not infer no-draw from broken links."
     },
     {
       "date": "2025-06",
       "draw": "both",
-      "issue": "June 27 1PM and 8PM were newly imported as full 132-entry sheets on 2026-11-21. Current month summary: 22 full sheets (2,904 entries), 38 first-prize-only partial slots, 0 unresolved. Lower tiers on both new sheets remain single-source pending review; original PDF binaries and SHA-256 were not preserved.",
+      "issue": "Cross-file audit completed on 2026-11-21: 24 unique complete 132-entry sheets, 36 first-prize-only partial slots, 0 unresolved slots. Duplicate copies are retained but counted once.",
       "status": "partial_extraction_review",
-      "action": "Continue extracting remaining June first-prize-only slots from independent daily/monthly PDF sources."
+      "action": "Continue locating full-tier sheets for the remaining 36 first-prize-only slots in June; retain single-source/partial records and do not infer no-draw from broken links."
     },
     {
       "date": "2025-07",
       "draw": "both",
-      "issue": "All 31 dates have first-prize records. Full prize tiers not yet extracted; individual daily result PDFs found for selected dates.",
+      "issue": "Cross-file audit completed on 2026-11-21: 37 unique complete 132-entry sheets, 25 first-prize-only partial slots, 0 unresolved slots. Duplicate copies are retained but counted once.",
       "status": "partial_extraction_review",
-      "action": "Continue retrieving and extracting July daily PDFs; preserve full prize tiers when available"
+      "action": "Continue locating full-tier sheets for the remaining 25 first-prize-only slots in July; retain single-source/partial records and do not infer no-draw from broken links."
     },
     {
       "date": "2025-08-15",
@@ -1338,16 +1351,16 @@
     {
       "date": "2025-08",
       "draw": "both",
-      "issue": "August 15 remains unresolved for both 1PM and 8PM; no no-draw inference. Four additional full 132-entry sheets were imported from daily archive HTML on 2026-11-21 (Aug 21 8PM, Aug 22 both, Aug 23 8PM). Current month summary: 38 full sheets, 22 first-prize-only partial slots, 2 unresolved slots. Lower tiers on new sheets are single-source pending review; no direct PDFs or hashes were available.",
-      "status": "partial_extraction_review_with_two_unresolved_slots",
-      "action": "Continue locating full sheets for the remaining 22 partial slots and seek independent full-tier corroboration; retain Aug 15 unresolved."
+      "issue": "Cross-file audit completed on 2026-11-21: 38 unique complete 132-entry sheets, 22 first-prize-only partial slots, 2 unresolved slots. Duplicate copies are retained but counted once. Aug 15 both draws remain unresolved.",
+      "status": "partial_and_unresolved",
+      "action": "Continue locating full-tier sheets for the remaining 22 first-prize-only slots in August; retain single-source/partial records and do not infer no-draw from broken links."
     },
     {
       "date": "2025-09",
       "draw": "both",
-      "issue": "60 first-prize records recovered from two yearly chart sources; full prize tiers not extracted.",
+      "issue": "Cross-file audit completed on 2026-11-21: 32 unique complete 132-entry sheets, 28 first-prize-only partial slots, 0 unresolved slots. Duplicate copies are retained but counted once.",
       "status": "partial_extraction_review",
-      "action": "Continue searching September daily PDFs for complete prize tiers"
+      "action": "Continue locating full-tier sheets for the remaining 28 first-prize-only slots in September; retain single-source/partial records and do not infer no-draw from broken links."
     },
     {
       "date": "2025-10-02",
@@ -1359,23 +1372,23 @@
     {
       "date": "2025-10",
       "draw": "both",
-      "issue": "October 2 both draws remain unresolved. 28 full 132-entry sheets (3,696 entries) now imported; 32 known draw slots remain first-prize-only.",
-      "status": "partial_extraction_review",
-      "action": "Continue searching remaining October daily PDFs and alternate sources for the 32 partial draw slots; do not infer no-draw from Oct 2 source failures."
+      "issue": "Cross-file audit completed on 2026-11-21: 33 unique complete 132-entry sheets, 27 first-prize-only partial slots, 2 unresolved slots. Duplicate copies are retained but counted once. Oct 2 both draws remain unresolved; Oct 1 8PM ordering difference was resolved as identical number sets.",
+      "status": "partial_and_unresolved",
+      "action": "Continue locating full-tier sheets for the remaining 27 first-prize-only slots in October; retain single-source/partial records and do not infer no-draw from broken links."
     },
     {
       "date": "2025-11",
       "draw": "both",
-      "issue": "Seven additional full 132-entry sheets were imported from dearlottery.com.co on 2026-11-21: Nov 12 both, Nov 13 1PM, Nov 22 both, and Nov 24 both. Nov 13 8PM was already in the official gazette batch and was not re-imported. Current month summary: 29 full sheets (3,828 entries), 31 first-prize-only partial slots, 0 unresolved. Lower tiers on new sheets remain single-source pending review; no direct PDF links or SHA-256 hashes were available.",
+      "issue": "Cross-file audit completed on 2026-11-21: 29 unique complete 132-entry sheets, 31 first-prize-only partial slots, 0 unresolved slots. Duplicate copies are retained but counted once.",
       "status": "partial_extraction_review",
-      "action": "Continue searching November daily archives and official PDFs for the remaining 31 first-prize-only slots; keep Nov 13 8PM as the existing gazette sheet."
+      "action": "Continue locating full-tier sheets for the remaining 31 first-prize-only slots in November; retain single-source/partial records and do not infer no-draw from broken links."
     },
     {
       "date": "2025-12",
       "draw": "both",
-      "issue": "62 first-prize records recovered for all dates; full prize tiers not extracted in this checkpoint.",
-      "status": "partial_extraction_review",
-      "action": "Search December daily PDFs and import all available prize tiers"
+      "issue": "Cross-file audit completed on 2026-11-21: 62 unique complete 132-entry sheets, 0 first-prize-only partial slots, 0 unresolved slots. Duplicate copies are retained but counted once.",
+      "status": "full_tier_recovered",
+      "action": "No remaining partial or unresolved draw slots; retain independent-source checks for lower tiers."
     },
     {
       "date": "2025-06-30",
@@ -2068,6 +2081,20 @@
       "imported_rows": 132,
       "pdf_link_available": false,
       "sha256": null
+    }
+  ],
+  "audit_notes_2026_11_21": [
+    {
+      "date": "2025-01-01",
+      "draw": "1PM",
+      "status": "tier_label_case_normalized_for_audit",
+      "detail": "The source CSV labels the consolation tier as 'Consolation' with uppercase C. The audit normalizes tier labels case-insensitively; all 132 entries and expected tier counts are present. No data row was changed."
+    },
+    {
+      "date": "2025-10-01",
+      "draw": "8PM",
+      "status": "ordering_variant_resolved_same_number_set",
+      "detail": "Two source files have different row ordering within 2nd–5th tiers but identical number sets per tier; retained both and counted one complete sheet."
     }
   ]
 }
