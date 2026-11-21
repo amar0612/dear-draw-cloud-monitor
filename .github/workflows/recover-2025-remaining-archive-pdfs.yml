@@ -28,7 +28,7 @@ jobs:
         with:
           name: nagaland-2025-remaining-pdf-recovery
           run-id: 44874988467
-          github-token: \${{ github.token }}
+          github-token: ${{ github.token }}
           path: recovery-input
 
       - name: Install PDF text extraction
