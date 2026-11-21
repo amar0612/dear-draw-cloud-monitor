@@ -231,6 +231,11 @@ def archive_sources(csv_path, output_dir, fetcher=fetch_pdf, dry_run=False,
         known[identity] = item
     results = []
     draws = read_draws(csv_path)
+    if not draws:
+        raise ValueError(
+            f"No 1PM/8PM date-draw pairs found in {csv_path}; "
+            "check the CSV headers and contents. Refusing to report an empty batch as success."
+        )
     if start_date:
         date.fromisoformat(start_date)
     if end_date:
