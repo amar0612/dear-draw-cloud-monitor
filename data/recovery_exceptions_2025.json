@@ -9035,57 +9035,73 @@
       "date_range": "2025-01_to_12",
       "draw": "1PM and 8PM",
       "issue": "Current 2025 audit: 251 unique full-tier draw sheets (33,132 prize rows); 473 known draw slots remain first-prize-only; 6 draw slots unresolved (Jan 26, Aug 15, Oct 2, both 1PM/8PM); 0 unresolved conflicts. All twelve months searched; further source discovery remains in progress.",
-      "status": "partial_extraction_review",
-      "action": "Continue archive/domain discovery and full-tier extraction for the 473 remaining known draw slots."
+      "status": "audit_superseded_by_final_reconciliation",
+      "action": "Use final_reconciled_audit_2026_11_21 and recovery_audit_2025_full_tier_group_map.json for current totals; preserve this checkpoint as historical progress.",
+      "resolved_on": "2026-11-21",
+      "resolution": "Superseded by the final cross-file audit: 724 complete 132-entry sheets, 0 partial draw slots, 0 unresolved draw slots and 0 unresolved source conflicts."
     },
     {
       "date_range": "2025-01_to_12",
       "draw": "1PM and 8PM",
       "issue": "Current 2025 audit: 251 unique full-tier draw sheets (33,132 prize rows); 473 known draw slots remain first-prize-only; 6 draw slots unresolved (Jan 26, Aug 15, Oct 2, both 1PM/8PM); 0 unresolved conflicts. All twelve months searched; further source discovery remains in progress.",
-      "status": "partial_extraction_review",
-      "action": "Continue archive/domain discovery and full-tier extraction for the 473 remaining known draw slots."
+      "status": "audit_superseded_by_final_reconciliation",
+      "action": "Use final_reconciled_audit_2026_11_21 and recovery_audit_2025_full_tier_group_map.json for current totals; preserve this checkpoint as historical progress.",
+      "resolved_on": "2026-11-21",
+      "resolution": "Superseded by the final cross-file audit: 724 complete 132-entry sheets, 0 partial draw slots, 0 unresolved draw slots and 0 unresolved source conflicts."
     },
     {
       "date": "2025-04-01",
       "draw": "1PM and 8PM",
       "issue": "Both direct PDF links are listed on the April 2025 lotterysambad.icu archive, but retrieval returned a PDF parse failure; first-prize chart entries remain imported, full tiers not extracted. URLs: https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwNDAxMtUrSEkDADG-BTI/1pm-01-04-2025.pdf and https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTcwNDAxMtUrSEkDADIgBTk/8pm-01-04-2025.pdf.",
-      "status": "partial_extraction_review",
-      "action": "Keep first-prize rows; retry these exact PDFs from alternate hosts or official gazette"
+      "status": "source_failure_resolved_by_alternate_source",
+      "action": "Keep the failed candidate and its original URL in the ledger; use the complete sheet recorded in the final group audit.",
+      "resolved_on": "2026-11-21",
+      "resolution": "The original archive PDF candidate's retrieval or text extraction failure is retained as a source-level exception. The corresponding 1PM/8PM draw slot is now present as a complete 132-entry sheet in the final cross-file audit, recovered from an alternate source."
     },
     {
       "date": "2025-05-03",
       "draw": "1PM",
       "issue": "The May 2025 lotterysambad.icu archive link failed PDF parsing on 2026-11-19. The first-prize chart entry remains imported as partial; no lower tiers inferred. URL: https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwNjA1MtUrSEkDADHXBTU/1pm-03-05-2025.pdf.",
-      "status": "partial_extraction_review",
-      "action": "Retry exact PDF from alternate archive or official gazette"
+      "status": "source_failure_resolved_by_alternate_source",
+      "action": "Keep the failed candidate and its original URL in the ledger; use the complete sheet recorded in the final group audit.",
+      "resolved_on": "2026-11-21",
+      "resolution": "The original archive PDF candidate's retrieval or text extraction failure is retained as a source-level exception. The corresponding 1PM/8PM draw slot is now present as a complete 132-entry sheet in the final cross-file audit, recovered from an alternate source."
     },
     {
       "date": "2025-05-05",
       "draw": "1PM",
       "issue": "The May 2025 lotterysambad.icu archive link failed PDF parsing on 2026-11-19. The first-prize chart entry remains imported as partial; no lower tiers inferred. URL: https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwNTA1MtUrSEkDADHpBTc/1pm-05-05-2025.pdf.",
-      "status": "partial_extraction_review",
-      "action": "Retry exact PDF from alternate archive or official gazette"
+      "status": "source_failure_resolved_by_alternate_source",
+      "action": "Keep the failed candidate and its original URL in the ledger; use the complete sheet recorded in the final group audit.",
+      "resolved_on": "2026-11-21",
+      "resolution": "The original archive PDF candidate's retrieval or text extraction failure is retained as a source-level exception. The corresponding 1PM/8PM draw slot is now present as a complete 132-entry sheet in the final cross-file audit, recovered from an alternate source."
     },
     {
       "date": "2025-05-07",
       "draw": "1PM",
       "issue": "The May 2025 lotterysambad.icu archive link failed PDF parsing on 2026-11-19. The first-prize chart entry remains imported as partial; no lower tiers inferred. URL: https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTcwNzA1MtUrSEkDADJfBTY/1pm-07-05-2025.pdf.",
-      "status": "partial_extraction_review",
-      "action": "Retry exact PDF from alternate archive or official gazette"
+      "status": "source_failure_resolved_by_alternate_source",
+      "action": "Keep the failed candidate and its original URL in the ledger; use the complete sheet recorded in the final group audit.",
+      "resolved_on": "2026-11-21",
+      "resolution": "The original archive PDF candidate's retrieval or text extraction failure is retained as a source-level exception. The corresponding 1PM/8PM draw slot is now present as a complete 132-entry sheet in the final cross-file audit, recovered from an alternate source."
     },
     {
       "date": "2025-05-10",
       "draw": "1PM",
       "issue": "The May 2025 lotterysambad.icu archive link failed PDF parsing on 2026-11-19. The first-prize chart entry remains imported as partial; no lower tiers inferred. URL: https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTc0MDA1MtUrSEkDADInBTc/1pm-10-05-2025.pdf.",
-      "status": "partial_extraction_review",
-      "action": "Retry exact PDF from alternate archive or official gazette"
+      "status": "source_failure_resolved_by_alternate_source",
+      "action": "Keep the failed candidate and its original URL in the ledger; use the complete sheet recorded in the final group audit.",
+      "resolved_on": "2026-11-21",
+      "resolution": "The original archive PDF candidate's retrieval or text extraction failure is retained as a source-level exception. The corresponding 1PM/8PM draw slot is now present as a complete 132-entry sheet in the final cross-file audit, recovered from an alternate source."
     },
     {
       "date": "2025-05-11",
       "draw": "1PM and 8PM",
       "issue": "Both May 11 2025 lotterysambad.icu daily PDFs failed parsing on 2026-11-19. The first-prize chart records remain imported as partial; no lower tiers inferred. URLs: https://lotterysambad.icu/files/download/eJwrzjBRNCzIjTc0NDA1MtUrSEkDADHPBTQ/1pm-11-05-2025.pdf and https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTc0NDA1MtUrSEkDADIxBTs/8pm-11-05-2025.pdf.",
-      "status": "partial_extraction_review",
-      "action": "Retry exact PDFs from alternate archive or official gazette"
+      "status": "source_failure_resolved_by_alternate_source",
+      "action": "Keep the failed candidate and its original URL in the ledger; use the complete sheet recorded in the final group audit.",
+      "resolved_on": "2026-11-21",
+      "resolution": "The original archive PDF candidate's retrieval or text extraction failure is retained as a source-level exception. The corresponding 1PM/8PM draw slot is now present as a complete 132-entry sheet in the final cross-file audit, recovered from an alternate source."
     },
     {
       "date": "2025-04-18",
@@ -9247,8 +9263,10 @@
       "date_range": "2025-04-14_to_2025-04-29",
       "draw": "1PM and 8PM only",
       "issue": "Eighteen additional April PDF links have been located and are pending extraction: Apr 14 1PM; Apr 20 both; Apr 21 1PM; Apr 22–23 both; Apr 24 8PM; Apr 25–27 both; Apr 28 8PM; Apr 29 both. April has 19 partial slots in the current manifest; one remaining partial slot has not yet been located.",
-      "status": "source_discovered_pending_extraction",
-      "action": "Resume by extracting the 18 listed PDFs from the pending_extractions array; preserve 6PM exclusion."
+      "status": "resolved_full_tier_recovered",
+      "action": "No April extraction remains pending; preserve the original link-discovery record as historical provenance.",
+      "resolved_on": "2026-11-21",
+      "resolution": "The final April audit contains 60 complete 132-entry sheets and 0 partial slots. The source manifest pending_extractions array is empty."
     },
     {
       "date": "2025-08",
@@ -10004,6 +10022,7 @@
     "audit_file": "data/recovery_audit_2025_full_tier_group_map.json",
     "new_batch_file": "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv",
     "source_manifest_file": "data/recovery_2025_icu_pdf_source_manifest_2026-11-21.json",
-    "retrieval_date": "2026-11-21"
+    "retrieval_date": "2026-11-21",
+    "pending_extraction_items": 0
   }
 }
