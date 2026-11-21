@@ -68,7 +68,7 @@
       "domain": "lotterysambad.co",
       "type": "daily and monthly result archive with full 1PM/8PM tier tables",
       "index_url": "https://lotterysambad.co/2025/",
-      "status": "January–October daily result pages used for discovery and PDF link navigation; 6PM results excluded from imports. 2025-04-18 1PM and 8PM full-result pages and linked PDFs were opened and extracted; 6PM content was excluded. Additional full 2025 pages opened/extracted: May 3, May 7, July 26, August 24, September 25 and November 15; only 1PM/8PM tables imported, 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 11 and March 12, 1PM and 8PM only; 6PM excluded. Additional full result page and linked PDFs opened/extracted on 2026-11-20: March 18, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 20 and March 22, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 23 and March 24, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 25 and March 26, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 29 and March 30, 1PM and 8PM; 6PM excluded. March 2025 daily archive pages 1–31 were searched; all remaining 1PM/8PM full sheets recovered from linked PDFs on 2026-11-20; 6PM excluded. April 1, 2025 daily page and linked 1PM/8PM PDFs recovered on 2026-11-20 after earlier PDF failures. April 6–8 daily pages and linked 1PM/8PM PDFs recovered on 2026-11-20; 6PM excluded. April 9–13 daily pages and linked 1PM/8PM PDFs recovered on 2026-11-20; 6PM excluded. April 14 and April 20–29 daily pages opened 2026-11-21; 18 linked 1PM/8PM PDFs opened and their PDF text layers reviewed; first-prize series/number matched Goodreturns and five-digit suffixes matched KLL yearly chart. Full 132-entry structured imports remain pending; 6PM excluded. The 18 April 14 and April 20–29 1PM/8PM PDF text extractions were imported as 132-row sheets on 2026-11-21; 6PM excluded. Lower tiers remain single-source pending review. May 3 and June 27 daily pages and their 1PM/8PM PDFs were opened on 2026-11-21; May 3 8PM and June 27 both draws imported, while May 3 1PM was a corroborating duplicate only. 6PM excluded.",
+      "status": "January–October daily result pages used for discovery and PDF link navigation; 6PM results excluded from imports. 2025-04-18 1PM and 8PM full-result pages and linked PDFs were opened and extracted; 6PM content was excluded. Additional full 2025 pages opened/extracted: May 3, May 7, July 26, August 24, September 25 and November 15; only 1PM/8PM tables imported, 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 11 and March 12, 1PM and 8PM only; 6PM excluded. Additional full result page and linked PDFs opened/extracted on 2026-11-20: March 18, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 20 and March 22, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 23 and March 24, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 25 and March 26, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 29 and March 30, 1PM and 8PM; 6PM excluded. March 2025 daily archive pages 1–31 were searched; all remaining 1PM/8PM full sheets recovered from linked PDFs on 2026-11-20; 6PM excluded. April 1, 2025 daily page and linked 1PM/8PM PDFs recovered on 2026-11-20 after earlier PDF failures. April 6–8 daily pages and linked 1PM/8PM PDFs recovered on 2026-11-20; 6PM excluded. April 9–13 daily pages and linked 1PM/8PM PDFs recovered on 2026-11-20; 6PM excluded. April 14 and April 20–29 daily pages opened 2026-11-21; 18 linked 1PM/8PM PDFs opened and their PDF text layers reviewed; first-prize series/number matched Goodreturns and five-digit suffixes matched KLL yearly chart. Full 132-entry structured imports remain pending; 6PM excluded. The 18 April 14 and April 20–29 1PM/8PM PDF text extractions were imported as 132-row sheets on 2026-11-21; 6PM excluded. Lower tiers remain single-source pending review. May 3 and June 27 daily pages and their 1PM/8PM PDFs were opened on 2026-11-21; May 3 8PM and June 27 both draws imported, while May 3 1PM was a corroborating duplicate only. 6PM excluded. Four August 21–23 1PM/8PM archive HTML sheets were imported on 2026-11-21; first prizes cross-source matched. No direct PDF links were exposed on these pages, so no PDF binaries or hashes.",
       "retrieval_date": "2026-11-20"
     },
     {
@@ -250,18 +250,19 @@
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://www.kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "34 full 132-entry sheets (4488 entries); 26 first-prize-only known draw slots; 2 unresolved draw slots. Newly recovered: Aug 17, Aug 18 and Aug 24 both draws.",
-      "notes": "August 15 unresolved/blank in chart sources; no numbers invented",
-      "full_tier_draws": 34,
-      "full_tier_entries": 4488,
-      "partial_draws": 26,
+      "full_tier_recovery": "38 full 132-entry sheets (5,016 entries); 22 first-prize-only known draw slots; 2 unresolved draw slots. Newly imported: Aug 21 8PM, Aug 22 both draws, and Aug 23 8PM from daily archive HTML.",
+      "notes": "Aug 21 8PM, Aug 22 1PM/8PM and Aug 23 8PM imported from daily HTML pages. First prizes cross-source matched to Goodreturns and KLL; lower tiers remain single-source pending review. Original PDFs were not linked, so no binaries or hashes.",
+      "full_tier_draws": 38,
+      "full_tier_entries": 5016,
+      "partial_draws": 22,
       "unresolved_draws": 2,
-      "pdf_extraction": "34 full sheets (4488 entries), 26 first-prize-only partial slots, 2 unresolved slots.",
+      "pdf_extraction": "38 full sheets (5,016 entries), 22 partial slots, 2 unresolved. Four additional 132-entry sheets were imported from lotterysambad.co daily HTML pages on 2026-11-21; no direct PDF links were exposed on those pages.",
       "full_tier_new_draws_2026_11_19_ab": 2,
       "full_tier_new_draws_2026_11_19_ac2": 2,
       "full_tier_expected_draw_slots": 62,
       "full_tier_unresolved_draw_slots": 2,
-      "partial_first_prize_only_slots": 26
+      "partial_first_prize_only_slots": 22,
+      "full_tier_new_draws_2026_11_21": 4
     },
     {
       "month": "september",
@@ -1965,9 +1966,9 @@
     "binary_pdf_preserved": false,
     "sha256_calculated": false
   },
-  "full_tier_total_draws": 464,
-  "full_tier_total_entries": 61248,
-  "full_tier_clean_tier_count_draws": 464,
+  "full_tier_total_draws": 468,
+  "full_tier_total_entries": 61776,
+  "full_tier_clean_tier_count_draws": 468,
   "full_tier_source_conflict_draws": 0,
   "full_tier_batch_2026_11_19_c": {
     "file": "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_c.csv",
@@ -2688,7 +2689,7 @@
     "2025-11-16 1PM",
     "2025-11-16 8PM"
   ],
-  "full_tier_partial_draws": 260,
+  "full_tier_partial_draws": 256,
   "full_tier_unresolved_draws": 6,
   "full_tier_batch_2026_11_19_ac": {
     "file": "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_ac.csv",
@@ -4452,19 +4453,71 @@
       "imported_rows": 132,
       "binary_preserved": false,
       "sha256": null
+    },
+    {
+      "date": "2025-08-21",
+      "draw": "8PM",
+      "first_prize": "39C 37629",
+      "url": "https://www.lotterysambad.co/2025/august/21/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_daily_archive_html",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-08-21_to_23_html_archive_batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null
+    },
+    {
+      "date": "2025-08-22",
+      "draw": "1PM",
+      "first_prize": "73C 18374",
+      "url": "https://www.lotterysambad.co/2025/august/22/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_daily_archive_html",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-08-21_to_23_html_archive_batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null
+    },
+    {
+      "date": "2025-08-22",
+      "draw": "8PM",
+      "first_prize": "38G 64386",
+      "url": "https://www.lotterysambad.co/2025/august/22/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_daily_archive_html",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-08-21_to_23_html_archive_batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null
+    },
+    {
+      "date": "2025-08-23",
+      "draw": "8PM",
+      "first_prize": "90G 60454",
+      "url": "https://www.lotterysambad.co/2025/august/23/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_daily_archive_html",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-08-21_to_23_html_archive_batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null
     }
   ],
   "audit_reconciliation": {
-    "deduplicated_full_sheet_count": 464,
-    "deduplicated_full_sheet_entries": 61248,
-    "first_prize_only_partial_slots": 260,
+    "deduplicated_full_sheet_count": 468,
+    "deduplicated_full_sheet_entries": 61776,
+    "first_prize_only_partial_slots": 256,
     "unresolved_draw_slots": 6,
     "unresolved_source_conflicts": 0,
-    "monthly_manifest_full_sheet_sum": 500,
+    "monthly_manifest_full_sheet_sum": 504,
     "discrepancy_sheets": 36,
     "status": "provisional_pending_full_cross_file_deduplication",
     "retrieval_date": "2026-11-21",
-    "note": "Adds three unique full sheets (May 3 8PM and June 27 1PM/8PM) to the prior provisional 461/263/6 audit. May 3 1PM PDF independently matched an existing 132-row sheet and was not re-imported. Monthly manifest sums to 500; provisional deduplicated count is 464, leaving a 36-sheet discrepancy requiring a fresh full cross-file reconciliation. April is now 60/60 complete; one duplicate April 15 1PM sheet remains retained in two files but counted once."
+    "note": "Adds four unique August 2025 full sheets (Aug 21 8PM, Aug 22 1PM/8PM, Aug 23 8PM) to the prior provisional 464/260/6 audit. Monthly manifest now sums to 504 full sheets; provisional deduplicated count is 468, leaving a 36-sheet discrepancy requiring a fresh full cross-file reconciliation. Lower tiers from the HTML-only August additions remain single-source pending review."
   },
   "pending_extractions": [],
   "april_2025_pdf_text_checks_2026_11_21": [
@@ -4847,6 +4900,68 @@
       "binary_preserved": false,
       "sha256": null,
       "excluded_draw": "6PM"
+    }
+  ],
+  "august_2025_html_archive_checks_2026_11_21": [
+    {
+      "date": "2025-08-21",
+      "draw": "8PM",
+      "first_prize": "39C 37629",
+      "url": "https://www.lotterysambad.co/2025/august/21/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_daily_archive_html",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-08-21_to_23_html_archive_batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM",
+      "pdf_link_available": false
+    },
+    {
+      "date": "2025-08-22",
+      "draw": "1PM",
+      "first_prize": "73C 18374",
+      "url": "https://www.lotterysambad.co/2025/august/22/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_daily_archive_html",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-08-21_to_23_html_archive_batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM",
+      "pdf_link_available": false
+    },
+    {
+      "date": "2025-08-22",
+      "draw": "8PM",
+      "first_prize": "38G 64386",
+      "url": "https://www.lotterysambad.co/2025/august/22/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_daily_archive_html",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-08-21_to_23_html_archive_batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM",
+      "pdf_link_available": false
+    },
+    {
+      "date": "2025-08-23",
+      "draw": "8PM",
+      "first_prize": "90G 60454",
+      "url": "https://www.lotterysambad.co/2025/august/23/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_daily_archive_html",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-08-21_to_23_html_archive_batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM",
+      "pdf_link_available": false
     }
   ]
 }
