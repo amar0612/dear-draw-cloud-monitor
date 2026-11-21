@@ -23,13 +23,6 @@ on:
         description: Maximum date/draw pairs to archive in this batch
         required: true
         default: "25"
-  push:
-    paths:
-      - .github/workflows/archive-official-sources.yml
-      - monitor/archive_official_sources.py
-      - data/nagaland_source_registry.csv
-      - data/recovery_candidates_2023.csv
-
 permissions:
   contents: read
 
