@@ -501,11 +501,11 @@
   <!-- Research-Based Candidate Explorer -->
   <main id="tab-predictions" class="hidden max-w-3xl mx-auto px-4 pt-3 space-y-4">
     <section class="glass-card p-4 space-y-3">
-      <h2 class="text-base font-extrabold text-white">Research-Based Number Candidates</h2>
-      <p class="text-xs text-slate-400">Ranks 4-digit endings using frequency, recency, repeat/nearby links, and ending-pair patterns from your saved history.</p>
+      <h2 class="text-base font-extrabold text-white">Next-Draw Research Candidates</h2>
+      <p class="text-xs text-slate-400">Refreshes automatically whenever a new Nagaland draw is saved or imported. Rankings use the existing frequency, recency, repeat/nearby, and jodi hypotheses; they are research candidates, not winning probabilities.</p>
       <div class="grid grid-cols-2 gap-2">
         <select id="prediction-slot" onchange="renderPredictions()" class="bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white">
-          <option value="ALL">Both draw times</option><option value="1:00 PM">1PM only</option><option value="8:00 PM">8PM only</option>
+          <option value="NEXT">Next draw (automatic)</option><option value="ALL">Both draw times</option><option value="1:00 PM">1PM only</option><option value="8:00 PM">8PM only</option>
         </select>
         <select id="prediction-count" onchange="renderPredictions()" class="bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white">
           <option value="10">Top 10</option><option value="20" selected>Top 20</option><option value="50">Top 50</option>
@@ -2658,6 +2658,7 @@ dateSelect.value = targetDate || '';
       const id = `draw-${date}-${time.replace(/[^0-9]/g, '')}-${Date.now()}`;
       draws.push({ id, date, time, name, first, second, third, fourth, fifth });
       saveDrawsToStorage();
+      renderPredictions(); // Refresh next-draw candidates immediately after a completed draw is saved.
 
       // Check if any saved store tickets won in this newly added draw
       let newStoreWins = 0;
@@ -3120,7 +3121,7 @@ dateSelect.value = targetDate || '';
       }
       draws.sort((a,b) => (b.date + b.time).localeCompare(a.date + a.time));
       saveDrawsToStorage();
-      renderDraws(); renderPatterns(); renderTicketTableResults(); renderStoreAnalyticsAndBatches();
+      renderDraws(); renderPatterns(); renderTicketTableResults(); renderStoreAnalyticsAndBatches(); renderPredictions();
       const status = document.getElementById('historical-import-status');
       const importStats = window.__ddaLastHistoricalImport || { added: records.length, skipped: 0 };
       status.textContent += `\n\n${mode === 'test' ? 'TEST IMPORT' : mode === 'replace' ? 'ACTIVE HISTORY REPLACED' : 'MERGE IMPORT'} COMPLETE\n${mode === 'replace' ? 'Replaced with' : 'New draws added'}: ${mode === 'replace' ? records.length : importStats.added}\nAlready present and skipped: ${mode === 'replace' ? 0 : importStats.skipped}\nCurrent app draws: ${draws.length}\nTicket tables and store batches were preserved.`;
@@ -3186,6 +3187,7 @@ dateSelect.value = targetDate || '';
 
           renderDraws();
           renderPatterns();
+          renderPredictions();
           renderTicketTableResults();
           renderStoreAnalyticsAndBatches();
           showToast(`Backup restored (${draws.length} draws, ${savedStoreBatches.length} store batches)!`);
@@ -3202,6 +3204,7 @@ dateSelect.value = targetDate || '';
         saveDrawsToStorage();
         renderDraws();
         renderPatterns();
+        renderPredictions();
         renderTicketTableResults();
         renderStoreAnalyticsAndBatches();
         showToast('Draws reset to original draw');
@@ -3287,19 +3290,35 @@ dateSelect.value = targetDate || '';
       projects.innerHTML=projectsData.map(([title,description])=>`<article class="rounded-xl bg-slate-900 border border-slate-800 p-3"><h4 class="text-xs font-bold text-white">${title}</h4><p class="text-[11px] text-slate-400 mt-1 leading-relaxed">${description}</p></article>`).join('');
     }
 
+    function inferNextDrawSlot() {
+      const history = getResearchDraws('ALL');
+      if (!history.length) return { slot: 'ALL', label: 'Both draw times', after: 'No completed draw recorded yet' };
+      const latest = history[history.length - 1];
+      const nextSlot = latest.time === '1:00 PM' ? '8:00 PM' : '1:00 PM';
+      const nextDate = latest.time === '1:00 PM' ? latest.date : (() => {
+        const d = new Date(latest.date + 'T12:00:00');
+        d.setDate(d.getDate() + 1);
+        return d.toISOString().slice(0,10);
+      })();
+      return { slot: nextSlot, label: nextSlot === '1:00 PM' ? 'Nagaland 1 PM' : 'Nagaland 8 PM', after: latest.date + ' ' + latest.time, date: nextDate };
+    }
+
     function renderPredictions() {
-      const slot=document.getElementById('prediction-slot')?.value || 'ALL';
-      const count=Number(document.getElementById('prediction-count')?.value || 20);
-      const data=calculateResearch(slot);
-      const meta=document.getElementById('prediction-meta');
-      const results=document.getElementById('prediction-results');
-      if(!meta || !results) return;
-      meta.textContent=`Based on ${data.history.length} draws and ${data.total.toLocaleString()} prize-number observations · ${slot==='ALL'?'1PM + 8PM':slot}`;
-      if(!data.history.length || !data.total){
-        results.innerHTML='<p class="col-span-2 text-xs text-amber-300">Import historical draws to activate research rankings.</p>';
+      const requestedSlot = document.getElementById('prediction-slot')?.value || 'NEXT';
+      const count = Number(document.getElementById('prediction-count')?.value || 20);
+      const next = inferNextDrawSlot();
+      const slot = requestedSlot === 'NEXT' ? next.slot : requestedSlot;
+      const data = calculateResearch(slot);
+      const meta = document.getElementById('prediction-meta');
+      const results = document.getElementById('prediction-results');
+      if (!meta || !results) return;
+      const slotLabel = slot === 'ALL' ? '1 PM + 8 PM combined' : (slot === '1:00 PM' ? 'Nagaland 1 PM' : 'Nagaland 8 PM');
+      meta.textContent = `Target: ${requestedSlot === 'NEXT' ? next.label + ' · estimated next date ' + (next.date || 'not established') : slotLabel} | Last completed draw: ${next.after} | Based on ${data.history.length} matching draws and ${data.total.toLocaleString()} prize-number observations. Recalculated from saved history.`;
+      if (!data.history.length || !data.total) {
+        results.innerHTML = '<p class="col-span-2 text-xs text-amber-300">Import completed Nagaland 1 PM / 8 PM history to activate research rankings.</p>';
         return;
       }
-      results.innerHTML=data.candidates.slice(0,count).map((x,i)=>`<div class="rounded-xl bg-slate-900 border border-slate-800 p-3 flex items-center justify-between gap-2"><div><p class="text-[10px] text-slate-500">#${i+1} · research score ${x.score.toFixed(1)}</p><p class="num-chip text-xl font-extrabold text-emerald-300 mt-0.5">${x.n}</p></div><div class="text-right text-[9px] text-slate-500">Exact ${x.exact}<br>Near ${x.near}<br>Pair ${x.pair}</div></div>`).join('');
+      results.innerHTML = data.candidates.slice(0,count).map((x,i) => `<div class="rounded-xl bg-slate-900 border border-slate-800 p-3 flex items-center justify-between gap-2"><div><p class="text-[10px] text-slate-500">#${i+1} · hypothesis rank ${x.score.toFixed(1)}/100</p><p class="num-chip text-xl font-extrabold text-emerald-300 mt-0.5">${x.n}</p></div><div class="text-right text-[9px] text-slate-500">Exact ${x.exact}<br>Near ${x.near}<br>Jodi ${x.pair}</div></div>`).join('');
     }
 
     function switchTab(tabName) {
