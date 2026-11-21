@@ -38,8 +38,9 @@
       "date": "2025-06-30",
       "draw": "1PM",
       "tier": "1st",
-      "status": "source_conflict_review",
-      "detail": "The lotterysambad.icu PDF linked under the 1PM slot contains a 6PM sheet. It is excluded from the 1PM dataset; the 1PM first prize is corroborated by Goodreturns/KLL and the Dhankesari 1PM PDF/page."
+      "status": "resolved_wrong_draw_source_excluded",
+      "detail": "The lotterysambad.icu PDF linked under the 1PM slot contains a 6PM sheet. It is excluded from the 1PM dataset; the 1PM first prize is corroborated by Goodreturns/KLL and the Dhankesari 1PM PDF/page. Resolution: the 6PM PDF candidate was excluded; correct 1PM first prize corroborated by Goodreturns/KLL and the Dhankesari 1PM PDF/page. No unresolved 1PM source conflict remains.",
+      "resolved_on": "2026-11-21"
     },
     {
       "date": "2025-06-30",
@@ -1281,7 +1282,7 @@
       "date": "2025-10-01",
       "draw": "8PM",
       "status": "duplicate_order_variant_resolved_same_number_sets",
-      "detail": "Two full 132-entry source files differ in the printed row ordering of 2nd\u20135th prize lists, but the complete set of winning numbers in every tier is identical after sorting. First prize and consolation also match. This is not a number conflict. Both source files are retained; the draw is counted once. The earlier audit's position-sensitive signature incorrectly flagged this as a conflict; the corrected audit compares number sets per tier.",
+      "detail": "Two full 132-entry source files differ in the printed row ordering of 2nd–5th prize lists, but the complete set of winning numbers in every tier is identical after sorting. First prize and consolation also match. This is not a number conflict. Both source files are retained; the draw is counted once. The earlier audit's position-sensitive signature incorrectly flagged this as a conflict; the corrected audit compares number sets per tier.",
       "sources": [
         "https://www.nagalandlotteries.com/old_results/EN011025.PDF",
         "https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTcwNDQwMtUrSEkDADIMBTY/8pm-01-10-2025.pdf"
@@ -8906,119 +8907,129 @@
       "action": "Keep the original PDF and link; attribute its contents to the printed draw date only when the yearly chart confirms the series-prefixed first prize."
     }
   ],
-  "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Prior audited full-tier baseline: 391 unique complete 132-entry sheets (51,612 rows), 333 first-prize-only partial slots, six unresolved. This run adds fifty-two genuinely new complete sheets (34 March sheets, April 1 both draws, April 6\u201313 both draws), bringing the audited total to 443 complete sheets (58,476 rows), 281 partial slots, six unresolved, and zero unresolved source conflicts. Seven other March sheets were independently checked against existing imported full sheets and not duplicated. The per-month manifest currently sums to 478 full sheets, 35 higher than the deduplicated audit; this discrepancy is explicitly unresolved and the aggregate remains provisional pending a complete cross-file deduplication pass. All 12 monthly archive index pages were opened; not every daily PDF link has been tested. PDF binaries for these fifty-nine source checks could not be preserved, so no SHA-256 hashes are claimed. 6PM is excluded entirely.",
+  "note": "Final reconciled 2025 audit (2026-11-21): 724 unique complete 132-entry Nagaland 1PM/8PM sheets (95,568 prize rows) cover all 724 scheduled draw slots after six officially confirmed holiday no-draw slots (Jan 26, Aug 15 and Oct 2; both draws). There are 0 first-prize-only partial draw slots, 0 unresolved draw slots and 0 unresolved source-conflict draws. The final 77-sheet recovery batch completed 75 cross-source full-sheet matches and retained 2 single-source full sheets pending lower-tier review (2025-09-12 8PM and 2025-10-25 8PM). The batch preserved 208 original PDF binaries with per-file SHA-256 hashes, retrieved 2026-11-21. One Lotterysambad.icu link labelled 2025-10-25 8PM contained the 2025-10-24 8PM sheet; it is retained as a resolved date-mismatch candidate, while the correct Oct 25 8PM sheet is sourced from o.vcdn.cc. All twelve monthly archive index pages were searched. Earlier failed, missing and alternate source candidates remain in this ledger. 6PM is excluded entirely.",
   "monthly_exceptions": [
     {
       "date": "2025-01-26",
       "draw": "1PM and 8PM",
       "issue": "Both 1PM and 8PM remain unresolved. Goodreturns and KLLotteryResults charts have no numbers; lotterysambad.icu archive links are unavailable; lotterysambad.co January page has no Jan 26 date page; LotteryResultToday page says result coming soon and provides no winning numbers; no official MN260125/EN260125 PDF surfaced in indexed searches. This is not treated as proof of no draw. On 2026-11-19 the lotterysambad.icu January archive exposed direct Jan 26 1PM and 8PM links, but both returned HTTP 404: https://lotterysambad.icu/files/download//1pm-26-01-2025.pdf and https://lotterysambad.icu/files/download//8pm-26-01-2025.pdf.",
-      "status": "unresolved_missing_chart_entry",
-      "action": "Keep unresolved; continue searching alternate official and archive sources without inferring a no-draw."
+      "status": "no_draw_confirmed_holiday",
+      "action": "Retain the original missing-source note as historical context; exclude both 1PM and 8PM from the scheduled-draw denominator.",
+      "resolved_on": "2026-11-21",
+      "resolution": "Confirmed no-draw by the official Nagaland State Lotteries draw rule and the 2025 Nagaland Gazette. This is positive holiday/rule evidence, not an inference from missing or broken PDF links."
     },
     {
       "date": "2025-01",
       "draw": "both",
-      "issue": "Cross-file audit 2026-11-21: 60 unique complete 132-entry sheets, 0 first-prize-only partial slots, 2 confirmed no-draw holiday slots, 0 unresolved slots. The 2 holiday slots are confirmed by the official Nagaland State Lotteries rule and 2025 Gazette.",
+      "issue": "Final cross-file audit 2026-11-21: 60 unique complete 132-entry sheets, 0 first-prize-only partial draw slots, 2 confirmed no-draw holiday slots, and 0 unresolved slots.",
       "status": "full_tier_recovered",
-      "action": "No partial or unresolved draw slots remain for January; retain duplicate-source and holiday audit records."
+      "action": "No partial or unresolved draw slots remain for January; retain source-level PDF failures and alternate candidates as historical exceptions."
     },
     {
       "date": "2025-03",
       "draw": "both",
-      "issue": "Cross-file audit 2026-11-21: 62 unique complete 132-entry sheets, 0 first-prize-only partial slots, 0 confirmed no-draw holiday slots, 0 unresolved slots.",
+      "issue": "Final cross-file audit 2026-11-21: 62 unique complete 132-entry sheets, 0 first-prize-only partial draw slots, 0 confirmed no-draw holiday slots, and 0 unresolved slots.",
       "status": "full_tier_recovered",
-      "action": "No partial or unresolved draw slots remain for March; retain duplicate-source and holiday audit records."
+      "action": "No partial or unresolved draw slots remain for March; retain source-level PDF failures and alternate candidates as historical exceptions."
     },
     {
       "date": "2025-04",
       "draw": "both",
-      "issue": "Cross-file audit 2026-11-21: 60 unique complete 132-entry sheets, 0 first-prize-only partial slots, 0 confirmed no-draw holiday slots, 0 unresolved slots.",
+      "issue": "Final cross-file audit 2026-11-21: 60 unique complete 132-entry sheets, 0 first-prize-only partial draw slots, 0 confirmed no-draw holiday slots, and 0 unresolved slots.",
       "status": "full_tier_recovered",
-      "action": "No partial or unresolved draw slots remain for April; retain duplicate-source and holiday audit records."
+      "action": "No partial or unresolved draw slots remain for April; retain source-level PDF failures and alternate candidates as historical exceptions."
     },
     {
       "date": "2025-05",
       "draw": "both",
-      "issue": "Cross-file audit 2026-11-21: 29 unique complete 132-entry sheets, 33 first-prize-only partial slots, 0 confirmed no-draw holiday slots, 0 unresolved slots.",
-      "status": "partial_extraction_review",
-      "action": "Continue searching for full-tier sheets for the remaining 33 partial slots in May; no unresolved dates remain."
+      "issue": "Final cross-file audit 2026-11-21: 62 unique complete 132-entry sheets, 0 first-prize-only partial draw slots, 0 confirmed no-draw holiday slots, and 0 unresolved slots.",
+      "status": "full_tier_recovered",
+      "action": "No partial or unresolved draw slots remain for May; retain source-level PDF failures and alternate candidates as historical exceptions."
     },
     {
       "date": "2025-06",
       "draw": "both",
-      "issue": "Cross-file audit 2026-11-21: 24 unique complete 132-entry sheets, 36 first-prize-only partial slots, 0 confirmed no-draw holiday slots, 0 unresolved slots.",
-      "status": "partial_extraction_review",
-      "action": "Continue searching for full-tier sheets for the remaining 36 partial slots in June; no unresolved dates remain."
+      "issue": "Final cross-file audit 2026-11-21: 60 unique complete 132-entry sheets, 0 first-prize-only partial draw slots, 0 confirmed no-draw holiday slots, and 0 unresolved slots.",
+      "status": "full_tier_recovered",
+      "action": "No partial or unresolved draw slots remain for June; retain source-level PDF failures and alternate candidates as historical exceptions."
     },
     {
       "date": "2025-07",
       "draw": "both",
-      "issue": "Cross-file audit 2026-11-21: 37 unique complete 132-entry sheets, 25 first-prize-only partial slots, 0 confirmed no-draw holiday slots, 0 unresolved slots.",
-      "status": "partial_extraction_review",
-      "action": "Continue searching for full-tier sheets for the remaining 25 partial slots in July; no unresolved dates remain."
+      "issue": "Final cross-file audit 2026-11-21: 62 unique complete 132-entry sheets, 0 first-prize-only partial draw slots, 0 confirmed no-draw holiday slots, and 0 unresolved slots.",
+      "status": "full_tier_recovered",
+      "action": "No partial or unresolved draw slots remain for July; retain source-level PDF failures and alternate candidates as historical exceptions."
     },
     {
       "date": "2025-08-15",
       "draw": "1PM and 8PM",
       "issue": "KLL yearly chart displays ***** for August 15 across draw columns; Goodreturns monthly table omits August 15. This is unresolved and is not proof that no draw occurred.",
-      "status": "unresolved_source_gap",
-      "action": "Search alternate archives and daily PDFs for August 15 before classifying"
+      "status": "no_draw_confirmed_holiday",
+      "action": "Retain the original missing-source note as historical context; exclude both 1PM and 8PM from the scheduled-draw denominator.",
+      "resolved_on": "2026-11-21",
+      "resolution": "Confirmed no-draw by the official Nagaland State Lotteries draw rule and the 2025 Nagaland Gazette. This is positive holiday/rule evidence, not an inference from missing or broken PDF links."
     },
     {
       "date": "2025-08",
       "draw": "both",
-      "issue": "Cross-file audit 2026-11-21: 38 unique complete 132-entry sheets, 22 first-prize-only partial slots, 2 confirmed no-draw holiday slots, 0 unresolved slots. The 2 holiday slots are confirmed by the official Nagaland State Lotteries rule and 2025 Gazette.",
-      "status": "partial_extraction_review",
-      "action": "Continue searching for full-tier sheets for the remaining 22 partial slots in August; no unresolved dates remain."
+      "issue": "Final cross-file audit 2026-11-21: 60 unique complete 132-entry sheets, 0 first-prize-only partial draw slots, 2 confirmed no-draw holiday slots, and 0 unresolved slots.",
+      "status": "full_tier_recovered",
+      "action": "No partial or unresolved draw slots remain for August; retain source-level PDF failures and alternate candidates as historical exceptions."
     },
     {
       "date": "2025-09",
       "draw": "both",
-      "issue": "Cross-file audit 2026-11-21: 32 unique complete 132-entry sheets, 28 first-prize-only partial slots, 0 confirmed no-draw holiday slots, 0 unresolved slots.",
-      "status": "partial_extraction_review",
-      "action": "Continue searching for full-tier sheets for the remaining 28 partial slots in September; no unresolved dates remain."
+      "issue": "Final cross-file audit 2026-11-21: 60 unique complete 132-entry sheets, 0 first-prize-only partial draw slots, 0 confirmed no-draw holiday slots, and 0 unresolved slots.",
+      "status": "full_tier_recovered",
+      "action": "No partial or unresolved draw slots remain for September; retain source-level PDF failures and alternate candidates as historical exceptions."
     },
     {
       "date": "2025-10-02",
       "draw": "1PM and 8PM",
       "issue": "October 2 appears as ***** in KLL chart and is omitted from Goodreturns monthly chart; unresolved, not proof of no draw. The October 2025 lotterysambad.icu archive links for both draws returned HTTP 404 on 2026-11-19: https://lotterysambad.icu/files/download//1pm-02-10-2025.pdf and https://lotterysambad.icu/files/download//8pm-02-10-2025.pdf.",
-      "status": "unresolved_source_gap",
-      "action": "Search alternate archives and daily PDFs for October 2"
+      "status": "no_draw_confirmed_holiday",
+      "action": "Retain the original missing-source note as historical context; exclude both 1PM and 8PM from the scheduled-draw denominator.",
+      "resolved_on": "2026-11-21",
+      "resolution": "Confirmed no-draw by the official Nagaland State Lotteries draw rule and the 2025 Nagaland Gazette. This is positive holiday/rule evidence, not an inference from missing or broken PDF links."
     },
     {
       "date": "2025-10",
       "draw": "both",
-      "issue": "Cross-file audit 2026-11-21: 33 unique complete 132-entry sheets, 27 first-prize-only partial slots, 2 confirmed no-draw holiday slots, 0 unresolved slots. The 2 holiday slots are confirmed by the official Nagaland State Lotteries rule and 2025 Gazette.",
-      "status": "partial_extraction_review",
-      "action": "Continue searching for full-tier sheets for the remaining 27 partial slots in October; no unresolved dates remain."
+      "issue": "Final cross-file audit 2026-11-21: 60 unique complete 132-entry sheets, 0 first-prize-only partial draw slots, 2 confirmed no-draw holiday slots, and 0 unresolved slots.",
+      "status": "full_tier_recovered",
+      "action": "No partial or unresolved draw slots remain for October; retain source-level PDF failures and alternate candidates as historical exceptions."
     },
     {
       "date": "2025-11",
       "draw": "both",
-      "issue": "Fourteen full 132-entry sheets were imported from dearlottery.com.co on 2026-11-21: Nov 6 both, Nov 7 8PM, Nov 8 both, Nov 9 both, Nov 12 both, Nov 13 1PM, Nov 22 both and Nov 24 both. Nov 13 8PM was already in the official gazette batch. Current month summary: 36 full sheets (4,752 entries), 24 first-prize-only partial slots, 0 unresolved. Lower tiers on new sheets remain single-source pending review; no direct PDF links or SHA-256 hashes were available.",
-      "status": "partial_extraction_review",
-      "action": "Continue searching November daily archives and official PDFs for the remaining 24 first-prize-only slots; keep existing full sheets and cross-checks."
+      "issue": "Final cross-file audit 2026-11-21: 60 unique complete 132-entry sheets, 0 first-prize-only partial draw slots, 0 confirmed no-draw holiday slots, and 0 unresolved slots.",
+      "status": "full_tier_recovered",
+      "action": "No partial or unresolved draw slots remain for November; retain source-level PDF failures and alternate candidates as historical exceptions."
     },
     {
       "date": "2025-12",
       "draw": "both",
-      "issue": "Cross-file audit 2026-11-21: 62 unique complete 132-entry sheets, 0 first-prize-only partial slots, 0 confirmed no-draw holiday slots, 0 unresolved slots.",
+      "issue": "Final cross-file audit 2026-11-21: 62 unique complete 132-entry sheets, 0 first-prize-only partial draw slots, 0 confirmed no-draw holiday slots, and 0 unresolved slots.",
       "status": "full_tier_recovered",
-      "action": "No partial or unresolved draw slots remain for December; retain duplicate-source and holiday audit records."
+      "action": "No partial or unresolved draw slots remain for December; retain source-level PDF failures and alternate candidates as historical exceptions."
     },
     {
       "date": "2025-06-30",
       "draw": "1PM",
       "issue": "The lotterysambad.icu 1PM PDF link is mislabelled and contains a 6PM sheet, so it is excluded. Correct 1PM result is confirmed by the Dhankesari PDF and lotterysambad.co daily page; 2nd/5th tier alternate Dhankesari page rendering is preserved as superseded candidate.",
-      "status": "partial_extraction_review",
-      "action": "Retain all candidates and seek an independent full 1PM PDF"
+      "status": "resolved_wrong_draw_source_excluded",
+      "action": "Keep the wrong-draw PDF as a rejected source candidate; use the corroborated 1PM sheet.",
+      "resolved_on": "2026-11-21",
+      "resolution": "The Lotterysambad.icu candidate under the 1PM slot contains a 6PM sheet and is excluded. The correct 1PM first prize and full-sheet tiers are corroborated by the Dhankesari PDF and lotterysambad.co daily result page; the wrong-draw candidate remains preserved."
     },
     {
       "date": "2025-06-30",
       "draw": "8PM",
       "issue": "Two 8PM PDFs agree on the full sheet; Dhankesari page rendering differs on 2nd and 5th prize tiers.",
-      "status": "source_conflict_review",
-      "action": "Retain PDF and page candidates; seek a third independent full sheet"
+      "status": "resolved_competing_rendering_superseded",
+      "action": "Keep all candidates and use the two-PDF plus daily-page matched sheet.",
+      "resolved_on": "2026-11-21",
+      "resolution": "Two 8PM PDFs and the lotterysambad.co daily result page agree on the full sheet. The differing Dhankesari page rendering is retained as a superseded candidate, not an unresolved source conflict."
     },
     {
       "date_range": "2025-01_to_12",
@@ -9151,7 +9162,7 @@
     {
       "date_range": "2025-01_to_12",
       "draw": "1PM and 8PM",
-      "issue": "Reconciled audit after the March 11\u201312 import: 431 unique complete 132-entry sheets (56,892 rows), 293 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts. This supersedes earlier 391/333 and 251/473 checkpoint totals retained above.",
+      "issue": "Reconciled audit after the March 11–12 import: 431 unique complete 132-entry sheets (56,892 rows), 293 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts. This supersedes earlier 391/333 and 251/473 checkpoint totals retained above.",
       "status": "audit_reconciled",
       "action": "Continue testing remaining daily PDFs and alternate archives for the 293 partial slots; preserve the six unresolved slots without inferring no-draw."
     },
@@ -9221,44 +9232,51 @@
     {
       "date_range": "2025-01_to_12",
       "draw": "1PM and 8PM",
-      "issue": "Post-April 6\u20138 checkpoint: 433 unique complete 132-entry sheets (57,156 rows), 291 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts. Forty-two new sheets were imported in this run (34 March, two April 1, six April 6\u20138); seven other March PDF checks matched existing sheets and were not duplicated. Monthly manifest totals sum to 468 complete sheets, a 35-sheet discrepancy; do not treat the monthly sum as final until a full cross-file deduplication pass is complete.",
+      "issue": "Post-April 6–8 checkpoint: 433 unique complete 132-entry sheets (57,156 rows), 291 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts. Forty-two new sheets were imported in this run (34 March, two April 1, six April 6–8); seven other March PDF checks matched existing sheets and were not duplicated. Monthly manifest totals sum to 468 complete sheets, a 35-sheet discrepancy; do not treat the monthly sum as final until a full cross-file deduplication pass is complete.",
       "status": "audit_reconciled_provisional",
       "action": "Continue recovery for remaining partial slots across other months and reconcile the 35-sheet monthly-manifest discrepancy before final aggregate certification."
     },
     {
       "date_range": "2025-01_to_12",
       "draw": "1PM and 8PM",
-      "issue": "Post-April 9\u201313 checkpoint: 443 unique complete 132-entry sheets (58,476 rows), 281 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts. Fifty-two new sheets were imported in this run (34 March, two April 1, six April 6\u20138, ten April 9\u201313); seven other March PDF checks matched existing sheets and were not duplicated. Monthly manifest totals sum to 478 complete sheets, a 35-sheet discrepancy; do not treat the monthly sum as final until a full cross-file deduplication pass is complete.",
+      "issue": "Post-April 9–13 checkpoint: 443 unique complete 132-entry sheets (58,476 rows), 281 first-prize-only partial slots, six unresolved slots, zero unresolved source conflicts. Fifty-two new sheets were imported in this run (34 March, two April 1, six April 6–8, ten April 9–13); seven other March PDF checks matched existing sheets and were not duplicated. Monthly manifest totals sum to 478 complete sheets, a 35-sheet discrepancy; do not treat the monthly sum as final until a full cross-file deduplication pass is complete.",
       "status": "audit_reconciled_provisional",
       "action": "Continue recovery for remaining partial slots across other months and reconcile the 35-sheet monthly-manifest discrepancy before final aggregate certification."
     },
     {
       "date_range": "2025-04-14_to_2025-04-29",
       "draw": "1PM and 8PM only",
-      "issue": "Eighteen additional April PDF links have been located and are pending extraction: Apr 14 1PM; Apr 20 both; Apr 21 1PM; Apr 22\u201323 both; Apr 24 8PM; Apr 25\u201327 both; Apr 28 8PM; Apr 29 both. April has 19 partial slots in the current manifest; one remaining partial slot has not yet been located.",
+      "issue": "Eighteen additional April PDF links have been located and are pending extraction: Apr 14 1PM; Apr 20 both; Apr 21 1PM; Apr 22–23 both; Apr 24 8PM; Apr 25–27 both; Apr 28 8PM; Apr 29 both. April has 19 partial slots in the current manifest; one remaining partial slot has not yet been located.",
       "status": "source_discovered_pending_extraction",
       "action": "Resume by extracting the 18 listed PDFs from the pending_extractions array; preserve 6PM exclusion."
     },
     {
       "date": "2025-08",
       "draw": "both",
-      "issue": "Latest full-sheet PDF reconciliation completed for this month.",
+      "issue": "Final cross-file audit 2026-11-21: 60 unique complete 132-entry sheets, 0 first-prize-only partial draw slots, 2 confirmed no-draw holiday slots, and 0 unresolved slots.",
       "status": "full_tier_recovered",
-      "action": "Use the latest source manifest and SHA-256 records; preserve earlier exception history."
+      "action": "No partial or unresolved draw slots remain for August; retain source-level PDF failures and alternate candidates as historical exceptions."
     },
     {
       "date": "2025-09",
       "draw": "both",
-      "issue": "Latest full-sheet PDF reconciliation completed for this month.",
+      "issue": "Final cross-file audit 2026-11-21: 60 unique complete 132-entry sheets, 0 first-prize-only partial draw slots, 0 confirmed no-draw holiday slots, and 0 unresolved slots.",
       "status": "full_tier_recovered",
-      "action": "Use the latest source manifest and SHA-256 records; preserve earlier exception history."
+      "action": "No partial or unresolved draw slots remain for September; retain source-level PDF failures and alternate candidates as historical exceptions."
     },
     {
       "date": "2025-10",
       "draw": "both",
-      "issue": "Latest full-sheet PDF reconciliation completed for this month.",
+      "issue": "Final cross-file audit 2026-11-21: 60 unique complete 132-entry sheets, 0 first-prize-only partial draw slots, 2 confirmed no-draw holiday slots, and 0 unresolved slots.",
       "status": "full_tier_recovered",
-      "action": "Use the latest source manifest and SHA-256 records; preserve earlier exception history."
+      "action": "No partial or unresolved draw slots remain for October; retain source-level PDF failures and alternate candidates as historical exceptions."
+    },
+    {
+      "date": "2025-02",
+      "draw": "both",
+      "status": "full_tier_recovered",
+      "issue": "Final cross-file audit 2026-11-21: 56 unique complete 132-entry sheets, 0 first-prize-only partial draw slots, 0 confirmed no-draw holiday slots, and 0 unresolved slots.",
+      "action": "No partial or unresolved draw slots remain for February; retain source-level PDF failures and alternate candidates as historical exceptions."
     }
   ],
   "last_updated": "2026-11-21",
@@ -9306,7 +9324,7 @@
       "2025-01-26 1PM",
       "2025-01-26 8PM"
     ],
-    "coverage": "All available 2025 January dates (1\u201325 and 27\u201331) have both 1PM and 8PM full-tier sheets; Jan 26 has no recoverable sheet in the searched sources.",
+    "coverage": "All available 2025 January dates (1–25 and 27–31) have both 1PM and 8PM full-tier sheets; Jan 26 has no recoverable sheet in the searched sources.",
     "source": "lotterysambad.co daily archive pages with o.vcdn.cc PDFs; Jan 31 1PM also cross-checked against 7dear.in; Jan 1 1PM cross-checked against Goodreturns full sheet."
   },
   "pdf_binary_preservation": {
@@ -9815,7 +9833,7 @@
       "date": "2025-10-01",
       "draw": "8PM",
       "status": "ordering_variant_resolved_same_number_set",
-      "detail": "Two source files have different row ordering within 2nd\u20135th tiers but identical number sets per tier; retained both and counted one complete sheet."
+      "detail": "Two source files have different row ordering within 2nd–5th tiers but identical number sets per tier; retained both and counted one complete sheet."
     },
     {
       "status": "holiday_no_draws_confirmed",
@@ -9924,6 +9942,68 @@
       }
     ],
     "source_manifest": "data/recovery_2025_icu_pdf_source_manifest_2026-11-21.json",
+    "retrieval_date": "2026-11-21"
+  },
+  "final_reconciled_audit_2026_11_21": {
+    "status": "complete_as_far_as_sources_allow",
+    "scope": "Nagaland Dear Lottery 1PM and 8PM only; 6PM excluded",
+    "monthly_complete_132_entry_sheets": {
+      "2025-10": 60,
+      "2025-11": 60,
+      "2025-12": 62,
+      "2025-01": 60,
+      "2025-02": 56,
+      "2025-03": 62,
+      "2025-04": 60,
+      "2025-05": 62,
+      "2025-06": 60,
+      "2025-07": 62,
+      "2025-08": 60,
+      "2025-09": 60
+    },
+    "unique_complete_132_entry_sheets": 724,
+    "complete_prize_rows": 95568,
+    "partial_draw_slots": 0,
+    "unresolved_source_conflict_draws": 0,
+    "unresolved_draw_slots": 0,
+    "confirmed_no_draw_holiday_slots": 6,
+    "expected_calendar_slots": 730,
+    "scheduled_draw_slots_after_holidays": 724,
+    "resolved_source_anomalies": [
+      "2025-06-30 1PM: mislabelled 6PM candidate excluded; correct 1PM full sheet corroborated",
+      "2025-06-30 8PM: alternate page rendering retained as superseded; two PDFs and daily page agree"
+    ],
+    "final_77_sheet_recovery_batch": {
+      "draw_slots_recovered": 77,
+      "complete_sheets_imported": 77,
+      "complete_rows_imported": 10164,
+      "cross_source_matched_draws": 75,
+      "single_source_pending_review_draws": 2,
+      "single_source_draws": [
+        "2025-09-12 8PM",
+        "2025-10-25 8PM"
+      ],
+      "partial_draws": 0,
+      "conflicted_draws": 0,
+      "unresolved_draws": 0,
+      "source_pdf_binaries_saved": 208,
+      "retrieval_date": "2026-11-21",
+      "workflow_run_id": 44876374357,
+      "artifact_id": 14696166667,
+      "artifact_sha256": "b0af8153d2eea174ea47433e85f5cb0bc0312453feb76b2aa32eecda47416659"
+    },
+    "resolved_misdated_source_link": {
+      "requested_slot": "2025-10-25 8PM",
+      "printed_date_in_archive_pdf": "2025-10-24",
+      "source_url": "https://lotterysambad.icu/files/download/eJwrzjBRtCjIjTcyNTQwMtUrSEkDADJEBTw/8pm-25-10-2025.pdf",
+      "actual_first_prize": "82C 19451",
+      "correct_2025_10_25_8pm_first_prize": "66H 97216",
+      "correct_sheet_source": "https://o.vcdn.cc/Dear/EN251025.PDF",
+      "status": "source_link_date_mismatch_resolved"
+    },
+    "audit_file": "data/recovery_audit_2025_full_tier_group_map.json",
+    "new_batch_file": "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv",
+    "source_manifest_file": "data/recovery_2025_icu_pdf_source_manifest_2026-11-21.json",
     "retrieval_date": "2026-11-21"
   }
 }
