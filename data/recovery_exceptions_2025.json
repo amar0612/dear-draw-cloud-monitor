@@ -1363,6 +1363,104 @@
       ],
       "retrieval_date": "2026-11-21",
       "imported_rows": 0
+    },
+    {
+      "date": "2025-11-06",
+      "draw": "1PM",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "Complete 132-entry sheet imported from dearlottery.com.co full result page on 2026-11-21. First-prize series and number match Goodreturns and KLL yearly charts. Lower tiers remain single-source pending review. No direct PDF link was exposed; original PDF binary and SHA-256 are unavailable. 6PM excluded.",
+      "sources": [
+        "https://dearlottery.com.co/06-11-2025/1pm",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-11-06_to_09_full.csv",
+      "imported_rows": 132
+    },
+    {
+      "date": "2025-11-06",
+      "draw": "8PM",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "Complete 132-entry sheet imported from dearlottery.com.co full result page on 2026-11-21. First-prize series and number match Goodreturns and KLL yearly charts. Lower tiers remain single-source pending review. No direct PDF link was exposed; original PDF binary and SHA-256 are unavailable. 6PM excluded.",
+      "sources": [
+        "https://dearlottery.com.co/06-11-2025/8pm",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-11-06_to_09_full.csv",
+      "imported_rows": 132
+    },
+    {
+      "date": "2025-11-07",
+      "draw": "8PM",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "Complete 132-entry sheet imported from dearlottery.com.co full result page on 2026-11-21. First-prize series and number match Goodreturns and KLL yearly charts. Lower tiers remain single-source pending review. No direct PDF link was exposed; original PDF binary and SHA-256 are unavailable. 6PM excluded.",
+      "sources": [
+        "https://dearlottery.com.co/07-11-2025/8pm",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-11-06_to_09_full.csv",
+      "imported_rows": 132
+    },
+    {
+      "date": "2025-11-08",
+      "draw": "1PM",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "Complete 132-entry sheet imported from dearlottery.com.co full result page on 2026-11-21. First-prize series and number match Goodreturns and KLL yearly charts. Lower tiers remain single-source pending review. No direct PDF link was exposed; original PDF binary and SHA-256 are unavailable. 6PM excluded.",
+      "sources": [
+        "https://dearlottery.com.co/08-11-2025/1pm",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-11-06_to_09_full.csv",
+      "imported_rows": 132
+    },
+    {
+      "date": "2025-11-08",
+      "draw": "8PM",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "Complete 132-entry sheet imported from dearlottery.com.co full result page on 2026-11-21. First-prize series and number match Goodreturns and KLL yearly charts. Lower tiers remain single-source pending review. No direct PDF link was exposed; original PDF binary and SHA-256 are unavailable. 6PM excluded.",
+      "sources": [
+        "https://dearlottery.com.co/08-11-2025/8pm",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-11-06_to_09_full.csv",
+      "imported_rows": 132
+    },
+    {
+      "date": "2025-11-09",
+      "draw": "1PM",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "Complete 132-entry sheet imported from dearlottery.com.co full result page on 2026-11-21. First-prize series and number match Goodreturns and KLL yearly charts. Lower tiers remain single-source pending review. No direct PDF link was exposed; original PDF binary and SHA-256 are unavailable. 6PM excluded.",
+      "sources": [
+        "https://dearlottery.com.co/09-11-2025/1pm",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-11-06_to_09_full.csv",
+      "imported_rows": 132
+    },
+    {
+      "date": "2025-11-09",
+      "draw": "8PM",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "Complete 132-entry sheet imported from dearlottery.com.co full result page on 2026-11-21. First-prize series and number match Goodreturns and KLL yearly charts. Lower tiers remain single-source pending review. No direct PDF link was exposed; original PDF binary and SHA-256 are unavailable. 6PM excluded.",
+      "sources": [
+        "https://dearlottery.com.co/09-11-2025/8pm",
+        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
+        "https://kllotteryresults.in/dear-lottery-chart/2025"
+      ],
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-11-06_to_09_full.csv",
+      "imported_rows": 132
     }
   ],
   "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Prior audited full-tier baseline: 391 unique complete 132-entry sheets (51,612 rows), 333 first-prize-only partial slots, six unresolved. This run adds fifty-two genuinely new complete sheets (34 March sheets, April 1 both draws, April 6–13 both draws), bringing the audited total to 443 complete sheets (58,476 rows), 281 partial slots, six unresolved, and zero unresolved source conflicts. Seven other March sheets were independently checked against existing imported full sheets and not duplicated. The per-month manifest currently sums to 478 full sheets, 35 higher than the deduplicated audit; this discrepancy is explicitly unresolved and the aggregate remains provisional pending a complete cross-file deduplication pass. All 12 monthly archive index pages were opened; not every daily PDF link has been tested. PDF binaries for these fifty-nine source checks could not be preserved, so no SHA-256 hashes are claimed. 6PM is excluded entirely.",
@@ -1454,9 +1552,9 @@
     {
       "date": "2025-11",
       "draw": "both",
-      "issue": "Cross-file audit 2026-11-21: 29 unique complete 132-entry sheets, 31 first-prize-only partial slots, 0 confirmed no-draw holiday slots, 0 unresolved slots.",
+      "issue": "Fourteen full 132-entry sheets were imported from dearlottery.com.co on 2026-11-21: Nov 6 both, Nov 7 8PM, Nov 8 both, Nov 9 both, Nov 12 both, Nov 13 1PM, Nov 22 both and Nov 24 both. Nov 13 8PM was already in the official gazette batch. Current month summary: 36 full sheets (4,752 entries), 24 first-prize-only partial slots, 0 unresolved. Lower tiers on new sheets remain single-source pending review; no direct PDF links or SHA-256 hashes were available.",
       "status": "partial_extraction_review",
-      "action": "Continue searching for full-tier sheets for the remaining 31 partial slots in November; no unresolved dates remain."
+      "action": "Continue searching November daily archives and official PDFs for the remaining 24 first-prize-only slots; keep existing full sheets and cross-checks."
     },
     {
       "date": "2025-12",
@@ -2153,6 +2251,90 @@
       "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "retrieval_date": "2026-11-21",
       "import_file": "data/recovered_draws_2025-11-22_and_24_full.csv",
+      "imported_rows": 132,
+      "pdf_link_available": false,
+      "sha256": null
+    },
+    {
+      "date": "2025-11-06",
+      "draw": "1PM",
+      "first_prize": "46D 80052",
+      "url": "https://dearlottery.com.co/06-11-2025/1pm",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-11-06_to_09_full.csv",
+      "imported_rows": 132,
+      "pdf_link_available": false,
+      "sha256": null
+    },
+    {
+      "date": "2025-11-06",
+      "draw": "8PM",
+      "first_prize": "59C 35651",
+      "url": "https://dearlottery.com.co/06-11-2025/8pm",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-11-06_to_09_full.csv",
+      "imported_rows": 132,
+      "pdf_link_available": false,
+      "sha256": null
+    },
+    {
+      "date": "2025-11-07",
+      "draw": "8PM",
+      "first_prize": "96D 67442",
+      "url": "https://dearlottery.com.co/07-11-2025/8pm",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-11-06_to_09_full.csv",
+      "imported_rows": 132,
+      "pdf_link_available": false,
+      "sha256": null
+    },
+    {
+      "date": "2025-11-08",
+      "draw": "1PM",
+      "first_prize": "45E 31611",
+      "url": "https://dearlottery.com.co/08-11-2025/1pm",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-11-06_to_09_full.csv",
+      "imported_rows": 132,
+      "pdf_link_available": false,
+      "sha256": null
+    },
+    {
+      "date": "2025-11-08",
+      "draw": "8PM",
+      "first_prize": "47K 66074",
+      "url": "https://dearlottery.com.co/08-11-2025/8pm",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-11-06_to_09_full.csv",
+      "imported_rows": 132,
+      "pdf_link_available": false,
+      "sha256": null
+    },
+    {
+      "date": "2025-11-09",
+      "draw": "1PM",
+      "first_prize": "74J 40737",
+      "url": "https://dearlottery.com.co/09-11-2025/1pm",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-11-06_to_09_full.csv",
+      "imported_rows": 132,
+      "pdf_link_available": false,
+      "sha256": null
+    },
+    {
+      "date": "2025-11-09",
+      "draw": "8PM",
+      "first_prize": "82K 30914",
+      "url": "https://dearlottery.com.co/09-11-2025/8pm",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-11-06_to_09_full.csv",
       "imported_rows": 132,
       "pdf_link_available": false,
       "sha256": null
