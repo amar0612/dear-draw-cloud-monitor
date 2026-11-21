@@ -96,22 +96,23 @@
     {
       "month": "january",
       "archive_url": "https://lotterysambad.icu/old-result/january-2025",
-      "status": "partially_recovered",
+      "status": "partial_and_unresolved",
       "first_prize_records": 60,
       "first_prize_coverage": "30 dates with both 1PM and 8PM; January 26 absent from both yearly chart sources and retained unresolved, not no-draw",
       "first_prize_sources": [
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "60 full 132-entry sheets (7920 entries); 0 first-prize-only known draw slots; 2 unresolved draw slots.",
-      "pdf_extraction": "60 full sheets (7920 entries), 0 first-prize-only partial slots, 2 unresolved slots.",
+      "full_tier_recovery": "60 unique full 132-entry sheets (7920 entries); 0 first-prize-only partial slots; 2 unresolved slots. Counts reconciled against the 120-file cross-file audit.",
+      "pdf_extraction": "60 complete sheets (7920 entries), 0 partial slots, 2 unresolved slots; counts are unique date/draw groups, not raw file rows.",
       "full_tier_draws": 60,
       "full_tier_entries": 7920,
       "partial_draws": 0,
       "unresolved_draws": 2,
       "full_tier_expected_draw_slots": 62,
       "full_tier_unresolved_draw_slots": 2,
-      "partial_first_prize_only_slots": 0
+      "partial_first_prize_only_slots": 0,
+      "notes": "Cross-file audit 2026-11-21 confirms 60 unique complete sheets, 0 partial slots and 2 unresolved slots. Duplicate copies are retained but counted once."
     },
     {
       "month": "february",
@@ -123,35 +124,37 @@
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "56 full 132-entry sheets (7392 entries); 0 first-prize-only known draw slots; 0 unresolved draw slots.",
-      "pdf_extraction": "56 full sheets (7392 entries), 0 first-prize-only partial slots, 0 unresolved slots.",
+      "full_tier_recovery": "56 unique full 132-entry sheets (7392 entries); 0 first-prize-only partial slots; 0 unresolved slots. Counts reconciled against the 120-file cross-file audit.",
+      "pdf_extraction": "56 complete sheets (7392 entries), 0 partial slots, 0 unresolved slots; counts are unique date/draw groups, not raw file rows.",
       "full_tier_draws": 56,
       "full_tier_entries": 7392,
       "partial_draws": 0,
       "unresolved_draws": 0,
       "full_tier_expected_draw_slots": 56,
       "full_tier_unresolved_draw_slots": 0,
-      "partial_first_prize_only_slots": 0
+      "partial_first_prize_only_slots": 0,
+      "notes": "Cross-file audit 2026-11-21 confirms 56 unique complete sheets, 0 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once."
     },
     {
       "month": "march",
       "archive_url": "https://lotterysambad.icu/old-result/march-2025",
-      "status": "first_prize_recovered",
+      "status": "full_tier_recovered",
       "first_prize_records": 62,
       "first_prize_coverage": "All 31 dates, both 1PM and 8PM",
       "first_prize_sources": [
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "62 unique full 132-entry sheets (8184 entries); 0 first-prize-only partial slots; 0 unresolved draw slots. This run completed all remaining March 1PM/8PM sheets from o.vcdn.cc PDFs linked by lotterysambad.co; 6PM excluded. Seven other March PDF checks matched existing imports and were not duplicated.",
-      "pdf_extraction": "62 unique full sheets (8184 entries), 0 partial slots, 0 unresolved slots. Forty-one March source PDFs were checked this run; thirty-four draw sheets were new and seven matched existing imports.",
+      "full_tier_recovery": "62 unique full 132-entry sheets (8184 entries); 0 first-prize-only partial slots; 0 unresolved slots. Counts reconciled against the 120-file cross-file audit.",
+      "pdf_extraction": "62 complete sheets (8184 entries), 0 partial slots, 0 unresolved slots; counts are unique date/draw groups, not raw file rows.",
       "full_tier_draws": 62,
       "full_tier_entries": 8184,
       "partial_draws": 0,
       "unresolved_draws": 0,
       "full_tier_expected_draw_slots": 62,
       "full_tier_unresolved_draw_slots": 0,
-      "partial_first_prize_only_slots": 0
+      "partial_first_prize_only_slots": 0,
+      "notes": "Cross-file audit 2026-11-21 confirms 62 unique complete sheets, 0 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once."
     },
     {
       "month": "april",
@@ -163,8 +166,8 @@
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "60 unique full 132-entry sheets (7,920 entries); 0 first-prize-only partial slots; 0 unresolved slots. The 18 newly imported April 14 and April 20–29 1PM/8PM sheets are in data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv. First-prize values cross-source matched to Goodreturns and KLL; lower tiers remain single-source pending review.",
-      "pdf_extraction": "60 unique full sheets (7,920 entries), 0 partial slots, 0 unresolved slots. Eighteen additional PDFs were opened and imported on 2026-11-21. A duplicate April 15 1PM 132-row sheet exists in two earlier CSV files and is counted once.",
+      "full_tier_recovery": "60 unique full 132-entry sheets (7920 entries); 0 first-prize-only partial slots; 0 unresolved slots. Counts reconciled against the 120-file cross-file audit.",
+      "pdf_extraction": "60 complete sheets (7920 entries), 0 partial slots, 0 unresolved slots; counts are unique date/draw groups, not raw file rows.",
       "full_tier_draws": 60,
       "full_tier_entries": 7920,
       "partial_draws": 0,
@@ -174,94 +177,94 @@
       "full_tier_unresolved_draw_slots": 0,
       "partial_first_prize_only_slots": 0,
       "full_tier_new_draws_2026_11_21": 18,
-      "notes": "All 60 April 1PM/8PM draw slots now have complete 132-entry sheets. One duplicate April 15 1PM sheet is retained in two CSV files and counted once. Newly imported April PDFs are text-layer extracted; original binary files were not preserved, so no SHA-256 values are available. Lower tiers are single-source pending review."
+      "notes": "All 60 April 1PM/8PM draw slots now have complete 132-entry sheets. One duplicate April 15 1PM sheet is retained in two CSV files and counted once. Newly imported April PDFs are text-layer extracted; original binary files were not preserved, so no SHA-256 values are available. Lower tiers are single-source pending review. Cross-file audit 2026-11-21 confirms 60 unique complete sheets, 0 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once."
     },
     {
       "month": "may",
       "archive_url": "https://lotterysambad.icu/old-result/may-2025",
-      "status": "first_prize_recovered",
+      "status": "partial_first_prize_only",
       "first_prize_records": 62,
       "first_prize_coverage": "All 31 dates, both 1PM and 8PM",
       "first_prize_sources": [
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "26 full 132-entry sheets (3,432 entries); 36 first-prize-only known draw slots; 0 unresolved slots. May 3 8PM newly imported; May 3 1PM independently checked and not duplicated.",
-      "pdf_extraction": "26 full sheets (3,432 entries), 36 first-prize-only partial slots, 0 unresolved slots. May 3 8PM was newly imported on 2026-11-21; May 3 1PM PDF cross-check matched the existing 132-entry sheet and was not re-imported.",
-      "full_tier_draws": 26,
-      "full_tier_entries": 3432,
-      "partial_draws": 36,
+      "full_tier_recovery": "29 unique full 132-entry sheets (3828 entries); 33 first-prize-only partial slots; 0 unresolved slots. Counts reconciled against the 120-file cross-file audit.",
+      "pdf_extraction": "29 complete sheets (3828 entries), 33 partial slots, 0 unresolved slots; counts are unique date/draw groups, not raw file rows.",
+      "full_tier_draws": 29,
+      "full_tier_entries": 3828,
+      "partial_draws": 33,
       "unresolved_draws": 0,
       "full_tier_new_draws_2026_11_19_ab": 2,
       "full_tier_new_draws_2026_11_19_ac2": 2,
       "full_tier_expected_draw_slots": 62,
       "full_tier_unresolved_draw_slots": 0,
-      "partial_first_prize_only_slots": 36,
+      "partial_first_prize_only_slots": 33,
       "full_tier_new_draws_2026_11_21": 1,
-      "notes": "May 3 8PM full sheet imported from PDF text on 2026-11-21; May 3 1PM PDF agrees with the existing 132-row sheet. Lower tiers remain single-source pending review."
+      "notes": "May 3 8PM full sheet imported from PDF text on 2026-11-21; May 3 1PM PDF agrees with the existing 132-row sheet. Lower tiers remain single-source pending review. Cross-file audit 2026-11-21 confirms 29 unique complete sheets, 33 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once."
     },
     {
       "month": "june",
-      "status": "first_prize_recovered",
+      "status": "partial_first_prize_only",
       "first_prize_records": 60,
       "first_prize_coverage": "All 30 dates, both 1PM and 8PM",
       "first_prize_sources": [
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "22 full 132-entry sheets (2,904 entries); 38 first-prize-only known draw slots; 0 unresolved slots. June 27 both draws newly imported from PDF text.",
-      "pdf_extraction": "22 full sheets (2,904 entries), 38 first-prize-only partial slots, 0 unresolved slots. June 27 both 1PM and 8PM sheets newly imported on 2026-11-21.",
+      "full_tier_recovery": "24 unique full 132-entry sheets (3168 entries); 36 first-prize-only partial slots; 0 unresolved slots. Counts reconciled against the 120-file cross-file audit.",
+      "pdf_extraction": "24 complete sheets (3168 entries), 36 partial slots, 0 unresolved slots; counts are unique date/draw groups, not raw file rows.",
       "archive_url": "https://lotterysambad.icu/old-result/june-2025",
-      "full_tier_draws": 22,
-      "full_tier_entries": 2904,
-      "partial_draws": 38,
+      "full_tier_draws": 24,
+      "full_tier_entries": 3168,
+      "partial_draws": 36,
       "unresolved_draws": 0,
       "full_tier_new_draws_2026_11_19_ab": 2,
       "full_tier_new_draws_2026_11_19_ac2": 2,
       "full_tier_expected_draw_slots": 60,
       "full_tier_unresolved_draw_slots": 0,
-      "partial_first_prize_only_slots": 38,
+      "partial_first_prize_only_slots": 36,
       "full_tier_new_draws_2026_11_21": 2,
-      "notes": "June 27 1PM and 8PM full sheets imported from opened PDF text on 2026-11-21; first prizes cross-source matched, lower tiers single-source pending review."
+      "notes": "June 27 1PM and 8PM full sheets imported from opened PDF text on 2026-11-21; first prizes cross-source matched, lower tiers single-source pending review. Cross-file audit 2026-11-21 confirms 24 unique complete sheets, 36 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once."
     },
     {
       "month": "july",
-      "status": "first_prize_recovered",
+      "status": "partial_first_prize_only",
       "first_prize_records": 62,
       "first_prize_coverage": "All 31 dates, both 1PM and 8PM",
       "first_prize_sources": [
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "33 full 132-entry sheets (4356 entries); 29 first-prize-only known draw slots; 0 unresolved draw slots. Newly recovered: Jul 15, Jul 16 and Jul 26 both draws.",
-      "notes": "July 7 8PM, July 17 1PM and July 27 1PM daily PDFs located as examples; continue extracting full tiers",
-      "full_tier_draws": 33,
-      "full_tier_entries": 4356,
-      "partial_draws": 29,
+      "full_tier_recovery": "37 unique full 132-entry sheets (4884 entries); 25 first-prize-only partial slots; 0 unresolved slots. Counts reconciled against the 120-file cross-file audit.",
+      "notes": "July 7 8PM, July 17 1PM and July 27 1PM daily PDFs located as examples; continue extracting full tiers Cross-file audit 2026-11-21 confirms 37 unique complete sheets, 25 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once.",
+      "full_tier_draws": 37,
+      "full_tier_entries": 4884,
+      "partial_draws": 25,
       "unresolved_draws": 0,
-      "pdf_extraction": "33 full sheets (4356 entries), 29 first-prize-only partial slots, 0 unresolved slots.",
+      "pdf_extraction": "37 complete sheets (4884 entries), 25 partial slots, 0 unresolved slots; counts are unique date/draw groups, not raw file rows.",
       "full_tier_new_draws_2026_11_19_ab": 2,
       "full_tier_new_draws_2026_11_19_ac2": 2,
       "full_tier_expected_draw_slots": 62,
       "full_tier_unresolved_draw_slots": 0,
-      "partial_first_prize_only_slots": 29
+      "partial_first_prize_only_slots": 25
     },
     {
       "month": "august",
-      "status": "first_prize_recovered_with_date_gap",
+      "status": "partial_and_unresolved",
       "first_prize_records": 60,
       "first_prize_coverage": "30 dates; both 1PM and 8PM. August 15 has ***** in the KLL yearly chart for all draws and no result row in Goodreturns monthly chart; not treated as a confirmed no-draw.",
       "first_prize_sources": [
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://www.kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "38 full 132-entry sheets (5,016 entries); 22 first-prize-only known draw slots; 2 unresolved draw slots. Newly imported: Aug 21 8PM, Aug 22 both draws, and Aug 23 8PM from daily archive HTML.",
-      "notes": "Aug 21 8PM, Aug 22 1PM/8PM and Aug 23 8PM imported from daily HTML pages. First prizes cross-source matched to Goodreturns and KLL; lower tiers remain single-source pending review. Original PDFs were not linked, so no binaries or hashes.",
+      "full_tier_recovery": "38 unique full 132-entry sheets (5016 entries); 22 first-prize-only partial slots; 2 unresolved slots. Counts reconciled against the 120-file cross-file audit.",
+      "notes": "Aug 21 8PM, Aug 22 1PM/8PM and Aug 23 8PM imported from daily HTML pages. First prizes cross-source matched to Goodreturns and KLL; lower tiers remain single-source pending review. Original PDFs were not linked, so no binaries or hashes. Cross-file audit 2026-11-21 confirms 38 unique complete sheets, 22 partial slots and 2 unresolved slots. Duplicate copies are retained but counted once.",
       "full_tier_draws": 38,
       "full_tier_entries": 5016,
       "partial_draws": 22,
       "unresolved_draws": 2,
-      "pdf_extraction": "38 full sheets (5,016 entries), 22 partial slots, 2 unresolved. Four additional 132-entry sheets were imported from lotterysambad.co daily HTML pages on 2026-11-21; no direct PDF links were exposed on those pages.",
+      "pdf_extraction": "38 complete sheets (5016 entries), 22 partial slots, 2 unresolved slots; counts are unique date/draw groups, not raw file rows.",
       "full_tier_new_draws_2026_11_19_ab": 2,
       "full_tier_new_draws_2026_11_19_ac2": 2,
       "full_tier_expected_draw_slots": 62,
@@ -271,39 +274,40 @@
     },
     {
       "month": "september",
-      "status": "first_prize_recovered",
+      "status": "partial_first_prize_only",
       "first_prize_records": 60,
       "first_prize_coverage": "All 30 dates, both 1PM and 8PM",
       "first_prize_sources": [
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "30 full 132-entry sheets (3960 entries); 30 first-prize-only known draw slots; 0 unresolved draw slots. Newly recovered: Sep 15 both draws, Sep 16 both draws, Sep 25 both draws and Sep 26 1PM.",
-      "full_tier_draws": 30,
-      "full_tier_entries": 3960,
-      "partial_draws": 30,
+      "full_tier_recovery": "32 unique full 132-entry sheets (4224 entries); 28 first-prize-only partial slots; 0 unresolved slots. Counts reconciled against the 120-file cross-file audit.",
+      "full_tier_draws": 32,
+      "full_tier_entries": 4224,
+      "partial_draws": 28,
       "unresolved_draws": 0,
-      "pdf_extraction": "30 full sheets (3960 entries), 30 first-prize-only partial slots, 0 unresolved slots.",
+      "pdf_extraction": "32 complete sheets (4224 entries), 28 partial slots, 0 unresolved slots; counts are unique date/draw groups, not raw file rows.",
       "full_tier_expected_draw_slots": 60,
       "full_tier_unresolved_draw_slots": 0,
-      "partial_first_prize_only_slots": 30
+      "partial_first_prize_only_slots": 28,
+      "notes": "Cross-file audit 2026-11-21 confirms 32 unique complete sheets, 28 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once."
     },
     {
       "month": "october",
-      "status": "first_prize_recovered_with_date_gap",
+      "status": "partial_and_unresolved",
       "first_prize_records": 60,
       "first_prize_coverage": "30 dates, both 1PM and 8PM; October 2 unresolved; 60 rows present in the committed monthly CSV.",
       "first_prize_sources": [
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "33 full 132-entry sheets (4356 entries); 27 first-prize-only known draw slots; 2 unresolved draw slots. Newly recovered: Oct 1 8PM, Oct 15 both draws, Oct 16 both draws and Oct 27 8PM.",
-      "notes": "October 2 unresolved; no inference of no draw",
+      "full_tier_recovery": "33 unique full 132-entry sheets (4356 entries); 27 first-prize-only partial slots; 2 unresolved slots. Counts reconciled against the 120-file cross-file audit.",
+      "notes": "October 2 unresolved; no inference of no draw Cross-file audit 2026-11-21 confirms 33 unique complete sheets, 27 partial slots and 2 unresolved slots. Duplicate copies are retained but counted once.",
       "full_tier_draws": 33,
       "full_tier_entries": 4356,
       "partial_draws": 27,
       "unresolved_draws": 2,
-      "pdf_extraction": "33 full sheets (4356 entries), 27 first-prize-only partial slots, 2 unresolved slots.",
+      "pdf_extraction": "33 complete sheets (4356 entries), 27 partial slots, 2 unresolved slots; counts are unique date/draw groups, not raw file rows.",
       "full_tier_expected_draw_slots": 62,
       "full_tier_unresolved_draw_slots": 2,
       "partial_first_prize_only_slots": 27
@@ -311,20 +315,20 @@
     {
       "month": "november",
       "archive_url": "https://lotterysambad.icu/old-result/november-2025",
-      "status": "first_prize_recovered",
+      "status": "partial_first_prize_only",
       "first_prize_records": 60,
       "first_prize_coverage": "All 30 dates, both 1PM and 8PM",
       "first_prize_sources": [
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "29 full 132-entry sheets (3,828 entries); 31 first-prize-only known draw slots; 0 unresolved. Newly imported on 2026-11-21: Nov 12 both, Nov 13 1PM, Nov 22 both, Nov 24 both.",
-      "notes": "Nov 12 1PM/8PM, Nov 13 1PM, Nov 22 1PM/8PM, and Nov 24 1PM/8PM imported from full archive result pages. Nov 13 8PM was already in official gazette batch. First prizes cross-source matched; lower tiers single-source pending review. No direct PDF binaries or hashes.",
+      "full_tier_recovery": "29 unique full 132-entry sheets (3828 entries); 31 first-prize-only partial slots; 0 unresolved slots. Counts reconciled against the 120-file cross-file audit.",
+      "notes": "Nov 12 1PM/8PM, Nov 13 1PM, Nov 22 1PM/8PM, and Nov 24 1PM/8PM imported from full archive result pages. Nov 13 8PM was already in official gazette batch. First prizes cross-source matched; lower tiers single-source pending review. No direct PDF binaries or hashes. Cross-file audit 2026-11-21 confirms 29 unique complete sheets, 31 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once.",
       "full_tier_draws": 29,
       "full_tier_entries": 3828,
       "partial_draws": 31,
       "unresolved_draws": 0,
-      "pdf_extraction": "29 full sheets (3,828 entries), 31 partial slots, 0 unresolved. Seven additional sheets were imported from dearlottery.com.co archive pages on 2026-11-21; no direct PDF links were available for these additions.",
+      "pdf_extraction": "29 complete sheets (3828 entries), 31 partial slots, 0 unresolved slots; counts are unique date/draw groups, not raw file rows.",
       "full_tier_expected_draw_slots": 60,
       "full_tier_unresolved_draw_slots": 0,
       "partial_first_prize_only_slots": 31,
@@ -340,15 +344,16 @@
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "62 full 132-entry sheets (8184 entries); 0 first-prize-only known draw slots; 0 unresolved draw slots.",
+      "full_tier_recovery": "62 unique full 132-entry sheets (8184 entries); 0 first-prize-only partial slots; 0 unresolved slots. Counts reconciled against the 120-file cross-file audit.",
       "full_tier_draws": 62,
       "full_tier_entries": 8184,
       "partial_draws": 0,
       "unresolved_draws": 0,
-      "pdf_extraction": "62 full sheets (8184 entries), 0 first-prize-only partial slots, 0 unresolved slots.",
+      "pdf_extraction": "62 complete sheets (8184 entries), 0 partial slots, 0 unresolved slots; counts are unique date/draw groups, not raw file rows.",
       "full_tier_expected_draw_slots": 62,
       "full_tier_unresolved_draw_slots": 0,
-      "partial_first_prize_only_slots": 0
+      "partial_first_prize_only_slots": 0,
+      "notes": "Cross-file audit 2026-11-21 confirms 62 unique complete sheets, 0 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once."
     }
   ],
   "sample_full_pdfs": [
@@ -1972,9 +1977,9 @@
     "binary_pdf_preserved": false,
     "sha256_calculated": false
   },
-  "full_tier_total_draws": 475,
-  "full_tier_total_entries": 62700,
-  "full_tier_clean_tier_count_draws": 475,
+  "full_tier_total_draws": 522,
+  "full_tier_total_entries": 68904,
+  "full_tier_clean_tier_count_draws": 522,
   "full_tier_source_conflict_draws": 0,
   "full_tier_batch_2026_11_19_c": {
     "file": "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_c.csv",
@@ -2695,7 +2700,7 @@
     "2025-11-16 1PM",
     "2025-11-16 8PM"
   ],
-  "full_tier_partial_draws": 249,
+  "full_tier_partial_draws": 202,
   "full_tier_unresolved_draws": 6,
   "full_tier_batch_2026_11_19_ac": {
     "file": "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_ac.csv",
@@ -4609,16 +4614,21 @@
     }
   ],
   "audit_reconciliation": {
-    "deduplicated_full_sheet_count": 475,
-    "deduplicated_full_sheet_entries": 62700,
-    "first_prize_only_partial_slots": 249,
+    "source_files_audited": 120,
+    "deduplicated_full_sheet_count": 522,
+    "deduplicated_full_sheet_entries": 68904,
+    "first_prize_only_partial_slots": 202,
+    "partial_or_malformed_groups": 0,
     "unresolved_draw_slots": 6,
     "unresolved_source_conflicts": 0,
-    "monthly_manifest_full_sheet_sum": 511,
-    "discrepancy_sheets": 36,
-    "status": "provisional_pending_full_cross_file_deduplication",
+    "monthly_manifest_full_sheet_sum": 522,
+    "monthly_manifest_partial_sum": 202,
+    "discrepancy_sheets": 0,
+    "duplicate_identical_or_order_equivalent_copies": 11,
+    "ordering_variants_resolved": 1,
+    "status": "reconciled_2026-11-21",
     "retrieval_date": "2026-11-21",
-    "note": "Adds four unique November 2025 full sheets (Nov 22 both and Nov 24 both) to the prior provisional 471/253/6 audit. Monthly manifest now sums to 511 full sheets; provisional deduplicated count is 475, leaving a 36-sheet discrepancy requiring a fresh full cross-file reconciliation. New sheets came from dearlottery.com.co HTML result pages, not PDF binaries."
+    "note": "All 120 2025 full-tier CSV files were audited. 522 unique 1PM/8PM draw groups have exactly 132 entries (1 first, 1 consolation, 10 second, 10 third, 10 fourth, 100 fifth). 202 slots remain first-prize-only; 6 slots remain unresolved (Jan 26, Aug 15, Oct 2, both draws); 0 number conflicts remain. Eleven duplicate or order-equivalent source copies are retained and counted once. Jan 1 1PM's 'Consolation' label was case-normalized for audit only. Oct 1 8PM's two files contain identical number sets per tier; only row ordering differs, so it is not a number conflict. 6PM excluded from all audit groups."
   },
   "pending_extractions": [],
   "april_2025_pdf_text_checks_2026_11_21": [
