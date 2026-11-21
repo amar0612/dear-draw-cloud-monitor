@@ -17,6 +17,25 @@ PATTERNS = {
  "5th": re.compile(r"^[0-9]{4}$"),
 }
 
+def is_complete_master(rows):
+    if len(rows) != 132 or Counter(r.get("prize_tier") for r in rows) != Counter(EXPECTED):
+        return False
+    seen=set()
+    for r in rows:
+        tier=r.get("prize_tier","")
+        try: pos=int(r.get("position",""))
+        except ValueError: return False
+        if tier not in EXPECTED or not 1 <= pos <= EXPECTED[tier] or (tier,pos) in seen:
+            return False
+        if not PATTERNS[tier].fullmatch((r.get("winning_number") or "").strip()):
+            return False
+        seen.add((tier,pos))
+    if len(seen) != 132:
+        return False
+    first=next((r.get("winning_number","") for r in rows if r.get("prize_tier")=="1st"),"")
+    cons=next((r.get("winning_number","") for r in rows if r.get("prize_tier")=="Consolation"),"")
+    return bool(first and cons and first[-5:] == cons)
+
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--input", required=True)
@@ -77,7 +96,7 @@ def main():
     add={}
     replace={}
     for key,rows in valid.items():
-        if len(existing_groups.get(key,[]))==132:
+        if is_complete_master(existing_groups.get(key,[])):
             # Never overwrite an already complete master draw automatically.
             continue
         if existing_groups.get(key): replace[key]=rows
