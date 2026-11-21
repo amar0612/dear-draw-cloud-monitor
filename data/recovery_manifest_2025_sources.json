@@ -90,13 +90,23 @@
       "domain": "dearlottery.com.co",
       "index_url": "https://dearlottery.com.co/old/2025/november",
       "status": "Newly identified 2026-11-21. Full 1PM/8PM result pages provide 1st–5th prize text and first-prize charts; 3 sheets imported (Nov 12 1PM/8PM, Nov 13 1PM). First prizes cross-source matched to Goodreturns and KLL. No direct PDF links on these pages; original binaries and SHA-256 not preserved. API docs state historical API search limited to last 7 days; website archive pages used instead. 6PM excluded."
+    },
+    {
+      "domain": "finance.nagaland.gov.in",
+      "index_url": "https://finance.nagaland.gov.in/Content/Files/9C954D4E-B813-441C-8A72-189A9117272A.pdf",
+      "status": "Official Nagaland State Lotteries rule: draws are held 362 days and not held on 26 January, 15 August and 2 October. Used to confirm 2025 holiday no-draw slots."
+    },
+    {
+      "domain": "govtpress.nagaland.gov.in",
+      "index_url": "https://govtpress.nagaland.gov.in/wp-content/uploads/2024/12/mastercopy-30-Nov-compressed.pdf",
+      "status": "Official Nagaland Gazette, 30 Nov 2024, Annexure III: 2025 public holidays include Jan 26, Aug 15 and Oct 1–2. Used with official lottery rule to confirm no-draw slots."
     }
   ],
   "months": [
     {
       "month": "january",
       "archive_url": "https://lotterysambad.icu/old-result/january-2025",
-      "status": "partial_and_unresolved",
+      "status": "full_tier_recovered",
       "first_prize_records": 60,
       "first_prize_coverage": "30 dates with both 1PM and 8PM; January 26 absent from both yearly chart sources and retained unresolved, not no-draw",
       "first_prize_sources": [
@@ -108,11 +118,12 @@
       "full_tier_draws": 60,
       "full_tier_entries": 7920,
       "partial_draws": 0,
-      "unresolved_draws": 2,
+      "unresolved_draws": 0,
       "full_tier_expected_draw_slots": 62,
-      "full_tier_unresolved_draw_slots": 2,
+      "full_tier_unresolved_draw_slots": 0,
       "partial_first_prize_only_slots": 0,
-      "notes": "Cross-file audit 2026-11-21 confirms 60 unique complete sheets, 0 partial slots and 2 unresolved slots. Duplicate copies are retained but counted once."
+      "notes": "Cross-file audit 2026-11-21 confirms 60 unique complete sheets, 0 partial slots and 2 unresolved slots. Duplicate copies are retained but counted once. 2 1PM/8PM slots are confirmed no-draw national holidays under the official Nagaland State Lotteries rule and 2025 Gazette holiday calendar.",
+      "no_draw_confirmed_slots": 2
     },
     {
       "month": "february",
@@ -133,7 +144,8 @@
       "full_tier_expected_draw_slots": 56,
       "full_tier_unresolved_draw_slots": 0,
       "partial_first_prize_only_slots": 0,
-      "notes": "Cross-file audit 2026-11-21 confirms 56 unique complete sheets, 0 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once."
+      "notes": "Cross-file audit 2026-11-21 confirms 56 unique complete sheets, 0 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once.",
+      "no_draw_confirmed_slots": 0
     },
     {
       "month": "march",
@@ -154,7 +166,8 @@
       "full_tier_expected_draw_slots": 62,
       "full_tier_unresolved_draw_slots": 0,
       "partial_first_prize_only_slots": 0,
-      "notes": "Cross-file audit 2026-11-21 confirms 62 unique complete sheets, 0 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once."
+      "notes": "Cross-file audit 2026-11-21 confirms 62 unique complete sheets, 0 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once.",
+      "no_draw_confirmed_slots": 0
     },
     {
       "month": "april",
@@ -177,7 +190,8 @@
       "full_tier_unresolved_draw_slots": 0,
       "partial_first_prize_only_slots": 0,
       "full_tier_new_draws_2026_11_21": 18,
-      "notes": "All 60 April 1PM/8PM draw slots now have complete 132-entry sheets. One duplicate April 15 1PM sheet is retained in two CSV files and counted once. Newly imported April PDFs are text-layer extracted; original binary files were not preserved, so no SHA-256 values are available. Lower tiers are single-source pending review. Cross-file audit 2026-11-21 confirms 60 unique complete sheets, 0 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once."
+      "notes": "All 60 April 1PM/8PM draw slots now have complete 132-entry sheets. One duplicate April 15 1PM sheet is retained in two CSV files and counted once. Newly imported April PDFs are text-layer extracted; original binary files were not preserved, so no SHA-256 values are available. Lower tiers are single-source pending review. Cross-file audit 2026-11-21 confirms 60 unique complete sheets, 0 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once.",
+      "no_draw_confirmed_slots": 0
     },
     {
       "month": "may",
@@ -201,7 +215,8 @@
       "full_tier_unresolved_draw_slots": 0,
       "partial_first_prize_only_slots": 33,
       "full_tier_new_draws_2026_11_21": 1,
-      "notes": "May 3 8PM full sheet imported from PDF text on 2026-11-21; May 3 1PM PDF agrees with the existing 132-row sheet. Lower tiers remain single-source pending review. Cross-file audit 2026-11-21 confirms 29 unique complete sheets, 33 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once."
+      "notes": "May 3 8PM full sheet imported from PDF text on 2026-11-21; May 3 1PM PDF agrees with the existing 132-row sheet. Lower tiers remain single-source pending review. Cross-file audit 2026-11-21 confirms 29 unique complete sheets, 33 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once.",
+      "no_draw_confirmed_slots": 0
     },
     {
       "month": "june",
@@ -225,7 +240,8 @@
       "full_tier_unresolved_draw_slots": 0,
       "partial_first_prize_only_slots": 36,
       "full_tier_new_draws_2026_11_21": 2,
-      "notes": "June 27 1PM and 8PM full sheets imported from opened PDF text on 2026-11-21; first prizes cross-source matched, lower tiers single-source pending review. Cross-file audit 2026-11-21 confirms 24 unique complete sheets, 36 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once."
+      "notes": "June 27 1PM and 8PM full sheets imported from opened PDF text on 2026-11-21; first prizes cross-source matched, lower tiers single-source pending review. Cross-file audit 2026-11-21 confirms 24 unique complete sheets, 36 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once.",
+      "no_draw_confirmed_slots": 0
     },
     {
       "month": "july",
@@ -247,11 +263,12 @@
       "full_tier_new_draws_2026_11_19_ac2": 2,
       "full_tier_expected_draw_slots": 62,
       "full_tier_unresolved_draw_slots": 0,
-      "partial_first_prize_only_slots": 25
+      "partial_first_prize_only_slots": 25,
+      "no_draw_confirmed_slots": 0
     },
     {
       "month": "august",
-      "status": "partial_and_unresolved",
+      "status": "partial_extraction_review",
       "first_prize_records": 60,
       "first_prize_coverage": "30 dates; both 1PM and 8PM. August 15 has ***** in the KLL yearly chart for all draws and no result row in Goodreturns monthly chart; not treated as a confirmed no-draw.",
       "first_prize_sources": [
@@ -259,18 +276,19 @@
         "https://www.kllotteryresults.in/dear-lottery-chart/2025"
       ],
       "full_tier_recovery": "38 unique full 132-entry sheets (5016 entries); 22 first-prize-only partial slots; 2 unresolved slots. Counts reconciled against the 120-file cross-file audit.",
-      "notes": "Aug 21 8PM, Aug 22 1PM/8PM and Aug 23 8PM imported from daily HTML pages. First prizes cross-source matched to Goodreturns and KLL; lower tiers remain single-source pending review. Original PDFs were not linked, so no binaries or hashes. Cross-file audit 2026-11-21 confirms 38 unique complete sheets, 22 partial slots and 2 unresolved slots. Duplicate copies are retained but counted once.",
+      "notes": "Aug 21 8PM, Aug 22 1PM/8PM and Aug 23 8PM imported from daily HTML pages. First prizes cross-source matched to Goodreturns and KLL; lower tiers remain single-source pending review. Original PDFs were not linked, so no binaries or hashes. Cross-file audit 2026-11-21 confirms 38 unique complete sheets, 22 partial slots and 2 unresolved slots. Duplicate copies are retained but counted once. 2 1PM/8PM slots are confirmed no-draw national holidays under the official Nagaland State Lotteries rule and 2025 Gazette holiday calendar.",
       "full_tier_draws": 38,
       "full_tier_entries": 5016,
       "partial_draws": 22,
-      "unresolved_draws": 2,
+      "unresolved_draws": 0,
       "pdf_extraction": "38 complete sheets (5016 entries), 22 partial slots, 2 unresolved slots; counts are unique date/draw groups, not raw file rows.",
       "full_tier_new_draws_2026_11_19_ab": 2,
       "full_tier_new_draws_2026_11_19_ac2": 2,
       "full_tier_expected_draw_slots": 62,
-      "full_tier_unresolved_draw_slots": 2,
+      "full_tier_unresolved_draw_slots": 0,
       "partial_first_prize_only_slots": 22,
-      "full_tier_new_draws_2026_11_21": 4
+      "full_tier_new_draws_2026_11_21": 4,
+      "no_draw_confirmed_slots": 2
     },
     {
       "month": "september",
@@ -290,11 +308,12 @@
       "full_tier_expected_draw_slots": 60,
       "full_tier_unresolved_draw_slots": 0,
       "partial_first_prize_only_slots": 28,
-      "notes": "Cross-file audit 2026-11-21 confirms 32 unique complete sheets, 28 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once."
+      "notes": "Cross-file audit 2026-11-21 confirms 32 unique complete sheets, 28 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once.",
+      "no_draw_confirmed_slots": 0
     },
     {
       "month": "october",
-      "status": "partial_and_unresolved",
+      "status": "partial_extraction_review",
       "first_prize_records": 60,
       "first_prize_coverage": "30 dates, both 1PM and 8PM; October 2 unresolved; 60 rows present in the committed monthly CSV.",
       "first_prize_sources": [
@@ -302,15 +321,16 @@
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
       "full_tier_recovery": "33 unique full 132-entry sheets (4356 entries); 27 first-prize-only partial slots; 2 unresolved slots. Counts reconciled against the 120-file cross-file audit.",
-      "notes": "October 2 unresolved; no inference of no draw Cross-file audit 2026-11-21 confirms 33 unique complete sheets, 27 partial slots and 2 unresolved slots. Duplicate copies are retained but counted once.",
+      "notes": "October 2 unresolved; no inference of no draw Cross-file audit 2026-11-21 confirms 33 unique complete sheets, 27 partial slots and 2 unresolved slots. Duplicate copies are retained but counted once. 2 1PM/8PM slots are confirmed no-draw national holidays under the official Nagaland State Lotteries rule and 2025 Gazette holiday calendar.",
       "full_tier_draws": 33,
       "full_tier_entries": 4356,
       "partial_draws": 27,
-      "unresolved_draws": 2,
+      "unresolved_draws": 0,
       "pdf_extraction": "33 complete sheets (4356 entries), 27 partial slots, 2 unresolved slots; counts are unique date/draw groups, not raw file rows.",
       "full_tier_expected_draw_slots": 62,
-      "full_tier_unresolved_draw_slots": 2,
-      "partial_first_prize_only_slots": 27
+      "full_tier_unresolved_draw_slots": 0,
+      "partial_first_prize_only_slots": 27,
+      "no_draw_confirmed_slots": 2
     },
     {
       "month": "november",
@@ -332,7 +352,8 @@
       "full_tier_expected_draw_slots": 60,
       "full_tier_unresolved_draw_slots": 0,
       "partial_first_prize_only_slots": 31,
-      "full_tier_new_draws_2026_11_21": 7
+      "full_tier_new_draws_2026_11_21": 7,
+      "no_draw_confirmed_slots": 0
     },
     {
       "month": "december",
@@ -353,7 +374,8 @@
       "full_tier_expected_draw_slots": 62,
       "full_tier_unresolved_draw_slots": 0,
       "partial_first_prize_only_slots": 0,
-      "notes": "Cross-file audit 2026-11-21 confirms 62 unique complete sheets, 0 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once."
+      "notes": "Cross-file audit 2026-11-21 confirms 62 unique complete sheets, 0 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once.",
+      "no_draw_confirmed_slots": 0
     }
   ],
   "sample_full_pdfs": [
@@ -1777,7 +1799,7 @@
   "first_prize_total_records": 724,
   "expected_draw_slots": 730,
   "first_prize_recovered_draws": 724,
-  "first_prize_unresolved_draws": 6,
+  "first_prize_unresolved_draws": 0,
   "archive_month_pages_checked": [
     {
       "month": "january",
@@ -2701,7 +2723,7 @@
     "2025-11-16 8PM"
   ],
   "full_tier_partial_draws": 202,
-  "full_tier_unresolved_draws": 6,
+  "full_tier_unresolved_draws": 0,
   "full_tier_batch_2026_11_19_ac": {
     "file": "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_ac.csv",
     "draws": 10,
@@ -4619,16 +4641,19 @@
     "deduplicated_full_sheet_entries": 68904,
     "first_prize_only_partial_slots": 202,
     "partial_or_malformed_groups": 0,
-    "unresolved_draw_slots": 6,
+    "unresolved_draw_slots": 0,
     "unresolved_source_conflicts": 0,
+    "resolved_source_conflict_draws": 2,
+    "no_draw_confirmed_slots": 6,
+    "expected_draw_slots": 730,
     "monthly_manifest_full_sheet_sum": 522,
     "monthly_manifest_partial_sum": 202,
     "discrepancy_sheets": 0,
     "duplicate_identical_or_order_equivalent_copies": 11,
     "ordering_variants_resolved": 1,
-    "status": "reconciled_2026-11-21",
+    "status": "reconciled_with_holiday_exclusions_2026-11-21",
     "retrieval_date": "2026-11-21",
-    "note": "All 120 2025 full-tier CSV files were audited. 522 unique 1PM/8PM draw groups have exactly 132 entries (1 first, 1 consolation, 10 second, 10 third, 10 fourth, 100 fifth). 202 slots remain first-prize-only; 6 slots remain unresolved (Jan 26, Aug 15, Oct 2, both draws); 0 number conflicts remain. Eleven duplicate or order-equivalent source copies are retained and counted once. Jan 1 1PM's 'Consolation' label was case-normalized for audit only. Oct 1 8PM's two files contain identical number sets per tier; only row ordering differs, so it is not a number conflict. 6PM excluded from all audit groups."
+    "note": "All 120 2025 full-tier CSV files were audited. 522 unique 1PM/8PM draw groups have exactly 132 entries (1 first, 1 consolation, 10 second, 10 third, 10 fourth, 100 fifth). 202 slots remain first-prize-only; 6 scheduled slots are confirmed no-draw national holidays (Jan 26, Aug 15, Oct 2; both 1PM/8PM); 0 unresolved slots; 0 unresolved number conflicts. Two June 30 source conflicts are resolved and retained as alternate candidates. Eleven duplicate or order-equivalent source copies are retained and counted once. Jan 1 1PM's 'Consolation' label was case-normalized for audit only. Oct 1 8PM's two files contain identical number sets per tier; only row ordering differs. 6PM excluded from all audit groups."
   },
   "pending_extractions": [],
   "april_2025_pdf_text_checks_2026_11_21": [
@@ -5177,5 +5202,25 @@
       "sha256": null,
       "excluded_draw": "6PM"
     }
-  ]
+  ],
+  "no_draw_confirmed_slots": 6,
+  "holiday_no_draws_2025": {
+    "file": "data/recovery_holiday_no_draws_2025.csv",
+    "dates": [
+      "2025-01-26",
+      "2025-08-15",
+      "2025-10-02"
+    ],
+    "draws_per_date": [
+      "1PM",
+      "8PM"
+    ],
+    "slot_count": 6,
+    "status": "no_draw_confirmed_holiday",
+    "rule_url": "https://finance.nagaland.gov.in/Content/Files/9C954D4E-B813-441C-8A72-189A9117272A.pdf",
+    "official_2025_holiday_calendar_url": "https://govtpress.nagaland.gov.in/wp-content/uploads/2024/12/mastercopy-30-Nov-compressed.pdf",
+    "additional_october_archive_url": "https://dearlottery.com.co/old/2025/october",
+    "retrieval_date": "2026-11-21",
+    "note": "The official Nagaland State Lotteries rule states draws occur 362 days per year and excludes 26 January, 15 August and 2 October. The 2025 Nagaland Gazette lists those dates as Republic Day, Independence Day and Dussehra/Gandhi Jayanti holidays. October archive explicitly marks 2 October Holiday. This is positive rule/calendar evidence, not an inference from broken links."
+  }
 }
