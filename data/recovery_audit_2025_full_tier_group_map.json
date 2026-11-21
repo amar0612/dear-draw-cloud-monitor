@@ -2,7 +2,7 @@
   "generated_on": "2026-11-21",
   "branch": "recovery/2025-full-year",
   "method": "Group all 2025 full-tier CSV rows by date/draw; compare normalized tier-position-number signatures across files. 32-bit FNV-1a signatures are only for duplicate comparison, not cryptographic integrity. SHA-256 for source PDFs remains separate and unavailable where binaries were not saved.",
-  "source_file_count": 125,
+  "source_file_count": 126,
   "source_files": [
     "data/recovered_draws_2025-01-01-1pm-full.csv",
     "data/recovered_draws_2025-03-01-10-21-full.csv",
@@ -128,7 +128,8 @@
     "data/recovered_draws_2025-11-10_19_25_27_crosssource_full.csv",
     "data/recovered_draws_2025-11-25_8pm_101_fifth_source_candidate.csv",
     "data/recovered_draws_2025-11-14_and_17_full.csv",
-    "data/recovered_draws_2025-11-20_21_23_26_28_full.csv"
+    "data/recovered_draws_2025-11-20_21_23_26_28_full.csv",
+    "data/recovered_draws_2025-11-11_21_23_29_full.csv"
   ],
   "processed_files": [
     "data/recovered_draws_2025-01-01-1pm-full.csv",
@@ -255,7 +256,8 @@
     "data/recovered_draws_2025-11-10_19_25_27_crosssource_full.csv",
     "data/recovered_draws_2025-11-25_8pm_101_fifth_source_candidate.csv",
     "data/recovered_draws_2025-11-14_and_17_full.csv",
-    "data/recovered_draws_2025-11-20_21_23_26_28_full.csv"
+    "data/recovered_draws_2025-11-20_21_23_26_28_full.csv",
+    "data/recovered_draws_2025-11-11_21_23_29_full.csv"
   ],
   "groups": {
     "2025-01-01 1PM": {
@@ -9614,24 +9616,132 @@
       ],
       "duplicate_copies": 0,
       "conflict": false
+    },
+    "2025-11-11 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "04232db1",
+      "signature_basis": "tier_position_number_fnv1a",
+      "files": [
+        "data/recovered_draws_2025-11-11_21_23_29_full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-11-11 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "4c52afe6",
+      "signature_basis": "tier_position_number_fnv1a",
+      "files": [
+        "data/recovered_draws_2025-11-11_21_23_29_full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-11-21 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "cdeed0a9",
+      "signature_basis": "tier_position_number_fnv1a",
+      "files": [
+        "data/recovered_draws_2025-11-11_21_23_29_full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-11-23 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "6c14104e",
+      "signature_basis": "tier_position_number_fnv1a",
+      "files": [
+        "data/recovered_draws_2025-11-11_21_23_29_full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-11-29 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "aac9936b",
+      "signature_basis": "tier_position_number_fnv1a",
+      "files": [
+        "data/recovered_draws_2025-11-11_21_23_29_full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-11-29 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "9dbc2b60",
+      "signature_basis": "tier_position_number_fnv1a",
+      "files": [
+        "data/recovered_draws_2025-11-11_21_23_29_full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
     }
   },
   "summary": {
-    "processed_files": 125,
-    "total_files": 125,
-    "unique_draw_groups": 547,
-    "complete_132_entry_groups": 546,
+    "processed_files": 126,
+    "total_files": 126,
+    "unique_draw_groups": 553,
+    "complete_132_entry_groups": 552,
     "partial_or_malformed_groups": 1,
     "conflicted_groups": 0,
     "duplicate_identical_copies": 11,
     "draws_with_multiple_source_files": 11,
     "ignored_6pm_rows_total": null,
-    "method_note": "Full-tier CSV rows are grouped by date/draw for 1PM and 8PM only. Completeness requires 132 rows with 1 first, 1 consolation, 10 second, 10 third, 10 fourth and 100 fifth entries. Tier labels are case-normalized. Duplicate sheets are compared by the set of winning numbers within each tier, not row order. FNV-1a 32-bit signatures are for duplicate comparison only, not cryptographic integrity. 6PM is excluded from the audit groups. Additional 2026-11-21 cross-source batch: six complete November 1PM/8PM sheets matched tier-by-tier between dearlottery.com.co and lotterysambad.co; the 2025-11-25 8PM candidate contains 101 fifth-tier entries (expected 100), so it is preserved separately and classified malformed/partial rather than certified. 6PM remains excluded. Additional 2026-11-21 batch: Nov 14 1PM/8PM and Nov 17 8PM imported as complete 132-entry sheets. All tiers match between dearlottery.com.co and lotterysambad.co; first prizes also match Goodreturns and KLL. Additional 2026-11-21 batch: eight November full sheets imported from dearlottery.com.co. First prizes are cross-source matched to Lotterysambad, Goodreturns and KLL; lower tiers are retained with single_source_pending_review until a tier-by-tier comparison is completed."
+    "method_note": "Full-tier CSV rows are grouped by date/draw for 1PM and 8PM only. Completeness requires 132 rows with 1 first, 1 consolation, 10 second, 10 third, 10 fourth and 100 fifth entries. Tier labels are case-normalized. Duplicate sheets are compared by the set of winning numbers within each tier, not row order. FNV-1a 32-bit signatures are for duplicate comparison only, not cryptographic integrity. 6PM is excluded from the audit groups. Additional 2026-11-21 cross-source batch: six complete November 1PM/8PM sheets matched tier-by-tier between dearlottery.com.co and lotterysambad.co; the 2025-11-25 8PM candidate contains 101 fifth-tier entries (expected 100), so it is preserved separately and classified malformed/partial rather than certified. 6PM remains excluded. Additional 2026-11-21 batch: Nov 14 1PM/8PM and Nov 17 8PM imported as complete 132-entry sheets. All tiers match between dearlottery.com.co and lotterysambad.co; first prizes also match Goodreturns and KLL. Additional 2026-11-21 batch: eight November full sheets imported from dearlottery.com.co. First prizes are cross-source matched to Lotterysambad, Goodreturns and KLL; lower tiers are retained with single_source_pending_review until a tier-by-tier comparison is completed. Additional 2026-11-21 batch: six November sheets (Nov 11 both, Nov 21 8PM, Nov 23 8PM, Nov 29 both) imported from Lotterysambad daily pages. First prizes cross-source matched to Goodreturns/KLL; lower tiers remain single_source_pending_review."
   },
   "last_chunk": {
     "processed": 1,
-    "groups_added": 8,
-    "file": "data/recovered_draws_2025-11-20_21_23_26_28_full.csv"
+    "groups_added": 6,
+    "file": "data/recovered_draws_2025-11-11_21_23_29_full.csv"
   },
   "ordering_variants": [
     {
