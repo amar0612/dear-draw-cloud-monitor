@@ -1,6 +1,12 @@
 name: Deploy Cloudflare Historical Dispatcher
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'cloudflare-historical-dispatcher/**'
+      - '.github/workflows/deploy-cloudflare-dispatcher.yml'
   workflow_dispatch:
 
 permissions:
