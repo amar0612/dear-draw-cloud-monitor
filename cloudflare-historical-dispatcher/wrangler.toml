@@ -1,0 +1,11 @@
+name = "dear-draw-historical-dispatcher"
+main = "src/index.js"
+compatibility_date = "2026-11-21"
+
+[triggers]
+crons = ["7,22,37,52 * * * *"]
+
+[vars]
+# Keep paused until the Cloudflare worker is deployed and a manual dispatch test succeeds.
+# Enable only after the GitHub Actions schedule is disabled.
+HISTORICAL_CRON_ENABLED = "false"
