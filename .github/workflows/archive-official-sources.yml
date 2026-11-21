@@ -2,7 +2,7 @@ name: Automated 2023 R2 Historical Recovery
 
 on:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "7,22,37,52 * * * *"
   workflow_dispatch:
     inputs:
       batch_size:
