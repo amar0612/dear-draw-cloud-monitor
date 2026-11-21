@@ -7,5 +7,5 @@ compatibility_date = "2026-11-21"
 crons = ["12,27,42,57 * * * *"]
 
 [vars]
-# Keep paused until the dispatcher is tested and the legacy GitHub schedule is disabled.
-HISTORICAL_CRON_ENABLED = "false"
+# Enabled after GitHub credential validation and removal of the legacy GitHub Actions cron.
+HISTORICAL_CRON_ENABLED = "true"
