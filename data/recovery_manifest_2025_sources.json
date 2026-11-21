@@ -68,14 +68,14 @@
       "domain": "lotterysambad.co",
       "type": "daily and monthly result archive with full 1PM/8PM tier tables",
       "index_url": "https://lotterysambad.co/2025/",
-      "status": "January–October daily result pages used for discovery and PDF link navigation; 6PM results excluded from imports. 2025-04-18 1PM and 8PM full-result pages and linked PDFs were opened and extracted; 6PM content was excluded. Additional full 2025 pages opened/extracted: May 3, May 7, July 26, August 24, September 25 and November 15; only 1PM/8PM tables imported, 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 11 and March 12, 1PM and 8PM only; 6PM excluded. Additional full result page and linked PDFs opened/extracted on 2026-11-20: March 18, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 20 and March 22, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 23 and March 24, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 25 and March 26, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 29 and March 30, 1PM and 8PM; 6PM excluded. March 2025 daily archive pages 1–31 were searched; all remaining 1PM/8PM full sheets recovered from linked PDFs on 2026-11-20; 6PM excluded. April 1, 2025 daily page and linked 1PM/8PM PDFs recovered on 2026-11-20 after earlier PDF failures. April 6–8 daily pages and linked 1PM/8PM PDFs recovered on 2026-11-20; 6PM excluded. April 9–13 daily pages and linked 1PM/8PM PDFs recovered on 2026-11-20; 6PM excluded. April 14 and April 20–29 daily pages opened 2026-11-21; 18 linked 1PM/8PM PDFs opened and their PDF text layers reviewed; first-prize series/number matched Goodreturns and five-digit suffixes matched KLL yearly chart. Full 132-entry structured imports remain pending; 6PM excluded.",
+      "status": "January–October daily result pages used for discovery and PDF link navigation; 6PM results excluded from imports. 2025-04-18 1PM and 8PM full-result pages and linked PDFs were opened and extracted; 6PM content was excluded. Additional full 2025 pages opened/extracted: May 3, May 7, July 26, August 24, September 25 and November 15; only 1PM/8PM tables imported, 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 11 and March 12, 1PM and 8PM only; 6PM excluded. Additional full result page and linked PDFs opened/extracted on 2026-11-20: March 18, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 20 and March 22, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 23 and March 24, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 25 and March 26, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 29 and March 30, 1PM and 8PM; 6PM excluded. March 2025 daily archive pages 1–31 were searched; all remaining 1PM/8PM full sheets recovered from linked PDFs on 2026-11-20; 6PM excluded. April 1, 2025 daily page and linked 1PM/8PM PDFs recovered on 2026-11-20 after earlier PDF failures. April 6–8 daily pages and linked 1PM/8PM PDFs recovered on 2026-11-20; 6PM excluded. April 9–13 daily pages and linked 1PM/8PM PDFs recovered on 2026-11-20; 6PM excluded. April 14 and April 20–29 daily pages opened 2026-11-21; 18 linked 1PM/8PM PDFs opened and their PDF text layers reviewed; first-prize series/number matched Goodreturns and five-digit suffixes matched KLL yearly chart. Full 132-entry structured imports remain pending; 6PM excluded. The 18 April 14 and April 20–29 1PM/8PM PDF text extractions were imported as 132-row sheets on 2026-11-21; 6PM excluded. Lower tiers remain single-source pending review.",
       "retrieval_date": "2026-11-20"
     },
     {
       "domain": "o.vcdn.cc",
       "type": "daily PDF host linked from lotterysambad.co full-result pages",
       "index_url": "https://o.vcdn.cc/Dear/MN310125.PDF",
-      "status": "54 daily PDFs opened and text-extracted by 2026-11-19, covering February and March batches. Binary downloads were not preserved. Additional 2025-04-18 PDFs extracted: MN180425.PDF (1PM) and EN180425.PDF (8PM); binary files not preserved. Additional daily PDFs extracted: MN030525.PDF (May 3 1PM), MN070525.PDF (May 7 1PM), MN260725.PDF and EN260725.PDF (July 26 1PM/8PM); binary files not preserved. Additional PDFs parsed 2026-11-20: MN110325.PDF, EN110325.PDF, MN120325.PDF and EN120325.PDF. Binary download attempt failed; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN180325.PDF and EN180325.PDF. Binary download attempt was unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN200325.PDF, EN200325.PDF, MN220325.PDF and EN220325.PDF. Binary downloads were unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN230325.PDF, EN230325.PDF, MN240325.PDF and EN240325.PDF. Binary downloads were unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN250325.PDF, EN250325.PDF, MN260325.PDF and EN260325.PDF. Binary downloads were unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN290325.PDF, EN290325.PDF, MN300325.PDF and EN300325.PDF. Binary downloads were unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20 for all previously missing March 1PM/8PM slots; original binaries could not be downloaded and no SHA-256 values are recorded. April 1 PDFs parsed 2026-11-20: MN010425.PDF and EN010425.PDF. Binary downloads were unavailable; no SHA-256 values recorded. April 6–8 PDFs parsed 2026-11-20: MN060425.PDF, EN060425.PDF, MN070425.PDF, EN070425.PDF, MN080425.PDF and EN080425.PDF. Binary downloads were unavailable; no SHA-256 values recorded. April 9–13 PDFs parsed 2026-11-20: MN090425.PDF, EN090425.PDF, MN100425.PDF, EN100425.PDF, MN110425.PDF, EN110425.PDF, MN120425.PDF, EN120425.PDF, MN130425.PDF and EN130425.PDF. Binary downloads were unavailable; no SHA-256 values recorded. On 2026-11-21, 18 April 2025 PDFs (MN140425, MN200425, EN200425, MN210425, MN220425, EN220425, MN230425, EN230425, EN240425, MN250425, EN250425, MN260425, EN260425, MN270425, EN270425, EN280425, MN290425, EN290425) were opened and text-layer parsed for first-prize cross-checks; full-tier CSV imports remain pending. Binary downloads unavailable; SHA-256 values not recorded.",
+      "status": "54 daily PDFs opened and text-extracted by 2026-11-19, covering February and March batches. Binary downloads were not preserved. Additional 2025-04-18 PDFs extracted: MN180425.PDF (1PM) and EN180425.PDF (8PM); binary files not preserved. Additional daily PDFs extracted: MN030525.PDF (May 3 1PM), MN070525.PDF (May 7 1PM), MN260725.PDF and EN260725.PDF (July 26 1PM/8PM); binary files not preserved. Additional PDFs parsed 2026-11-20: MN110325.PDF, EN110325.PDF, MN120325.PDF and EN120325.PDF. Binary download attempt failed; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN180325.PDF and EN180325.PDF. Binary download attempt was unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN200325.PDF, EN200325.PDF, MN220325.PDF and EN220325.PDF. Binary downloads were unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN230325.PDF, EN230325.PDF, MN240325.PDF and EN240325.PDF. Binary downloads were unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN250325.PDF, EN250325.PDF, MN260325.PDF and EN260325.PDF. Binary downloads were unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20: MN290325.PDF, EN290325.PDF, MN300325.PDF and EN300325.PDF. Binary downloads were unavailable; no SHA-256 values recorded. Additional PDFs parsed 2026-11-20 for all previously missing March 1PM/8PM slots; original binaries could not be downloaded and no SHA-256 values are recorded. April 1 PDFs parsed 2026-11-20: MN010425.PDF and EN010425.PDF. Binary downloads were unavailable; no SHA-256 values recorded. April 6–8 PDFs parsed 2026-11-20: MN060425.PDF, EN060425.PDF, MN070425.PDF, EN070425.PDF, MN080425.PDF and EN080425.PDF. Binary downloads were unavailable; no SHA-256 values recorded. April 9–13 PDFs parsed 2026-11-20: MN090425.PDF, EN090425.PDF, MN100425.PDF, EN100425.PDF, MN110425.PDF, EN110425.PDF, MN120425.PDF, EN120425.PDF, MN130425.PDF and EN130425.PDF. Binary downloads were unavailable; no SHA-256 values recorded. On 2026-11-21, 18 April 2025 PDFs (MN140425, MN200425, EN200425, MN210425, MN220425, EN220425, MN230425, EN230425, EN240425, MN250425, EN250425, MN260425, EN260425, MN270425, EN270425, EN280425, MN290425, EN290425) were opened and text-layer parsed for first-prize cross-checks; full-tier CSV imports remain pending. Binary downloads unavailable; SHA-256 values not recorded. The 18 April 2025 PDF text layers were imported as 132-row sheets on 2026-11-21; original binaries could not be downloaded and SHA-256 hashes remain unavailable.",
       "retrieval_date": "2026-11-20"
     },
     {
@@ -151,23 +151,25 @@
     {
       "month": "april",
       "archive_url": "https://lotterysambad.icu/old-result/april-2025",
-      "status": "first_prize_recovered",
+      "status": "full_tier_recovered",
       "first_prize_records": 60,
       "first_prize_coverage": "All 30 dates, both 1PM and 8PM",
       "first_prize_sources": [
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "41 unique full 132-entry sheets (5412 entries); 19 first-prize-only known draw slots; 0 unresolved draw slots. April 1, 6–8 and 9–13 both draws recovered from o.vcdn.cc PDFs linked by lotterysambad.co; existing full sheets also cover Apr 2–5, 14–19, 21, 24, 28 and 30.",
-      "pdf_extraction": "41 full sheets (5412 entries), 19 partial slots, 0 unresolved; eighteen additional full sheets extracted 2026-11-20 (April 1, 6–8, 9–13).",
-      "full_tier_draws": 41,
-      "full_tier_entries": 5412,
-      "partial_draws": 19,
+      "full_tier_recovery": "60 unique full 132-entry sheets (7,920 entries); 0 first-prize-only partial slots; 0 unresolved slots. The 18 newly imported April 14 and April 20–29 1PM/8PM sheets are in data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv. First-prize values cross-source matched to Goodreturns and KLL; lower tiers remain single-source pending review.",
+      "pdf_extraction": "60 unique full sheets (7,920 entries), 0 partial slots, 0 unresolved slots. Eighteen additional PDFs were opened and imported on 2026-11-21. A duplicate April 15 1PM 132-row sheet exists in two earlier CSV files and is counted once.",
+      "full_tier_draws": 60,
+      "full_tier_entries": 7920,
+      "partial_draws": 0,
       "unresolved_draws": 0,
       "full_tier_new_draws_2026_11_19_ac2": 2,
       "full_tier_expected_draw_slots": 60,
       "full_tier_unresolved_draw_slots": 0,
-      "partial_first_prize_only_slots": 19
+      "partial_first_prize_only_slots": 0,
+      "full_tier_new_draws_2026_11_21": 18,
+      "notes": "All 60 April 1PM/8PM draw slots now have complete 132-entry sheets. One duplicate April 15 1PM sheet is retained in two CSV files and counted once. Newly imported April PDFs are text-layer extracted; original binary files were not preserved, so no SHA-256 values are available. Lower tiers are single-source pending review."
     },
     {
       "month": "may",
@@ -1959,9 +1961,9 @@
     "binary_pdf_preserved": false,
     "sha256_calculated": false
   },
-  "full_tier_total_draws": 374,
-  "full_tier_total_entries": 49368,
-  "full_tier_clean_tier_count_draws": 374,
+  "full_tier_total_draws": 461,
+  "full_tier_total_entries": 60852,
+  "full_tier_clean_tier_count_draws": 461,
   "full_tier_source_conflict_draws": 0,
   "full_tier_batch_2026_11_19_c": {
     "file": "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_c.csv",
@@ -2682,7 +2684,7 @@
     "2025-11-16 1PM",
     "2025-11-16 8PM"
   ],
-  "full_tier_partial_draws": 299,
+  "full_tier_partial_draws": 263,
   "full_tier_unresolved_draws": 6,
   "full_tier_batch_2026_11_19_ac": {
     "file": "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_ac.csv",
@@ -4144,184 +4146,273 @@
       "binary_preserved": false,
       "sha256": null,
       "verification_status": "first_prize_two_source_matched_lower_tiers_single_source_pending_review"
-    }
-  ],
-  "audit_reconciliation": {
-    "deduplicated_full_sheet_count": 443,
-    "deduplicated_full_sheet_entries": 58476,
-    "first_prize_only_partial_slots": 281,
-    "unresolved_draw_slots": 6,
-    "unresolved_source_conflicts": 0,
-    "monthly_manifest_full_sheet_sum": 478,
-    "discrepancy_sheets": 35,
-    "status": "provisional_pending_full_cross_file_deduplication",
-    "retrieval_date": "2026-11-20",
-    "note": "March is complete for 1PM/8PM (62/62). April has 41 full sheets and 19 partial slots; 18 of those pending PDF links have been located and are recorded in pending_extractions, with one remaining slot not yet located. The 443/281/6 aggregate remains provisional; month summary sum exceeds it by 35 sheets."
-  },
-  "pending_extractions": [
+    },
     {
       "date": "2025-04-14",
       "draw": "1PM",
       "url": "https://o.vcdn.cc/Dear/MN140425.PDF",
-      "archive_page": "https://lotterysambad.co/2025/april/14/",
-      "retrieval_date": "2026-11-20",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "note": "PDF was opened and its text layer exposed all prize tiers; first-prize series and number matched Goodreturns and KLL yearly charts. The 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved."
+      "archive_page": "https://www.lotterysambad.co/2025/april/14/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_pdf_text",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM"
     },
     {
       "date": "2025-04-20",
       "draw": "1PM",
       "url": "https://o.vcdn.cc/Dear/MN200425.PDF",
-      "archive_page": "https://lotterysambad.co/2025/april/20/",
-      "retrieval_date": "2026-11-20",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "note": "PDF was opened and its text layer exposed all prize tiers; first-prize series and number matched Goodreturns and KLL yearly charts. The 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved."
+      "archive_page": "https://www.lotterysambad.co/2025/april/20/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_pdf_text",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM"
     },
     {
       "date": "2025-04-20",
       "draw": "8PM",
       "url": "https://o.vcdn.cc/Dear/EN200425.PDF",
-      "archive_page": "https://lotterysambad.co/2025/april/20/",
-      "retrieval_date": "2026-11-20",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "note": "PDF was opened and its text layer exposed all prize tiers; first-prize series and number matched Goodreturns and KLL yearly charts. The 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved."
+      "archive_page": "https://www.lotterysambad.co/2025/april/20/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_pdf_text",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM"
     },
     {
       "date": "2025-04-21",
       "draw": "1PM",
       "url": "https://o.vcdn.cc/Dear/MN210425.PDF",
-      "archive_page": "https://lotterysambad.co/2025/april/21/",
-      "retrieval_date": "2026-11-20",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "note": "PDF was opened and its text layer exposed all prize tiers; first-prize series and number matched Goodreturns and KLL yearly charts. The 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved."
+      "archive_page": "https://www.lotterysambad.co/2025/april/21/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_pdf_text",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM"
     },
     {
       "date": "2025-04-22",
       "draw": "1PM",
       "url": "https://o.vcdn.cc/Dear/MN220425.PDF",
-      "archive_page": "https://lotterysambad.co/2025/april/22/",
-      "retrieval_date": "2026-11-20",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "note": "PDF was opened and its text layer exposed all prize tiers; first-prize series and number matched Goodreturns and KLL yearly charts. The 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved."
+      "archive_page": "https://www.lotterysambad.co/2025/april/22/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_pdf_text",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM"
     },
     {
       "date": "2025-04-22",
       "draw": "8PM",
       "url": "https://o.vcdn.cc/Dear/EN220425.PDF",
-      "archive_page": "https://lotterysambad.co/2025/april/22/",
-      "retrieval_date": "2026-11-20",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "note": "PDF was opened and its text layer exposed all prize tiers; first-prize series and number matched Goodreturns and KLL yearly charts. The 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved."
+      "archive_page": "https://www.lotterysambad.co/2025/april/22/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_pdf_text",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM"
     },
     {
       "date": "2025-04-23",
       "draw": "1PM",
       "url": "https://o.vcdn.cc/Dear/MN230425.PDF",
-      "archive_page": "https://lotterysambad.co/2025/april/23/",
-      "retrieval_date": "2026-11-20",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "note": "PDF was opened and its text layer exposed all prize tiers; first-prize series and number matched Goodreturns and KLL yearly charts. The 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved."
+      "archive_page": "https://www.lotterysambad.co/2025/april/23/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_pdf_text",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM"
     },
     {
       "date": "2025-04-23",
       "draw": "8PM",
       "url": "https://o.vcdn.cc/Dear/EN230425.PDF",
-      "archive_page": "https://lotterysambad.co/2025/april/23/",
-      "retrieval_date": "2026-11-20",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "note": "PDF was opened and its text layer exposed all prize tiers; first-prize series and number matched Goodreturns and KLL yearly charts. The 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved."
+      "archive_page": "https://www.lotterysambad.co/2025/april/23/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_pdf_text",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM"
     },
     {
       "date": "2025-04-24",
       "draw": "8PM",
       "url": "https://o.vcdn.cc/Dear/EN240425.PDF",
-      "archive_page": "https://lotterysambad.co/2025/april/24/",
-      "retrieval_date": "2026-11-20",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "note": "PDF was opened and its text layer exposed all prize tiers; first-prize series and number matched Goodreturns and KLL yearly charts. The 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved."
+      "archive_page": "https://www.lotterysambad.co/2025/april/24/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_pdf_text",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM"
     },
     {
       "date": "2025-04-25",
       "draw": "1PM",
       "url": "https://o.vcdn.cc/Dear/MN250425.PDF",
-      "archive_page": "https://lotterysambad.co/2025/april/25/",
-      "retrieval_date": "2026-11-20",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "note": "PDF was opened and its text layer exposed all prize tiers; first-prize series and number matched Goodreturns and KLL yearly charts. The 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved."
+      "archive_page": "https://www.lotterysambad.co/2025/april/25/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_pdf_text",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM"
     },
     {
       "date": "2025-04-25",
       "draw": "8PM",
       "url": "https://o.vcdn.cc/Dear/EN250425.PDF",
-      "archive_page": "https://lotterysambad.co/2025/april/25/",
-      "retrieval_date": "2026-11-20",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "note": "PDF was opened and its text layer exposed all prize tiers; first-prize series and number matched Goodreturns and KLL yearly charts. The 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved."
+      "archive_page": "https://www.lotterysambad.co/2025/april/25/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_pdf_text",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM"
     },
     {
       "date": "2025-04-26",
       "draw": "1PM",
       "url": "https://o.vcdn.cc/Dear/MN260425.PDF",
-      "archive_page": "https://lotterysambad.co/2025/april/26/",
-      "retrieval_date": "2026-11-20",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "note": "PDF was opened and its text layer exposed all prize tiers; first-prize series and number matched Goodreturns and KLL yearly charts. The 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved."
+      "archive_page": "https://www.lotterysambad.co/2025/april/26/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_pdf_text",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM"
     },
     {
       "date": "2025-04-26",
       "draw": "8PM",
       "url": "https://o.vcdn.cc/Dear/EN260425.PDF",
-      "archive_page": "https://lotterysambad.co/2025/april/26/",
-      "retrieval_date": "2026-11-20",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "note": "PDF was opened and its text layer exposed all prize tiers; first-prize series and number matched Goodreturns and KLL yearly charts. The 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved."
+      "archive_page": "https://www.lotterysambad.co/2025/april/26/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_pdf_text",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM"
     },
     {
       "date": "2025-04-27",
       "draw": "1PM",
       "url": "https://o.vcdn.cc/Dear/MN270425.PDF",
-      "archive_page": "https://lotterysambad.co/2025/april/27/",
-      "retrieval_date": "2026-11-20",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "note": "PDF was opened and its text layer exposed all prize tiers; first-prize series and number matched Goodreturns and KLL yearly charts. The 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved."
+      "archive_page": "https://www.lotterysambad.co/2025/april/27/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_pdf_text",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM"
     },
     {
       "date": "2025-04-27",
       "draw": "8PM",
       "url": "https://o.vcdn.cc/Dear/EN270425.PDF",
-      "archive_page": "https://lotterysambad.co/2025/april/27/",
-      "retrieval_date": "2026-11-20",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "note": "PDF was opened and its text layer exposed all prize tiers; first-prize series and number matched Goodreturns and KLL yearly charts. The 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved."
+      "archive_page": "https://www.lotterysambad.co/2025/april/27/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_pdf_text",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM"
     },
     {
       "date": "2025-04-28",
       "draw": "8PM",
       "url": "https://o.vcdn.cc/Dear/EN280425.PDF",
-      "archive_page": "https://lotterysambad.co/2025/april/28/",
-      "retrieval_date": "2026-11-20",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "note": "PDF was opened and its text layer exposed all prize tiers; first-prize series and number matched Goodreturns and KLL yearly charts. The 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved."
+      "archive_page": "https://www.lotterysambad.co/2025/april/28/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_pdf_text",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM"
     },
     {
       "date": "2025-04-29",
       "draw": "1PM",
       "url": "https://o.vcdn.cc/Dear/MN290425.PDF",
-      "archive_page": "https://lotterysambad.co/2025/april/29/",
-      "retrieval_date": "2026-11-20",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "note": "PDF was opened and its text layer exposed all prize tiers; first-prize series and number matched Goodreturns and KLL yearly charts. The 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved."
+      "archive_page": "https://www.lotterysambad.co/2025/april/29/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_pdf_text",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM"
     },
     {
       "date": "2025-04-29",
       "draw": "8PM",
       "url": "https://o.vcdn.cc/Dear/EN290425.PDF",
-      "archive_page": "https://lotterysambad.co/2025/april/29/",
-      "retrieval_date": "2026-11-20",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "note": "PDF was opened and its text layer exposed all prize tiers; first-prize series and number matched Goodreturns and KLL yearly charts. The 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved."
+      "archive_page": "https://www.lotterysambad.co/2025/april/29/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_pdf_text",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM"
     }
   ],
+  "audit_reconciliation": {
+    "deduplicated_full_sheet_count": 461,
+    "deduplicated_full_sheet_entries": 60852,
+    "first_prize_only_partial_slots": 263,
+    "unresolved_draw_slots": 6,
+    "unresolved_source_conflicts": 0,
+    "monthly_manifest_full_sheet_sum": 497,
+    "discrepancy_sheets": 36,
+    "status": "provisional_pending_full_cross_file_deduplication",
+    "retrieval_date": "2026-11-21",
+    "note": "Adds 18 newly imported, unique April 2025 full sheets to the previous provisional 443/281/6 audit. April now has 60/60 complete 132-entry sheets and no partial or unresolved slots. The monthly manifest sums to 497, which is 36 above the provisional deduplicated count; a fresh full cross-file deduplication is still required before certification. One duplicate April 15 1PM sheet is present in two CSV files and is counted once."
+  },
+  "pending_extractions": [],
   "april_2025_pdf_text_checks_2026_11_21": [
     {
       "date": "2025-04-14",
@@ -4330,14 +4421,16 @@
       "pdf_url": "https://o.vcdn.cc/Dear/MN140425.PDF",
       "archive_page": "https://www.lotterysambad.co/2025/april/14/",
       "retrieval_date": "2026-11-21",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "first_prize_crosscheck": {
         "goodreturns": "matched_series_and_number",
         "kllotteryresults": "matched_five_digit_suffix"
       },
       "binary_preserved": false,
       "sha256": null,
-      "excluded_draw": "6PM"
+      "excluded_draw": "6PM",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-20",
@@ -4346,14 +4439,16 @@
       "pdf_url": "https://o.vcdn.cc/Dear/MN200425.PDF",
       "archive_page": "https://www.lotterysambad.co/2025/april/20/",
       "retrieval_date": "2026-11-21",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "first_prize_crosscheck": {
         "goodreturns": "matched_series_and_number",
         "kllotteryresults": "matched_five_digit_suffix"
       },
       "binary_preserved": false,
       "sha256": null,
-      "excluded_draw": "6PM"
+      "excluded_draw": "6PM",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-20",
@@ -4362,14 +4457,16 @@
       "pdf_url": "https://o.vcdn.cc/Dear/EN200425.PDF",
       "archive_page": "https://www.lotterysambad.co/2025/april/20/",
       "retrieval_date": "2026-11-21",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "first_prize_crosscheck": {
         "goodreturns": "matched_series_and_number",
         "kllotteryresults": "matched_five_digit_suffix"
       },
       "binary_preserved": false,
       "sha256": null,
-      "excluded_draw": "6PM"
+      "excluded_draw": "6PM",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-21",
@@ -4378,14 +4475,16 @@
       "pdf_url": "https://o.vcdn.cc/Dear/MN210425.PDF",
       "archive_page": "https://www.lotterysambad.co/2025/april/21/",
       "retrieval_date": "2026-11-21",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "first_prize_crosscheck": {
         "goodreturns": "matched_series_and_number",
         "kllotteryresults": "matched_five_digit_suffix"
       },
       "binary_preserved": false,
       "sha256": null,
-      "excluded_draw": "6PM"
+      "excluded_draw": "6PM",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-22",
@@ -4394,14 +4493,16 @@
       "pdf_url": "https://o.vcdn.cc/Dear/MN220425.PDF",
       "archive_page": "https://www.lotterysambad.co/2025/april/22/",
       "retrieval_date": "2026-11-21",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "first_prize_crosscheck": {
         "goodreturns": "matched_series_and_number",
         "kllotteryresults": "matched_five_digit_suffix"
       },
       "binary_preserved": false,
       "sha256": null,
-      "excluded_draw": "6PM"
+      "excluded_draw": "6PM",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-22",
@@ -4410,14 +4511,16 @@
       "pdf_url": "https://o.vcdn.cc/Dear/EN220425.PDF",
       "archive_page": "https://www.lotterysambad.co/2025/april/22/",
       "retrieval_date": "2026-11-21",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "first_prize_crosscheck": {
         "goodreturns": "matched_series_and_number",
         "kllotteryresults": "matched_five_digit_suffix"
       },
       "binary_preserved": false,
       "sha256": null,
-      "excluded_draw": "6PM"
+      "excluded_draw": "6PM",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-23",
@@ -4426,14 +4529,16 @@
       "pdf_url": "https://o.vcdn.cc/Dear/MN230425.PDF",
       "archive_page": "https://www.lotterysambad.co/2025/april/23/",
       "retrieval_date": "2026-11-21",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "first_prize_crosscheck": {
         "goodreturns": "matched_series_and_number",
         "kllotteryresults": "matched_five_digit_suffix"
       },
       "binary_preserved": false,
       "sha256": null,
-      "excluded_draw": "6PM"
+      "excluded_draw": "6PM",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-23",
@@ -4442,14 +4547,16 @@
       "pdf_url": "https://o.vcdn.cc/Dear/EN230425.PDF",
       "archive_page": "https://www.lotterysambad.co/2025/april/23/",
       "retrieval_date": "2026-11-21",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "first_prize_crosscheck": {
         "goodreturns": "matched_series_and_number",
         "kllotteryresults": "matched_five_digit_suffix"
       },
       "binary_preserved": false,
       "sha256": null,
-      "excluded_draw": "6PM"
+      "excluded_draw": "6PM",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-24",
@@ -4458,14 +4565,16 @@
       "pdf_url": "https://o.vcdn.cc/Dear/EN240425.PDF",
       "archive_page": "https://www.lotterysambad.co/2025/april/24/",
       "retrieval_date": "2026-11-21",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "first_prize_crosscheck": {
         "goodreturns": "matched_series_and_number",
         "kllotteryresults": "matched_five_digit_suffix"
       },
       "binary_preserved": false,
       "sha256": null,
-      "excluded_draw": "6PM"
+      "excluded_draw": "6PM",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-25",
@@ -4474,14 +4583,16 @@
       "pdf_url": "https://o.vcdn.cc/Dear/MN250425.PDF",
       "archive_page": "https://www.lotterysambad.co/2025/april/25/",
       "retrieval_date": "2026-11-21",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "first_prize_crosscheck": {
         "goodreturns": "matched_series_and_number",
         "kllotteryresults": "matched_five_digit_suffix"
       },
       "binary_preserved": false,
       "sha256": null,
-      "excluded_draw": "6PM"
+      "excluded_draw": "6PM",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-25",
@@ -4490,14 +4601,16 @@
       "pdf_url": "https://o.vcdn.cc/Dear/EN250425.PDF",
       "archive_page": "https://www.lotterysambad.co/2025/april/25/",
       "retrieval_date": "2026-11-21",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "first_prize_crosscheck": {
         "goodreturns": "matched_series_and_number",
         "kllotteryresults": "matched_five_digit_suffix"
       },
       "binary_preserved": false,
       "sha256": null,
-      "excluded_draw": "6PM"
+      "excluded_draw": "6PM",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-26",
@@ -4506,14 +4619,16 @@
       "pdf_url": "https://o.vcdn.cc/Dear/MN260425.PDF",
       "archive_page": "https://www.lotterysambad.co/2025/april/26/",
       "retrieval_date": "2026-11-21",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "first_prize_crosscheck": {
         "goodreturns": "matched_series_and_number",
         "kllotteryresults": "matched_five_digit_suffix"
       },
       "binary_preserved": false,
       "sha256": null,
-      "excluded_draw": "6PM"
+      "excluded_draw": "6PM",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-26",
@@ -4522,14 +4637,16 @@
       "pdf_url": "https://o.vcdn.cc/Dear/EN260425.PDF",
       "archive_page": "https://www.lotterysambad.co/2025/april/26/",
       "retrieval_date": "2026-11-21",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "first_prize_crosscheck": {
         "goodreturns": "matched_series_and_number",
         "kllotteryresults": "matched_five_digit_suffix"
       },
       "binary_preserved": false,
       "sha256": null,
-      "excluded_draw": "6PM"
+      "excluded_draw": "6PM",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-27",
@@ -4538,14 +4655,16 @@
       "pdf_url": "https://o.vcdn.cc/Dear/MN270425.PDF",
       "archive_page": "https://www.lotterysambad.co/2025/april/27/",
       "retrieval_date": "2026-11-21",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "first_prize_crosscheck": {
         "goodreturns": "matched_series_and_number",
         "kllotteryresults": "matched_five_digit_suffix"
       },
       "binary_preserved": false,
       "sha256": null,
-      "excluded_draw": "6PM"
+      "excluded_draw": "6PM",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-27",
@@ -4554,14 +4673,16 @@
       "pdf_url": "https://o.vcdn.cc/Dear/EN270425.PDF",
       "archive_page": "https://www.lotterysambad.co/2025/april/27/",
       "retrieval_date": "2026-11-21",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "first_prize_crosscheck": {
         "goodreturns": "matched_series_and_number",
         "kllotteryresults": "matched_five_digit_suffix"
       },
       "binary_preserved": false,
       "sha256": null,
-      "excluded_draw": "6PM"
+      "excluded_draw": "6PM",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-28",
@@ -4570,14 +4691,16 @@
       "pdf_url": "https://o.vcdn.cc/Dear/EN280425.PDF",
       "archive_page": "https://www.lotterysambad.co/2025/april/28/",
       "retrieval_date": "2026-11-21",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "first_prize_crosscheck": {
         "goodreturns": "matched_series_and_number",
         "kllotteryresults": "matched_five_digit_suffix"
       },
       "binary_preserved": false,
       "sha256": null,
-      "excluded_draw": "6PM"
+      "excluded_draw": "6PM",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-29",
@@ -4586,14 +4709,16 @@
       "pdf_url": "https://o.vcdn.cc/Dear/MN290425.PDF",
       "archive_page": "https://www.lotterysambad.co/2025/april/29/",
       "retrieval_date": "2026-11-21",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "first_prize_crosscheck": {
         "goodreturns": "matched_series_and_number",
         "kllotteryresults": "matched_five_digit_suffix"
       },
       "binary_preserved": false,
       "sha256": null,
-      "excluded_draw": "6PM"
+      "excluded_draw": "6PM",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-29",
@@ -4602,14 +4727,16 @@
       "pdf_url": "https://o.vcdn.cc/Dear/EN290425.PDF",
       "archive_page": "https://www.lotterysambad.co/2025/april/29/",
       "retrieval_date": "2026-11-21",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "first_prize_crosscheck": {
         "goodreturns": "matched_series_and_number",
         "kllotteryresults": "matched_five_digit_suffix"
       },
       "binary_preserved": false,
       "sha256": null,
-      "excluded_draw": "6PM"
+      "excluded_draw": "6PM",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     }
   ]
 }
