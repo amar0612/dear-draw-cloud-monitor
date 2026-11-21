@@ -113,8 +113,9 @@ def main():
         w = csv.writer(f); w.writerow(["date", "draw"]); w.writerows(selected)
     report = {
         "start_date": start.isoformat(), "end_date": end.isoformat(),
-        "expected_draw_pairs": (end - start).days * 2 + 2,
-        "complete_draw_pairs": ((end - start).days * 2 + 2) - len(missing),
+        "expected_draw_pairs": len(expected),
+        "complete_draw_pairs": len(expected) - len(missing),
+        "calendar_missing_draw_pairs": len(missing),
         "missing_draw_pairs": len(missing), "batch_size": len(selected),
         "batch_cursor": a.cursor, "batch_start_index": start_index,
         "status": "gaps_found" if missing else "complete"
