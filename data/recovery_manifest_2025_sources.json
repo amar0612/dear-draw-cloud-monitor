@@ -205,9 +205,9 @@
       ],
       "full_tier_recovery": "29 unique full 132-entry sheets (3828 entries); 33 first-prize-only partial slots; 0 unresolved slots. Counts reconciled against the 120-file cross-file audit.",
       "pdf_extraction": "29 complete sheets (3828 entries), 33 partial slots, 0 unresolved slots; counts are unique date/draw groups, not raw file rows.",
-      "full_tier_draws": 68,
-      "full_tier_entries": 8976,
-      "partial_draws": 4,
+      "full_tier_draws": 48,
+      "full_tier_entries": 6336,
+      "partial_draws": 14,
       "unresolved_draws": 0,
       "full_tier_new_draws_2026_11_19_ab": 2,
       "full_tier_new_draws_2026_11_19_ac2": 2,
@@ -215,7 +215,7 @@
       "full_tier_unresolved_draw_slots": 0,
       "partial_first_prize_only_slots": 33,
       "full_tier_new_draws_2026_11_21": 1,
-      "notes": "May 3 8PM full sheet imported from PDF text on 2026-11-21; May 3 1PM PDF agrees with the existing 132-row sheet. Lower tiers remain single-source pending review. Cross-file audit 2026-11-21 confirms 29 unique complete sheets, 33 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once. Ten additional full 132-entry sheets imported on 2026-11-21 from linked official Lottery Sambad Gazette PDFs: May 5 1PM, May 10 1PM, May 11 both, May 13 both, May 14 both, May 18 both. First-prize values match Goodreturns and KLL; each PDF has exactly 100 fifth-prize entries. 23 May slots remain first-prize-only. Direct PDF URLs retained; binaries and SHA-256 hashes not available. Nine new full sheets imported from official PDFs for May 20–24; May 22 1PM was already present and matched exactly against an independent PDF source. Four May slots remain first-prize-only.",
+      "notes": "May 3 8PM full sheet imported from PDF text on 2026-11-21; May 3 1PM PDF agrees with the existing 132-row sheet. Lower tiers remain single-source pending review. Cross-file audit 2026-11-21 confirms 29 unique complete sheets, 33 partial slots and 0 unresolved slots. Duplicate copies are retained but counted once. Ten additional full 132-entry sheets imported on 2026-11-21 from linked official Lottery Sambad Gazette PDFs: May 5 1PM, May 10 1PM, May 11 both, May 13 both, May 14 both, May 18 both. First-prize values match Goodreturns and KLL; each PDF has exactly 100 fifth-prize entries. 23 May slots remain first-prize-only. Direct PDF URLs retained; binaries and SHA-256 hashes not available. Nine new full sheets imported from official PDFs for May 20–24; May 22 1PM was already present and matched exactly against an independent PDF source. Four May slots remain first-prize-only. Reconciled month count: 48 unique complete sheets (6,336 rows) and 14 first-prize-only slots. The May 22 1PM PDF is an exact duplicate of a previously imported full sheet, so it is retained as a second source but counted once.",
       "no_draw_confirmed_slots": 0
     },
     {
@@ -2722,7 +2722,7 @@
     "2025-11-16 1PM",
     "2025-11-16 8PM"
   ],
-  "full_tier_partial_draws": 132,
+  "full_tier_partial_draws": 152,
   "full_tier_unresolved_draws": 0,
   "full_tier_batch_2026_11_19_ac": {
     "file": "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_ac.csv",
@@ -4737,7 +4737,7 @@
     "source_files_audited": 129,
     "deduplicated_full_sheet_count": 572,
     "deduplicated_full_sheet_entries": 75504,
-    "first_prize_only_partial_slots": 132,
+    "first_prize_only_partial_slots": 152,
     "partial_or_malformed_groups": 0,
     "unresolved_draw_slots": 0,
     "unresolved_source_conflicts": 0,
@@ -4745,13 +4745,13 @@
     "no_draw_confirmed_slots": 6,
     "expected_draw_slots": 730,
     "monthly_manifest_full_sheet_sum": 572,
-    "monthly_manifest_partial_sum": 132,
+    "monthly_manifest_partial_sum": 152,
     "discrepancy_sheets": 0,
     "duplicate_identical_or_order_equivalent_copies": 12,
     "ordering_variants_resolved": 1,
     "status": "reconciled_with_holiday_exclusions_2026-11-21",
     "retrieval_date": "2026-11-21",
-    "note": "129 2025 full-tier CSV files audited. 572 unique 1PM/8PM draw groups have exactly 132 entries (75,504 rows). 132 slots remain first-prize-only; six scheduled slots are confirmed no-draw national holidays (Jan 26, Aug 15, Oct 2; both draws); zero unresolved slots and zero unresolved number conflicts. Two June 30 source conflicts are resolved and retained as alternate candidates. Twelve duplicate/order-equivalent source copies retained and counted once. May 22 1PM matched exactly across o.vcdn.cc and nagalandstatelotterysambad.com. Twenty May sheets in the two latest batches were extracted from linked official one-page PDFs; direct URLs retained but binaries and SHA-256 hashes unavailable. 6PM excluded."
+    "note": "129 2025 full-tier CSV files audited. 572 unique 1PM/8PM draw groups have exactly 132 entries (75,504 rows). 152 slots remain first-prize-only; six scheduled slots are confirmed no-draw national holidays (Jan 26, Aug 15, Oct 2; both draws); zero unresolved slots and zero unresolved number conflicts. Two June 30 source conflicts are resolved and retained as alternate candidates. Twelve duplicate/order-equivalent source copies retained and counted once. May 22 1PM matched exactly across o.vcdn.cc and nagalandstatelotterysambad.com. Twenty May sheets in the two latest batches were extracted from linked official one-page PDFs; direct URLs retained but binaries and SHA-256 hashes unavailable. 6PM excluded."
   },
   "pending_extractions": [],
   "april_2025_pdf_text_checks_2026_11_21": [
@@ -5933,9 +5933,11 @@
     ],
     "additional_rows_2": 1320,
     "total_draws": 30,
-    "total_rows": 3960,
+    "total_rows": 2640,
     "duplicate_match_draws": [
       "2025-05-22 1PM"
-    ]
+    ],
+    "total_source_sheets": 20,
+    "unique_draws": 19
   }
 }
