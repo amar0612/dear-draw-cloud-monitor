@@ -35,9 +35,9 @@ SOURCES = [
     ("lottery_sambad_icu", "https://lotterysambad.icu/old-result", "mirror"),
 ]
 DATE_PATTERNS = [
-    re.compile(r"(?<!\\d)(20\\d{2})[-_/](0?[1-9]|1[0-2])[-_/]([0-3]?\\d)(?!\\d)"),
-    re.compile(r"(?<!\\d)([0-3]?\\d)[-_/](0?[1-9]|1[0-2])[-_/](20\\d{2})(?!\\d)"),
-    re.compile(r"(?<!\\d)([0-3]?\\d)(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*[-_ ]?(20\\d{2})(?!\\d)", re.I),
+    re.compile(r"(?<!\d)(20\d{2})[-_/](0?[1-9]|1[0-2])[-_/]([0-3]?\d)(?!\d)"),
+    re.compile(r"(?<!\d)([0-3]?\d)[-_/](0?[1-9]|1[0-2])[-_/](20\d{2})(?!\d)"),
+    re.compile(r"(?<!\d)([0-3]?\d)(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*[-_ ]?(20\d{2})(?!\d)", re.I),
 ]
 MONTHS = {m.lower(): i for i, m in enumerate(
     ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"), 1
@@ -96,7 +96,7 @@ def extract_dates(text):
 
 def draw_flags(href, label):
     value = (str(href) + " " + str(label)).lower()
-    value = re.sub(r"[\\s_+-]+", "", value)
+    value = re.sub(r"[\s_+-]+", "", value)
     one = bool(re.search(r"(?:1pm|13:00|13%3a00|13\.00)", value))
     eight = bool(re.search(r"(?:8pm|20:00|20%3a00|20\.00)", value))
     six = bool(re.search(r"(?:6pm|18:00|18%3a00|18\.00)", value))
@@ -112,7 +112,7 @@ def archive_candidate(url, source_url):
     path = parsed.path.lower()
     return (
         bool(extract_dates(path))
-        or bool(re.search(r"/(?:20\\d{2})(?:/|$)", path))
+        or bool(re.search(r"/(?:20\d{2})(?:/|$)", path))
         or any(token in path for token in ("archive", "old", "result", "month", "year"))
     )
 
@@ -204,7 +204,7 @@ def main():
     }
     report_path = Path(args.report)
     report_path.parent.mkdir(parents=True, exist_ok=True)
-    report_path.write_text(json.dumps(report, indent=2) + "\\n", encoding="utf-8")
+    report_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(report, indent=2))
 
 
