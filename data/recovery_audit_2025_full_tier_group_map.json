@@ -165,7 +165,17 @@
     "data/recovered_draws_2025-07-26-full.csv",
     "data/recovered_draws_2025-08-18-full.csv",
     "data/recovered_draws_2025-08-19-full.csv",
-    "data/recovered_draws_2025-08-21_to_23_html_archive_batch-2026-11-21.csv"
+    "data/recovered_draws_2025-08-21_to_23_html_archive_batch-2026-11-21.csv",
+    "data/recovered_draws_2025-08-24-full.csv",
+    "data/recovered_draws_2025-09-06-1pm-full.csv",
+    "data/recovered_draws_2025-09-15-1pm-full.csv",
+    "data/recovered_draws_2025-09-15-8pm-full.csv",
+    "data/recovered_draws_2025-09-16-full.csv",
+    "data/recovered_draws_2025-09-17-full.csv",
+    "data/recovered_draws_2025-09-25-full.csv",
+    "data/recovered_draws_2025-09-26-1pm-full.csv",
+    "data/recovered_draws_2025-10-01-8pm-full.csv",
+    "data/recovered_draws_2025-10-15-1pm-full.csv"
   ],
   "groups": {
     "2025-01-01 1PM": {
@@ -2360,12 +2370,250 @@
       ],
       "duplicate_copies": 0,
       "conflict": false
+    },
+    "2025-08-24 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "580b5422",
+      "files": [
+        "data/recovered_draws_2025-08-24-full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-08-24 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "0e18d455",
+      "files": [
+        "data/recovered_draws_2025-08-24-full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-09-06 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "01a71f54",
+      "files": [
+        "data/recovered_draws_2025-09-06-1pm-full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-09-15 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "3ce796eb",
+      "files": [
+        "data/recovered_draws_2025-09-15-1pm-full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-09-15 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "c5b2f11c",
+      "files": [
+        "data/recovered_draws_2025-09-15-8pm-full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-09-16 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "c7b6f470",
+      "files": [
+        "data/recovered_draws_2025-09-16-full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-09-16 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "7c30ee71",
+      "files": [
+        "data/recovered_draws_2025-09-16-full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-09-17 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "1282622e",
+      "files": [
+        "data/recovered_draws_2025-09-17-full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-09-17 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "bf9f9665",
+      "files": [
+        "data/recovered_draws_2025-09-17-full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-09-25 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "318006ae",
+      "files": [
+        "data/recovered_draws_2025-09-25-full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-09-25 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "29fd2d9a",
+      "files": [
+        "data/recovered_draws_2025-09-25-full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-09-26 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "242b484e",
+      "files": [
+        "data/recovered_draws_2025-09-26-1pm-full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-10-01 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "b76eea48",
+      "files": [
+        "data/recovered_draws_2025-10-01-8pm-full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-10-15 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100,
+        "consolation": 1
+      },
+      "signature": "ccae0154",
+      "files": [
+        "data/recovered_draws_2025-10-15-1pm-full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
     }
   },
   "summary": null,
   "last_chunk": {
     "processed": 10,
-    "groups_seen": 22,
+    "groups_seen": 14,
     "ignored_6pm_rows": 0
   }
 }
