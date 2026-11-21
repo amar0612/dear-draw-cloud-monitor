@@ -2,7 +2,7 @@
   "generated_on": "2026-11-21",
   "branch": "recovery/2025-full-year",
   "method": "Group all 2025 full-tier CSV rows by date/draw; compare normalized tier-position-number signatures across files. 32-bit FNV-1a signatures are only for duplicate comparison, not cryptographic integrity. SHA-256 for source PDFs remains separate and unavailable where binaries were not saved.",
-  "source_file_count": 124,
+  "source_file_count": 125,
   "source_files": [
     "data/recovered_draws_2025-01-01-1pm-full.csv",
     "data/recovered_draws_2025-03-01-10-21-full.csv",
@@ -127,7 +127,8 @@
     "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_z.csv",
     "data/recovered_draws_2025-11-10_19_25_27_crosssource_full.csv",
     "data/recovered_draws_2025-11-25_8pm_101_fifth_source_candidate.csv",
-    "data/recovered_draws_2025-11-14_and_17_full.csv"
+    "data/recovered_draws_2025-11-14_and_17_full.csv",
+    "data/recovered_draws_2025-11-20_21_23_26_28_full.csv"
   ],
   "processed_files": [
     "data/recovered_draws_2025-01-01-1pm-full.csv",
@@ -253,7 +254,8 @@
     "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_z.csv",
     "data/recovered_draws_2025-11-10_19_25_27_crosssource_full.csv",
     "data/recovered_draws_2025-11-25_8pm_101_fifth_source_candidate.csv",
-    "data/recovered_draws_2025-11-14_and_17_full.csv"
+    "data/recovered_draws_2025-11-14_and_17_full.csv",
+    "data/recovered_draws_2025-11-20_21_23_26_28_full.csv"
   ],
   "groups": {
     "2025-01-01 1PM": {
@@ -9468,24 +9470,168 @@
       ],
       "duplicate_copies": 0,
       "conflict": false
+    },
+    "2025-11-20 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "6d8695c3",
+      "signature_basis": "tier_position_number_fnv1a",
+      "files": [
+        "data/recovered_draws_2025-11-20_21_23_26_28_full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-11-20 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "c22ebbc6",
+      "signature_basis": "tier_position_number_fnv1a",
+      "files": [
+        "data/recovered_draws_2025-11-20_21_23_26_28_full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-11-21 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "e676b38d",
+      "signature_basis": "tier_position_number_fnv1a",
+      "files": [
+        "data/recovered_draws_2025-11-20_21_23_26_28_full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-11-23 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "0ec7fe12",
+      "signature_basis": "tier_position_number_fnv1a",
+      "files": [
+        "data/recovered_draws_2025-11-20_21_23_26_28_full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-11-26 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "aa0036d4",
+      "signature_basis": "tier_position_number_fnv1a",
+      "files": [
+        "data/recovered_draws_2025-11-20_21_23_26_28_full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-11-26 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "7b60bb33",
+      "signature_basis": "tier_position_number_fnv1a",
+      "files": [
+        "data/recovered_draws_2025-11-20_21_23_26_28_full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-11-28 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "ef855f2f",
+      "signature_basis": "tier_position_number_fnv1a",
+      "files": [
+        "data/recovered_draws_2025-11-20_21_23_26_28_full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-11-28 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "3789f93f",
+      "signature_basis": "tier_position_number_fnv1a",
+      "files": [
+        "data/recovered_draws_2025-11-20_21_23_26_28_full.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
     }
   },
   "summary": {
-    "processed_files": 124,
-    "total_files": 124,
-    "unique_draw_groups": 539,
-    "complete_132_entry_groups": 538,
+    "processed_files": 125,
+    "total_files": 125,
+    "unique_draw_groups": 547,
+    "complete_132_entry_groups": 546,
     "partial_or_malformed_groups": 1,
     "conflicted_groups": 0,
     "duplicate_identical_copies": 11,
     "draws_with_multiple_source_files": 11,
     "ignored_6pm_rows_total": null,
-    "method_note": "Full-tier CSV rows are grouped by date/draw for 1PM and 8PM only. Completeness requires 132 rows with 1 first, 1 consolation, 10 second, 10 third, 10 fourth and 100 fifth entries. Tier labels are case-normalized. Duplicate sheets are compared by the set of winning numbers within each tier, not row order. FNV-1a 32-bit signatures are for duplicate comparison only, not cryptographic integrity. 6PM is excluded from the audit groups. Additional 2026-11-21 cross-source batch: six complete November 1PM/8PM sheets matched tier-by-tier between dearlottery.com.co and lotterysambad.co; the 2025-11-25 8PM candidate contains 101 fifth-tier entries (expected 100), so it is preserved separately and classified malformed/partial rather than certified. 6PM remains excluded. Additional 2026-11-21 batch: Nov 14 1PM/8PM and Nov 17 8PM imported as complete 132-entry sheets. All tiers match between dearlottery.com.co and lotterysambad.co; first prizes also match Goodreturns and KLL."
+    "method_note": "Full-tier CSV rows are grouped by date/draw for 1PM and 8PM only. Completeness requires 132 rows with 1 first, 1 consolation, 10 second, 10 third, 10 fourth and 100 fifth entries. Tier labels are case-normalized. Duplicate sheets are compared by the set of winning numbers within each tier, not row order. FNV-1a 32-bit signatures are for duplicate comparison only, not cryptographic integrity. 6PM is excluded from the audit groups. Additional 2026-11-21 cross-source batch: six complete November 1PM/8PM sheets matched tier-by-tier between dearlottery.com.co and lotterysambad.co; the 2025-11-25 8PM candidate contains 101 fifth-tier entries (expected 100), so it is preserved separately and classified malformed/partial rather than certified. 6PM remains excluded. Additional 2026-11-21 batch: Nov 14 1PM/8PM and Nov 17 8PM imported as complete 132-entry sheets. All tiers match between dearlottery.com.co and lotterysambad.co; first prizes also match Goodreturns and KLL. Additional 2026-11-21 batch: eight November full sheets imported from dearlottery.com.co. First prizes are cross-source matched to Lotterysambad, Goodreturns and KLL; lower tiers are retained with single_source_pending_review until a tier-by-tier comparison is completed."
   },
   "last_chunk": {
     "processed": 1,
-    "groups_added": 3,
-    "file": "data/recovered_draws_2025-11-14_and_17_full.csv"
+    "groups_added": 8,
+    "file": "data/recovered_draws_2025-11-20_21_23_26_28_full.csv"
   },
   "ordering_variants": [
     {
