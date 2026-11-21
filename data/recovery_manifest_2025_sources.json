@@ -85,6 +85,11 @@
     {
       "domain": "nagalandstatelotterysambad.com",
       "status": "Five additional daily PDFs extracted across March, April, June and October 2025."
+    },
+    {
+      "domain": "dearlottery.com.co",
+      "index_url": "https://dearlottery.com.co/old/2025/november",
+      "status": "Newly identified 2026-11-21. Full 1PM/8PM result pages provide 1st–5th prize text and first-prize charts; 3 sheets imported (Nov 12 1PM/8PM, Nov 13 1PM). First prizes cross-source matched to Goodreturns and KLL. No direct PDF links on these pages; original binaries and SHA-256 not preserved. API docs state historical API search limited to last 7 days; website archive pages used instead. 6PM excluded."
     }
   ],
   "months": [
@@ -313,16 +318,17 @@
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "full_tier_recovery": "22 full 132-entry sheets (2904 entries); 38 first-prize-only known draw slots; 0 unresolved draw slots. Newly recovered: Nov 7 1PM, Nov 14 both draws, Nov 15 8PM and Nov 16 both draws.",
-      "notes": "November 15 1PM official-style PDF indexed at lotterysambadresult.in",
-      "full_tier_draws": 22,
-      "full_tier_entries": 2904,
-      "partial_draws": 38,
+      "full_tier_recovery": "25 full 132-entry sheets (3,300 entries); 35 first-prize-only known draw slots; 0 unresolved slots. Newly imported: Nov 12 both draws and Nov 13 1PM from dearlottery.com.co full result pages.",
+      "notes": "Nov 12 1PM/8PM and Nov 13 1PM imported from full archive result pages. First prizes cross-source matched to Goodreturns and KLL; lower tiers single-source pending review. Original PDF binaries were not linked, so no hashes.",
+      "full_tier_draws": 25,
+      "full_tier_entries": 3300,
+      "partial_draws": 35,
       "unresolved_draws": 0,
-      "pdf_extraction": "22 full sheets (2904 entries), 38 first-prize-only partial slots, 0 unresolved slots.",
+      "pdf_extraction": "25 full sheets (3,300 entries), 35 partial slots, 0 unresolved. Three additional 132-entry sheets were imported from dearlottery.com.co archive pages on 2026-11-21; no direct PDF links were available.",
       "full_tier_expected_draw_slots": 60,
       "full_tier_unresolved_draw_slots": 0,
-      "partial_first_prize_only_slots": 38
+      "partial_first_prize_only_slots": 35,
+      "full_tier_new_draws_2026_11_21": 3
     },
     {
       "month": "december",
@@ -1966,9 +1972,9 @@
     "binary_pdf_preserved": false,
     "sha256_calculated": false
   },
-  "full_tier_total_draws": 468,
-  "full_tier_total_entries": 61776,
-  "full_tier_clean_tier_count_draws": 468,
+  "full_tier_total_draws": 471,
+  "full_tier_total_entries": 62172,
+  "full_tier_clean_tier_count_draws": 471,
   "full_tier_source_conflict_draws": 0,
   "full_tier_batch_2026_11_19_c": {
     "file": "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_c.csv",
@@ -2689,7 +2695,7 @@
     "2025-11-16 1PM",
     "2025-11-16 8PM"
   ],
-  "full_tier_partial_draws": 256,
+  "full_tier_partial_draws": 253,
   "full_tier_unresolved_draws": 6,
   "full_tier_batch_2026_11_19_ac": {
     "file": "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_ac.csv",
@@ -4505,19 +4511,58 @@
       "imported_rows": 132,
       "binary_preserved": false,
       "sha256": null
+    },
+    {
+      "date": "2025-11-12",
+      "draw": "1PM",
+      "first_prize": "48A 50602",
+      "url": "https://dearlottery.com.co/12-11-2025/1pm",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_daily_archive_html",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-11-12_to_13_full.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null
+    },
+    {
+      "date": "2025-11-12",
+      "draw": "8PM",
+      "first_prize": "88B 27566",
+      "url": "https://dearlottery.com.co/12-11-2025/8pm",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_daily_archive_html",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-11-12_to_13_full.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null
+    },
+    {
+      "date": "2025-11-13",
+      "draw": "1PM",
+      "first_prize": "48J 40591",
+      "url": "https://dearlottery.com.co/13-11-2025/1pm",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_daily_archive_html",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-11-12_to_13_full.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null
     }
   ],
   "audit_reconciliation": {
-    "deduplicated_full_sheet_count": 468,
-    "deduplicated_full_sheet_entries": 61776,
-    "first_prize_only_partial_slots": 256,
+    "deduplicated_full_sheet_count": 471,
+    "deduplicated_full_sheet_entries": 62172,
+    "first_prize_only_partial_slots": 253,
     "unresolved_draw_slots": 6,
     "unresolved_source_conflicts": 0,
-    "monthly_manifest_full_sheet_sum": 504,
+    "monthly_manifest_full_sheet_sum": 507,
     "discrepancy_sheets": 36,
     "status": "provisional_pending_full_cross_file_deduplication",
     "retrieval_date": "2026-11-21",
-    "note": "Adds four unique August 2025 full sheets (Aug 21 8PM, Aug 22 1PM/8PM, Aug 23 8PM) to the prior provisional 464/260/6 audit. Monthly manifest now sums to 504 full sheets; provisional deduplicated count is 468, leaving a 36-sheet discrepancy requiring a fresh full cross-file reconciliation. Lower tiers from the HTML-only August additions remain single-source pending review."
+    "note": "Adds three unique November 2025 full sheets (Nov 12 1PM/8PM and Nov 13 1PM) to the prior provisional 468/256/6 audit. Nov 13 8PM was already available in the official gazette batch and was not re-imported. Monthly manifest now sums to 507 full sheets; provisional deduplicated count is 471, leaving a 36-sheet discrepancy requiring a fresh full cross-file reconciliation. New November sheets came from dearlottery.com.co HTML result pages, not PDFs."
   },
   "pending_extractions": [],
   "april_2025_pdf_text_checks_2026_11_21": [
@@ -4957,6 +5002,53 @@
       "extraction_status": "full_132_entry_sheet_imported_from_daily_archive_html",
       "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "import_file": "data/recovered_draws_2025-08-21_to_23_html_archive_batch-2026-11-21.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM",
+      "pdf_link_available": false
+    }
+  ],
+  "november_2025_full_sheet_checks_2026_11_21": [
+    {
+      "date": "2025-11-12",
+      "draw": "1PM",
+      "first_prize": "48A 50602",
+      "url": "https://dearlottery.com.co/12-11-2025/1pm",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_daily_archive_html",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-11-12_to_13_full.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM",
+      "pdf_link_available": false
+    },
+    {
+      "date": "2025-11-12",
+      "draw": "8PM",
+      "first_prize": "88B 27566",
+      "url": "https://dearlottery.com.co/12-11-2025/8pm",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_daily_archive_html",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-11-12_to_13_full.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM",
+      "pdf_link_available": false
+    },
+    {
+      "date": "2025-11-13",
+      "draw": "1PM",
+      "first_prize": "48J 40591",
+      "url": "https://dearlottery.com.co/13-11-2025/1pm",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_from_daily_archive_html",
+      "verification_status": "first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
+      "import_file": "data/recovered_draws_2025-11-12_to_13_full.csv",
       "imported_rows": 132,
       "binary_preserved": false,
       "sha256": null,
