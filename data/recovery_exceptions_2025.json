@@ -810,236 +810,272 @@
     {
       "date": "2025-04-14",
       "draw": "1PM",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "detail": "PDF opened on 2026-11-21; its text layer exposes the full 1st–5th prize sheet. First-prize series and number match Goodreturns; five-digit suffix matches KLL yearly chart. Full 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved. 6PM excluded.",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "A complete 132-entry sheet was imported from the opened PDF text layer on 2026-11-21. First-prize series and five-digit number match Goodreturns; five-digit suffix matches KLL yearly chart. Lower prize tiers remain single-source pending review. Original PDF binary and SHA-256 were not preserved. 6PM excluded.",
       "sources": [
         "https://www.lotterysambad.co/2025/april/14/",
         "https://o.vcdn.cc/Dear/MN140425.PDF",
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "retrieval_date": "2026-11-21"
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-20",
       "draw": "1PM",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "detail": "PDF opened on 2026-11-21; its text layer exposes the full 1st–5th prize sheet. First-prize series and number match Goodreturns; five-digit suffix matches KLL yearly chart. Full 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved. 6PM excluded.",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "A complete 132-entry sheet was imported from the opened PDF text layer on 2026-11-21. First-prize series and five-digit number match Goodreturns; five-digit suffix matches KLL yearly chart. Lower prize tiers remain single-source pending review. Original PDF binary and SHA-256 were not preserved. 6PM excluded.",
       "sources": [
         "https://www.lotterysambad.co/2025/april/20/",
         "https://o.vcdn.cc/Dear/MN200425.PDF",
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "retrieval_date": "2026-11-21"
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-20",
       "draw": "8PM",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "detail": "PDF opened on 2026-11-21; its text layer exposes the full 1st–5th prize sheet. First-prize series and number match Goodreturns; five-digit suffix matches KLL yearly chart. Full 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved. 6PM excluded.",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "A complete 132-entry sheet was imported from the opened PDF text layer on 2026-11-21. First-prize series and five-digit number match Goodreturns; five-digit suffix matches KLL yearly chart. Lower prize tiers remain single-source pending review. Original PDF binary and SHA-256 were not preserved. 6PM excluded.",
       "sources": [
         "https://www.lotterysambad.co/2025/april/20/",
         "https://o.vcdn.cc/Dear/EN200425.PDF",
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "retrieval_date": "2026-11-21"
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-21",
       "draw": "1PM",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "detail": "PDF opened on 2026-11-21; its text layer exposes the full 1st–5th prize sheet. First-prize series and number match Goodreturns; five-digit suffix matches KLL yearly chart. Full 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved. 6PM excluded.",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "A complete 132-entry sheet was imported from the opened PDF text layer on 2026-11-21. First-prize series and five-digit number match Goodreturns; five-digit suffix matches KLL yearly chart. Lower prize tiers remain single-source pending review. Original PDF binary and SHA-256 were not preserved. 6PM excluded.",
       "sources": [
         "https://www.lotterysambad.co/2025/april/21/",
         "https://o.vcdn.cc/Dear/MN210425.PDF",
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "retrieval_date": "2026-11-21"
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-22",
       "draw": "1PM",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "detail": "PDF opened on 2026-11-21; its text layer exposes the full 1st–5th prize sheet. First-prize series and number match Goodreturns; five-digit suffix matches KLL yearly chart. Full 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved. 6PM excluded.",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "A complete 132-entry sheet was imported from the opened PDF text layer on 2026-11-21. First-prize series and five-digit number match Goodreturns; five-digit suffix matches KLL yearly chart. Lower prize tiers remain single-source pending review. Original PDF binary and SHA-256 were not preserved. 6PM excluded.",
       "sources": [
         "https://www.lotterysambad.co/2025/april/22/",
         "https://o.vcdn.cc/Dear/MN220425.PDF",
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "retrieval_date": "2026-11-21"
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-22",
       "draw": "8PM",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "detail": "PDF opened on 2026-11-21; its text layer exposes the full 1st–5th prize sheet. First-prize series and number match Goodreturns; five-digit suffix matches KLL yearly chart. Full 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved. 6PM excluded.",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "A complete 132-entry sheet was imported from the opened PDF text layer on 2026-11-21. First-prize series and five-digit number match Goodreturns; five-digit suffix matches KLL yearly chart. Lower prize tiers remain single-source pending review. Original PDF binary and SHA-256 were not preserved. 6PM excluded.",
       "sources": [
         "https://www.lotterysambad.co/2025/april/22/",
         "https://o.vcdn.cc/Dear/EN220425.PDF",
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "retrieval_date": "2026-11-21"
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-23",
       "draw": "1PM",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "detail": "PDF opened on 2026-11-21; its text layer exposes the full 1st–5th prize sheet. First-prize series and number match Goodreturns; five-digit suffix matches KLL yearly chart. Full 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved. 6PM excluded.",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "A complete 132-entry sheet was imported from the opened PDF text layer on 2026-11-21. First-prize series and five-digit number match Goodreturns; five-digit suffix matches KLL yearly chart. Lower prize tiers remain single-source pending review. Original PDF binary and SHA-256 were not preserved. 6PM excluded.",
       "sources": [
         "https://www.lotterysambad.co/2025/april/23/",
         "https://o.vcdn.cc/Dear/MN230425.PDF",
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "retrieval_date": "2026-11-21"
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-23",
       "draw": "8PM",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "detail": "PDF opened on 2026-11-21; its text layer exposes the full 1st–5th prize sheet. First-prize series and number match Goodreturns; five-digit suffix matches KLL yearly chart. Full 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved. 6PM excluded.",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "A complete 132-entry sheet was imported from the opened PDF text layer on 2026-11-21. First-prize series and five-digit number match Goodreturns; five-digit suffix matches KLL yearly chart. Lower prize tiers remain single-source pending review. Original PDF binary and SHA-256 were not preserved. 6PM excluded.",
       "sources": [
         "https://www.lotterysambad.co/2025/april/23/",
         "https://o.vcdn.cc/Dear/EN230425.PDF",
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "retrieval_date": "2026-11-21"
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-24",
       "draw": "8PM",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "detail": "PDF opened on 2026-11-21; its text layer exposes the full 1st–5th prize sheet. First-prize series and number match Goodreturns; five-digit suffix matches KLL yearly chart. Full 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved. 6PM excluded.",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "A complete 132-entry sheet was imported from the opened PDF text layer on 2026-11-21. First-prize series and five-digit number match Goodreturns; five-digit suffix matches KLL yearly chart. Lower prize tiers remain single-source pending review. Original PDF binary and SHA-256 were not preserved. 6PM excluded.",
       "sources": [
         "https://www.lotterysambad.co/2025/april/24/",
         "https://o.vcdn.cc/Dear/EN240425.PDF",
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "retrieval_date": "2026-11-21"
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-25",
       "draw": "1PM",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "detail": "PDF opened on 2026-11-21; its text layer exposes the full 1st–5th prize sheet. First-prize series and number match Goodreturns; five-digit suffix matches KLL yearly chart. Full 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved. 6PM excluded.",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "A complete 132-entry sheet was imported from the opened PDF text layer on 2026-11-21. First-prize series and five-digit number match Goodreturns; five-digit suffix matches KLL yearly chart. Lower prize tiers remain single-source pending review. Original PDF binary and SHA-256 were not preserved. 6PM excluded.",
       "sources": [
         "https://www.lotterysambad.co/2025/april/25/",
         "https://o.vcdn.cc/Dear/MN250425.PDF",
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "retrieval_date": "2026-11-21"
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-25",
       "draw": "8PM",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "detail": "PDF opened on 2026-11-21; its text layer exposes the full 1st–5th prize sheet. First-prize series and number match Goodreturns; five-digit suffix matches KLL yearly chart. Full 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved. 6PM excluded.",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "A complete 132-entry sheet was imported from the opened PDF text layer on 2026-11-21. First-prize series and five-digit number match Goodreturns; five-digit suffix matches KLL yearly chart. Lower prize tiers remain single-source pending review. Original PDF binary and SHA-256 were not preserved. 6PM excluded.",
       "sources": [
         "https://www.lotterysambad.co/2025/april/25/",
         "https://o.vcdn.cc/Dear/EN250425.PDF",
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "retrieval_date": "2026-11-21"
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-26",
       "draw": "1PM",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "detail": "PDF opened on 2026-11-21; its text layer exposes the full 1st–5th prize sheet. First-prize series and number match Goodreturns; five-digit suffix matches KLL yearly chart. Full 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved. 6PM excluded.",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "A complete 132-entry sheet was imported from the opened PDF text layer on 2026-11-21. First-prize series and five-digit number match Goodreturns; five-digit suffix matches KLL yearly chart. Lower prize tiers remain single-source pending review. Original PDF binary and SHA-256 were not preserved. 6PM excluded.",
       "sources": [
         "https://www.lotterysambad.co/2025/april/26/",
         "https://o.vcdn.cc/Dear/MN260425.PDF",
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "retrieval_date": "2026-11-21"
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-26",
       "draw": "8PM",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "detail": "PDF opened on 2026-11-21; its text layer exposes the full 1st–5th prize sheet. First-prize series and number match Goodreturns; five-digit suffix matches KLL yearly chart. Full 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved. 6PM excluded.",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "A complete 132-entry sheet was imported from the opened PDF text layer on 2026-11-21. First-prize series and five-digit number match Goodreturns; five-digit suffix matches KLL yearly chart. Lower prize tiers remain single-source pending review. Original PDF binary and SHA-256 were not preserved. 6PM excluded.",
       "sources": [
         "https://www.lotterysambad.co/2025/april/26/",
         "https://o.vcdn.cc/Dear/EN260425.PDF",
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "retrieval_date": "2026-11-21"
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-27",
       "draw": "1PM",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "detail": "PDF opened on 2026-11-21; its text layer exposes the full 1st–5th prize sheet. First-prize series and number match Goodreturns; five-digit suffix matches KLL yearly chart. Full 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved. 6PM excluded.",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "A complete 132-entry sheet was imported from the opened PDF text layer on 2026-11-21. First-prize series and five-digit number match Goodreturns; five-digit suffix matches KLL yearly chart. Lower prize tiers remain single-source pending review. Original PDF binary and SHA-256 were not preserved. 6PM excluded.",
       "sources": [
         "https://www.lotterysambad.co/2025/april/27/",
         "https://o.vcdn.cc/Dear/MN270425.PDF",
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "retrieval_date": "2026-11-21"
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-27",
       "draw": "8PM",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "detail": "PDF opened on 2026-11-21; its text layer exposes the full 1st–5th prize sheet. First-prize series and number match Goodreturns; five-digit suffix matches KLL yearly chart. Full 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved. 6PM excluded.",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "A complete 132-entry sheet was imported from the opened PDF text layer on 2026-11-21. First-prize series and five-digit number match Goodreturns; five-digit suffix matches KLL yearly chart. Lower prize tiers remain single-source pending review. Original PDF binary and SHA-256 were not preserved. 6PM excluded.",
       "sources": [
         "https://www.lotterysambad.co/2025/april/27/",
         "https://o.vcdn.cc/Dear/EN270425.PDF",
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "retrieval_date": "2026-11-21"
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-28",
       "draw": "8PM",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "detail": "PDF opened on 2026-11-21; its text layer exposes the full 1st–5th prize sheet. First-prize series and number match Goodreturns; five-digit suffix matches KLL yearly chart. Full 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved. 6PM excluded.",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "A complete 132-entry sheet was imported from the opened PDF text layer on 2026-11-21. First-prize series and five-digit number match Goodreturns; five-digit suffix matches KLL yearly chart. Lower prize tiers remain single-source pending review. Original PDF binary and SHA-256 were not preserved. 6PM excluded.",
       "sources": [
         "https://www.lotterysambad.co/2025/april/28/",
         "https://o.vcdn.cc/Dear/EN280425.PDF",
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "retrieval_date": "2026-11-21"
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-29",
       "draw": "1PM",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "detail": "PDF opened on 2026-11-21; its text layer exposes the full 1st–5th prize sheet. First-prize series and number match Goodreturns; five-digit suffix matches KLL yearly chart. Full 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved. 6PM excluded.",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "A complete 132-entry sheet was imported from the opened PDF text layer on 2026-11-21. First-prize series and five-digit number match Goodreturns; five-digit suffix matches KLL yearly chart. Lower prize tiers remain single-source pending review. Original PDF binary and SHA-256 were not preserved. 6PM excluded.",
       "sources": [
         "https://www.lotterysambad.co/2025/april/29/",
         "https://o.vcdn.cc/Dear/MN290425.PDF",
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "retrieval_date": "2026-11-21"
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-29",
       "draw": "8PM",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
-      "detail": "PDF opened on 2026-11-21; its text layer exposes the full 1st–5th prize sheet. First-prize series and number match Goodreturns; five-digit suffix matches KLL yearly chart. Full 132-entry structured CSV import remains pending. PDF binary and SHA-256 were not preserved. 6PM excluded.",
+      "status": "full_sheet_imported_single_source_lower_tiers_pending_review",
+      "detail": "A complete 132-entry sheet was imported from the opened PDF text layer on 2026-11-21. First-prize series and five-digit number match Goodreturns; five-digit suffix matches KLL yearly chart. Lower prize tiers remain single-source pending review. Original PDF binary and SHA-256 were not preserved. 6PM excluded.",
       "sources": [
         "https://www.lotterysambad.co/2025/april/29/",
         "https://o.vcdn.cc/Dear/EN290425.PDF",
         "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
-      "retrieval_date": "2026-11-21"
+      "retrieval_date": "2026-11-21",
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     }
   ],
   "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Prior audited full-tier baseline: 391 unique complete 132-entry sheets (51,612 rows), 333 first-prize-only partial slots, six unresolved. This run adds fifty-two genuinely new complete sheets (34 March sheets, April 1 both draws, April 6–13 both draws), bringing the audited total to 443 complete sheets (58,476 rows), 281 partial slots, six unresolved, and zero unresolved source conflicts. Seven other March sheets were independently checked against existing imported full sheets and not duplicated. The per-month manifest currently sums to 478 full sheets, 35 higher than the deduplicated audit; this discrepancy is explicitly unresolved and the aggregate remains provisional pending a complete cross-file deduplication pass. All 12 monthly archive index pages were opened; not every daily PDF link has been tested. PDF binaries for these fifty-nine source checks could not be preserved, so no SHA-256 hashes are claimed. 6PM is excluded entirely.",
@@ -1068,9 +1104,9 @@
     {
       "date": "2025-04",
       "draw": "both",
-      "issue": "All 30 dates have first-prize records. Seventeen 132-entry full-tier sheets (2,244 entries) are now imported, including April 18 1PM and 8PM from MN180425.PDF and EN180425.PDF. Forty-three known draw slots remain first-prize-only. On 2026-11-21, 18 additional 1PM/8PM PDFs for April 14 and April 20–29 were opened and their PDF text layers exposed all prize tiers; first-prize values matched Goodreturns and KLL. Their 132-entry structured CSV imports remain pending, so they are not counted as full sheets.",
-      "status": "partial_extraction_review",
-      "action": "Import the 18 text-checked PDFs into 132-row draw sheets, then continue source discovery for the remaining first-prize-only slots."
+      "issue": "All 60 April 2025 Nagaland 1PM/8PM slots now have full 132-entry sheets (7,920 rows). Eighteen additional sheets for April 14 and April 20–29 were imported on 2026-11-21 from opened PDF text layers. One duplicate April 15 1PM sheet is retained in two CSV files and counted once. Lower tiers on the newly imported sheets remain single-source pending review; original PDF binaries and SHA-256 hashes were not preserved.",
+      "status": "full_tier_recovered_lower_tiers_single_source_pending_review",
+      "action": "Continue independent full-tier corroboration and source discovery in the remaining months; retain the April 15 duplicate source file without double-counting."
     },
     {
       "date": "2025-05",
@@ -1437,180 +1473,216 @@
       "draw": "1PM",
       "first_prize": "73D 97813",
       "pdf_url": "https://o.vcdn.cc/Dear/MN140425.PDF",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "retrieval_date": "2026-11-21",
       "sha256": null,
-      "binary_preserved": false
+      "binary_preserved": false,
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-20",
       "draw": "1PM",
       "first_prize": "62A 24307",
       "pdf_url": "https://o.vcdn.cc/Dear/MN200425.PDF",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "retrieval_date": "2026-11-21",
       "sha256": null,
-      "binary_preserved": false
+      "binary_preserved": false,
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-20",
       "draw": "8PM",
       "first_prize": "66B 72330",
       "pdf_url": "https://o.vcdn.cc/Dear/EN200425.PDF",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "retrieval_date": "2026-11-21",
       "sha256": null,
-      "binary_preserved": false
+      "binary_preserved": false,
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-21",
       "draw": "1PM",
       "first_prize": "54A 31724",
       "pdf_url": "https://o.vcdn.cc/Dear/MN210425.PDF",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "retrieval_date": "2026-11-21",
       "sha256": null,
-      "binary_preserved": false
+      "binary_preserved": false,
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-22",
       "draw": "1PM",
       "first_prize": "43C 93231",
       "pdf_url": "https://o.vcdn.cc/Dear/MN220425.PDF",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "retrieval_date": "2026-11-21",
       "sha256": null,
-      "binary_preserved": false
+      "binary_preserved": false,
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-22",
       "draw": "8PM",
       "first_prize": "57H 78022",
       "pdf_url": "https://o.vcdn.cc/Dear/EN220425.PDF",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "retrieval_date": "2026-11-21",
       "sha256": null,
-      "binary_preserved": false
+      "binary_preserved": false,
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-23",
       "draw": "1PM",
       "first_prize": "96A 23006",
       "pdf_url": "https://o.vcdn.cc/Dear/MN230425.PDF",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "retrieval_date": "2026-11-21",
       "sha256": null,
-      "binary_preserved": false
+      "binary_preserved": false,
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-23",
       "draw": "8PM",
       "first_prize": "36D 69585",
       "pdf_url": "https://o.vcdn.cc/Dear/EN230425.PDF",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "retrieval_date": "2026-11-21",
       "sha256": null,
-      "binary_preserved": false
+      "binary_preserved": false,
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-24",
       "draw": "8PM",
       "first_prize": "44D 87285",
       "pdf_url": "https://o.vcdn.cc/Dear/EN240425.PDF",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "retrieval_date": "2026-11-21",
       "sha256": null,
-      "binary_preserved": false
+      "binary_preserved": false,
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-25",
       "draw": "1PM",
       "first_prize": "77L 75058",
       "pdf_url": "https://o.vcdn.cc/Dear/MN250425.PDF",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "retrieval_date": "2026-11-21",
       "sha256": null,
-      "binary_preserved": false
+      "binary_preserved": false,
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-25",
       "draw": "8PM",
       "first_prize": "37D 86066",
       "pdf_url": "https://o.vcdn.cc/Dear/EN250425.PDF",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "retrieval_date": "2026-11-21",
       "sha256": null,
-      "binary_preserved": false
+      "binary_preserved": false,
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-26",
       "draw": "1PM",
       "first_prize": "74D 00642",
       "pdf_url": "https://o.vcdn.cc/Dear/MN260425.PDF",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "retrieval_date": "2026-11-21",
       "sha256": null,
-      "binary_preserved": false
+      "binary_preserved": false,
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-26",
       "draw": "8PM",
       "first_prize": "57D 25332",
       "pdf_url": "https://o.vcdn.cc/Dear/EN260425.PDF",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "retrieval_date": "2026-11-21",
       "sha256": null,
-      "binary_preserved": false
+      "binary_preserved": false,
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-27",
       "draw": "1PM",
       "first_prize": "99L 82363",
       "pdf_url": "https://o.vcdn.cc/Dear/MN270425.PDF",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "retrieval_date": "2026-11-21",
       "sha256": null,
-      "binary_preserved": false
+      "binary_preserved": false,
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-27",
       "draw": "8PM",
       "first_prize": "65A 01949",
       "pdf_url": "https://o.vcdn.cc/Dear/EN270425.PDF",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "retrieval_date": "2026-11-21",
       "sha256": null,
-      "binary_preserved": false
+      "binary_preserved": false,
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-28",
       "draw": "8PM",
       "first_prize": "73L 67268",
       "pdf_url": "https://o.vcdn.cc/Dear/EN280425.PDF",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "retrieval_date": "2026-11-21",
       "sha256": null,
-      "binary_preserved": false
+      "binary_preserved": false,
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-29",
       "draw": "1PM",
       "first_prize": "57B 72551",
       "pdf_url": "https://o.vcdn.cc/Dear/MN290425.PDF",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "retrieval_date": "2026-11-21",
       "sha256": null,
-      "binary_preserved": false
+      "binary_preserved": false,
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     },
     {
       "date": "2025-04-29",
       "draw": "8PM",
       "first_prize": "40A 78268",
       "pdf_url": "https://o.vcdn.cc/Dear/EN290425.PDF",
-      "status": "pdf_text_opened_first_prize_crosschecked_full_tier_structured_import_pending",
+      "status": "full_132_entry_sheet_imported_first_prize_cross_source_matched_lower_tiers_single_source_pending_review",
       "retrieval_date": "2026-11-21",
       "sha256": null,
-      "binary_preserved": false
+      "binary_preserved": false,
+      "import_file": "data/recovered_draws_2025-04-14_to_29-pending-pdf-batch-2026-11-21.csv",
+      "imported_rows": 132
     }
   ]
 }
