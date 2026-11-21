@@ -256,14 +256,17 @@
         "3rd": 10,
         "4th": 10,
         "5th": 100,
-        "Consolation": 1
+        "consolation": 1
       },
       "signature": "1166f67b",
       "files": [
         "data/recovered_draws_2025-01-01-1pm-full.csv"
       ],
       "duplicate_copies": 0,
-      "conflict": false
+      "conflict": false,
+      "case_normalized_tier_labels": [
+        "Consolation"
+      ]
     },
     "2025-03-01 8PM": {
       "row_count": 132,
@@ -2665,14 +2668,17 @@
         "5th": 100,
         "consolation": 1
       },
-      "signature": "b76eea48",
+      "signature": "d70b9d1f",
       "files": [
         "data/recovered_draws_2025-10-01-8pm-full.csv",
         "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_ad.csv"
       ],
-      "duplicate_copies": 0,
-      "conflict": true,
-      "alternative_signatures": [
+      "duplicate_copies": 1,
+      "conflict": false,
+      "signature_basis": "tier_number_multiset",
+      "order_variant": true,
+      "ordering_note": "The two source files contain identical sets of numbers in every prize tier; 2nd–5th tier row ordering differs. This is not a number conflict. Both source files are retained and the draw is counted once.",
+      "legacy_ordered_signatures": [
         {
           "signature": "636c8398",
           "row_count": 132,
@@ -9153,17 +9159,30 @@
     "processed_files": 120,
     "total_files": 120,
     "unique_draw_groups": 522,
-    "complete_132_entry_groups": 520,
-    "partial_or_malformed_groups": 1,
-    "conflicted_groups": 1,
-    "duplicate_identical_copies": 10,
+    "complete_132_entry_groups": 522,
+    "partial_or_malformed_groups": 0,
+    "conflicted_groups": 0,
+    "duplicate_identical_copies": 11,
     "draws_with_multiple_source_files": 11,
-    "ignored_6pm_rows_total": 0,
-    "method_note": "The source files were filtered to 1PM and 8PM only. Group completeness requires 132 rows with exactly 1 first, 1 consolation, 10 second, 10 third, 10 fourth and 100 fifth entries. FNV-1a 32-bit signatures compare duplicate sheet copies; they are not cryptographic hashes."
+    "ignored_6pm_rows_total": null,
+    "method_note": "The 120 2025 full-tier CSV files were filtered to 1PM and 8PM only. Completeness requires 132 rows with 1 first, 1 consolation, 10 second, 10 third, 10 fourth and 100 fifth entries. Tier labels are case-normalized. Duplicate sheets are compared by the set of winning numbers within each tier, not row order. FNV-1a 32-bit signatures are for duplicate comparison only, not cryptographic integrity. 6PM is excluded from the audit groups; an aggregate count of skipped 6PM rows was not retained."
   },
   "last_chunk": {
     "processed": 10,
     "groups_seen": 65,
     "ignored_6pm_rows": 0
-  }
+  },
+  "ordering_variants": [
+    {
+      "draw": "2025-10-01 8PM",
+      "files": [
+        "data/recovered_draws_2025-10-01-8pm-full.csv",
+        "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_ad.csv"
+      ],
+      "number_sets_match": true,
+      "position_order_differs": true,
+      "set_signature": "d70b9d1f",
+      "resolution": "same_sheet_not_conflict"
+    }
+  ]
 }
