@@ -2,7 +2,7 @@
   "generated_on": "2026-11-21",
   "branch": "recovery/2025-full-year",
   "method": "Group all 2025 full-tier CSV rows by date/draw; compare normalized tier-position-number signatures across files. 32-bit FNV-1a signatures are only for duplicate comparison, not cryptographic integrity. SHA-256 for source PDFs remains separate and unavailable where binaries were not saved.",
-  "source_file_count": 134,
+  "source_file_count": 135,
   "source_files": [
     "data/recovered_draws_2025-01-01-1pm-full.csv",
     "data/recovered_draws_2025-03-01-10-21-full.csv",
@@ -137,7 +137,8 @@
     "data/recovered_draws_2025-05-27_to_31_official_pdfs.csv",
     "data/recovered_draws_2025-06-07_to_10_official_pdfs.csv",
     "data/recovered_draws_2025-06-11_to_14_official_pdfs.csv",
-    "data/recovered_draws_2025-06-18_20_21_22_23_official_pdfs.csv"
+    "data/recovered_draws_2025-06-18_20_21_22_23_official_pdfs.csv",
+    "data/recovered_draws_2025-06-24_25_26_28_29_official_pdfs.csv"
   ],
   "processed_files": [
     "data/recovered_draws_2025-01-01-1pm-full.csv",
@@ -273,7 +274,8 @@
     "data/recovered_draws_2025-05-27_to_31_official_pdfs.csv",
     "data/recovered_draws_2025-06-07_to_10_official_pdfs.csv",
     "data/recovered_draws_2025-06-11_to_14_official_pdfs.csv",
-    "data/recovered_draws_2025-06-18_20_21_22_23_official_pdfs.csv"
+    "data/recovered_draws_2025-06-18_20_21_22_23_official_pdfs.csv",
+    "data/recovered_draws_2025-06-24_25_26_28_29_official_pdfs.csv"
   ],
   "groups": {
     "2025-01-01 1PM": {
@@ -10807,24 +10809,204 @@
       ],
       "duplicate_copies": 0,
       "conflict": false
+    },
+    "2025-06-24 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "ed880816",
+      "signature_basis": "tier_position_number_fnv1a",
+      "files": [
+        "data/recovered_draws_2025-06-24_25_26_28_29_official_pdfs.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-06-24 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "6ac534eb",
+      "signature_basis": "tier_position_number_fnv1a",
+      "files": [
+        "data/recovered_draws_2025-06-24_25_26_28_29_official_pdfs.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-06-25 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "1b41d59c",
+      "signature_basis": "tier_position_number_fnv1a",
+      "files": [
+        "data/recovered_draws_2025-06-24_25_26_28_29_official_pdfs.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-06-25 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "94699d3a",
+      "signature_basis": "tier_position_number_fnv1a",
+      "files": [
+        "data/recovered_draws_2025-06-24_25_26_28_29_official_pdfs.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-06-26 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "ba897ebf",
+      "signature_basis": "tier_position_number_fnv1a",
+      "files": [
+        "data/recovered_draws_2025-06-24_25_26_28_29_official_pdfs.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-06-26 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "e5ea7ace",
+      "signature_basis": "tier_position_number_fnv1a",
+      "files": [
+        "data/recovered_draws_2025-06-24_25_26_28_29_official_pdfs.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-06-28 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "f2db55a9",
+      "signature_basis": "tier_position_number_fnv1a",
+      "files": [
+        "data/recovered_draws_2025-06-24_25_26_28_29_official_pdfs.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-06-28 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "0a857b37",
+      "signature_basis": "tier_position_number_fnv1a",
+      "files": [
+        "data/recovered_draws_2025-06-24_25_26_28_29_official_pdfs.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-06-29 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "f60620ef",
+      "signature_basis": "tier_position_number_fnv1a",
+      "files": [
+        "data/recovered_draws_2025-06-24_25_26_28_29_official_pdfs.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
+    },
+    "2025-06-29 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "9ef248b0",
+      "signature_basis": "tier_position_number_fnv1a",
+      "files": [
+        "data/recovered_draws_2025-06-24_25_26_28_29_official_pdfs.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false
     }
   },
   "summary": {
-    "processed_files": 134,
-    "total_files": 134,
-    "unique_draw_groups": 612,
-    "complete_132_entry_groups": 612,
+    "processed_files": 135,
+    "total_files": 135,
+    "unique_draw_groups": 622,
+    "complete_132_entry_groups": 622,
     "partial_or_malformed_groups": 0,
     "conflicted_groups": 0,
     "duplicate_identical_copies": 12,
     "draws_with_multiple_source_files": 12,
     "ignored_6pm_rows_total": null,
-    "method_note": "Full-tier CSV rows are grouped by date/draw for 1PM and 8PM only. Completeness requires 132 rows with 1 first, 1 consolation, 10 second, 10 third, 10 fourth and 100 fifth entries. Tier labels are case-normalized. Duplicate sheets are compared by the set of winning numbers within each tier, not row order. FNV-1a 32-bit signatures are for duplicate comparison only, not cryptographic integrity. 6PM is excluded from the audit groups. Additional 2026-11-21 cross-source batch: six complete November 1PM/8PM sheets matched tier-by-tier between dearlottery.com.co and lotterysambad.co; the 2025-11-25 8PM candidate contains 101 fifth-tier entries (expected 100), so it is preserved separately and classified malformed/partial rather than certified. 6PM remains excluded. Additional 2026-11-21 batch: Nov 14 1PM/8PM and Nov 17 8PM imported as complete 132-entry sheets. All tiers match between dearlottery.com.co and lotterysambad.co; first prizes also match Goodreturns and KLL. Additional 2026-11-21 batch: eight November full sheets imported from dearlottery.com.co. First prizes are cross-source matched to Lotterysambad, Goodreturns and KLL; lower tiers are retained with single_source_pending_review until a tier-by-tier comparison is completed. Additional 2026-11-21 batch: six November sheets (Nov 11 both, Nov 21 8PM, Nov 23 8PM, Nov 29 both) imported from Lotterysambad daily pages. First prizes cross-source matched to Goodreturns/KLL; lower tiers remain single_source_pending_review. Resolved 2025-11-25 8PM anomaly on 2026-11-21: both dearlottery.com.co and lotterysambad.co show exactly 100 fifth-prize values, ending 9838. The extra 9980 was a transcription artifact in the initial candidate; a corrected 132-row file was added and the original candidate retained as superseded. Additional May 2025 official-PDF batch: ten 1PM/8PM sheets extracted from linked one-page Lottery Sambad Gazette PDFs (May 5, 10, 11, 13, 14 and 18). First-prize values match Goodreturns and KLL charts; all 5th tiers contain exactly 100 entries. PDF binaries not saved; direct URLs retained. Additional May 20–24 official-PDF batch: nine new 132-entry sheets imported; May 22 1PM was already present and its 132 entries match the new o.vcdn.cc PDF exactly against the prior nagalandstatelotterysambad.com PDF. The second copy is retained in the source list and counted once. Four additional May 25–26 sheets extracted from linked official one-page PDFs; first-prize values match Goodreturns and KLL. 6PM excluded. Ten additional May 27–31 1PM/8PM sheets extracted from linked official one-page PDFs; first prizes match Goodreturns and KLL. May is now fully recovered (62/62 scheduled draw slots). Eight June 7–10 1PM/8PM sheets extracted from linked official one-page PDFs; first prizes match Goodreturns and KLL. 6PM excluded. Eight June 11–14 1PM/8PM sheets extracted from linked official one-page PDFs; first-prize values match Goodreturns and KLL. 6PM excluded. Ten additional June 18–23 1PM/8PM sheets extracted from linked official one-page PDFs; first prizes match Goodreturns and KLL. 6PM excluded."
+    "method_note": "Full-tier CSV rows are grouped by date/draw for 1PM and 8PM only. Completeness requires 132 rows with 1 first, 1 consolation, 10 second, 10 third, 10 fourth and 100 fifth entries. Tier labels are case-normalized. Duplicate sheets are compared by the set of winning numbers within each tier, not row order. FNV-1a 32-bit signatures are for duplicate comparison only, not cryptographic integrity. 6PM is excluded from the audit groups. Additional 2026-11-21 cross-source batch: six complete November 1PM/8PM sheets matched tier-by-tier between dearlottery.com.co and lotterysambad.co; the 2025-11-25 8PM candidate contains 101 fifth-tier entries (expected 100), so it is preserved separately and classified malformed/partial rather than certified. 6PM remains excluded. Additional 2026-11-21 batch: Nov 14 1PM/8PM and Nov 17 8PM imported as complete 132-entry sheets. All tiers match between dearlottery.com.co and lotterysambad.co; first prizes also match Goodreturns and KLL. Additional 2026-11-21 batch: eight November full sheets imported from dearlottery.com.co. First prizes are cross-source matched to Lotterysambad, Goodreturns and KLL; lower tiers are retained with single_source_pending_review until a tier-by-tier comparison is completed. Additional 2026-11-21 batch: six November sheets (Nov 11 both, Nov 21 8PM, Nov 23 8PM, Nov 29 both) imported from Lotterysambad daily pages. First prizes cross-source matched to Goodreturns/KLL; lower tiers remain single_source_pending_review. Resolved 2025-11-25 8PM anomaly on 2026-11-21: both dearlottery.com.co and lotterysambad.co show exactly 100 fifth-prize values, ending 9838. The extra 9980 was a transcription artifact in the initial candidate; a corrected 132-row file was added and the original candidate retained as superseded. Additional May 2025 official-PDF batch: ten 1PM/8PM sheets extracted from linked one-page Lottery Sambad Gazette PDFs (May 5, 10, 11, 13, 14 and 18). First-prize values match Goodreturns and KLL charts; all 5th tiers contain exactly 100 entries. PDF binaries not saved; direct URLs retained. Additional May 20–24 official-PDF batch: nine new 132-entry sheets imported; May 22 1PM was already present and its 132 entries match the new o.vcdn.cc PDF exactly against the prior nagalandstatelotterysambad.com PDF. The second copy is retained in the source list and counted once. Four additional May 25–26 sheets extracted from linked official one-page PDFs; first-prize values match Goodreturns and KLL. 6PM excluded. Ten additional May 27–31 1PM/8PM sheets extracted from linked official one-page PDFs; first prizes match Goodreturns and KLL. May is now fully recovered (62/62 scheduled draw slots). Eight June 7–10 1PM/8PM sheets extracted from linked official one-page PDFs; first prizes match Goodreturns and KLL. 6PM excluded. Eight June 11–14 1PM/8PM sheets extracted from linked official one-page PDFs; first-prize values match Goodreturns and KLL. 6PM excluded. Ten additional June 18–23 1PM/8PM sheets extracted from linked official one-page PDFs; first prizes match Goodreturns and KLL. 6PM excluded. Ten June 24–29 1PM/8PM sheets extracted from linked official one-page PDFs; first prizes match Goodreturns and KLL. June is now fully recovered (60/60 scheduled draw slots). 6PM excluded."
   },
   "last_chunk": {
     "processed": 1,
     "groups_added": 10,
-    "file": "data/recovered_draws_2025-06-18_20_21_22_23_official_pdfs.csv"
+    "file": "data/recovered_draws_2025-06-24_25_26_28_29_official_pdfs.csv"
   },
   "ordering_variants": [
     {
