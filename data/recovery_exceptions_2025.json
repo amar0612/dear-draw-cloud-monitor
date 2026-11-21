@@ -1288,6 +1288,80 @@
       "retrieval_date": "2026-11-21",
       "imported_rows": 132,
       "conflict": false
+    },
+    {
+      "date": "2025-01-26",
+      "draw": "1PM",
+      "status": "no_draw_confirmed_holiday",
+      "detail": "Republic Day. The official Nagaland State Lotteries rule states draws are held 362 days and excludes 26 January. The official 2025 Nagaland Gazette confirms the holiday. This is positive rule/calendar evidence, not an inference from broken links. 6PM excluded.",
+      "sources": [
+        "https://finance.nagaland.gov.in/Content/Files/9C954D4E-B813-441C-8A72-189A9117272A.pdf",
+        "https://govtpress.nagaland.gov.in/wp-content/uploads/2024/12/mastercopy-30-Nov-compressed.pdf"
+      ],
+      "retrieval_date": "2026-11-21",
+      "imported_rows": 0
+    },
+    {
+      "date": "2025-01-26",
+      "draw": "8PM",
+      "status": "no_draw_confirmed_holiday",
+      "detail": "Republic Day. The official Nagaland State Lotteries rule states draws are held 362 days and excludes 26 January. The official 2025 Nagaland Gazette confirms the holiday. This is positive rule/calendar evidence, not an inference from broken links. 6PM excluded.",
+      "sources": [
+        "https://finance.nagaland.gov.in/Content/Files/9C954D4E-B813-441C-8A72-189A9117272A.pdf",
+        "https://govtpress.nagaland.gov.in/wp-content/uploads/2024/12/mastercopy-30-Nov-compressed.pdf"
+      ],
+      "retrieval_date": "2026-11-21",
+      "imported_rows": 0
+    },
+    {
+      "date": "2025-08-15",
+      "draw": "1PM",
+      "status": "no_draw_confirmed_holiday",
+      "detail": "Independence Day. The official Nagaland State Lotteries rule states draws are held 362 days and excludes 15 August. The official 2025 Nagaland Gazette confirms the holiday. This is positive rule/calendar evidence, not an inference from broken links. 6PM excluded.",
+      "sources": [
+        "https://finance.nagaland.gov.in/Content/Files/9C954D4E-B813-441C-8A72-189A9117272A.pdf",
+        "https://govtpress.nagaland.gov.in/wp-content/uploads/2024/12/mastercopy-30-Nov-compressed.pdf"
+      ],
+      "retrieval_date": "2026-11-21",
+      "imported_rows": 0
+    },
+    {
+      "date": "2025-08-15",
+      "draw": "8PM",
+      "status": "no_draw_confirmed_holiday",
+      "detail": "Independence Day. The official Nagaland State Lotteries rule states draws are held 362 days and excludes 15 August. The official 2025 Nagaland Gazette confirms the holiday. This is positive rule/calendar evidence, not an inference from broken links. 6PM excluded.",
+      "sources": [
+        "https://finance.nagaland.gov.in/Content/Files/9C954D4E-B813-441C-8A72-189A9117272A.pdf",
+        "https://govtpress.nagaland.gov.in/wp-content/uploads/2024/12/mastercopy-30-Nov-compressed.pdf"
+      ],
+      "retrieval_date": "2026-11-21",
+      "imported_rows": 0
+    },
+    {
+      "date": "2025-10-02",
+      "draw": "1PM",
+      "status": "no_draw_confirmed_holiday",
+      "detail": "Gandhi Jayanti and Dussehra. The official Nagaland State Lotteries rule states draws are held 362 days and excludes 2 October. The official 2025 Nagaland Gazette confirms the holiday. This is positive rule/calendar evidence, not an inference from broken links. 6PM excluded.",
+      "sources": [
+        "https://finance.nagaland.gov.in/Content/Files/9C954D4E-B813-441C-8A72-189A9117272A.pdf",
+        "https://govtpress.nagaland.gov.in/wp-content/uploads/2024/12/mastercopy-30-Nov-compressed.pdf",
+        "https://dearlottery.com.co/old/2025/october"
+      ],
+      "retrieval_date": "2026-11-21",
+      "imported_rows": 0
+    },
+    {
+      "date": "2025-10-02",
+      "draw": "8PM",
+      "status": "no_draw_confirmed_holiday",
+      "detail": "Gandhi Jayanti and Dussehra. The official Nagaland State Lotteries rule states draws are held 362 days and excludes 2 October. The official 2025 Nagaland Gazette confirms the holiday. This is positive rule/calendar evidence, not an inference from broken links. 6PM excluded.",
+      "sources": [
+        "https://finance.nagaland.gov.in/Content/Files/9C954D4E-B813-441C-8A72-189A9117272A.pdf",
+        "https://govtpress.nagaland.gov.in/wp-content/uploads/2024/12/mastercopy-30-Nov-compressed.pdf",
+        "https://dearlottery.com.co/old/2025/october"
+      ],
+      "retrieval_date": "2026-11-21",
+      "imported_rows": 0
     }
   ],
   "note": "2025 first-prize data contains 724 records across 730 expected Nagaland 1PM/8PM draw slots; six unresolved slots are Jan 26, Aug 15 and Oct 2 (both draws). Prior audited full-tier baseline: 391 unique complete 132-entry sheets (51,612 rows), 333 first-prize-only partial slots, six unresolved. This run adds fifty-two genuinely new complete sheets (34 March sheets, April 1 both draws, April 6–13 both draws), bringing the audited total to 443 complete sheets (58,476 rows), 281 partial slots, six unresolved, and zero unresolved source conflicts. Seven other March sheets were independently checked against existing imported full sheets and not duplicated. The per-month manifest currently sums to 478 full sheets, 35 higher than the deduplicated audit; this discrepancy is explicitly unresolved and the aggregate remains provisional pending a complete cross-file deduplication pass. All 12 monthly archive index pages were opened; not every daily PDF link has been tested. PDF binaries for these fifty-nine source checks could not be preserved, so no SHA-256 hashes are claimed. 6PM is excluded entirely.",
@@ -1302,44 +1376,44 @@
     {
       "date": "2025-01",
       "draw": "both",
-      "issue": "Cross-file audit completed on 2026-11-21: 60 unique complete 132-entry sheets, 0 first-prize-only partial slots, 2 unresolved slots. Duplicate copies are retained but counted once. Jan 26 both draws remain unresolved.",
-      "status": "partial_and_unresolved",
-      "action": "Continue searching alternative sources for the 2 unresolved slots in January; do not infer no-draw from broken links."
+      "issue": "Cross-file audit 2026-11-21: 60 unique complete 132-entry sheets, 0 first-prize-only partial slots, 2 confirmed no-draw holiday slots, 0 unresolved slots. The 2 holiday slots are confirmed by the official Nagaland State Lotteries rule and 2025 Gazette.",
+      "status": "full_tier_recovered",
+      "action": "No partial or unresolved draw slots remain for January; retain duplicate-source and holiday audit records."
     },
     {
       "date": "2025-03",
       "draw": "both",
-      "issue": "Cross-file audit completed on 2026-11-21: 62 unique complete 132-entry sheets, 0 first-prize-only partial slots, 0 unresolved slots. Duplicate copies are retained but counted once.",
+      "issue": "Cross-file audit 2026-11-21: 62 unique complete 132-entry sheets, 0 first-prize-only partial slots, 0 confirmed no-draw holiday slots, 0 unresolved slots.",
       "status": "full_tier_recovered",
-      "action": "No remaining partial or unresolved draw slots; retain independent-source checks for lower tiers."
+      "action": "No partial or unresolved draw slots remain for March; retain duplicate-source and holiday audit records."
     },
     {
       "date": "2025-04",
       "draw": "both",
-      "issue": "Cross-file audit completed on 2026-11-21: 60 unique complete 132-entry sheets, 0 first-prize-only partial slots, 0 unresolved slots. Duplicate copies are retained but counted once.",
+      "issue": "Cross-file audit 2026-11-21: 60 unique complete 132-entry sheets, 0 first-prize-only partial slots, 0 confirmed no-draw holiday slots, 0 unresolved slots.",
       "status": "full_tier_recovered",
-      "action": "No remaining partial or unresolved draw slots; retain independent-source checks for lower tiers."
+      "action": "No partial or unresolved draw slots remain for April; retain duplicate-source and holiday audit records."
     },
     {
       "date": "2025-05",
       "draw": "both",
-      "issue": "Cross-file audit completed on 2026-11-21: 29 unique complete 132-entry sheets, 33 first-prize-only partial slots, 0 unresolved slots. Duplicate copies are retained but counted once.",
+      "issue": "Cross-file audit 2026-11-21: 29 unique complete 132-entry sheets, 33 first-prize-only partial slots, 0 confirmed no-draw holiday slots, 0 unresolved slots.",
       "status": "partial_extraction_review",
-      "action": "Continue locating full-tier sheets for the remaining 33 first-prize-only slots in May; retain single-source/partial records and do not infer no-draw from broken links."
+      "action": "Continue searching for full-tier sheets for the remaining 33 partial slots in May; no unresolved dates remain."
     },
     {
       "date": "2025-06",
       "draw": "both",
-      "issue": "Cross-file audit completed on 2026-11-21: 24 unique complete 132-entry sheets, 36 first-prize-only partial slots, 0 unresolved slots. Duplicate copies are retained but counted once.",
+      "issue": "Cross-file audit 2026-11-21: 24 unique complete 132-entry sheets, 36 first-prize-only partial slots, 0 confirmed no-draw holiday slots, 0 unresolved slots.",
       "status": "partial_extraction_review",
-      "action": "Continue locating full-tier sheets for the remaining 36 first-prize-only slots in June; retain single-source/partial records and do not infer no-draw from broken links."
+      "action": "Continue searching for full-tier sheets for the remaining 36 partial slots in June; no unresolved dates remain."
     },
     {
       "date": "2025-07",
       "draw": "both",
-      "issue": "Cross-file audit completed on 2026-11-21: 37 unique complete 132-entry sheets, 25 first-prize-only partial slots, 0 unresolved slots. Duplicate copies are retained but counted once.",
+      "issue": "Cross-file audit 2026-11-21: 37 unique complete 132-entry sheets, 25 first-prize-only partial slots, 0 confirmed no-draw holiday slots, 0 unresolved slots.",
       "status": "partial_extraction_review",
-      "action": "Continue locating full-tier sheets for the remaining 25 first-prize-only slots in July; retain single-source/partial records and do not infer no-draw from broken links."
+      "action": "Continue searching for full-tier sheets for the remaining 25 partial slots in July; no unresolved dates remain."
     },
     {
       "date": "2025-08-15",
@@ -1351,16 +1425,16 @@
     {
       "date": "2025-08",
       "draw": "both",
-      "issue": "Cross-file audit completed on 2026-11-21: 38 unique complete 132-entry sheets, 22 first-prize-only partial slots, 2 unresolved slots. Duplicate copies are retained but counted once. Aug 15 both draws remain unresolved.",
-      "status": "partial_and_unresolved",
-      "action": "Continue locating full-tier sheets for the remaining 22 first-prize-only slots in August; retain single-source/partial records and do not infer no-draw from broken links."
+      "issue": "Cross-file audit 2026-11-21: 38 unique complete 132-entry sheets, 22 first-prize-only partial slots, 2 confirmed no-draw holiday slots, 0 unresolved slots. The 2 holiday slots are confirmed by the official Nagaland State Lotteries rule and 2025 Gazette.",
+      "status": "partial_extraction_review",
+      "action": "Continue searching for full-tier sheets for the remaining 22 partial slots in August; no unresolved dates remain."
     },
     {
       "date": "2025-09",
       "draw": "both",
-      "issue": "Cross-file audit completed on 2026-11-21: 32 unique complete 132-entry sheets, 28 first-prize-only partial slots, 0 unresolved slots. Duplicate copies are retained but counted once.",
+      "issue": "Cross-file audit 2026-11-21: 32 unique complete 132-entry sheets, 28 first-prize-only partial slots, 0 confirmed no-draw holiday slots, 0 unresolved slots.",
       "status": "partial_extraction_review",
-      "action": "Continue locating full-tier sheets for the remaining 28 first-prize-only slots in September; retain single-source/partial records and do not infer no-draw from broken links."
+      "action": "Continue searching for full-tier sheets for the remaining 28 partial slots in September; no unresolved dates remain."
     },
     {
       "date": "2025-10-02",
@@ -1372,23 +1446,23 @@
     {
       "date": "2025-10",
       "draw": "both",
-      "issue": "Cross-file audit completed on 2026-11-21: 33 unique complete 132-entry sheets, 27 first-prize-only partial slots, 2 unresolved slots. Duplicate copies are retained but counted once. Oct 2 both draws remain unresolved; Oct 1 8PM ordering difference was resolved as identical number sets.",
-      "status": "partial_and_unresolved",
-      "action": "Continue locating full-tier sheets for the remaining 27 first-prize-only slots in October; retain single-source/partial records and do not infer no-draw from broken links."
+      "issue": "Cross-file audit 2026-11-21: 33 unique complete 132-entry sheets, 27 first-prize-only partial slots, 2 confirmed no-draw holiday slots, 0 unresolved slots. The 2 holiday slots are confirmed by the official Nagaland State Lotteries rule and 2025 Gazette.",
+      "status": "partial_extraction_review",
+      "action": "Continue searching for full-tier sheets for the remaining 27 partial slots in October; no unresolved dates remain."
     },
     {
       "date": "2025-11",
       "draw": "both",
-      "issue": "Cross-file audit completed on 2026-11-21: 29 unique complete 132-entry sheets, 31 first-prize-only partial slots, 0 unresolved slots. Duplicate copies are retained but counted once.",
+      "issue": "Cross-file audit 2026-11-21: 29 unique complete 132-entry sheets, 31 first-prize-only partial slots, 0 confirmed no-draw holiday slots, 0 unresolved slots.",
       "status": "partial_extraction_review",
-      "action": "Continue locating full-tier sheets for the remaining 31 first-prize-only slots in November; retain single-source/partial records and do not infer no-draw from broken links."
+      "action": "Continue searching for full-tier sheets for the remaining 31 partial slots in November; no unresolved dates remain."
     },
     {
       "date": "2025-12",
       "draw": "both",
-      "issue": "Cross-file audit completed on 2026-11-21: 62 unique complete 132-entry sheets, 0 first-prize-only partial slots, 0 unresolved slots. Duplicate copies are retained but counted once.",
+      "issue": "Cross-file audit 2026-11-21: 62 unique complete 132-entry sheets, 0 first-prize-only partial slots, 0 confirmed no-draw holiday slots, 0 unresolved slots.",
       "status": "full_tier_recovered",
-      "action": "No remaining partial or unresolved draw slots; retain independent-source checks for lower tiers."
+      "action": "No partial or unresolved draw slots remain for December; retain duplicate-source and holiday audit records."
     },
     {
       "date": "2025-06-30",
@@ -2095,6 +2169,80 @@
       "draw": "8PM",
       "status": "ordering_variant_resolved_same_number_set",
       "detail": "Two source files have different row ordering within 2nd–5th tiers but identical number sets per tier; retained both and counted one complete sheet."
+    },
+    {
+      "status": "holiday_no_draws_confirmed",
+      "dates": [
+        "2025-01-26",
+        "2025-08-15",
+        "2025-10-02"
+      ],
+      "draws": [
+        "1PM",
+        "8PM"
+      ],
+      "detail": "Official Nagaland State Lotteries rule excludes 26 January, 15 August and 2 October; official 2025 Nagaland Gazette confirms those dates as national/public holidays. All six slots are no-draw confirmed, not unresolved."
+    },
+    {
+      "date": "2025-06-30",
+      "status": "resolved_source_conflicts_retained",
+      "detail": "Two candidate draw sheets remain in the conflict ledger; canonical sources agree and alternate Dhankesari rendering is retained, not treated as unresolved conflict."
+    }
+  ],
+  "holiday_no_draws_2025": [
+    {
+      "date": "2025-01-26",
+      "draw": "1PM",
+      "reason": "Republic Day",
+      "status": "no_draw_confirmed_holiday",
+      "official_rule_url": "https://finance.nagaland.gov.in/Content/Files/9C954D4E-B813-441C-8A72-189A9117272A.pdf",
+      "official_calendar_url": "https://govtpress.nagaland.gov.in/wp-content/uploads/2024/12/mastercopy-30-Nov-compressed.pdf",
+      "retrieval_date": "2026-11-21"
+    },
+    {
+      "date": "2025-01-26",
+      "draw": "8PM",
+      "reason": "Republic Day",
+      "status": "no_draw_confirmed_holiday",
+      "official_rule_url": "https://finance.nagaland.gov.in/Content/Files/9C954D4E-B813-441C-8A72-189A9117272A.pdf",
+      "official_calendar_url": "https://govtpress.nagaland.gov.in/wp-content/uploads/2024/12/mastercopy-30-Nov-compressed.pdf",
+      "retrieval_date": "2026-11-21"
+    },
+    {
+      "date": "2025-08-15",
+      "draw": "1PM",
+      "reason": "Independence Day",
+      "status": "no_draw_confirmed_holiday",
+      "official_rule_url": "https://finance.nagaland.gov.in/Content/Files/9C954D4E-B813-441C-8A72-189A9117272A.pdf",
+      "official_calendar_url": "https://govtpress.nagaland.gov.in/wp-content/uploads/2024/12/mastercopy-30-Nov-compressed.pdf",
+      "retrieval_date": "2026-11-21"
+    },
+    {
+      "date": "2025-08-15",
+      "draw": "8PM",
+      "reason": "Independence Day",
+      "status": "no_draw_confirmed_holiday",
+      "official_rule_url": "https://finance.nagaland.gov.in/Content/Files/9C954D4E-B813-441C-8A72-189A9117272A.pdf",
+      "official_calendar_url": "https://govtpress.nagaland.gov.in/wp-content/uploads/2024/12/mastercopy-30-Nov-compressed.pdf",
+      "retrieval_date": "2026-11-21"
+    },
+    {
+      "date": "2025-10-02",
+      "draw": "1PM",
+      "reason": "Gandhi Jayanti and Dussehra",
+      "status": "no_draw_confirmed_holiday",
+      "official_rule_url": "https://finance.nagaland.gov.in/Content/Files/9C954D4E-B813-441C-8A72-189A9117272A.pdf",
+      "official_calendar_url": "https://govtpress.nagaland.gov.in/wp-content/uploads/2024/12/mastercopy-30-Nov-compressed.pdf",
+      "retrieval_date": "2026-11-21"
+    },
+    {
+      "date": "2025-10-02",
+      "draw": "8PM",
+      "reason": "Gandhi Jayanti and Dussehra",
+      "status": "no_draw_confirmed_holiday",
+      "official_rule_url": "https://finance.nagaland.gov.in/Content/Files/9C954D4E-B813-441C-8A72-189A9117272A.pdf",
+      "official_calendar_url": "https://govtpress.nagaland.gov.in/wp-content/uploads/2024/12/mastercopy-30-Nov-compressed.pdf",
+      "retrieval_date": "2026-11-21"
     }
   ]
 }
