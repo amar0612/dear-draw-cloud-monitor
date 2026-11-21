@@ -140,20 +140,30 @@ def fetch_pdf(url, timeout=12):
 
 
 def _slot_is_compatible(value, draw):
-    """Reject explicitly labelled Sikkim 6PM and the other Nagaland slot."""
-    text = unquote(str(value)).lower().replace("%20", " ")
-    slots = set()
-    if re.search(r"(?<![0-9])6\s?pm(?![a-z])|(?<![0-9])18:00(?![0-9])", text):
-        slots.add("6PM")
-    if re.search(r"(?<![0-9])1\s?pm(?![a-z])|(?<![0-9])13:00(?![0-9])", text):
-        slots.add("1PM")
-    if re.search(r"(?<![0-9])8\s?pm(?![a-z])|(?<![0-9])20:00(?![0-9])", text):
-        slots.add("8PM")
-    if "6PM" in slots:
-        return False
-    other = "8PM" if draw == "1PM" else "1PM"
-    return not (other in slots and draw not in slots)
+    """Reject wrong draw slots using PDF filename codes and visible labels.
 
+    Confirmed archive filename convention: MN=1PM, EN=8PM, DN=6PM (excluded).
+    Older mirror aliases MD=1PM and ED=8PM are retained.
+    """
+    text = unquote(str(value)).lower().replace("%20", " ")
+    filename = urlparse(text).path.rsplit("/", 1)[-1]
+    code_match = re.match(r"^(mn|md|en|ed|dn)(\d{6,8})\.pdf$", filename, re.I)
+    if code_match:
+        code = code_match.group(1).upper()
+        code_draw = {"MN": "1PM", "MD": "1PM", "EN": "8PM", "ED": "8PM"}.get(code)
+        if code == "DN" or code_draw is None or code_draw != draw:
+            return False
+
+    # Explicit schedule labels take precedence over ambiguous page context.
+    if re.search(r"(?<![0-9])6\s?pm(?![a-z])|(?<![0-9])18:00(?![0-9])", text):
+        return False
+    has_1pm = bool(re.search(r"(?<![0-9])1\s?pm(?![a-z])|(?<![0-9])13:00(?![0-9])", text))
+    has_8pm = bool(re.search(r"(?<![0-9])8\s?pm(?![a-z])|(?<![0-9])20:00(?![0-9])", text))
+    if has_1pm and not has_8pm and draw != "1PM":
+        return False
+    if has_8pm and not has_1pm and draw != "8PM":
+        return False
+    return True
 
 def _matching_link(href, label, draw_date, draw):
     joined = (unquote(href) + " " + html.unescape(label)).lower()
