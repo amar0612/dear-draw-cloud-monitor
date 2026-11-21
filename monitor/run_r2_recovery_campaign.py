@@ -102,9 +102,15 @@ def main():
         raise ValueError("batch-size must be at least 1")
 
     client, bucket = r2_client(), bucket_name()
+    # Validate credentials, endpoint and bucket access before doing any recovery work.
+    client.head_bucket(Bucket=bucket)
+    print(f"R2 connection verified; bucket={bucket}", flush=True)
     OUT.mkdir(parents=True, exist_ok=True)
     restore(client, bucket)
     state = read_checkpoint(client, bucket)
+    if state.get("status") == "completed":
+        print("Campaign is already completed in R2; no further work is required.", flush=True)
+        return
     draws = [item for item in read_draws(args.csv) if item[0].startswith(YEAR + "-")]
     total = len(draws)
     if total == 0:
