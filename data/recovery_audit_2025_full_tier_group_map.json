@@ -2,7 +2,7 @@
   "generated_on": "2026-11-21",
   "branch": "recovery/2025-full-year",
   "method": "Group all 2025 full-tier CSV rows by date/draw; compare normalized tier-position-number signatures across files. 32-bit FNV-1a signatures are only for duplicate comparison, not cryptographic integrity. SHA-256 for source PDFs remains separate and unavailable where binaries were not saved.",
-  "source_file_count": 137,
+  "source_file_count": 138,
   "source_files": [
     "data/recovered_draws_2025-01-01-1pm-full.csv",
     "data/recovered_draws_2025-03-01-10-21-full.csv",
@@ -27,19 +27,29 @@
     "data/recovered_draws_2025-04-19-full.csv",
     "data/recovered_draws_2025-05-03-1pm-full.csv",
     "data/recovered_draws_2025-05-03_8pm_and_2025-06-27_full.csv",
+    "data/recovered_draws_2025-05-05_10_11_13_14_18_official_pdfs.csv",
     "data/recovered_draws_2025-05-07-1pm-full.csv",
     "data/recovered_draws_2025-05-15-full.csv",
     "data/recovered_draws_2025-05-16-full.csv",
     "data/recovered_draws_2025-05-17-full.csv",
     "data/recovered_draws_2025-05-19-full.csv",
+    "data/recovered_draws_2025-05-20_to_24_official_pdfs.csv",
+    "data/recovered_draws_2025-05-25_26_official_pdfs.csv",
+    "data/recovered_draws_2025-05-27_to_31_official_pdfs.csv",
+    "data/recovered_draws_2025-06-07_to_10_official_pdfs.csv",
+    "data/recovered_draws_2025-06-11_to_14_official_pdfs.csv",
     "data/recovered_draws_2025-06-15-full.csv",
     "data/recovered_draws_2025-06-16-full.csv",
     "data/recovered_draws_2025-06-17-full.csv",
+    "data/recovered_draws_2025-06-18_20_21_22_23_official_pdfs.csv",
     "data/recovered_draws_2025-06-19-full.csv",
+    "data/recovered_draws_2025-06-24_25_26_28_29_official_pdfs.csv",
+    "data/recovered_draws_2025-07-13_14_18_20_21_22_official_pdfs.csv",
     "data/recovered_draws_2025-07-15-full.csv",
     "data/recovered_draws_2025-07-16-full.csv",
     "data/recovered_draws_2025-07-17-full.csv",
     "data/recovered_draws_2025-07-19-full.csv",
+    "data/recovered_draws_2025-07-24_to_31_official_pdfs.csv",
     "data/recovered_draws_2025-07-26-full.csv",
     "data/recovered_draws_2025-08-18-full.csv",
     "data/recovered_draws_2025-08-19-full.csv",
@@ -61,13 +71,20 @@
     "data/recovered_draws_2025-11-06_to_09_full.csv",
     "data/recovered_draws_2025-11-07-1pm-full.csv",
     "data/recovered_draws_2025-11-10-1pm-full.csv",
+    "data/recovered_draws_2025-11-10_19_25_27_crosssource_full.csv",
+    "data/recovered_draws_2025-11-11_21_23_29_full.csv",
     "data/recovered_draws_2025-11-12_to_13_full.csv",
+    "data/recovered_draws_2025-11-14_and_17_full.csv",
     "data/recovered_draws_2025-11-15-8pm-full.csv",
     "data/recovered_draws_2025-11-16-full.csv",
     "data/recovered_draws_2025-11-17-1pm-full.csv",
     "data/recovered_draws_2025-11-18-full.csv",
+    "data/recovered_draws_2025-11-20_21_23_26_28_full.csv",
     "data/recovered_draws_2025-11-22_and_24_full.csv",
+    "data/recovered_draws_2025-11-25_8pm_101_fifth_source_candidate.csv",
+    "data/recovered_draws_2025-11-25_8pm_crosssource_full_corrected.csv",
     "data/recovered_draws_2025-12-03-8pm-full.csv",
+    "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv",
     "data/recovered_draws_2025_full_tier_lotterysambad_co_2025-01-31_8pm.csv",
     "data/recovered_draws_2025_full_tier_lotterysambad_co_february_10-12_2025.csv",
     "data/recovered_draws_2025_full_tier_lotterysambad_co_february_13-15_2025.csv",
@@ -124,23 +141,7 @@
     "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_w.csv",
     "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_x.csv",
     "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_y.csv",
-    "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_z.csv",
-    "data/recovered_draws_2025-11-10_19_25_27_crosssource_full.csv",
-    "data/recovered_draws_2025-11-25_8pm_101_fifth_source_candidate.csv",
-    "data/recovered_draws_2025-11-14_and_17_full.csv",
-    "data/recovered_draws_2025-11-20_21_23_26_28_full.csv",
-    "data/recovered_draws_2025-11-11_21_23_29_full.csv",
-    "data/recovered_draws_2025-11-25_8pm_crosssource_full_corrected.csv",
-    "data/recovered_draws_2025-05-05_10_11_13_14_18_official_pdfs.csv",
-    "data/recovered_draws_2025-05-20_to_24_official_pdfs.csv",
-    "data/recovered_draws_2025-05-25_26_official_pdfs.csv",
-    "data/recovered_draws_2025-05-27_to_31_official_pdfs.csv",
-    "data/recovered_draws_2025-06-07_to_10_official_pdfs.csv",
-    "data/recovered_draws_2025-06-11_to_14_official_pdfs.csv",
-    "data/recovered_draws_2025-06-18_20_21_22_23_official_pdfs.csv",
-    "data/recovered_draws_2025-06-24_25_26_28_29_official_pdfs.csv",
-    "data/recovered_draws_2025-07-13_14_18_20_21_22_official_pdfs.csv",
-    "data/recovered_draws_2025-07-24_to_31_official_pdfs.csv"
+    "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_z.csv"
   ],
   "processed_files": [
     "data/recovered_draws_2025-01-01-1pm-full.csv",
@@ -2711,7 +2712,7 @@
       "conflict": false,
       "signature_basis": "tier_number_multiset",
       "order_variant": true,
-      "ordering_note": "The two source files contain identical sets of numbers in every prize tier; 2nd–5th tier row ordering differs. This is not a number conflict. Both source files are retained and the draw is counted once.",
+      "ordering_note": "The two source files contain identical sets of numbers in every prize tier; 2nd\u20135th tier row ordering differs. This is not a number conflict. Both source files are retained and the draw is counted once.",
       "legacy_ordered_signatures": [
         {
           "signature": "636c8398",
@@ -11443,19 +11444,2096 @@
       ],
       "duplicate_copies": 0,
       "conflict": false
+    },
+    "2025-08-01 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "041256b5",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "e6d31b63e6d545f6a76935cb1b782114d903d9d6368e8e77203c5c4034780b5c",
+        "efad171595c99f83855cec296ae2d5d5c5ff1259b6131072615e85d5a9266f35"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-08-14 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "f06624ee",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "22f695780e9d2feebbb41dac287368c221993854a19c12d03b59c841a5e30e2b",
+        "4ca1fbf4cb0cc553fcf989862519739366c74790f94bd63efd6bb222d7371481"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-08-14 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "048e8dbc",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "8fd1fa615836d1c25b020456a96f5cf39ca2406a531f8b0914d0c00e6ce3f62d",
+        "a484329a8ae429b7b9332961b858108ca31f3444a7f5d92d129c3043280680a0"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-08-16 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "56dc7c1d",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "1a9c2176c1d58392026dccd4e6d8be2b8ebad8f95357ac7e50779104ea209201",
+        "248b2b712ad42d794c7517909611637075e7c8f724a91343ade61c5e64e5eac0"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-08-17 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "42082d32",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "09db6a98a97dbe1f7c022134bdf1649e27d513fe33d5d2e7d3fc9033091e2adc",
+        "311489da5b7af1191f2496761138aeae8a1b8e3e855736c55a13943ebc857cec"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-08-17 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "88994d2f",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "060d1c828e81fcbdd70afe65575b5c7a6ff111535656111c22bb3f7498fe0c28",
+        "bcc953e903edaff5e38916b8a005bb23182918ccf2ab93f8ab065dc092da1d57"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-08-20 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "357e2208",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "9e59f9f537868eaa613f55e98b1b30ef230676a9438dedb2a6eb71e135b7355e",
+        "e30d95d179a564ff5d6240795bfa67f05db279b6bf226f1a4986b5555e4db618"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-08-20 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "d33b5d91",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "135b91679d2453e758bab5fc573b879d7f1b3d4fafaa9b067da46c792bdace68",
+        "7c3f1e2c6f9840aeb7b5e5e91f5e81877a7af08505671f69c9987a97579b369d"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-08-25 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "a9758ca1",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "40e11091615cd8f0ca83e1b0104e219ef5993455a177c7317c71cd4af86b545a",
+        "af2f2b60e49904fbcdda8170e9849f11e534a386c630af2f9783e38cfe010822"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-08-25 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "e69aa0b6",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "0cb0c23706997c6cd8ba0118c524e9a1e8a72f9354f1cd539b1bb59cf04258d2",
+        "f95f1aa7b9621eb4d24464966b81a7c6bef4ce12766694f2a8187cb98b3b02a7"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-08-26 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "caece8ad",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "07314de24610d11e265f7f99aed49a02baf074ca2e9a3437eda9dcb7cf762458",
+        "6e80bb09b6c53af65534a1d85c3847857b730ddd03c54609445fcc38340eb4ac"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-08-26 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "ff03edcf",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "62d395cf36c252c873cf7100ad10e6f6e60eb3a8b34293594232c8f610b53937",
+        "c1a787dee3ab0c9632bb84ae525c1d61d9f38f4329869b7e4326a0f25ab66791"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-08-27 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "6e4cda30",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "1ba6decfd3a78adf53d3069e8d32bd5df755353467aecb028e960609f25f0d2d",
+        "30dfc04a85f9906d2279fd013275903c0e5923c7dc526a7b6a47942fb674f074"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-08-27 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "ef717aae",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "931b30a6ad66dfc3a2b6520cfe823760fbf93c1d0adbe6e91e162ba3730d9f43",
+        "c647aa6e50153f609af836c741843655df6d092f189f97ce6f70b5ab36c7cb75"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-08-28 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "f7c3a015",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "1fcd7195880267e1af27f460412b292a5b558f39aa9e6f5d52d3ae80f341bc74",
+        "3ca5544bebd17a1f890d9c0416ef674059f6ea802fc79958ccd92b381c95a920"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-08-28 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "5257c90a",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "14b9ce115dccbb994f3d9dbac8d4071024df7105846982c1942e4888a0496006",
+        "e8b0b1f86f77480bb77920ab0dbfebaf34f7b42606085640c30464bfb63f0bd4"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-08-29 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "f4da8765",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "3ad5de370e90769a0daa5f646bd4bf9bf7e8756c05abe537a159e109a986e19c",
+        "d2add18ff06c2a2953f7b74fe269ffd67fc1713eaef81a15eadd683bb8f5a994"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-08-29 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "1be972c1",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "3a90b81def7d7f8e2489bdf3681f0c4b3533c73cbe99f507512cb4e4823a0717",
+        "63dbdf7c1f372918dcf6c59dc507e4680599e7951ff84f11bb1c77b8f461c1eb"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-08-30 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "038f4c90",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "3914273f0f4c185ca455e91dd55f20f121f0168cd550072eed6cdab2793fb954",
+        "745a306b93d0f6bea35129e92168bacbd4d9388a4b9ed86f9eee2140e97e0dc9"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-08-30 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "9ea14a7f",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "94ce72fbc6e71871c97de9fbad0985f08e9c7dfc733d348f2b167a4e555b5b3f",
+        "ed1434f7dd9c0f7fccc8d2607a705f1dab419d7b052e050e9cddfd47429ddbed"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-08-31 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "465fa529",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "93fa9cd0b2525df630af773e199ae448eee3c2808912bbeaf45e1a34de62c38e",
+        "fe3921c5d47d1e46879457978acf5d338e464acb10eae5b3ccce6953b8ee691e"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-08-31 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "bc80807b",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "d5c1ab4abe5563bce2451b86b9be7b0357da8cab6bcfe6fbd68a60d5decc4f5d",
+        "f8e443a75f3243a527807942c4fea1caaef4cd9271c3c20e0ac3e4c783ef4dea"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-11 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "83743b97",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "65fa9098094e9908e4bdbf1837a458d9881596320787a145fa8530bfdb4d0f42",
+        "f953898af37c705a4e429cee928bc098b17b81557549fa7af2a79743aca2080c"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-11 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "dea04d90",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "0147fbcdda7e76c4c5e6e855591ce26a7164acf95aa5a218413c5674c9e324b6",
+        "ab6663fe099f68d6a5680d2e70e821311d1ffbae62a4aaa4a70c5d676b15598c"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-12 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "6595c506",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "29f863f2227e0b6758097b15afc23b5bae11d8f4c0484888d1682160d90b7604",
+        "f3be6f9fc7187c8d0756b2595dbc40910d093eccc12fe2c5ddba244838b95bf1"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-12 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "50ee68c6",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false,
+      "source_domains": [
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "78cb6b463ad192dbbb832834ef653c99c90ed277004ccb621d4fb37dcdf7f240"
+      ],
+      "verification_status": "single_source_pending_review"
+    },
+    "2025-09-13 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "3fb2fdba",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "2e8096a8a15d74fb1772b8ca320c00478b092dea989294a2416ceb4a5bb16ca8",
+        "6db4de7a09a338b5df4f5d1b7469063af0c8f711ec24daee4558a44271a993e9"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-13 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "f58fcd1b",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "1d1f9ceff45bdeb7afb6f458264c2f4861847e1e955042e693788d10242cb581",
+        "c5e4a16cc32fe46482e043e9da9e3895de12c650cb523a85ec73a4c146df0442"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-14 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "8a327ecd",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "c3dcb4d1699f07edda4f673eef7e0cc76d335b8e0f4abaf0f1ab732873591f01",
+        "fe576ded55d63de437152d1d7ce5c907828558446b2cd5147b390ba798de2fa6"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-14 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "04f4d7a0",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "fabe089e2274d620d03285ef92e4122e38f8977851cf4940fe0ea8755e90b2a4",
+        "fefcac0892da77db4b3c8c45bb72fbdea03d7505cce6ce826365e795f4c456f1"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-18 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "073ddbb0",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "03cdc7afa11b51c679b1f33e950504e7d91b1d7a1c337d5df4acadee74692753",
+        "19b3878919ba600a0d7071590b8db53305e065deabacad4e0f4035a1944da35b"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-18 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "41fb7b13",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "1d0e75b7e2c87269506d167e6b604872ce4367278889add44ff3d757a09c1a43",
+        "86ca4ede53a873c47e897b6c99d1b64d1b018d071bd18fed019eac96e87ad38b"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-19 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "59aae46f",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "04b505b7a004ce82fbfb3b6968f7110c3b6248d8ff6142b14486d535e6161ec4",
+        "c8126e42dc642a73ed264c4962966d3db9779e661e43dd0c424956e90a3bf4e5"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-19 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "3bef30a2",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "9c0fbd97820a297587276e5d65c62a90b520d6f17b3e037b18db5514539edfdb",
+        "ff728c3e4047d019c6ce544df3604fe1eca9979acf61b43ae0f4e06eff15536e"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-20 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "842e4e5d",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "69de818020a8bb9c72aaaea781bcca6dd11e42fb9aa0016f1b4cddd6890a1016",
+        "922d6d2bf13687b2035889cc069da3b0cf60b607194a019db66dd9dc53cb1a3a"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-20 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "8e1ec8c2",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "1c122bc9566823e5fac5f27e9d2f578dd4019067b41774c8cabb3c30c581b8b6",
+        "db84cde63459b26760099ca50d57b0bf68ec55b628eedb4784abab137f3b4db0"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-21 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "2bdc89f8",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "127721e32083a9dcf73895a48880c4154c3871656143142887ee360f06438891",
+        "afbdd19bc3efa5c52acfdd4892ba135c00abb154c8d1e5196c581ec9f26a1cdb"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-21 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "37b4353d",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "2b247633a9379db8194e0635d4513d95919bde6b246d8d8a843b901f524f8a5a",
+        "adfdf2401b0338d246272a148c1f5fd7ae64bac056c1cb5304375fb6925c5d50"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-22 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "bbb2920c",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "308879f658ca8365b0d12454a68632a319be2000cddae1ec48fe0d5300389189",
+        "72545e24f6f7295cf66e4bfa1a20402bd5c44b6b6b72357c80348c1136f87235"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-22 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "10cb636e",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "72615a174100aac893fb7707c1f9c0f563227acf776666d26013c49dc89ccf7f",
+        "85cf92e8eb9e2b53e13ff6591591da0617154ba06203946b679e47288a872758"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-23 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "f284c55f",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "6cf670d5a53635d704bdb21b5048edac40d0209ba579e48c13477fcf8712facd",
+        "b25e5d3c1d664418f07ffabcd07c6657512615a9005dff0027029ad39beb1dbd"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-23 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "1a3ab886",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "2ae377573ef4327b3f77dd66117ba6971ee01e010a495f783e044714fed8edc6",
+        "9d5b9d95bfcc095c1c7c07d053bff411d370eb000e5db9a5efbfdddda5f8e22a"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-24 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "924cf4e1",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "1ef08d3ac813ac2ba9841dfde0334dfdb3ca50278cd6afec80969a329ccc3a2f",
+        "349114193d612cf643057637626bf415425d093a8ad667498c0a4fb950307efb"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-24 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "56421d8b",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "608bac55953cee99b8571673ba278b414d1e8e38bc172aa9e0f522578b5b372c",
+        "c2bde31be39a9fd1fb57f861cc7ec68c61f20f5a06320fc54dd0af3fbc0fe4d9"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-26 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "f7f9b784",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "232502befc3a337a5894bb9586f1b211b91b3d68a630b0d6e91f1c97d4f84833",
+        "428a644217f472bdbf34f874cb7bfb35b3b44e44f127fef736aa48c69549be30"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-27 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "1ff8e36e",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "353771dec8e55fd94ae946567c786479e7cef7b3de878030b4d3baa053497408",
+        "dc3671aac644eda4d13b7f8e58650c8cd9b771593854b8dcc3debe2e33767897"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-27 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "ec5d595f",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "04aa2e5057fce8cdeefe9b659eb2885d6adfe7cb6aa0b3649fcca3d0992f2c66",
+        "1eca11bb16d63970542c956798d855444e1c213618de533369f01d5d823d1674"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-28 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "b3eab070",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "86bbec53977ddc9648441a573f0f63381e082b2cd02847bae746d674e87e8d5f",
+        "d41018c45be2ee96bc86ffe0cda7a416a06730aa986e52f4add819f4d7ace302"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-29 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "3b8b2680",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "7edb9feee2c905d2cb6c89f1ae18459cfff65e7d549ddd0e34526ca31c35c90e",
+        "f70f2a655d33484d5f3ebafeda7aca7f81f1fe673e0e3f7ef360dca85946f341"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-09-29 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "2a2f1f6a",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "b2ac2e41d33e247b6b6fe49f7b3c8b76308329354d0e2f65da14f049d4b49764",
+        "d87f2e2a79ab7b42ec0a4658be48ed8d4619976c7e98138d209dee09715930ca"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-12 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "f4b00e3f",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "047d7c27ebba5dfb23c9d2594e9fe95c4159fe604cffd5eafaecb4275bef9378",
+        "bc915e7821b5e3e05739a0407836c98d5d552317a445b1c847fac41a26e7d523"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-12 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "eece5099",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "323d09b66c6c4282135a037e64a4574a1018b2108d98dc43e9aab84681834433",
+        "522b76a23f7459dff0cd653c595e6f8735472263d7b75ace6a40e47190f2abdc"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-13 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "0badc5a6",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "a243b1760087b4ea39c8fdcf1064f784453db89e1c75153d13051a33c65d13b7",
+        "e9ca74f2148a7f01c294c038bd9d886e75a3b1afbd1fe80fe43061d6cd8dfb46"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-13 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "42eebf4e",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "35efb4e9b5093d72fdc399ca55850c9d6b431dd0fedb1a3e3dccbf308a961685",
+        "89aa9879b0dae98509d70095cb78b9eb13640c3366e14f9c7b5b05b55c924109"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-14 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "626fcb9b",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "050c42becba0c3ecd1854b4b313f429c7c95179030e366e2fa2e008ef059addc",
+        "82a8985c94fdd6bf1362b1d44bc777455d82f76596ec34b867c86640c4a0d2d6"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-14 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "6da8c3c6",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "6c77e904b91a80bcb703142ea3f772a981ea1951b782964115313dcb11a33fd1",
+        "c1620fd4a1af415b8810390630b67feede11cfabeae860467c8382430560cc7c"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-17 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "ee32830e",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "871517dfea2a80ef4f180721c1727926b218ed02887c799d94eb05424b866b3d",
+        "a00af9fb4b92328afb9afc85a26de75e3168c5f1b3297d34fe7b29b0bd2f0730"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-19 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "eae044ef",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "1726cbb43502cf5c7ec874b609a45024de92714df423346d923a6dcb9198137e",
+        "9e672b1a12827ab6da69f69bef387a6f4cd3df875c4f86ebc32e2cd261b95756"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-20 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "36a40087",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "dee1ce069fb596513deed24d188f7c171dee87360893f82731fd2de669bc402c",
+        "ebd96c0cf65bbf326dcf865a76d1424beb0651867bbed98189e28e33ffe6e411"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-20 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "fbad6ba1",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "07f532eb16082217cb33fc7a8d145adc2495c1246a331c59f020e69ccbc0177b",
+        "572b0f3cd08e6061b029ca14d117a2680b5f8a25b9b2254207fcb2f2b3e4c21a"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-21 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "66fd357b",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "a11e557700524ac94ae83f5a1ec4256d76611972f410f88cd378cd7e74d304b9",
+        "d93f3ea77505daab4e3eeae56272010a16b4f083f1e9125e731eda3391434e13"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-22 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "95908546",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "095ca35a584c6e7197a63bbcd2395ced8d1254351b2ae4710b0ddf832c6b3854",
+        "cf1453f3589c8a963298ab253111c00217731708c4a53e4b354f47a4b1c1f3fa"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-22 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "8acee1cd",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "62c79cf73a0294224b163d0b661c46a6f8620913a040e3c4b3110f87237b35f2",
+        "ffed6e884d3f2a5a14f953cc20bbb647c1f29a58198aa7a619b233dfb8e63fb2"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-23 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "3d98f675",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "1f0edf0c6dc6326209d5ffaccadfa38bccbc6e94d933f8ddc2d9d3288a68b124",
+        "66412c608a214df6b44916a8a9ab7ffd35345923b3b652c7746c716010c3d838"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-23 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "c6db56b2",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "8e34b54f0ca763ab2b5ca7247f5f690c505a8d4b3f8b2e9c6f47f2ac83f29836",
+        "f3a518323356302a1711bea2fe68b8fec48d8c639171ec30e3533f6c605064bd"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-24 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "1288dced",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "20fa258c67711d911dce57a281a68c21259f7af73724575006af93698d90230b",
+        "733722af56b45a5cff24b16abb556fc6c1db681777abad9517e821197779084a"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-24 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "1be35c86",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "135c41b17470fd30e105ebeaa0f19146d0939a8884e54b3046b56b36c4da3eb1",
+        "600603969aef7e960417e7d9b233819aacd3759d5581e28ff0c1c7cad3b2664b"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-25 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "9c7f9989",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "336338450f9e77fd4534829de4debf54880c09f6fe66c9a25223ca07237d6bd7",
+        "f14ccbdbd3730dee30cb8008f2dc7cd5c6d16109ecd7c409174d32bc86a6f472"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-25 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "158ba426",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 0,
+      "conflict": false,
+      "source_domains": [
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "8cfb967d67752a97d9d401f4ba5105667f94972d9c24f5173dee82049e395f0e"
+      ],
+      "verification_status": "single_source_pending_review"
+    },
+    "2025-10-26 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "f614c625",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "2a704373f1019fd50fdfb0be91b1ceec99275f31796658bd180bc394b1f953c2",
+        "fd16a4a2486e3b4480b66f528a413a7814aa6fd1bff00116f23f869eea29ca6c"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-26 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "582927fc",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "906459ee92fad7779f6ba68a5422e2c1da0265bcd89c0b75fae287955dd0dc6e",
+        "e8c1d8ef94ba40eeda1ba01fc75d6862e526a1eb0dfc2ac7aca8ce191e206bfb"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-27 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "cc7840d5",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "bba21da2390cb68686f0ebd3e1eeb31db55ff111b86df3fb7a50bfb56345e5cc",
+        "cc78dcdc099ad75a4a36f07f419b2f75505b514678d5fb2ac033ac14318dea25"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-28 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "a276e887",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "78bfba681f1295f06079a82743a238b23795a896527c2083bbf7d0aba83b2e7e",
+        "ad9d6cdc87251665efe91f544e6ea9ddffefa1ff2bc536665af0e20bc84066a4"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-29 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "898ea015",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "60e07ebbbca7d55bd0bf2bdca1ecb1aff2ea263264e620f146fb027d95bec669",
+        "cc4847a7f256851d6bb8861fda027070256288608609dbca4f294910172c63bf"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-29 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "02c2db3c",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "ca9c526fdeb29b1587f6b6c589f5f2afe062f8d05a538dc09182c342044f7219",
+        "f1363e67a01ad281c9b329fdc6d57911b892e198e0456463ef03e42ffd5c9f9a"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-30 1PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "07ae51bc",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "4200c8488d90d40874ee0f7b6e323753a935421c874916dbbeb86146f73df459",
+        "b0dc55f31061d716e2a339035d1ea72c6568e3a3dd66c943d3fe566b32209c26"
+      ],
+      "verification_status": "cross_source_matched"
+    },
+    "2025-10-30 8PM": {
+      "row_count": 132,
+      "tier_counts": {
+        "1st": 1,
+        "consolation": 1,
+        "2nd": 10,
+        "3rd": 10,
+        "4th": 10,
+        "5th": 100
+      },
+      "signature": "eb67decb",
+      "signature_algorithm": "sha256-prefix-v1",
+      "files": [
+        "data/recovered_draws_2025_full_tier_icu_aug_sep_oct_2026-11-21.csv"
+      ],
+      "duplicate_copies": 1,
+      "conflict": false,
+      "source_domains": [
+        "lotterysambad.icu",
+        "o.vcdn.cc"
+      ],
+      "pdf_sha256s": [
+        "2c45ebf47307c4146086b1add41fab50d2e6b010c0f61e196feb0a57c107bd9a",
+        "ff9cd05f2d957e653e11e12fe50b85fb1e3afcf05f7724a5d852223d9517bdac"
+      ],
+      "verification_status": "cross_source_matched"
     }
   },
   "summary": {
-    "processed_files": 137,
-    "total_files": 137,
-    "unique_draw_groups": 647,
-    "complete_132_entry_groups": 647,
-    "partial_or_malformed_groups": 0,
-    "conflicted_groups": 0,
-    "duplicate_identical_copies": 12,
-    "draws_with_multiple_source_files": 12,
-    "ignored_6pm_rows_total": null,
-    "method_note": "Full-tier CSV rows are grouped by date/draw for 1PM and 8PM only. Completeness requires 132 rows with 1 first, 1 consolation, 10 second, 10 third, 10 fourth and 100 fifth entries. Tier labels are case-normalized. Duplicate sheets are compared by the set of winning numbers within each tier, not row order. FNV-1a 32-bit signatures are for duplicate comparison only, not cryptographic integrity. 6PM is excluded from the audit groups. Additional 2026-11-21 cross-source batch: six complete November 1PM/8PM sheets matched tier-by-tier between dearlottery.com.co and lotterysambad.co; the 2025-11-25 8PM candidate contains 101 fifth-tier entries (expected 100), so it is preserved separately and classified malformed/partial rather than certified. 6PM remains excluded. Additional 2026-11-21 batch: Nov 14 1PM/8PM and Nov 17 8PM imported as complete 132-entry sheets. All tiers match between dearlottery.com.co and lotterysambad.co; first prizes also match Goodreturns and KLL. Additional 2026-11-21 batch: eight November full sheets imported from dearlottery.com.co. First prizes are cross-source matched to Lotterysambad, Goodreturns and KLL; lower tiers are retained with single_source_pending_review until a tier-by-tier comparison is completed. Additional 2026-11-21 batch: six November sheets (Nov 11 both, Nov 21 8PM, Nov 23 8PM, Nov 29 both) imported from Lotterysambad daily pages. First prizes cross-source matched to Goodreturns/KLL; lower tiers remain single_source_pending_review. Resolved 2025-11-25 8PM anomaly on 2026-11-21: both dearlottery.com.co and lotterysambad.co show exactly 100 fifth-prize values, ending 9838. The extra 9980 was a transcription artifact in the initial candidate; a corrected 132-row file was added and the original candidate retained as superseded. Additional May 2025 official-PDF batch: ten 1PM/8PM sheets extracted from linked one-page Lottery Sambad Gazette PDFs (May 5, 10, 11, 13, 14 and 18). First-prize values match Goodreturns and KLL charts; all 5th tiers contain exactly 100 entries. PDF binaries not saved; direct URLs retained. Additional May 20–24 official-PDF batch: nine new 132-entry sheets imported; May 22 1PM was already present and its 132 entries match the new o.vcdn.cc PDF exactly against the prior nagalandstatelotterysambad.com PDF. The second copy is retained in the source list and counted once. Four additional May 25–26 sheets extracted from linked official one-page PDFs; first-prize values match Goodreturns and KLL. 6PM excluded. Ten additional May 27–31 1PM/8PM sheets extracted from linked official one-page PDFs; first prizes match Goodreturns and KLL. May is now fully recovered (62/62 scheduled draw slots). Eight June 7–10 1PM/8PM sheets extracted from linked official one-page PDFs; first prizes match Goodreturns and KLL. 6PM excluded. Eight June 11–14 1PM/8PM sheets extracted from linked official one-page PDFs; first-prize values match Goodreturns and KLL. 6PM excluded. Ten additional June 18–23 1PM/8PM sheets extracted from linked official one-page PDFs; first prizes match Goodreturns and KLL. 6PM excluded. Ten June 24–29 1PM/8PM sheets extracted from linked official one-page PDFs; first prizes match Goodreturns and KLL. June is now fully recovered (60/60 scheduled draw slots). 6PM excluded. Twelve July 13–22 1PM/8PM sheets extracted from linked official one-page PDFs; first prizes match Goodreturns and KLL. 6PM excluded. Thirteen July 24–31 1PM/8PM sheets extracted from linked official one-page PDFs; first prizes match Goodreturns and KLL. July is now fully recovered (62/62 scheduled draw slots). 6PM excluded."
+    "unique_complete_132_entry_sheets": 724,
+    "complete_prize_rows": 95568,
+    "first_prize_only_partial_slots": 0,
+    "source_conflict_draws": 0,
+    "unresolved_draw_slots": 0,
+    "confirmed_no_draw_holiday_slots": 6,
+    "expected_calendar_slots": 730,
+    "scheduled_draw_slots_after_holidays": 724,
+    "new_cross_source_matched_draws": 75,
+    "new_single_source_pending_review_draws": 2,
+    "misdated_source_links_resolved": 1,
+    "note": "6PM excluded. New group signatures use sha256-prefix-v1; legacy signatures are retained unchanged."
   },
   "last_chunk": {
     "processed": 1,
