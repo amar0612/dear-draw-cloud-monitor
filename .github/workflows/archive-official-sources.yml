@@ -49,7 +49,8 @@ jobs:
           python run_r2_recovery_campaign.py \
             --csv ../data/recovery_candidates_2023.csv \
             --batch-size "${{ inputs.batch_size || '25' }}" \
-            --max-batches "${{ inputs.max_batches || '1' }}"
+            --max-batches "${{ inputs.max_batches || '1' }}" \
+            ${{ github.event_name == 'schedule' && '--scheduled' || '' }}
 
       - name: Upload final ZIP as a convenient GitHub download
         if: success()
