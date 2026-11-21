@@ -8,12 +8,13 @@
         "1PM",
         "8PM"
       ],
-      "status": "unresolved_missing_result",
-      "detail": "Date absent from Goodreturns January 2025 result chart and shown struck through in one old-result listing. This is not treated as proof that no draw occurred.",
+      "status": "no_draw_confirmed_holiday",
+      "detail": "Republic Day. The official Nagaland State Lotteries rule states draws are held 362 days and excludes 26 January; the official 2025 Nagaland Gazette confirms the holiday. Both 1PM and 8PM are confirmed no-draw slots. This is positive rule/calendar evidence, not an inference from broken links.",
       "sources": [
-        "https://www.goodreturns.in/nagaland-dear-lottery-chart.html?y=2025",
-        "https://nagalandstatelotterysambad.com/lottery-sambad-old-result/"
-      ]
+        "https://finance.nagaland.gov.in/Content/Files/9C954D4E-B813-441C-8A72-189A9117272A.pdf",
+        "https://govtpress.nagaland.gov.in/wp-content/uploads/2024/12/mastercopy-30-Nov-compressed.pdf"
+      ],
+      "retrieval_date": "2026-11-21"
     },
     {
       "date_range": "2025-01-01_to_2025-01-31",
