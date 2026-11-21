@@ -68,7 +68,7 @@
       "domain": "lotterysambad.co",
       "type": "daily and monthly result archive with full 1PM/8PM tier tables",
       "index_url": "https://lotterysambad.co/2025/",
-      "status": "January–October daily result pages used for discovery and PDF link navigation; 6PM results excluded from imports. 2025-04-18 1PM and 8PM full-result pages and linked PDFs were opened and extracted; 6PM content was excluded. Additional full 2025 pages opened/extracted: May 3, May 7, July 26, August 24, September 25 and November 15; only 1PM/8PM tables imported, 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 11 and March 12, 1PM and 8PM only; 6PM excluded. Additional full result page and linked PDFs opened/extracted on 2026-11-20: March 18, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 20 and March 22, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 23 and March 24, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 25 and March 26, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 29 and March 30, 1PM and 8PM; 6PM excluded. March 2025 daily archive pages 1–31 were searched; all remaining 1PM/8PM full sheets recovered from linked PDFs on 2026-11-20; 6PM excluded. April 1, 2025 daily page and linked 1PM/8PM PDFs recovered on 2026-11-20 after earlier PDF failures. April 6–8 daily pages and linked 1PM/8PM PDFs recovered on 2026-11-20; 6PM excluded. April 9–13 daily pages and linked 1PM/8PM PDFs recovered on 2026-11-20; 6PM excluded. April 14 and April 20–29 daily pages opened 2026-11-21; 18 linked 1PM/8PM PDFs opened and their PDF text layers reviewed; first-prize series/number matched Goodreturns and five-digit suffixes matched KLL yearly chart. Full 132-entry structured imports remain pending; 6PM excluded. The 18 April 14 and April 20–29 1PM/8PM PDF text extractions were imported as 132-row sheets on 2026-11-21; 6PM excluded. Lower tiers remain single-source pending review. May 3 and June 27 daily pages and their 1PM/8PM PDFs were opened on 2026-11-21; May 3 8PM and June 27 both draws imported, while May 3 1PM was a corroborating duplicate only. 6PM excluded. Four August 21–23 1PM/8PM archive HTML sheets were imported on 2026-11-21; first prizes cross-source matched. No direct PDF links were exposed on these pages, so no PDF binaries or hashes.",
+      "status": "January–October daily result pages used for discovery and PDF link navigation; 6PM results excluded from imports. 2025-04-18 1PM and 8PM full-result pages and linked PDFs were opened and extracted; 6PM content was excluded. Additional full 2025 pages opened/extracted: May 3, May 7, July 26, August 24, September 25 and November 15; only 1PM/8PM tables imported, 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 11 and March 12, 1PM and 8PM only; 6PM excluded. Additional full result page and linked PDFs opened/extracted on 2026-11-20: March 18, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 20 and March 22, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 23 and March 24, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 25 and March 26, 1PM and 8PM; 6PM excluded. Additional full result pages and linked PDFs opened/extracted on 2026-11-20: March 29 and March 30, 1PM and 8PM; 6PM excluded. March 2025 daily archive pages 1–31 were searched; all remaining 1PM/8PM full sheets recovered from linked PDFs on 2026-11-20; 6PM excluded. April 1, 2025 daily page and linked 1PM/8PM PDFs recovered on 2026-11-20 after earlier PDF failures. April 6–8 daily pages and linked 1PM/8PM PDFs recovered on 2026-11-20; 6PM excluded. April 9–13 daily pages and linked 1PM/8PM PDFs recovered on 2026-11-20; 6PM excluded. April 14 and April 20–29 daily pages opened 2026-11-21; 18 linked 1PM/8PM PDFs opened and their PDF text layers reviewed; first-prize series/number matched Goodreturns and five-digit suffixes matched KLL yearly chart. Full 132-entry structured imports remain pending; 6PM excluded. The 18 April 14 and April 20–29 1PM/8PM PDF text extractions were imported as 132-row sheets on 2026-11-21; 6PM excluded. Lower tiers remain single-source pending review. May 3 and June 27 daily pages and their 1PM/8PM PDFs were opened on 2026-11-21; May 3 8PM and June 27 both draws imported, while May 3 1PM was a corroborating duplicate only. 6PM excluded. Four August 21–23 1PM/8PM archive HTML sheets were imported on 2026-11-21; first prizes cross-source matched. No direct PDF links were exposed on these pages, so no PDF binaries or hashes. On 2026-11-21, November 10, 19, 25 and 27 daily pages were opened for cross-checking: six complete 1PM/8PM sheets match dearlottery.com.co tier-by-tier; Nov 25 8PM lists 101 fifth-tier entries on both sites, so its candidate is flagged rather than certified. 6PM excluded.",
       "retrieval_date": "2026-11-20"
     },
     {
@@ -89,7 +89,7 @@
     {
       "domain": "dearlottery.com.co",
       "index_url": "https://dearlottery.com.co/old/2025/november",
-      "status": "Newly identified 2026-11-21. Full 1PM/8PM result pages provide 1st–5th prize text and first-prize charts; 3 sheets imported (Nov 12 1PM/8PM, Nov 13 1PM). First prizes cross-source matched to Goodreturns and KLL. No direct PDF links on these pages; original binaries and SHA-256 not preserved. API docs state historical API search limited to last 7 days; website archive pages used instead. 6PM excluded."
+      "status": "Full 1PM/8PM result pages provide 1st–5th prize text. On 2026-11-21, six additional complete 132-entry sheets were imported for Nov 10 8PM, Nov 19 both draws, Nov 25 1PM and Nov 27 both draws; tier lists match lotterysambad.co daily pages. Together with earlier November imports, 20 complete 132-entry sheets are present from this archive domain. Nov 25 8PM candidate retained separately with 101 fifth-tier entries (expected 100), not certified complete. First prizes cross-source matched to Goodreturns and KLL. No direct PDF links/binaries for these pages; no SHA-256. API history limited to last 7 days; website archive pages used. 6PM excluded."
     },
     {
       "domain": "finance.nagaland.gov.in",
@@ -335,7 +335,7 @@
     {
       "month": "november",
       "archive_url": "https://lotterysambad.icu/old-result/november-2025",
-      "status": "partial_first_prize_only",
+      "status": "partial_extraction_review",
       "first_prize_records": 60,
       "first_prize_coverage": "All 30 dates, both 1PM and 8PM",
       "first_prize_sources": [
@@ -343,10 +343,10 @@
         "https://kllotteryresults.in/dear-lottery-chart/2025"
       ],
       "full_tier_recovery": "36 full 132-entry sheets (4,752 entries); 24 first-prize-only partial slots; 0 unresolved. Newly imported on 2026-11-21: Nov 6 both, Nov 7 8PM, Nov 8 both, Nov 9 both, in addition to Nov 12/13/22/24 recoveries.",
-      "notes": "Nov 6 1PM/8PM, Nov 7 8PM, Nov 8 1PM/8PM, Nov 9 1PM/8PM, Nov 12 1PM/8PM, Nov 13 1PM, Nov 22 both and Nov 24 both imported from full archive result pages. First prizes cross-source matched; lower tiers single-source pending review. No direct PDF binaries or hashes.",
-      "full_tier_draws": 36,
-      "full_tier_entries": 4752,
-      "partial_draws": 24,
+      "notes": "Six additional complete 132-entry sheets imported on 2026-11-21 (Nov 10 8PM, Nov 19 1PM/8PM, Nov 25 1PM, Nov 27 1PM/8PM). Each full tier set matches between dearlottery.com.co and lotterysambad.co; first-prize series/number also matches Goodreturns and KLL yearly charts. The Nov 25 8PM source candidate is preserved separately with 133 rows because both HTML sources show 101 fifth-prize numbers (expected 100); it remains partial_extraction_review, not counted complete. 17 other slots remain first-prize-only. No direct PDF binary was available for these pages; no SHA-256 values.",
+      "full_tier_draws": 42,
+      "full_tier_entries": 5544,
+      "partial_draws": 18,
       "unresolved_draws": 0,
       "pdf_extraction": "36 complete sheets (4,752 entries), 24 partial slots, 0 unresolved. Fourteen full sheets imported from dearlottery.com.co archive pages on 2026-11-21; no direct PDF binaries were linked.",
       "full_tier_expected_draw_slots": 60,
@@ -1999,9 +1999,9 @@
     "binary_pdf_preserved": false,
     "sha256_calculated": false
   },
-  "full_tier_total_draws": 529,
-  "full_tier_total_entries": 69828,
-  "full_tier_clean_tier_count_draws": 529,
+  "full_tier_total_draws": 535,
+  "full_tier_total_entries": 70620,
+  "full_tier_clean_tier_count_draws": 535,
   "full_tier_source_conflict_draws": 0,
   "full_tier_batch_2026_11_19_c": {
     "file": "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_c.csv",
@@ -2722,7 +2722,7 @@
     "2025-11-16 1PM",
     "2025-11-16 8PM"
   ],
-  "full_tier_partial_draws": 195,
+  "full_tier_partial_draws": 189,
   "full_tier_unresolved_draws": 0,
   "full_tier_batch_2026_11_19_ac": {
     "file": "data/recovered_draws_2025_full_tier_pdf_batch_2026-11-19_ac.csv",
@@ -4734,24 +4734,24 @@
     }
   ],
   "audit_reconciliation": {
-    "source_files_audited": 121,
-    "deduplicated_full_sheet_count": 529,
-    "deduplicated_full_sheet_entries": 69828,
-    "first_prize_only_partial_slots": 195,
-    "partial_or_malformed_groups": 0,
+    "source_files_audited": 123,
+    "deduplicated_full_sheet_count": 535,
+    "deduplicated_full_sheet_entries": 70620,
+    "first_prize_only_partial_slots": 188,
+    "partial_or_malformed_groups": 1,
     "unresolved_draw_slots": 0,
     "unresolved_source_conflicts": 0,
     "resolved_source_conflict_draws": 2,
     "no_draw_confirmed_slots": 6,
     "expected_draw_slots": 730,
-    "monthly_manifest_full_sheet_sum": 529,
-    "monthly_manifest_partial_sum": 195,
+    "monthly_manifest_full_sheet_sum": 535,
+    "monthly_manifest_partial_sum": 189,
     "discrepancy_sheets": 0,
     "duplicate_identical_or_order_equivalent_copies": 11,
     "ordering_variants_resolved": 1,
     "status": "reconciled_with_holiday_exclusions_2026-11-21",
     "retrieval_date": "2026-11-21",
-    "note": "121 2025 full-tier CSV files audited. 529 unique 1PM/8PM draw groups have exactly 132 entries. 195 slots remain first-prize-only; six scheduled slots are confirmed no-draw national holidays (Jan 26, Aug 15, Oct 2; both draws); zero unresolved slots and zero unresolved number conflicts. Two June 30 source conflicts are resolved and retained as alternate candidates. Eleven duplicate/order-equivalent source copies retained and counted once. Jan 1 consolation tier label case-normalized; Oct 1 8PM row-order variant has identical number sets per tier. 6PM excluded."
+    "note": "123 2025 full-tier/candidate CSV files audited. 535 unique 1PM/8PM draw groups have exactly 132 entries (70,620 rows). One 2025-11-25 8PM candidate is preserved with 133 rows because both archive pages expose 101 fifth-tier numbers where 100 are expected; it is not counted as complete. 188 slots remain first-prize-only; six scheduled slots are confirmed no-draw national holidays (Jan 26, Aug 15, Oct 2; both draws); zero unresolved slots and zero unresolved number conflicts. Two June 30 source conflicts are resolved and retained as alternate candidates. Eleven duplicate/order-equivalent source copies retained and counted once. 6PM excluded."
   },
   "pending_extractions": [],
   "april_2025_pdf_text_checks_2026_11_21": [
@@ -5397,6 +5397,125 @@
       "binary_preserved": false,
       "sha256": null,
       "excluded_draw": "6PM"
+    },
+    {
+      "date": "2025-11-10",
+      "draw": "8PM",
+      "first_prize": "60A 84678",
+      "url": "https://dearlottery.com.co/10-11-2025/8pm",
+      "additional_source_url": "https://lotterysambad.co/2025/november/10/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_cross_source_matched",
+      "verification_status": "two_source_matched_all_tiers",
+      "import_file": "data/recovered_draws_2025-11-10_19_25_27_crosssource_full.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM",
+      "pdf_link_available": false,
+      "note": "All prize tiers and positions match between dearlottery.com.co and lotterysambad.co; first prize also matches Goodreturns and KLL."
+    },
+    {
+      "date": "2025-11-19",
+      "draw": "1PM",
+      "first_prize": "88G 58806",
+      "url": "https://dearlottery.com.co/19-11-2025/1pm",
+      "additional_source_url": "https://lotterysambad.co/2025/november/19/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_cross_source_matched",
+      "verification_status": "two_source_matched_all_tiers",
+      "import_file": "data/recovered_draws_2025-11-10_19_25_27_crosssource_full.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM",
+      "pdf_link_available": false,
+      "note": "All prize tiers and positions match between dearlottery.com.co and lotterysambad.co; first prize also matches Goodreturns and KLL."
+    },
+    {
+      "date": "2025-11-19",
+      "draw": "8PM",
+      "first_prize": "93C 34108",
+      "url": "https://dearlottery.com.co/19-11-2025/8pm",
+      "additional_source_url": "https://lotterysambad.co/2025/november/19/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_cross_source_matched",
+      "verification_status": "two_source_matched_all_tiers",
+      "import_file": "data/recovered_draws_2025-11-10_19_25_27_crosssource_full.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM",
+      "pdf_link_available": false,
+      "note": "All prize tiers and positions match between dearlottery.com.co and lotterysambad.co; first prize also matches Goodreturns and KLL."
+    },
+    {
+      "date": "2025-11-25",
+      "draw": "1PM",
+      "first_prize": "52L 58877",
+      "url": "https://dearlottery.com.co/25-11-2025/1pm",
+      "additional_source_url": "https://lotterysambad.co/2025/november/25/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_cross_source_matched",
+      "verification_status": "two_source_matched_all_tiers",
+      "import_file": "data/recovered_draws_2025-11-10_19_25_27_crosssource_full.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM",
+      "pdf_link_available": false,
+      "note": "All prize tiers and positions match between dearlottery.com.co and lotterysambad.co; first prize also matches Goodreturns and KLL."
+    },
+    {
+      "date": "2025-11-25",
+      "draw": "8PM",
+      "first_prize": "76G 63223",
+      "url": "https://dearlottery.com.co/25-11-2025/8pm",
+      "additional_source_url": "https://lotterysambad.co/2025/november/25/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_tier_candidate_133_rows_fifth_tier_count_anomaly",
+      "verification_status": "first_prize_cross_source_matched_fifth_tier_count_anomaly_101",
+      "import_file": "data/recovered_draws_2025-11-25_8pm_101_fifth_source_candidate.csv",
+      "imported_rows": 133,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM",
+      "pdf_link_available": false,
+      "note": "Both archive pages show 101 fifth-tier entries; 100 expected. All values retained, not certified complete."
+    },
+    {
+      "date": "2025-11-27",
+      "draw": "1PM",
+      "first_prize": "90K 46901",
+      "url": "https://dearlottery.com.co/27-11-2025/1pm",
+      "additional_source_url": "https://lotterysambad.co/2025/november/27/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_cross_source_matched",
+      "verification_status": "two_source_matched_all_tiers",
+      "import_file": "data/recovered_draws_2025-11-10_19_25_27_crosssource_full.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM",
+      "pdf_link_available": false,
+      "note": "All prize tiers and positions match between dearlottery.com.co and lotterysambad.co; first prize also matches Goodreturns and KLL."
+    },
+    {
+      "date": "2025-11-27",
+      "draw": "8PM",
+      "first_prize": "94C 27180",
+      "url": "https://dearlottery.com.co/27-11-2025/8pm",
+      "additional_source_url": "https://lotterysambad.co/2025/november/27/",
+      "retrieval_date": "2026-11-21",
+      "extraction_status": "full_132_entry_sheet_imported_cross_source_matched",
+      "verification_status": "two_source_matched_all_tiers",
+      "import_file": "data/recovered_draws_2025-11-10_19_25_27_crosssource_full.csv",
+      "imported_rows": 132,
+      "binary_preserved": false,
+      "sha256": null,
+      "excluded_draw": "6PM",
+      "pdf_link_available": false,
+      "note": "All prize tiers and positions match between dearlottery.com.co and lotterysambad.co; first prize also matches Goodreturns and KLL."
     }
   ],
   "no_draw_confirmed_slots": 6,
@@ -5418,5 +5537,26 @@
     "additional_october_archive_url": "https://dearlottery.com.co/old/2025/october",
     "retrieval_date": "2026-11-21",
     "note": "The official Nagaland State Lotteries rule states draws occur 362 days per year and excludes 26 January, 15 August and 2 October. The 2025 Nagaland Gazette lists those dates as Republic Day, Independence Day and Dussehra/Gandhi Jayanti holidays. October archive explicitly marks 2 October Holiday. This is positive rule/calendar evidence, not an inference from broken links."
+  },
+  "full_tier_batch_2026_11_21_november_crosssource": {
+    "files": [
+      "data/recovered_draws_2025-11-10_19_25_27_crosssource_full.csv",
+      "data/recovered_draws_2025-11-25_8pm_101_fifth_source_candidate.csv"
+    ],
+    "complete_draws": [
+      "2025-11-10 8PM",
+      "2025-11-19 1PM",
+      "2025-11-19 8PM",
+      "2025-11-25 1PM",
+      "2025-11-27 1PM",
+      "2025-11-27 8PM"
+    ],
+    "partial_candidate_draw": "2025-11-25 8PM",
+    "complete_rows": 792,
+    "candidate_rows": 133,
+    "retrieval_date": "2026-11-21",
+    "binary_preserved": false,
+    "sha256": null,
+    "notes": "Six 132-entry sheets matched tier-by-tier between dearlottery.com.co and lotterysambad.co; first prizes also match Goodreturns and KLL. The candidate has 101 fifth-tier numbers in both HTML sources (100 expected), so no number was dropped or guessed."
   }
 }
