@@ -72,3 +72,27 @@ Cloudflare Cron Trigger changes can take several minutes (up to 15 minutes) to p
 ## R002.4 prospective validation data source
 
 R002.4 now exports its analysis input directly from the live Supabase `draws` table at workflow runtime using the GitHub Actions secret `SUPABASE_SECRET_KEY`. The exporter pages through the table and includes only Nagaland Dear `1PM` and `8PM` rows, mapping the stored prize arrays into the preregistered R002.4 input schema. The frozen cutoff remains **2026-11-20 inclusive**; only paired dates after that cutoff count toward the minimum 60-date prospective evaluation. The historical backup is not substituted if the future sample is too small. The workflow intentionally stops until the minimum paired future sample is reached.
+
+## Automated 2023 Cloudflare R2 recovery campaign
+
+The manual archive workflow has been replaced by a resumable R2-backed campaign controller.
+
+- Workflow: `.github/workflows/archive-official-sources.yml`
+- Controller: `monitor/run_r2_recovery_campaign.py`
+- Candidate input: `data/recovery_candidates_2023.csv` (730 date/draw pairs; Nagaland 1PM and 8PM only)
+- Default batch size: 25 date/draw pairs
+- The controller uploads PDFs and the source manifest to the private R2 bucket after every batch.
+- Progress is checkpointed in `2023/checkpoints/campaign.json`; rerunning the workflow resumes from the saved offset.
+- After the first pass, unresolved pairs receive up to two additional retry passes.
+- On completion, a consolidated ZIP is stored at `2023/final/nagaland_2023_recovery.zip` in R2 and also uploaded as a GitHub Actions artifact for 30 days.
+- The final archive preserves source provenance and verification status. Downloaded PDFs remain pending number-by-number comparison; no source is automatically marked human-verified.
+- The campaign does not modify the master results CSV or Supabase draws.
+
+Required GitHub Actions secrets (never commit secret values):
+- `R2_ACCOUNT_ID`
+- `R2_ENDPOINT`
+- `R2_ACCESS_KEY_ID`
+- `R2_SECRET_ACCESS_KEY`
+- `R2_BUCKET_NAME`
+
+Start it manually from the Actions page. Set `max_batches=1` for a small connection test, or leave `max_batches=0` to run the complete campaign. A complete run has a six-hour GitHub Actions job limit; if it reaches that limit, rerun the workflow and it resumes from the R2 checkpoint.
