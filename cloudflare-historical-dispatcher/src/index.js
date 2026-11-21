@@ -81,18 +81,49 @@ export default {
 
   async fetch(request, env) {
     const url = new URL(request.url);
-    if (request.method !== "GET" || url.pathname !== "/health") {
-      return response({ error: "Not found" }, 404);
+    if (request.method !== "GET") return response({ error: "Method not allowed" }, 405);
+
+    if (url.pathname === "/health") {
+      return response({
+        worker: "dear-draw-historical-dispatcher",
+        status: "online",
+        scheduler: env.HISTORICAL_CRON_ENABLED === "true" ? "enabled" : "paused",
+        schedule_utc: "12,27,42,57 * * * *",
+        batch_size: 25,
+        max_batches_per_run: 1,
+        checkpoint_store: "Cloudflare R2 via existing GitHub recovery controller",
+        execution_engine: "GitHub Actions Python/PDF pipeline"
+      });
     }
-    return response({
-      worker: "dear-draw-historical-dispatcher",
-      status: "online",
-      scheduler: env.HISTORICAL_CRON_ENABLED === "true" ? "enabled" : "paused",
-      schedule_utc: "7,22,37,52 * * * *",
-      batch_size: 25,
-      max_batches_per_run: 1,
-      checkpoint_store: "Cloudflare R2 via existing GitHub recovery controller",
-      execution_engine: "GitHub Actions Python/PDF pipeline"
-    });
+
+    // Read-only credential check: verifies access to the target workflow without dispatching it.
+    if (url.pathname === "/validate") {
+      if (!env.GITHUB_TOKEN) return response({ ok: false, error: "GITHUB_TOKEN secret is missing" }, 503);
+      try {
+        const result = await github(
+          `/repos/${OWNER}/${REPO}/actions/workflows/${WORKFLOW}`,
+          env.GITHUB_TOKEN
+        );
+        return response({
+          ok: true,
+          credential: "accepted",
+          repository: `${OWNER}/${REPO}`,
+          workflow: result.body?.path || WORKFLOW,
+          workflow_state: result.body?.state || "unknown",
+          dispatch_test: "not performed",
+          recovery_started: false
+        });
+      } catch (error) {
+        console.error("GITHUB_CREDENTIAL_VALIDATION_FAILED", String(error));
+        return response({
+          ok: false,
+          credential: "not validated",
+          error: String(error).slice(0, 300),
+          recovery_started: false
+        }, 502);
+      }
+    }
+
+    return response({ error: "Not found" }, 404);
   }
 };
