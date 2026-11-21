@@ -4,7 +4,7 @@ compatibility_date = "2026-11-21"
 
 [triggers]
 # Offset from the existing GitHub Actions schedule to avoid simultaneous dispatch races.
-crons = ["12,27,42,57 * * * *"]
+crons = ["*/10 * * * *"]
 
 [vars]
 # Enabled after GitHub credential validation and removal of the legacy GitHub Actions cron.
