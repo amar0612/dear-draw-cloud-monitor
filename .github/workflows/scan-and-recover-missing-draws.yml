@@ -32,11 +32,19 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Scan master CSV for incomplete date/draw pairs
+      - name: Build evidence-based expected draw calendar
+        run: |
+          python monitor/build_expected_draw_calendar.py \
+            --start-date "${{ inputs.start_date || '2021-01-01' }}" \
+            --end-date "$(TZ=Asia/Kolkata date +%F)" \
+            --output data/nagaland_expected_draw_calendar.csv \
+            --report scanner-output/calendar-report.json
+      - name: Scan master CSV against confirmed calendar pairs
         id: scan
         run: |
           python monitor/scan_missing_draws.py \
             --master data/nagaland_master_prize_numbers.csv \
+            --calendar data/nagaland_expected_draw_calendar.csv \
             --start-date "${{ inputs.start_date || '2021-01-01' }}" \
             --batch-size "${{ inputs.batch_size || '25' }}" \
             --cursor "${{ github.run_number }}" \
