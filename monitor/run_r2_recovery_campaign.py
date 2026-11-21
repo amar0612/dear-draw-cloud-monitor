@@ -96,7 +96,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--csv", default="data/recovery_candidates_2023.csv")
     parser.add_argument("--batch-size", type=int, default=25)
-    parser.add_argument("--max-batches", type=int, default=0, help="0 means finish the campaign")
+    parser.add_argument("--max-batches", type=int, default=1)
+    parser.add_argument("--scheduled", action="store_true",
+                        help="Scheduled invocations wait for a manually initialized campaign")
     args = parser.parse_args()
     if args.batch_size < 1:
         raise ValueError("batch-size must be at least 1")
@@ -110,6 +112,9 @@ def main():
     state = read_checkpoint(client, bucket)
     if state.get("status") == "completed":
         print("Campaign is already completed in R2; no further work is required.", flush=True)
+        return
+    if args.scheduled and state.get("status") == "not_started":
+        print("No campaign has been manually started yet; scheduled run is idle.", flush=True)
         return
     draws = [item for item in read_draws(args.csv) if item[0].startswith(YEAR + "-")]
     total = len(draws)
