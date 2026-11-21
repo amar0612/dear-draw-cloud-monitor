@@ -25,6 +25,15 @@
       border: 1px solid #1e293b;
       border-radius: 16px;
     }
+    /* Make the fixed bottom navigation reliable on touch screens. */
+    .nav-btn {
+      min-width: 0;
+      min-height: 44px;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      -webkit-user-select: none;
+    }
     .num-chip {
       font-family: 'JetBrains Mono', monospace;
       font-variant-numeric: tabular-nums;
@@ -3294,16 +3303,27 @@ dateSelect.value = targetDate || '';
     }
 
     function switchTab(tabName) {
-      ['draws', 'patterns', 'scan', 'table', 'data'].forEach(t => {
+      // Keep every panel in sync with the seven visible navigation buttons.
+      // The previous five-item list left Research and Numbers visible after switching.
+      const tabNames = ['draws', 'patterns', 'scan', 'table', 'data', 'research', 'predictions'];
+      if (!tabNames.includes(tabName)) return;
+
+      tabNames.forEach(t => {
         const panel = document.getElementById(`tab-${t}`);
         const navBtn = document.getElementById(`nav-${t}`);
         if (panel) panel.classList.add('hidden');
-        if (navBtn) navBtn.className = 'nav-btn flex flex-col items-center gap-1 text-slate-400';
+        if (navBtn) {
+          navBtn.className = 'nav-btn flex flex-col items-center justify-center gap-1 text-slate-400';
+          navBtn.setAttribute('aria-current', 'false');
+        }
       });
       const activePanel = document.getElementById(`tab-${tabName}`);
       const activeNav = document.getElementById(`nav-${tabName}`);
       if (activePanel) activePanel.classList.remove('hidden');
-      if (activeNav) activeNav.className = 'nav-btn flex flex-col items-center gap-1 text-emerald-400';
+      if (activeNav) {
+        activeNav.className = 'nav-btn flex flex-col items-center justify-center gap-1 text-emerald-400';
+        activeNav.setAttribute('aria-current', 'page');
+      }
 
       if (tabName === 'draws') renderDraws();
       if (tabName === 'patterns') renderPatterns();
